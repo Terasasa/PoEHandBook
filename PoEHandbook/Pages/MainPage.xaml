@@ -1,0 +1,54 @@
+﻿<Page x:Class="PoEHandbook.Pages.MainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:controls="clr-namespace:PoEHandbook.Controls"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      Loaded="Page_Loaded"
+      Unloaded="Page_Unloaded"
+      d:DesignHeight="300"
+      d:DesignWidth="300"
+      mc:Ignorable="d">
+
+    <Grid Background="#FF0E0E0E" SnapsToDevicePixels="True">
+        <TextBox x:Name="TbQuery"
+                 Height="40"
+                 Margin="10,10,34,0"
+                 VerticalAlignment="Top"
+                 Background="#FF0E0E0E"
+                 FontSize="22"
+                 Foreground="White"
+                 Text=""
+                 TextChanged="TbQuery_TextChanged"
+                 TextWrapping="Wrap" />
+        <Button x:Name="BtnClear"
+                Width="19"
+                Height="40"
+                Margin="0,10,10,0"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                Background="Transparent"
+                BorderThickness="0"
+                Click="BtnClear_Click"
+                Content="✖"
+                Foreground="White"
+                KeyboardNavigation.IsTabStop="False" />
+        <Border Margin="10,55,10,10"
+                BorderBrush="#FFABADB3"
+                BorderThickness="1">
+            <ScrollViewer CanContentScroll="True"
+                          HorizontalScrollBarVisibility="Disabled"
+                          VerticalScrollBarVisibility="Auto">
+                <controls:AlignableWrapPanel x:Name="PnlResults"
+                                             HorizontalContentAlignment="Center"
+                                             KeyboardNavigation.IsTabStop="False">
+                    <controls:AlignableWrapPanel.Resources>
+                        <Style TargetType="{x:Type controls:SearchResult}">
+                            <Setter Property="Margin" Value="5,5" />
+                        </Style>
+                    </controls:AlignableWrapPanel.Resources>
+                </controls:AlignableWrapPanel>
+            </ScrollViewer>
+        </Border>
+    </Grid>
+</Page>
