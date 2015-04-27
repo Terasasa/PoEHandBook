@@ -42,14 +42,14 @@
         <Border Grid.Column="1"
                 Background="Black"
                 BorderBrush="{StaticResource AccentColor}"
-                BorderThickness="1">
+                BorderThickness="2">
             <Grid>
                 <Border Height="95"
                         Margin="1"
                         VerticalAlignment="Top"
                         Background="{StaticResource TitleGradient}"
                         BorderBrush="{StaticResource AccentColor}"
-                        BorderThickness="1">
+                        BorderThickness="2">
                     <TextBlock x:Name="TbName"
                                VerticalAlignment="Center"
                                FontSize="24"

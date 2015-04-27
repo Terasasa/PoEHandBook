@@ -28,11 +28,11 @@
 
     <Border Background="Black"
             BorderBrush="{StaticResource AccentColor}"
-            BorderThickness="1"
+            BorderThickness="2"
             Cursor="Hand">
         <Grid x:Name="MainGrid">
             <Grid.RowDefinitions>
-                <RowDefinition Height="35" />
+                <RowDefinition Height="40" />
                 <RowDefinition Height="4*" />
                 <RowDefinition Height="2*" />
             </Grid.RowDefinitions>
@@ -42,7 +42,7 @@
                    VerticalContentAlignment="Center"
                    Background="{StaticResource TitleGradient}"
                    BorderBrush="{StaticResource AccentColor}"
-                   BorderThickness="1"
+                   BorderThickness="2"
                    Content="ItemName"
                    FontSize="16"
                    Foreground="Black" />
