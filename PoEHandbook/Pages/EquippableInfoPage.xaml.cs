@@ -39,7 +39,7 @@ namespace PoEHandbook.Pages
                     first = false;
 
                     ic.Add("Armour: ");
-                    var run = new Run(asArmor.ArmourValue.ToString());
+                    var run = new Run(asArmor.ArmourValue.ToString()) {FontWeight = FontWeights.Bold};
                     if (asArmor.ArmourAffected)
                         run.Foreground = new SolidColorBrush((Color) ColorConverter.ConvertFromString("#6a88ef"));
                     ic.Add(run);
@@ -51,7 +51,7 @@ namespace PoEHandbook.Pages
                     first = false;
 
                     ic.Add("Evasion: ");
-                    var run = new Run(asArmor.EvasionValue.ToString());
+                    var run = new Run(asArmor.EvasionValue.ToString()) {FontWeight = FontWeights.Bold};
                     if (asArmor.EvasionAffected)
                         run.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#6a88ef"));
                     ic.Add(run);
@@ -62,7 +62,7 @@ namespace PoEHandbook.Pages
                         ic.Add(Environment.NewLine);
 
                     ic.Add("Energy Shield: ");
-                    var run = new Run(asArmor.EnergyShieldValue.ToString());
+                    var run = new Run(asArmor.EnergyShieldValue.ToString()) {FontWeight = FontWeights.Bold};
                     if (asArmor.EnergyShieldAffected)
                         run.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#6a88ef"));
                     ic.Add(run);
