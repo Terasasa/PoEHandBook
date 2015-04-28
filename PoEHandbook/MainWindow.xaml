@@ -3,8 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         x:Name="FrmMain"
         Title="Path of Exile Handbook"
-        MinWidth="650"
-        MinHeight="650"
+        MinWidth="450"
+        MinHeight="450"
         Closed="FrmMain_Closed"
         Loaded="FrmMain_Loaded">
     <Frame x:Name="MainFrame"

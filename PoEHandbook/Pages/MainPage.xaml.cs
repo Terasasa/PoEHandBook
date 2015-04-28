@@ -18,8 +18,6 @@ namespace PoEHandbook.Pages
     /// </summary>
     public partial class MainPage
     {
-        private static double _lastScrollOffset;
-
         private readonly DispatcherTimer _queryTimer;
         private string _query;
 
@@ -54,16 +52,10 @@ namespace PoEHandbook.Pages
         {
             // Focus the query text box
             TbQuery.Focus();
-
-            // Return scroll bar to previous position
-            ((ScrollViewer) PnlResults.Parent).ScrollToVerticalOffset(_lastScrollOffset);
-            ((ScrollViewer) PnlResults.Parent).UpdateLayout();
         }
 
         private void Page_Unloaded(object sender, RoutedEventArgs e)
         {
-            // Remember the last scroll bar position
-            _lastScrollOffset = ((ScrollViewer)PnlResults.Parent).VerticalOffset;
         }
 
         private void TbQuery_TextChanged(object sender, TextChangedEventArgs e)

@@ -8,6 +8,7 @@
              Height="300"
              Loaded="UserControl_Loaded"
              MouseLeftButtonDown="MainGrid_MouseLeftButtonDown"
+             SnapsToDevicePixels="True"
              d:DesignHeight="300"
              d:DesignWidth="300"
              mc:Ignorable="d">
