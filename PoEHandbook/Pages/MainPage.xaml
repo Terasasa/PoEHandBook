@@ -4,6 +4,7 @@
       xmlns:controls="clr-namespace:PoEHandbook.Controls"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:properties="clr-namespace:PoEHandbook.Properties"
       KeepAlive="True"
       Loaded="Page_Loaded"
       Unloaded="Page_Unloaded"
@@ -14,9 +15,10 @@
     <Grid Background="#FF0E0E0E" SnapsToDevicePixels="True">
         <TextBox x:Name="TbQuery"
                  Height="40"
-                 Margin="10,10,34,0"
+                 Margin="10,10,58,0"
                  VerticalAlignment="Top"
                  Background="#FF0E0E0E"
+                 BorderBrush="LightSlateGray"
                  FontSize="22"
                  Foreground="White"
                  Text=""
@@ -25,26 +27,55 @@
         <Button x:Name="BtnClear"
                 Width="19"
                 Height="40"
-                Margin="0,10,10,0"
+                Margin="0,10,34,0"
                 HorizontalAlignment="Right"
                 VerticalAlignment="Top"
-                Background="Transparent"
                 BorderThickness="0"
                 Click="BtnClear_Click"
                 Content="✖"
                 Foreground="White"
                 KeyboardNavigation.IsTabStop="False" />
+        <Button x:Name="BtnOptions"
+                Width="19"
+                Height="40"
+                Margin="0,10,10,0"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                BorderThickness="0"
+                Click="BtnOptions_Click"
+                Content="…"
+                Foreground="White"
+                KeyboardNavigation.IsTabStop="False" />
         <Border Margin="10,55,10,10"
-                BorderBrush="#FFABADB3"
+                BorderBrush="LightSlateGray"
                 BorderThickness="1">
             <ScrollViewer CanContentScroll="True"
                           HorizontalScrollBarVisibility="Disabled"
                           VerticalScrollBarVisibility="Auto">
                 <controls:AlignableWrapPanel x:Name="PnlResults"
                                              HorizontalContentAlignment="Center"
-                                             KeyboardNavigation.IsTabStop="False">
-                </controls:AlignableWrapPanel>
+                                             KeyboardNavigation.IsTabStop="False" />
             </ScrollViewer>
         </Border>
+        <Menu x:Name="MenuOptions"
+              Width="162"
+              Height="43"
+              Margin="0,50,10,0"
+              HorizontalAlignment="Right"
+              VerticalAlignment="Top"
+              HorizontalContentAlignment="Stretch"
+              Background="#FF0E0E0E"
+              BorderBrush="LightSlateGray"
+              BorderThickness="1"
+              MouseLeave="MenuOptions_MouseLeave"
+              Visibility="Hidden">
+            <CheckBox Width="{Binding ElementName=MenuOptions,
+                                      Path=ActualWidth}"
+                      HorizontalAlignment="Stretch"
+                      Content="Show Images"
+                      Foreground="White"
+                      IsChecked="{Binding Source={x:Static properties:Settings.Default},
+                                          Path=ShowImages}" />
+        </Menu>
     </Grid>
 </Page>

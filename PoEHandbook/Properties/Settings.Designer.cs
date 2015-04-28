@@ -46,5 +46,17 @@ namespace PoEHandbook.Properties {
                 this["WinSize"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool ShowImages {
+            get {
+                return ((bool)(this["ShowImages"]));
+            }
+            set {
+                this["ShowImages"] = value;
+            }
+        }
     }
 }

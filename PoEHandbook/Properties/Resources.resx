@@ -117,10 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="StatusInitial" xml:space="preserve">
-    <value>Enter your query</value>
-  </data>
-  <data name="StatusLoading" xml:space="preserve">
-    <value>Loading...</value>
-  </data>
 </root>

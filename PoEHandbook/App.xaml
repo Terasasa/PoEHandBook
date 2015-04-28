@@ -4,6 +4,25 @@
              Startup="OnStartup"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
+        <!--  Buttons  -->
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="LightSlateGray" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
         <!--  Scrollbar Thumbs  -->
         <Style TargetType="{x:Type Thumb}">
             <Setter Property="Template">
@@ -37,7 +56,7 @@
         <!--  ScrollBars  -->
         <Style TargetType="{x:Type ScrollBar}">
             <Setter Property="Stylus.IsFlicksEnabled" Value="false" />
-            <Setter Property="Foreground" Value="#FFABADB3" />
+            <Setter Property="Foreground" Value="LightSlateGray" />
             <Setter Property="Background" Value="Transparent" />
             <Setter Property="Width" Value="8" />
             <Setter Property="Template">

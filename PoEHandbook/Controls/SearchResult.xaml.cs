@@ -5,11 +5,13 @@
 //  ------------------------------------------------------------------ 
 
 using System;
+using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using PoEHandbook.Model;
 using PoEHandbook.Pages;
+using PoEHandbook.Properties;
 
 namespace PoEHandbook.Controls
 {
@@ -30,7 +32,10 @@ namespace PoEHandbook.Controls
 
             // Fill the data
             ItemName.Text = _sr.Entity.Name;
-            ItemImage.Source = new BitmapImage(_sr.Entity.ImageUri);
+            if (Settings.Default.ShowImages)
+                ItemImage.Source = new BitmapImage(_sr.Entity.ImageUri);
+            else
+                MainGrid.RowDefinitions[1].Height = new GridLength(0);
             ItemSearchMatches.Text = string.Join(Environment.NewLine, _sr.Matches);
 
             // Figure out the colors
@@ -42,7 +47,7 @@ namespace PoEHandbook.Controls
             InvalidateVisual();
         }
 
-        private void UserControl_Loaded(object sender, System.Windows.RoutedEventArgs e)
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
         }
 

@@ -75,8 +75,22 @@ namespace PoEHandbook.Pages
 
         private void BtnClear_Click(object sender, RoutedEventArgs e)
         {
-            // Clear query and focus the text box
             TbQuery.Text = "";
+            TbQuery.Focus();
+        }
+
+        private void BtnOptions_Click(object sender, RoutedEventArgs e)
+        {
+            MenuOptions.Visibility = MenuOptions.Visibility == Visibility.Hidden
+                ? Visibility.Visible
+                : Visibility.Hidden;
+            if (MenuOptions.Visibility == Visibility.Hidden)
+                TbQuery.Focus();
+        }
+
+        private void MenuOptions_MouseLeave(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            MenuOptions.Visibility = Visibility.Hidden;
             TbQuery.Focus();
         }
     }

@@ -36,7 +36,7 @@
         <Grid x:Name="MainGrid">
             <Grid.RowDefinitions>
                 <RowDefinition Height="40" />
-                <RowDefinition Height="4*" />
+                <RowDefinition Height="3*" />
                 <RowDefinition Height="2*" />
             </Grid.RowDefinitions>
             <Border Height="39"
@@ -54,23 +54,25 @@
                            TextTrimming="CharacterEllipsis"
                            TextWrapping="Wrap" />
             </Border>
-            <Image x:Name="ItemImage"
-                   Grid.Row="1"
-                   Margin="10"
-                   Stretch="None" />
-            <Rectangle Grid.Row="2"
-                       Height="2"
-                       HorizontalAlignment="Stretch"
-                       VerticalAlignment="Top"
-                       Fill="{DynamicResource SeparatorGradient}" />
-            <TextBlock x:Name="ItemSearchMatches"
-                       Grid.Row="2"
+            <Grid x:Name="ImageGrid" Grid.Row="1">
+                <Image x:Name="ItemImage"
                        Margin="10"
-                       Foreground="LightGray"
-                       Text="Search Matches"
-                       TextAlignment="Center"
-                       TextTrimming="CharacterEllipsis"
-                       TextWrapping="Wrap" />
+                       Stretch="None" />
+                <Rectangle Height="2"
+                           HorizontalAlignment="Stretch"
+                           VerticalAlignment="Bottom"
+                           Fill="{DynamicResource SeparatorGradient}" />
+            </Grid>
+            <Border Grid.Row="2"
+                    Margin="0,0,0,15"
+                    VerticalAlignment="Center">
+                <TextBlock x:Name="ItemSearchMatches"
+                           Foreground="LightGray"
+                           Text="Search Matches"
+                           TextAlignment="Center"
+                           TextTrimming="CharacterEllipsis"
+                           TextWrapping="Wrap" />
+            </Border>
         </Grid>
     </Border>
 </UserControl>

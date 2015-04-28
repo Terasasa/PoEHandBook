@@ -59,23 +59,5 @@ namespace PoEHandbook.Properties {
                 resourceCulture = value;
             }
         }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Enter your query.
-        /// </summary>
-        internal static string StatusInitial {
-            get {
-                return ResourceManager.GetString("StatusInitial", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Loading....
-        /// </summary>
-        internal static string StatusLoading {
-            get {
-                return ResourceManager.GetString("StatusLoading", resourceCulture);
-            }
-        }
     }
 }
