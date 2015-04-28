@@ -43,11 +43,6 @@
                 <controls:AlignableWrapPanel x:Name="PnlResults"
                                              HorizontalContentAlignment="Center"
                                              KeyboardNavigation.IsTabStop="False">
-                    <controls:AlignableWrapPanel.Resources>
-                        <Style TargetType="{x:Type controls:SearchResult}">
-                            <Setter Property="Margin" Value="5,5" />
-                        </Style>
-                    </controls:AlignableWrapPanel.Resources>
                 </controls:AlignableWrapPanel>
             </ScrollViewer>
         </Border>
