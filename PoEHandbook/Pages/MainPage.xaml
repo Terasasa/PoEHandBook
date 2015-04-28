@@ -86,7 +86,9 @@
                    TextWrapping="Wrap">
             <TextBlock.Inlines>
                 <Run Text="Found" />
-                <Run x:Name="RunSearchResultCount" Text="0" />
+                <Run x:Name="RunSearchResultCount"
+                     FontWeight="Bold"
+                     Text="0" />
                 <Run Text="item(s)" />
             </TextBlock.Inlines>
         </TextBlock>
