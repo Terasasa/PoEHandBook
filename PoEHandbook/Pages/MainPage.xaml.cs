@@ -5,9 +5,11 @@
 //  ------------------------------------------------------------------ 
 
 using System;
+using System.Diagnostics;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Threading;
 using PoEHandbook.Data;
 
@@ -38,7 +40,7 @@ namespace PoEHandbook.Pages
         {
             PnlResults.Children.Clear();
 
-            var queries = _query.Split(new[] {','});
+            var queries = _query.Split(new[] {','}, StringSplitOptions.RemoveEmptyEntries);
             var entities = DataAccess.PerformSearchQuery(queries);
 
             foreach (var sr in entities.OrderBy(sr => sr.Entity.Name))
@@ -46,6 +48,8 @@ namespace PoEHandbook.Pages
                 var result = new Controls.SearchResult(sr, NavigationService);
                 PnlResults.Children.Add(result);
             }
+
+            RunSearchResultCount.Text = "" + PnlResults.Children.Count;
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
@@ -67,7 +71,10 @@ namespace PoEHandbook.Pages
 
             // If query is empty - just clear the panel
             if (string.IsNullOrEmpty(_query))
+            {
                 PnlResults.Children.Clear();
+                RunSearchResultCount.Text = "0";
+            }
             // If not - start the timer
             else
                 _queryTimer.Start();
@@ -92,6 +99,11 @@ namespace PoEHandbook.Pages
         {
             MenuOptions.Visibility = Visibility.Hidden;
             TbQuery.Focus();
+        }
+
+        private void TbCredits_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            Process.Start("http://www.tyrrrz.me");
         }
     }
 }

@@ -99,53 +99,52 @@ namespace PoEHandbook.Data
         /// Search entities' properties with the given query
         /// </summary>
         /// <param name="query">Single query</param>
-        public static List<SearchResult> PerformSearchQuery(string query)
+        public static IEnumerable<SearchResult> PerformSearchQuery(string query)
         {
             query = query.Trim().ToUpperInvariant();
 
-            var result = new List<SearchResult>();
+            var output = new List<SearchResult>();
 
             // Basic search
             foreach (var ent in Entities)
             {
                 List<string> properties;
                 if (ent.ContainsInProperties(query, out properties))
-                    result.Add(new SearchResult(ent, properties));
+                    output.Add(new SearchResult(ent, properties));
             }
 
             // Search with aliases
             string aliasOutput;
             if (Aliases.TryGetValue(query, out aliasOutput))
-                result.AddRange(PerformAliasSearchQuery(aliasOutput)
-                        .Where(sr1 => result.All(sr2 => sr2.Entity.Name != sr1.Entity.Name)));
+                output.AddRange(PerformAliasSearchQuery(aliasOutput)
+                        .Where(sr1 => output.All(sr2 => sr2.Entity.Name != sr1.Entity.Name)));
 
-            return result;
+            return output;
         }
 
         /// <summary>
         /// Search entities' properties with the given queries
         /// </summary>
         /// <param name="queries">Multiple queries</param>
-        public static List<SearchResult> PerformSearchQuery(IEnumerable<string> queries)
+        public static IEnumerable<SearchResult> PerformSearchQuery(IEnumerable<string> queries)
         {
-            List<SearchResult> result = null;
+            IEnumerable<SearchResult> output = null;
 
             foreach (string query in queries)
             {
-                // First query ---v
-                if (result == null)
+                // First query ----v
+                if (output == null)
                 {
-                    result = PerformSearchQuery(query);
+                    output = PerformSearchQuery(query);
                     continue;
                 }
 
-                var innerResult = PerformSearchQuery(query);
-
-                // Intersect by name
-                result = result.Where(sr1 => innerResult.Any(sr2 => sr1.Entity.Name == sr2.Entity.Name)).ToList();
+                // Other queries --v
+                var newResults = PerformSearchQuery(query);
+                output = SearchResult.Intersect(output, newResults);
             }
 
-            return result;
+            return output;
         }
     }
 }

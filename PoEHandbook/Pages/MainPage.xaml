@@ -46,12 +46,10 @@
                 Content="…"
                 Foreground="White"
                 KeyboardNavigation.IsTabStop="False" />
-        <Border Margin="10,55,10,10"
+        <Border Margin="10,55,10,31"
                 BorderBrush="LightSlateGray"
                 BorderThickness="1">
-            <ScrollViewer CanContentScroll="True"
-                          HorizontalScrollBarVisibility="Disabled"
-                          VerticalScrollBarVisibility="Auto">
+            <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
                 <controls:AlignableWrapPanel x:Name="PnlResults"
                                              HorizontalContentAlignment="Center"
                                              KeyboardNavigation.IsTabStop="False" />
@@ -77,5 +75,32 @@
                       IsChecked="{Binding Source={x:Static properties:Settings.Default},
                                           Path=ShowImages}" />
         </Menu>
+        <TextBlock x:Name="TbStatus"
+                   Width="Auto"
+                   Height="16"
+                   Margin="10,0,0,10"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Bottom"
+                   FontSize="10"
+                   Foreground="White"
+                   TextWrapping="Wrap">
+            <TextBlock.Inlines>
+                <Run Text="Found" />
+                <Run x:Name="RunSearchResultCount" Text="0" />
+                <Run Text="item(s)" />
+            </TextBlock.Inlines>
+        </TextBlock>
+        <TextBlock x:Name="TbCredits"
+                   Width="Auto"
+                   Height="16"
+                   Margin="0,0,10,10"
+                   HorizontalAlignment="Right"
+                   VerticalAlignment="Bottom"
+                   Cursor="Hand"
+                   FontSize="10"
+                   Foreground="White"
+                   MouseLeftButtonDown="TbCredits_MouseLeftButtonDown"
+                   Text="© Tyrrrz 2015"
+                   TextWrapping="Wrap" />
     </Grid>
 </Page>
