@@ -13,21 +13,22 @@
              mc:Ignorable="d">
 
     <UserControl.Resources>
-        <SolidColorBrush x:Key="AccentColor" Color="White" />
+        <Color x:Key="AccentColor">White</Color>
+        <SolidColorBrush x:Key="AccentBrush" Color="{DynamicResource AccentColor}" />
         <LinearGradientBrush x:Key="TitleGradient" StartPoint="0,0" EndPoint="0,1">
             <GradientStop Offset="0" Color="Black" />
-            <GradientStop Offset="0.5" Color="{Binding Source={StaticResource AccentColor}, Path=Color}" />
+            <GradientStop Offset="0.5" Color="{DynamicResource AccentColor}" />
             <GradientStop Offset="1" Color="Black" />
         </LinearGradientBrush>
         <LinearGradientBrush x:Key="SeparatorGradient" StartPoint="0,0" EndPoint="1,0">
             <GradientStop Offset="0" Color="Black" />
-            <GradientStop Offset="0.5" Color="{Binding Source={StaticResource AccentColor}, Path=Color}" />
+            <GradientStop Offset="0.5" Color="{DynamicResource AccentColor}" />
             <GradientStop Offset="1" Color="Black" />
         </LinearGradientBrush>
     </UserControl.Resources>
 
     <Border Background="Black"
-            BorderBrush="{StaticResource AccentColor}"
+            BorderBrush="{DynamicResource AccentBrush}"
             BorderThickness="2"
             Cursor="Hand">
         <Grid x:Name="MainGrid">
@@ -36,16 +37,20 @@
                 <RowDefinition Height="4*" />
                 <RowDefinition Height="2*" />
             </Grid.RowDefinitions>
-            <Label x:Name="ItemName"
-                   Margin="1"
-                   HorizontalContentAlignment="Center"
-                   VerticalContentAlignment="Center"
-                   Background="{StaticResource TitleGradient}"
-                   BorderBrush="{StaticResource AccentColor}"
-                   BorderThickness="2"
-                   Content="ItemName"
-                   FontSize="16"
-                   Foreground="Black" />
+            <Border Height="39"
+                    Margin="1,1,1,0"
+                    VerticalAlignment="Top"
+                    Background="{DynamicResource TitleGradient}"
+                    BorderBrush="{DynamicResource AccentBrush}">
+                <TextBlock x:Name="ItemName"
+                           VerticalAlignment="Center"
+                           FontSize="16"
+                           Foreground="Black"
+                           Text="ItemName"
+                           TextAlignment="Center"
+                           TextTrimming="CharacterEllipsis"
+                           TextWrapping="Wrap" />
+            </Border>
             <Image x:Name="ItemImage"
                    Grid.Row="1"
                    Margin="10"
@@ -54,7 +59,7 @@
                        Height="2"
                        HorizontalAlignment="Stretch"
                        VerticalAlignment="Top"
-                       Fill="{StaticResource SeparatorGradient}" />
+                       Fill="{DynamicResource SeparatorGradient}" />
             <TextBlock x:Name="ItemSearchMatches"
                        Grid.Row="2"
                        Margin="10"

@@ -143,13 +143,8 @@ namespace PoEHandbook.Pages
             // Figure out the colors
             Color fore, back;
             item.Rarity.GetRarityColor(out fore, out back);
-            AccentColor = back;
+            Resources["AccentColor"] = back;
             TbName.Foreground = new SolidColorBrush(fore);
-        }
-
-        private Color AccentColor
-        {
-            set { ((SolidColorBrush)Resources["AccentColor"]).Color = value; }
         }
 
         private void BtnBack_Click(object sender, RoutedEventArgs e)

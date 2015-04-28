@@ -29,7 +29,7 @@ namespace PoEHandbook.Controls
             _ns = ns;
 
             // Fill the data
-            ItemName.Content = _sr.Entity.Name;
+            ItemName.Text = _sr.Entity.Name;
             ItemImage.Source = new BitmapImage(_sr.Entity.ImageUri);
             ItemSearchMatches.Text = string.Join(Environment.NewLine, _sr.Matches);
 
@@ -37,13 +37,9 @@ namespace PoEHandbook.Controls
             var rarity = _sr.Entity is Equippable ? (_sr.Entity as Equippable).Rarity : Equippable.RarityTier.Normal;
             Color fore, back;
             rarity.GetRarityColor(out fore, out back);
-            AccentColor = back;
+            Resources["AccentColor"] = back;
             ItemName.Foreground = new SolidColorBrush(fore);
-        }
-
-        private Color AccentColor
-        {
-            set { ((SolidColorBrush)Resources["AccentColor"]).Color = value; }
+            InvalidateVisual();
         }
 
         private void UserControl_Loaded(object sender, System.Windows.RoutedEventArgs e)

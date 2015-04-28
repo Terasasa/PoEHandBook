@@ -8,15 +8,16 @@
       mc:Ignorable="d">
 
     <Page.Resources>
-        <SolidColorBrush x:Key="AccentColor" Color="White" />
+        <Color x:Key="AccentColor">White</Color>
+        <SolidColorBrush x:Key="AccentBrush" Color="{DynamicResource AccentColor}" />
         <LinearGradientBrush x:Key="TitleGradient" StartPoint="0,0" EndPoint="0,1">
             <GradientStop Offset="0" Color="Black" />
-            <GradientStop Offset="0.5" Color="{Binding Source={StaticResource AccentColor}, Path=Color}" />
+            <GradientStop Offset="0.5" Color="{DynamicResource AccentColor}" />
             <GradientStop Offset="1" Color="Black" />
         </LinearGradientBrush>
         <LinearGradientBrush x:Key="SeparatorGradient" StartPoint="0,0" EndPoint="1,0">
             <GradientStop Offset="0" Color="Black" />
-            <GradientStop Offset="0.5" Color="{Binding Source={StaticResource AccentColor}, Path=Color}" />
+            <GradientStop Offset="0.5" Color="{DynamicResource AccentColor}" />
             <GradientStop Offset="1" Color="Black" />
         </LinearGradientBrush>
     </Page.Resources>
@@ -41,14 +42,14 @@
                 Foreground="White" />
         <Border Grid.Column="1"
                 Background="Black"
-                BorderBrush="{StaticResource AccentColor}"
+                BorderBrush="{DynamicResource AccentBrush}"
                 BorderThickness="2">
             <Grid>
                 <Border Height="95"
                         Margin="1"
                         VerticalAlignment="Top"
-                        Background="{StaticResource TitleGradient}"
-                        BorderBrush="{StaticResource AccentColor}"
+                        Background="{DynamicResource TitleGradient}"
+                        BorderBrush="{DynamicResource AccentBrush}"
                         BorderThickness="2">
                     <TextBlock x:Name="TbName"
                                VerticalAlignment="Center"
@@ -72,7 +73,7 @@
                            Margin="0,185,0,0"
                            HorizontalAlignment="Stretch"
                            VerticalAlignment="Top"
-                           Fill="{StaticResource SeparatorGradient}" />
+                           Fill="{DynamicResource SeparatorGradient}" />
                 <TextBlock x:Name="TbRequiremenets"
                            Height="25"
                            Margin="10,192,10,0"
@@ -99,12 +100,12 @@
                            Margin="0,222,0,0"
                            HorizontalAlignment="Stretch"
                            VerticalAlignment="Top"
-                           Fill="{StaticResource SeparatorGradient}" />
+                           Fill="{DynamicResource SeparatorGradient}" />
                 <Rectangle Height="2"
                            Margin="0,0,0,214"
                            HorizontalAlignment="Stretch"
                            VerticalAlignment="Bottom"
-                           Fill="{StaticResource SeparatorGradient}" />
+                           Fill="{DynamicResource SeparatorGradient}" />
             </Grid>
         </Border>
     </Grid>
