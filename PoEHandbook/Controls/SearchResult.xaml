@@ -42,7 +42,8 @@
                     Margin="1,1,1,0"
                     VerticalAlignment="Top"
                     Background="{DynamicResource TitleGradient}"
-                    BorderBrush="{DynamicResource AccentBrush}">
+                    BorderBrush="{DynamicResource AccentBrush}"
+                    BorderThickness="2">
                 <TextBlock x:Name="ItemName"
                            VerticalAlignment="Center"
                            FontSize="16"
