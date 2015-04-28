@@ -9,7 +9,6 @@ using System.Diagnostics;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Controls.Primitives;
 using System.Windows.Threading;
 using PoEHandbook.Data;
 
@@ -50,6 +49,7 @@ namespace PoEHandbook.Pages
             }
 
             RunSearchResultCount.Text = "" + PnlResults.Children.Count;
+            _queryTimer.Stop();
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
@@ -99,6 +99,12 @@ namespace PoEHandbook.Pages
         {
             MenuOptions.Visibility = Visibility.Hidden;
             TbQuery.Focus();
+        }
+
+        private void CbShowImages_Click(object sender, RoutedEventArgs e)
+        {
+            // Re-load the data with new settings
+            GetSearchResults();
         }
 
         private void TbCredits_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)

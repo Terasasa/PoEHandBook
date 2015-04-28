@@ -67,9 +67,11 @@
               BorderThickness="1"
               MouseLeave="MenuOptions_MouseLeave"
               Visibility="Hidden">
-            <CheckBox Width="{Binding ElementName=MenuOptions,
+            <CheckBox x:Name="CbShowImages"
+                      Width="{Binding ElementName=MenuOptions,
                                       Path=ActualWidth}"
                       HorizontalAlignment="Stretch"
+                      Click="CbShowImages_Click"
                       Content="Show Images"
                       Foreground="White"
                       IsChecked="{Binding Source={x:Static properties:Settings.Default},

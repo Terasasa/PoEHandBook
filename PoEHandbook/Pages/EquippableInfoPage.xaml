@@ -55,7 +55,8 @@
                                FontSize="24"
                                Foreground="Black"
                                Text="ItemName"
-                               TextAlignment="Center" />
+                               TextAlignment="Center"
+                               TextTrimming="CharacterEllipsis" />
                 </Border>
                 <Border Height="80"
                         Margin="5,100,5,0"
@@ -66,6 +67,7 @@
                                Foreground="LightGray"
                                Text="Stats"
                                TextAlignment="Center"
+                               TextTrimming="CharacterEllipsis"
                                TextWrapping="Wrap" />
                 </Border>
                 <Rectangle Height="2"
@@ -81,6 +83,7 @@
                            Foreground="LightGray"
                            Text="Requirements"
                            TextAlignment="Center"
+                           TextTrimming="CharacterEllipsis"
                            TextWrapping="Wrap" />
                 <Image x:Name="ImgItem"
                        Height="164"
@@ -93,6 +96,7 @@
                                Foreground="#6a88ef"
                                Text="Mods"
                                TextAlignment="Center"
+                               TextTrimming="CharacterEllipsis"
                                TextWrapping="Wrap" />
                 </Border>
                 <Rectangle Height="2"
