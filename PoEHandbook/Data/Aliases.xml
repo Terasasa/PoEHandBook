@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Root>
-  <Alias Input="11211" Output="Beta Key"/>
-  <Alias Input="shavs" Output="Shavronne's Wrappings"/>
-  <Alias Input="low life" Output="Shavronne's Wrappings"/>
-  <Alias Input="nemessis" Output="Headhunter"/>
+  <Alias Entity="Beta Key" Query="11211"/>
+  <Alias Entity="Shavronne's Wrappings" Query="Shavs"/>
+  <Alias Entity="Shavronne's Wrappings" Query="Low Life"/>
 </Root>

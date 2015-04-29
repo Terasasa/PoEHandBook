@@ -10,6 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using PoEHandbook.Model;
+using PoEHandbook.Model.Interfaces;
 using PoEHandbook.Pages;
 using PoEHandbook.Properties;
 
@@ -39,9 +40,14 @@ namespace PoEHandbook.Controls
             ItemSearchMatches.Text = string.Join(Environment.NewLine, _sr.Matches);
 
             // Figure out the colors
-            var rarity = _sr.Entity is Equippable ? (_sr.Entity as Equippable).Rarity : Equippable.RarityTier.Normal;
+            var rarity = RarityHandler.RarityTier.Normal;
+
+            var entWithRarity = _sr.Entity as IHasRarity;
+            if (entWithRarity != null) rarity = entWithRarity.RarityHandler.Rarity;
+
             Color fore, back;
             rarity.GetRarityColor(out fore, out back);
+
             Resources["AccentColor"] = back;
             ItemName.Foreground = new SolidColorBrush(fore);
             InvalidateVisual();
@@ -54,9 +60,7 @@ namespace PoEHandbook.Controls
         private void MainGrid_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             if (_ns == null) return;
-
-            if (_sr.Entity is Equippable)
-                _ns.Navigate(new EquippableInfoPage(_sr.Entity as Equippable));
+            _ns.Navigate(new InfoPage(_sr.Entity));
         }
     }
 }

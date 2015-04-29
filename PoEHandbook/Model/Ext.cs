@@ -5,6 +5,7 @@
 //  ------------------------------------------------------------------ 
 
 using System.Windows.Media;
+using PoEHandbook.Model.Interfaces;
 
 namespace PoEHandbook.Model
 {
@@ -13,11 +14,11 @@ namespace PoEHandbook.Model
         /// <summary>
         /// Get the colors that are applicable to the given rarity tier
         /// </summary>
-        public static void GetRarityColor(this Equippable.RarityTier rarity, out Color fore, out Color back)
+        public static void GetRarityColor(this RarityHandler.RarityTier rarity, out Color fore, out Color back)
         {
             switch (rarity)
             {
-                case Equippable.RarityTier.Unique:
+                case RarityHandler.RarityTier.Unique:
                     fore = Color.FromRgb(175, 95, 35);
                     back = Color.FromRgb(60, 30, 15);
                     return;

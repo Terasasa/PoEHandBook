@@ -23,8 +23,8 @@ namespace PoEHandbook.Model
         {
             get { return new Uri(Path.Combine(Environment.CurrentDirectory, "Data", "Cache", ImageName)); }
         }
-        public string Text { get; private set; }
-        public string[] BannedKeywords { get; private set; }
+        public string[] Aliases { get; set; }
+        public string[] BannedKeywords { get; set; }
 
         public virtual void Deserialize(XmlNode node)
         {
@@ -36,8 +36,9 @@ namespace PoEHandbook.Model
             temp = node.SelectSingleNode(@"Property[@id='ImageName']");
             ImageName = temp != null ? temp.InnerText : Name + ".png";
 
-            temp = node.SelectSingleNode(@"Property[@id='Text']");
-            if (temp != null) Text = temp.InnerText;
+            temp = node.SelectSingleNode(@"Property[@id='Aliases']");
+            if (temp != null)
+                Aliases = temp.InnerText.Split(new[] { " | " }, StringSplitOptions.RemoveEmptyEntries);
 
             temp = node.SelectSingleNode(@"Property[@id='BannedKeywords']");
             if (temp != null)
@@ -50,18 +51,20 @@ namespace PoEHandbook.Model
             properties = new List<string>();
 
             // Check banned keywords
-            if (BannedKeywords != null && BannedKeywords.Any(keyword => keyword.ToUpperInvariant().Contains(query)))
+            if (BannedKeywords != null && BannedKeywords.Any(keyword => keyword.ContainsInvariant(query)))
                 return false;
 
-            // Process everything else
-            if (Name.ToUpperInvariant().Contains(query))
+            // Alias
+            if (Aliases != null && Aliases.Any(alias => alias.Equals(query, StringComparison.InvariantCultureIgnoreCase)))
+            {
+                properties.Add("Alias");
+                return true;
+            }
+
+            // Process name
+            if (Name.ContainsInvariant(query))
             {
                 properties.Add("Name");
-                result = true;
-            }
-            if (Text.ToUpperInvariant().Contains(query))
-            {
-                properties.Add(Text);
                 result = true;
             }
 

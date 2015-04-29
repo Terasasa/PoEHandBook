@@ -16,15 +16,14 @@ namespace PoEHandbook.Data
     public static class DataAccess
     {
         private static readonly HashSet<Entity> Entities = new HashSet<Entity>();
-        private static readonly Dictionary<string, string> Aliases = new Dictionary<string, string>();
 
         private static void LoadEntities()
         {
             Entities.Clear();
             var resources = new Dictionary<string, Type>
             {
-                {"uniques_armors.xml", typeof (Armour)},
-                {"uniques_shields.xml", typeof (Equippable)},
+                {"uniques_armors.xml", typeof (Equipment)},
+                {"uniques_shields.xml", typeof (Equipment)},
                 {"misc.xml", typeof (Entity)}
             };
 
@@ -64,9 +63,29 @@ namespace PoEHandbook.Data
 
             foreach (XmlNode node in aliasNodes)
             {
-                var alias = new Alias();
-                alias.Deserialize(node);
-                Aliases.Add(alias.Input.ToUpperInvariant(), alias.Output.ToUpperInvariant());
+                // If no attributes - continue
+                if (node.Attributes == null) continue;
+
+                // Get the attributes needed
+                var entAttr = node.Attributes["Entity"];
+                var queryAttr = node.Attributes["Query"];
+
+                // If needed attributes not found - continue
+                if (entAttr == null || queryAttr == null)
+                    continue;
+
+                // Get entity in question
+                var ent = 
+                    Entities.FirstOrDefault(
+                        o => o.Name.Equals(entAttr.InnerText, StringComparison.InvariantCultureIgnoreCase));
+
+                // Not found - continue
+                if (ent == null) continue;
+
+                // Add alias
+                ent.Aliases = ent.Aliases == null
+                    ? new[] {queryAttr.InnerText}
+                    : ent.Aliases.Union(new[] {queryAttr.InnerText}).ToArray();
             }
         }
 
@@ -77,47 +96,19 @@ namespace PoEHandbook.Data
         }
 
         /// <summary>
-        /// Searches through entities using a query, but sets all matches to Alias matches
-        /// </summary>
-        private static IEnumerable<SearchResult> PerformAliasSearchQuery(string aliasQuery)
-        {
-            aliasQuery = aliasQuery.Trim().ToUpperInvariant();
-
-            var result = new List<SearchResult>();
-
-            foreach (var ent in Entities)
-            {
-                List<string> properties;
-                if (ent.ContainsInProperties(aliasQuery, out properties))
-                    result.Add(new SearchResult(ent, new[] { "Alias" }));
-            }
-
-            return result;
-        }
-
-        /// <summary>
         /// Search entities' properties with the given query
         /// </summary>
         /// <param name="query">Single query</param>
         public static IEnumerable<SearchResult> PerformSearchQuery(string query)
         {
-            query = query.Trim().ToUpperInvariant();
-
             var output = new List<SearchResult>();
 
-            // Basic search
             foreach (var ent in Entities)
             {
                 List<string> properties;
                 if (ent.ContainsInProperties(query, out properties))
                     output.Add(new SearchResult(ent, properties));
             }
-
-            // Search with aliases
-            string aliasOutput;
-            if (Aliases.TryGetValue(query, out aliasOutput))
-                output.AddRange(PerformAliasSearchQuery(aliasOutput)
-                        .Where(sr1 => output.All(sr2 => sr2.Entity.Name != sr1.Entity.Name)));
 
             return output;
         }

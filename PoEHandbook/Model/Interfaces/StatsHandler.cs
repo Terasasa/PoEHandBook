@@ -1,25 +1,27 @@
 ﻿//  ------------------------------------------------------------------ 
 //  PoEHandbook
-//  Armor.cs by Tyrrrz
-//  27/04/2015
+//  StatsHandler.cs by Tyrrrz
+//  29/04/2015
 //  ------------------------------------------------------------------ 
 
 using System.Collections.Generic;
 using System.Linq;
 using System.Xml;
 
-namespace PoEHandbook.Model
+namespace PoEHandbook.Model.Interfaces
 {
-    /// <summary>
-    /// An armour piece: body armour, gloves, helmet, boots
-    /// </summary>
-    public class Armour : Equippable
+    public class StatsHandler : Handler<IHasStats>
     {
+        public StatsHandler(Entity parent)
+            : base(parent)
+        {
+        }
+
         public Range ArmourValue { get; private set; }
         public Range EvasionValue { get; private set; }
         public Range EnergyShieldValue { get; private set; }
 
-        public override bool HasStats
+        public bool IsRelevant
         {
             get { return ArmourValue.Average > 0 || EvasionValue.Average > 0 || EnergyShieldValue.Average > 0; }
         }
@@ -31,7 +33,9 @@ namespace PoEHandbook.Model
         {
             get
             {
-                return Mods
+                var parentWithMods = Parent as IHasMods;
+                if (parentWithMods == null) return false;
+                return parentWithMods.ModsHandler.Mods
                     .Select(mod => mod.ToUpperInvariant())
                     .Any(modUp => (modUp.Contains("INCREASED") || modUp.Contains("REDUCED")) && modUp.Contains("ARMOUR"));
             }
@@ -44,7 +48,9 @@ namespace PoEHandbook.Model
         {
             get
             {
-                return Mods
+                var parentWithMods = Parent as IHasMods;
+                if (parentWithMods == null) return false;
+                return parentWithMods.ModsHandler.Mods
                     .Select(mod => mod.ToUpperInvariant())
                     .Any(modUp => (modUp.Contains("INCREASED") || modUp.Contains("REDUCED")) && modUp.Contains("EVASION"));
             }
@@ -57,7 +63,9 @@ namespace PoEHandbook.Model
         {
             get
             {
-                return Mods
+                var parentWithMods = Parent as IHasMods;
+                if (parentWithMods == null) return false;
+                return parentWithMods.ModsHandler.Mods
                     .Select(mod => mod.ToUpperInvariant())
                     .Any(modUp => (modUp.Contains("INCREASED") || modUp.Contains("REDUCED")) && modUp.Contains("ENERGY SHIELD"));
             }
@@ -65,8 +73,6 @@ namespace PoEHandbook.Model
 
         public override void Deserialize(XmlNode node)
         {
-            base.Deserialize(node);
-
             XmlNode temp;
 
             temp = node.SelectSingleNode(@"Property[@id='ArmourValue']");
@@ -81,9 +87,8 @@ namespace PoEHandbook.Model
 
         public override bool ContainsInProperties(string query, out List<string> properties)
         {
-            bool result = base.ContainsInProperties(query, out properties);
-
-            return result;
+            properties = new List<string>();
+            return false;
         }
     }
 }

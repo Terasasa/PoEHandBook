@@ -38,9 +38,7 @@ namespace PoEHandbook.Data
                 if (mutualResult == null) continue;
 
                 // Combine matches
-                var matches = sr1.Matches.ToList();
-                matches.AddRange(mutualResult.Matches);
-                matches = matches.Distinct().ToList();
+                var matches = sr1.Matches.Union(mutualResult.Matches);
 
                 // Create new result
                 output.Add(new SearchResult(sr1.Entity, matches));
