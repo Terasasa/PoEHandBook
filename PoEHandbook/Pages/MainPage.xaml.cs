@@ -177,6 +177,7 @@ namespace PoEHandbook.Pages
             if (string.IsNullOrEmpty(_lastQuery))
             {
                 PnlResults.Children.Clear();
+                _lastResults = new SearchResult[] {};
                 UpdateStatusText();
             }
             // If not - start the timer
