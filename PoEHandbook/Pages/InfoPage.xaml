@@ -45,20 +45,18 @@
                 BorderThickness="2">
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="100" />
+                    <RowDefinition Height="90" />
                     <RowDefinition Height="90" />
                     <RowDefinition Height="35" />
                     <RowDefinition Height="*" />
                     <RowDefinition Height="175" />
                 </Grid.RowDefinitions>
-                <Border Height="95"
-                        Margin="1"
-                        VerticalAlignment="Top"
+                <Border Margin="1"
                         Background="{DynamicResource TitleGradient}"
                         BorderBrush="{DynamicResource AccentBrush}"
                         BorderThickness="2">
                     <TextBlock x:Name="TbName"
-                               Margin="0,30,0,29"
+                               VerticalAlignment="Center"
                                FontSize="24"
                                Foreground="Black"
                                Text="ItemName"
