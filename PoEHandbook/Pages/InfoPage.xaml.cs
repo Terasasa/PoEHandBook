@@ -71,12 +71,24 @@ namespace PoEHandbook.Pages
             bool first = true;
 
             var statsHandler = entWithStats.StatsHandler;
-            if (statsHandler.ArmourValue.Average > 0)
+            if (statsHandler.Block.Average > 0)
             {
                 first = false;
 
+                ic.Add("Chance to Block: ");
+                var run = new Run(statsHandler.Block + "%");
+                if (statsHandler.BlockAffected)
+                    run.Foreground = new SolidColorBrush((Color) ColorConverter.ConvertFromString("#6a88ef"));
+                ic.Add(run);
+            }
+            if (statsHandler.ArmourValue.Average > 0)
+            {
+                if (!first)
+                    ic.Add(Environment.NewLine);
+                first = false;
+
                 ic.Add("Armour: ");
-                var run = new Run(statsHandler.ArmourValue.ToString()) {FontWeight = FontWeights.Bold};
+                var run = new Run(statsHandler.ArmourValue.ToString());
                 if (statsHandler.ArmourAffected)
                     run.Foreground = new SolidColorBrush((Color) ColorConverter.ConvertFromString("#6a88ef"));
                 ic.Add(run);
@@ -88,7 +100,7 @@ namespace PoEHandbook.Pages
                 first = false;
 
                 ic.Add("Evasion: ");
-                var run = new Run(statsHandler.EvasionValue.ToString()) {FontWeight = FontWeights.Bold};
+                var run = new Run(statsHandler.EvasionValue.ToString());
                 if (statsHandler.EvasionAffected)
                     run.Foreground = new SolidColorBrush((Color) ColorConverter.ConvertFromString("#6a88ef"));
                 ic.Add(run);
@@ -99,7 +111,7 @@ namespace PoEHandbook.Pages
                     ic.Add(Environment.NewLine);
 
                 ic.Add("Energy Shield: ");
-                var run = new Run(statsHandler.EnergyShieldValue.ToString()) {FontWeight = FontWeights.Bold};
+                var run = new Run(statsHandler.EnergyShieldValue.ToString());
                 if (statsHandler.EnergyShieldAffected)
                     run.Foreground = new SolidColorBrush((Color) ColorConverter.ConvertFromString("#6a88ef"));
                 ic.Add(run);

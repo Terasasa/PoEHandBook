@@ -20,10 +20,14 @@ namespace PoEHandbook.Model.Interfaces
         public Range ArmourValue { get; private set; }
         public Range EvasionValue { get; private set; }
         public Range EnergyShieldValue { get; private set; }
+        public Range Block { get; private set; }
 
         public bool IsRelevant
         {
-            get { return ArmourValue.Average > 0 || EvasionValue.Average > 0 || EnergyShieldValue.Average > 0; }
+            get
+            {
+                return ArmourValue.Average > 0 || EvasionValue.Average > 0 || EnergyShieldValue.Average > 0 || Block.Average > 0;
+            }
         }
 
         /// <summary>
@@ -35,9 +39,10 @@ namespace PoEHandbook.Model.Interfaces
             {
                 var parentWithMods = Parent as IHasMods;
                 if (parentWithMods == null) return false;
-                return parentWithMods.ModsHandler.Mods
-                    .Select(mod => mod.ToUpperInvariant())
-                    .Any(modUp => (modUp.Contains("INCREASED") || modUp.Contains("REDUCED")) && modUp.Contains("ARMOUR"));
+                return parentWithMods.ModsHandler.Mods.Any(mod => (
+                    mod.ContainsInvariant("INCREASED") ||
+                    mod.ContainsInvariant("REDUCED")) &&
+                    mod.ContainsInvariant("ARMOUR"));
             }
         }
 
@@ -50,9 +55,10 @@ namespace PoEHandbook.Model.Interfaces
             {
                 var parentWithMods = Parent as IHasMods;
                 if (parentWithMods == null) return false;
-                return parentWithMods.ModsHandler.Mods
-                    .Select(mod => mod.ToUpperInvariant())
-                    .Any(modUp => (modUp.Contains("INCREASED") || modUp.Contains("REDUCED")) && modUp.Contains("EVASION"));
+                return parentWithMods.ModsHandler.Mods.Any(mod => (
+                    mod.ContainsInvariant("INCREASED") ||
+                    mod.ContainsInvariant("REDUCED")) &&
+                    mod.ContainsInvariant("EVASION"));
             }
         }
 
@@ -65,9 +71,27 @@ namespace PoEHandbook.Model.Interfaces
             {
                 var parentWithMods = Parent as IHasMods;
                 if (parentWithMods == null) return false;
-                return parentWithMods.ModsHandler.Mods
-                    .Select(mod => mod.ToUpperInvariant())
-                    .Any(modUp => (modUp.Contains("INCREASED") || modUp.Contains("REDUCED")) && modUp.Contains("ENERGY SHIELD"));
+                return parentWithMods.ModsHandler.Mods.Any(mod => (
+                    mod.ContainsInvariant("INCREASED") ||
+                    mod.ContainsInvariant("REDUCED")) &&
+                    mod.ContainsInvariant("ENERGY SHIELD"));
+            }
+        }
+
+        /// <summary>
+        /// Determines whether the item's mods affect Block value
+        /// </summary>
+        public bool BlockAffected
+        {
+            get
+            {
+                var parentWithMods = Parent as IHasMods;
+                if (parentWithMods == null) return false;
+                return parentWithMods.ModsHandler.Mods.Any(mod => (
+                    mod.ContainsInvariant("ADDITIONAL") ||
+                    mod.ContainsInvariant("REDUCED")) &&
+                    mod.ContainsInvariant("BLOCK") &&
+                    mod.ContainsInvariant("CHANCE"));
             }
         }
 
@@ -83,6 +107,10 @@ namespace PoEHandbook.Model.Interfaces
 
             temp = node.SelectSingleNode(@"Property[@id='EnergyShieldValue']");
             if (temp != null && !string.IsNullOrEmpty(temp.InnerText)) EnergyShieldValue = new Range(temp.InnerText);
+
+            temp = node.SelectSingleNode(@"Property[@id='Block']");
+            if (temp != null && !string.IsNullOrEmpty(temp.InnerText))
+                Block = new Range(temp.InnerText.TrimEnd(new[] {'%'}));
         }
 
         public override bool ContainsInProperties(string query, out List<string> properties)

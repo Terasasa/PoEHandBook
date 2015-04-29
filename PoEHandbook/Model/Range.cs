@@ -51,7 +51,7 @@ namespace PoEHandbook.Model
             if (SingleValue)
                 return "" + Min;
 
-            return Min + " to " + Max;
+            return "(" + Min + " to " + Max + ")";
         }
     }
 }

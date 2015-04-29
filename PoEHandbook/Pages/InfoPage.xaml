@@ -90,14 +90,16 @@
                        Margin="10,0,10,10"
                        VerticalAlignment="Bottom" />
                 <Border Margin="5,230,5,186">
-                    <TextBlock x:Name="TbMods"
-                               VerticalAlignment="Center"
-                               FontSize="16"
-                               Foreground="#6a88ef"
-                               Text="Mods"
-                               TextAlignment="Center"
-                               TextTrimming="CharacterEllipsis"
-                               TextWrapping="Wrap" />
+                    <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+                        <TextBlock x:Name="TbMods"
+                                   VerticalAlignment="Center"
+                                   FontSize="16"
+                                   Foreground="#6a88ef"
+                                   Text="Mods"
+                                   TextAlignment="Center"
+                                   TextTrimming="CharacterEllipsis"
+                                   TextWrapping="Wrap" />
+                    </ScrollViewer>
                 </Border>
                 <Rectangle Height="2"
                            Margin="0,222,0,0"
