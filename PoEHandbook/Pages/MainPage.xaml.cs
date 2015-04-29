@@ -24,7 +24,7 @@ namespace PoEHandbook.Pages
     {
         private readonly DispatcherTimer _queryTimer;
 
-        private string _lastQuery;
+        private string _lastQuery = "";
         private IEnumerable<SearchResult> _lastResults;
 
         public MainPage()
@@ -133,9 +133,12 @@ namespace PoEHandbook.Pages
         private void GetSearchResults()
         {
             PnlResults.Children.Clear();
+            _lastResults = new SearchResult[] {};
 
             var queries = _lastQuery.Split(new[] {','}, StringSplitOptions.RemoveEmptyEntries);
             var entities = DataAccess.PerformSearchQuery(queries);
+
+            if (entities == null) return;
 
             _lastResults = entities
                 .OrderBy(sr => sr.Entity.GetType())
@@ -187,25 +190,21 @@ namespace PoEHandbook.Pages
             TbQuery.Focus();
         }
 
-        private void BtnOptions_Click(object sender, RoutedEventArgs e)
-        {
-            MenuOptions.Visibility = MenuOptions.Visibility == Visibility.Hidden
-                ? Visibility.Visible
-                : Visibility.Hidden;
-            if (MenuOptions.Visibility == Visibility.Hidden)
-                TbQuery.Focus();
-        }
-
-        private void MenuOptions_MouseLeave(object sender, System.Windows.Input.MouseEventArgs e)
-        {
-            MenuOptions.Visibility = Visibility.Hidden;
-            TbQuery.Focus();
-        }
-
         private void CbShowImages_Click(object sender, RoutedEventArgs e)
         {
             // Re-load the data with new settings
             GetSearchResults();
+        }
+
+        private void BtnIdentifyItem_OnClick(object sender, RoutedEventArgs e)
+        {
+            string query = Ext.QueryFromPoEClipboard();
+            if (query == null)
+                MessageBox.Show(
+                    "Item identification failed. Please mouse over the item in-game and press Ctrl+C and then try to identify the item.",
+                    "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            else
+                TbQuery.Text = query;
         }
 
         private void TbCredits_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
