@@ -44,6 +44,13 @@
                 BorderBrush="{DynamicResource AccentBrush}"
                 BorderThickness="2">
             <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="100" />
+                    <RowDefinition Height="90" />
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="175" />
+                </Grid.RowDefinitions>
                 <Border Height="95"
                         Margin="1"
                         VerticalAlignment="Top"
@@ -51,16 +58,14 @@
                         BorderBrush="{DynamicResource AccentBrush}"
                         BorderThickness="2">
                     <TextBlock x:Name="TbName"
-                               VerticalAlignment="Center"
+                               Margin="0,30,0,29"
                                FontSize="24"
                                Foreground="Black"
                                Text="ItemName"
                                TextAlignment="Center"
                                TextTrimming="CharacterEllipsis" />
                 </Border>
-                <Border Height="80"
-                        Margin="5,100,5,0"
-                        VerticalAlignment="Top">
+                <Border Grid.Row="1" Margin="5">
                     <TextBlock x:Name="TbStats"
                                VerticalAlignment="Center"
                                FontSize="16"
@@ -70,26 +75,26 @@
                                TextTrimming="CharacterEllipsis"
                                TextWrapping="Wrap" />
                 </Border>
-                <Rectangle Height="2"
-                           Margin="0,185,0,0"
+                <Rectangle Grid.Row="1"
+                           Height="2"
                            HorizontalAlignment="Stretch"
-                           VerticalAlignment="Top"
+                           VerticalAlignment="Bottom"
                            Fill="{DynamicResource SeparatorGradient}" />
                 <TextBlock x:Name="TbRequiremenets"
-                           Height="25"
-                           Margin="10,192,10,0"
-                           VerticalAlignment="Top"
+                           Grid.Row="2"
+                           Margin="5"
                            FontSize="16"
                            Foreground="LightGray"
                            Text="Requirements"
                            TextAlignment="Center"
                            TextTrimming="CharacterEllipsis"
                            TextWrapping="Wrap" />
-                <Image x:Name="ImgItem"
-                       Height="164"
-                       Margin="10,0,10,10"
-                       VerticalAlignment="Bottom" />
-                <Border Margin="5,230,5,186">
+                <Rectangle Grid.Row="2"
+                           Height="2"
+                           HorizontalAlignment="Stretch"
+                           VerticalAlignment="Bottom"
+                           Fill="{DynamicResource SeparatorGradient}" />
+                <Border Grid.Row="3" Margin="5">
                     <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
                         <TextBlock x:Name="TbMods"
                                    VerticalAlignment="Center"
@@ -101,16 +106,16 @@
                                    TextWrapping="Wrap" />
                     </ScrollViewer>
                 </Border>
-                <Rectangle Height="2"
-                           Margin="0,222,0,0"
-                           HorizontalAlignment="Stretch"
-                           VerticalAlignment="Top"
-                           Fill="{DynamicResource SeparatorGradient}" />
-                <Rectangle Height="2"
-                           Margin="1,0,-1,179"
+                <Rectangle Grid.Row="3"
+                           Height="2"
                            HorizontalAlignment="Stretch"
                            VerticalAlignment="Bottom"
                            Fill="{DynamicResource SeparatorGradient}" />
+                <Image x:Name="ImgItem"
+                       Grid.Row="4"
+                       Height="164"
+                       Margin="5"
+                       VerticalAlignment="Bottom" />
             </Grid>
         </Border>
     </Grid>
