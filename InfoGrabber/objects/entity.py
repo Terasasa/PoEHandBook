@@ -18,7 +18,7 @@ class Entity:
         output = '<Entity>\n'
 
         output += '  <Property id="Name">' + self.name + '</Property>\n'
-        output += '  <Property id="Text">' + self.text + '</Property>\n'
+        output += '  <Property id="Description">' + self.text + '</Property>\n'
 
         output += include
 

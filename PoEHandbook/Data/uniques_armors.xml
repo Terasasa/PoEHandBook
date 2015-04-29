@@ -1,338 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Root>
 <Entity>
-  <Property id="Name">Alberon's Warpath</Property>
-  <Property id="Text"></Property>
-  <Property id="Type">Boots</Property>
-  <Property id="Rarity">Unique</Property>
-  <Property id="Base">Soldier Boots</Property>
-  <Property id="Level">49</Property>
-  <Property id="Strength">47</Property>
-  <Property id="Dexterity">0</Property>
-  <Property id="Intelligence">47</Property>
-  <Property id="Mods">Adds 1-80 Chaos Damage | +(180 to 220) to Armour | (9 to 12)% to Chaos Resistance | 20% increased Movement Speed | +2 to Maximum number of Skeletons | (15 to 18)% increased Strength</Property>
-  <Property id="ArmourValue">(257 to 297)</Property>
-  <Property id="EvasionValue"></Property>
-  <Property id="EnergyShieldValue">23</Property>
-</Entity>
-<Entity>
-  <Property id="Name">Atziri's Step</Property>
-  <Property id="Text"></Property>
-  <Property id="Type">Boots</Property>
-  <Property id="Rarity">Unique</Property>
-  <Property id="Base">Slink Boots</Property>
-  <Property id="Level">69</Property>
-  <Property id="Strength">0</Property>
-  <Property id="Dexterity">120</Property>
-  <Property id="Intelligence">0</Property>
-  <Property id="Mods">180% increased Evasion Rating |  +(55 to 75) to maximum Life | 30% increased Movement Speed | (14 to 16)% Chance to Dodge Spell Damage</Property>
-  <Property id="ArmourValue"></Property>
-  <Property id="EvasionValue">599</Property>
-  <Property id="EnergyShieldValue"></Property>
-</Entity>
-<Entity>
-  <Property id="Name">The Blood Dance</Property>
-  <Property id="Text"></Property>
-  <Property id="Type">Boots</Property>
-  <Property id="Rarity">Unique</Property>
-  <Property id="Base">Sharkskin Boots</Property>
-  <Property id="Level">44</Property>
-  <Property id="Strength">0</Property>
-  <Property id="Dexterity">79</Property>
-  <Property id="Intelligence">0</Property>
-  <Property id="Mods">+(30 to 40) to Dexterity | 20% increased Movement Speed | 2% increased Movement Speed per Frenzy Charge | 3% reduced Attack and Cast Speed per Frenzy Charge | 1.0% of Life Regenerated per Second per Frenzy Charge | (20 to 30)% Chance to gain a Frenzy Charge on Kill | Gore Footprints | 6% increased Damage against Enemies on Low Life per Frenzy Charge</Property>
-  <Property id="ArmourValue"></Property>
-  <Property id="EvasionValue">126</Property>
-  <Property id="EnergyShieldValue"></Property>
-</Entity>
-<Entity>
-  <Property id="Name">Bones of Ullr</Property>
-  <Property id="Text"></Property>
-  <Property id="Type">Boots</Property>
-  <Property id="Rarity">Unique</Property>
-  <Property id="Base">Silk Slippers</Property>
-  <Property id="Level">22</Property>
-  <Property id="Strength">0</Property>
-  <Property id="Dexterity">0</Property>
-  <Property id="Intelligence">42</Property>
-  <Property id="Mods">+20 to maximum Life | +20 to maximum Mana | (40 to 60)% increased Energy Shield | (5 to 15)% increased Movement Speed | +1 to Maximum number of Zombies | +1 to Maximum number of Spectres</Property>
-  <Property id="ArmourValue"></Property>
-  <Property id="EvasionValue"></Property>
-  <Property id="EnergyShieldValue">(28 to 32)</Property>
-</Entity>
-<Entity>
-  <Property id="Name">Darkray Vectors</Property>
-  <Property id="Text"></Property>
-  <Property id="Type">Boots</Property>
-  <Property id="Rarity">Unique</Property>
-  <Property id="Base">Dragonscale Boots</Property>
-  <Property id="Level">65</Property>
-  <Property id="Strength">62</Property>
-  <Property id="Dexterity">62</Property>
-  <Property id="Intelligence">0</Property>
-  <Property id="Mods">+(20 to 40)% to Lightning Resistance | 5% increased Movement Speed per Frenzy Charge | +1 maximum Frenzy Charge | 50% reduced Frenzy Charge Duration | 25% reduced Light Radius | 2% chance to Dodge Attacks per Frenzy Charge</Property>
-  <Property id="ArmourValue">105</Property>
-  <Property id="EvasionValue">105</Property>
-  <Property id="EnergyShieldValue"></Property>
-</Entity>
-<Entity>
-  <Property id="Name">Deerstalker</Property>
-  <Property id="Text"></Property>
-  <Property id="Type">Boots</Property>
-  <Property id="Rarity">Unique</Property>
-  <Property id="Base">Deerskin Boots</Property>
-  <Property id="Level">22</Property>
-  <Property id="Strength">0</Property>
-  <Property id="Dexterity">42</Property>
-  <Property id="Intelligence">0</Property>
-  <Property id="Mods">Gems in this item are Supported by level 11 Trap | (160 to 200)% increased Evasion Rating | +(35 to 45) to maximum Life | (14 to 18)% increased Trap Throwing Speed | 30% increased Movement Speed for 9 seconds on Throwing a Trap</Property>
-  <Property id="ArmourValue"></Property>
-  <Property id="EvasionValue">(166 to 192)</Property>
-  <Property id="EnergyShieldValue"></Property>
-</Entity>
-<Entity>
-  <Property id="Name">Demigod's Stride</Property>
-  <Property id="Text"></Property>
-  <Property id="Type">Boots</Property>
-  <Property id="Rarity">Unique</Property>
-  <Property id="Base">Golden Caligae</Property>
-  <Property id="Level">12</Property>
-  <Property id="Strength">0</Property>
-  <Property id="Dexterity">0</Property>
-  <Property id="Intelligence">0</Property>
-  <Property id="Mods">+(8 to 16)% to all Elemental Resistances | (20 to 30)% increased Rarity of Items found | +20% increased Movement Speed</Property>
-  <Property id="ArmourValue"></Property>
-  <Property id="EvasionValue"></Property>
-  <Property id="EnergyShieldValue"></Property>
-</Entity>
-<Entity>
-  <Property id="Name">Dusktoe</Property>
-  <Property id="Text"></Property>
-  <Property id="Type">Boots</Property>
-  <Property id="Rarity">Unique</Property>
-  <Property id="Base">Leatherscale Boots</Property>
-  <Property id="Level">6</Property>
-  <Property id="Strength">0</Property>
-  <Property id="Dexterity">0</Property>
-  <Property id="Intelligence">0</Property>
-  <Property id="Mods">(40 to 60)% increased Armour and Evasion | +(10 to 20) to maximum Life | +(10 to 20) to maximum Mana | 15% increased Movement Speed | 50% increased Block and Stun Recovery | 20% reduced Light Radius | Your Flasks grant +50% to Chaos Resistance during flask effect</Property>
-  <Property id="ArmourValue">(15 to 18)</Property>
-  <Property id="EvasionValue">(15 to 18)</Property>
-  <Property id="EnergyShieldValue"></Property>
-</Entity>
-<Entity>
-  <Property id="Name">Gang's Momentum</Property>
-  <Property id="Text"></Property>
-  <Property id="Type">Boots</Property>
-  <Property id="Rarity">Unique</Property>
-  <Property id="Base">Legion Boots</Property>
-  <Property id="Level">58</Property>
-  <Property id="Strength">54</Property>
-  <Property id="Dexterity">0</Property>
-  <Property id="Intelligence">54</Property>
-  <Property id="Mods">(160 to 180)% increased Armour and Energy Shield | +(50 to 60)% to Fire Resistance | 25% increased Movement Speed | (5 to 7)% chance to Ignite | 15% increased Damage Against Ignited enemies</Property>
-  <Property id="ArmourValue">(237 to 255)</Property>
-  <Property id="EvasionValue"></Property>
-  <Property id="EnergyShieldValue">(70 to 76)</Property>
-</Entity>
-<Entity>
-  <Property id="Name">Goldwyrm</Property>
-  <Property id="Text"></Property>
-  <Property id="Type">Boots</Property>
-  <Property id="Rarity">Unique</Property>
-  <Property id="Base">Nubuck Boots</Property>
-  <Property id="Level">34</Property>
-  <Property id="Strength">0</Property>
-  <Property id="Dexterity">62</Property>
-  <Property id="Intelligence">0</Property>
-  <Property id="Mods">60% increased Mana Regeneration Rate | (14 to 20)% increased Quantity of Items Found | +(40 to 50)% to Fire Resistance | 10% increased Movement Speed</Property>
-  <Property id="ArmourValue"></Property>
-  <Property id="EvasionValue">98</Property>
-  <Property id="EnergyShieldValue"></Property>
-</Entity>
-<Entity>
-  <Property id="Name">Kaom's Roots</Property>
-  <Property id="Text"></Property>
-  <Property id="Type">Boots</Property>
-  <Property id="Rarity">Unique</Property>
-  <Property id="Base">Titan Greaves</Property>
-  <Property id="Level">68</Property>
-  <Property id="Strength">120</Property>
-  <Property id="Dexterity">0</Property>
-  <Property id="Intelligence">0</Property>
-  <Property id="Mods">Has no Sockets | Cannot be Knocked Back | +(120 to 150) to Maximum Life | Unwavering Stance</Property>
-  <Property id="ArmourValue">210</Property>
-  <Property id="EvasionValue"></Property>
-  <Property id="EnergyShieldValue"></Property>
-</Entity>
-<Entity>
-  <Property id="Name">Lioneye's Paws</Property>
-  <Property id="Text"></Property>
-  <Property id="Type">Boots</Property>
-  <Property id="Rarity">Unique</Property>
-  <Property id="Base">Bronzescale Boots</Property>
-  <Property id="Level">30</Property>
-  <Property id="Strength">30</Property>
-  <Property id="Dexterity">30</Property>
-  <Property id="Intelligence">0</Property>
-  <Property id="Mods">+(40 to 60) to Strength | +(40 to 60) to Dexterity | Adds 12–24 Fire Damage | 20% Increased Movement Speed | 40% Reduced Movement Speed when on Low Life | 20% Increased Block and Stun Recovery | Cannot be stunned when on Low Life</Property>
-  <Property id="ArmourValue">48</Property>
-  <Property id="EvasionValue">48</Property>
-  <Property id="EnergyShieldValue"></Property>
-</Entity>
-<Entity>
-  <Property id="Name">Nomic's Storm</Property>
-  <Property id="Text"></Property>
-  <Property id="Type">Boots</Property>
-  <Property id="Rarity">Unique</Property>
-  <Property id="Base">Strapped Boots</Property>
-  <Property id="Level">16</Property>
-  <Property id="Strength">0</Property>
-  <Property id="Dexterity">18</Property>
-  <Property id="Intelligence">18</Property>
-  <Property id="Mods">+(20 to 30) to Dexterity | +(30 to 50) to Evasion Rating | +(15 to 30) to maximum Energy Shield | 20% increased Movement Speed | 20% to Cold Resistance | 30% increased Physical Damage taken | 20% increased Movement Speed when on Full Energy Shield</Property>
-  <Property id="ArmourValue"></Property>
-  <Property id="EvasionValue">(56 to 76)</Property>
-  <Property id="EnergyShieldValue">(23 to 38)</Property>
-</Entity>
-<Entity>
-  <Property id="Name">Ondar's Flight</Property>
-  <Property id="Text"></Property>
-  <Property id="Type">Boots</Property>
-  <Property id="Rarity">Unique</Property>
-  <Property id="Base">Goathide Boots</Property>
-  <Property id="Level">12</Property>
-  <Property id="Strength">0</Property>
-  <Property id="Dexterity">26</Property>
-  <Property id="Intelligence">0</Property>
-  <Property id="Mods">+15 to Dexterity | +15 to Intelligence | (100 to 150)% increased Evasion Rating | 30% increased Movement Speed when on Low Life | (5 to 10)% of Damage taken Gained as Mana when Hit</Property>
-  <Property id="ArmourValue"></Property>
-  <Property id="EvasionValue">(72 to 90)</Property>
-  <Property id="EnergyShieldValue"></Property>
-</Entity>
-<Entity>
-  <Property id="Name">Rainbowstride</Property>
-  <Property id="Text"></Property>
-  <Property id="Type">Boots</Property>
-  <Property id="Rarity">Unique</Property>
-  <Property id="Base">Conjurer Boots</Property>
-  <Property id="Level">53</Property>
-  <Property id="Strength">0</Property>
-  <Property id="Dexterity">0</Property>
-  <Property id="Intelligence">94</Property>
-  <Property id="Mods">(20 to 25)% of Block Chance applied to Spells | +(40 to 60) to maximum Mana | (140 to 180)% increased Energy Shield | +20% to all Elemental Resistances | 20% increased Movement Speed</Property>
-  <Property id="ArmourValue"></Property>
-  <Property id="EvasionValue"></Property>
-  <Property id="EnergyShieldValue">(106 to 123)</Property>
-</Entity>
-<Entity>
-  <Property id="Name">Shavronne's Pace</Property>
-  <Property id="Text"></Property>
-  <Property id="Type">Boots</Property>
-  <Property id="Rarity">Unique</Property>
-  <Property id="Base">Scholar Boots</Property>
-  <Property id="Level">32</Property>
-  <Property id="Strength">0</Property>
-  <Property id="Dexterity">0</Property>
-  <Property id="Intelligence">54</Property>
-  <Property id="Mods">+10 to Dexterity | +10 to Intelligence | (50 to 70)% increased Energy Shield | 35% increased Movement Speed when on Full Life | (10 to 15)% increased Block and Stun Recovery</Property>
-  <Property id="ArmourValue"></Property>
-  <Property id="EvasionValue"></Property>
-  <Property id="EnergyShieldValue">(42 to 48)</Property>
-</Entity>
-<Entity>
-  <Property id="Name">Sin Trek</Property>
-  <Property id="Text"></Property>
-  <Property id="Type">Boots</Property>
-  <Property id="Rarity">Unique</Property>
-  <Property id="Base">Stealth Boots</Property>
-  <Property id="Level">62</Property>
-  <Property id="Strength">0</Property>
-  <Property id="Dexterity">117</Property>
-  <Property id="Intelligence">0</Property>
-  <Property id="Mods">+(20 to 30) to Dexterity | +(20 to 30) to Intelligence | (80 to 100)% increased Evasion Rating | +(50 to 70) to maximum Energy Shield | 30% increased Movement Speed | Enemies Cannot Leech Life From You</Property>
-  <Property id="ArmourValue"></Property>
-  <Property id="EvasionValue">(343 to 382)</Property>
-  <Property id="EnergyShieldValue">(50 to 70)</Property>
-</Entity>
-<Entity>
-  <Property id="Name">Sundance</Property>
-  <Property id="Text"></Property>
-  <Property id="Type">Boots</Property>
-  <Property id="Rarity">Unique</Property>
-  <Property id="Base">Clasped Boots</Property>
-  <Property id="Level">27</Property>
-  <Property id="Strength">0</Property>
-  <Property id="Dexterity">27</Property>
-  <Property id="Intelligence">27</Property>
-  <Property id="Mods">10% increased Attack Speed | (80 to 120)% increased Evasion Rating | (20 to 30)% increased Rarity of Items found | +(30 to 40)% to Fire Resistance | 10% increased Movement Speed</Property>
-  <Property id="ArmourValue"></Property>
-  <Property id="EvasionValue">(77 to 95)</Property>
-  <Property id="EnergyShieldValue">13</Property>
-</Entity>
-<Entity>
-  <Property id="Name">Wake of Destruction</Property>
-  <Property id="Text"></Property>
-  <Property id="Type">Boots</Property>
-  <Property id="Rarity">Unique</Property>
-  <Property id="Base">Mesh Boots</Property>
-  <Property id="Level">28</Property>
-  <Property id="Strength">28</Property>
-  <Property id="Dexterity">0</Property>
-  <Property id="Intelligence">28</Property>
-  <Property id="Mods">Adds 1–120 Lightning Damage | +(10 to 20) Life gained on Kill | (20 to 60)% increased Armour and Energy Shield | 10% Chance to Cause Monsters to Flee</Property>
-  <Property id="ArmourValue">(54 to 72)</Property>
-  <Property id="EvasionValue"></Property>
-  <Property id="EnergyShieldValue">(16 to 21)</Property>
-</Entity>
-<Entity>
-  <Property id="Name">Wanderlust</Property>
-  <Property id="Text"></Property>
-  <Property id="Type">Boots</Property>
-  <Property id="Rarity">Unique</Property>
-  <Property id="Base">Wool Shoes</Property>
-  <Property id="Level">0</Property>
-  <Property id="Strength">0</Property>
-  <Property id="Dexterity">0</Property>
-  <Property id="Intelligence">0</Property>
-  <Property id="Mods">+5 to Dexterity | (20 to 40)% increased Mana Regeneration Rate | +(10 to 20) to maximum Energy Shield | 20% increased Movement Speed | Cannot be Frozen</Property>
-  <Property id="ArmourValue"></Property>
-  <Property id="EvasionValue"></Property>
-  <Property id="EnergyShieldValue">(14 to 24)</Property>
-</Entity>
-<Entity>
-  <Property id="Name">Windscream</Property>
-  <Property id="Text"></Property>
-  <Property id="Type">Boots</Property>
-  <Property id="Rarity">Unique</Property>
-  <Property id="Base">Reinforced Greaves</Property>
-  <Property id="Level">33</Property>
-  <Property id="Strength">60</Property>
-  <Property id="Dexterity">0</Property>
-  <Property id="Intelligence">0</Property>
-  <Property id="Mods">(50 to 80)% increased Armour | +(10 to 15)% to all Elemental Resistances | 10% increased Movement Speed | 10% increased Elemental Damage | Enemies can have 1 additional Curse</Property>
-  <Property id="ArmourValue">(143 to 171)</Property>
-  <Property id="EvasionValue"></Property>
-  <Property id="EnergyShieldValue"></Property>
-</Entity>
-<Entity>
-  <Property id="Name">Wondertrap</Property>
-  <Property id="Text"></Property>
-  <Property id="Type">Boots</Property>
-  <Property id="Rarity">Unique</Property>
-  <Property id="Base">Velvet Slippers</Property>
-  <Property id="Level">9</Property>
-  <Property id="Strength">0</Property>
-  <Property id="Dexterity">0</Property>
-  <Property id="Intelligence">21</Property>
-  <Property id="Mods">+(5 to 10) to Strength | +(5 to 10) to Dexterity | +(5 to 10) to Intelligence | +(10 to 16) to maximum Energy Shield | 100% Increased Rarity of Items Found when on Low Life | 10% Increased Movement Speed</Property>
-  <Property id="ArmourValue"></Property>
-  <Property id="EvasionValue"></Property>
-  <Property id="EnergyShieldValue">(19 to 25)</Property>
-</Entity>
-<Entity>
   <Property id="Name">Abyssus</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Helmet</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Ezomyte Burgonet</Property>
@@ -347,7 +17,7 @@
 </Entity>
 <Entity>
   <Property id="Name">Alpha's Howl</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Helmet</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Sinner Tricorne</Property>
@@ -362,7 +32,7 @@
 </Entity>
 <Entity>
   <Property id="Name">Asenath's Mark</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Helmet</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Iron Circlet</Property>
@@ -377,7 +47,7 @@
 </Entity>
 <Entity>
   <Property id="Name">Black Sun Crest</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Helmet</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Lacquered Helmet</Property>
@@ -392,7 +62,7 @@
 </Entity>
 <Entity>
   <Property id="Name">The Bringer of Rain</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Helmet</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Nightmare Bascinet</Property>
@@ -407,7 +77,7 @@
 </Entity>
 <Entity>
   <Property id="Name">The Broken Crown</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Helmet</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Prophet Crown</Property>
@@ -422,7 +92,7 @@
 </Entity>
 <Entity>
   <Property id="Name">Chitus' Apex</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Helmet</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Necromancer Circlet</Property>
@@ -437,7 +107,7 @@
 </Entity>
 <Entity>
   <Property id="Name">Crown of Eyes</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Helmet</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Hubris Circlet</Property>
@@ -452,7 +122,7 @@
 </Entity>
 <Entity>
   <Property id="Name">Crown of Thorns</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Helmet</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Vine Circlet</Property>
@@ -467,7 +137,7 @@
 </Entity>
 <Entity>
   <Property id="Name">Deidbell</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Helmet</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Gilded Sallet</Property>
@@ -482,7 +152,7 @@
 </Entity>
 <Entity>
   <Property id="Name">Demigod's Triumph</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Helmet</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Golden Wreath</Property>
@@ -497,7 +167,7 @@
 </Entity>
 <Entity>
   <Property id="Name">Devoto's Devotion</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Helmet</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Nightmare Bascinet</Property>
@@ -512,7 +182,7 @@
 </Entity>
 <Entity>
   <Property id="Name">Ezomyte Peak</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Helmet</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Iron Hat</Property>
@@ -527,7 +197,7 @@
 </Entity>
 <Entity>
   <Property id="Name">Fairgraves' Tricorne</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Helmet</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Tricorne</Property>
@@ -542,7 +212,7 @@
 </Entity>
 <Entity>
   <Property id="Name">Geofri's Crest</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Helmet</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Great Crown</Property>
@@ -557,7 +227,7 @@
 </Entity>
 <Entity>
   <Property id="Name">Goldrim</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Helmet</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Leather Cap</Property>
@@ -572,7 +242,7 @@
 </Entity>
 <Entity>
   <Property id="Name">The Gull</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Helmet</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Raven Mask</Property>
@@ -587,7 +257,7 @@
 </Entity>
 <Entity>
   <Property id="Name">Heatshiver</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Helmet</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Leather Hood</Property>
@@ -602,7 +272,7 @@
 </Entity>
 <Entity>
   <Property id="Name">Honourhome</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Helmet</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Soldier Helmet</Property>
@@ -617,7 +287,7 @@
 </Entity>
 <Entity>
   <Property id="Name">Hrimnor's Resolve</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Helmet</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Samite Helmet</Property>
@@ -632,7 +302,7 @@
 </Entity>
 <Entity>
   <Property id="Name">Leer Cast</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Helmet</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Festival Mask</Property>
@@ -647,7 +317,7 @@
 </Entity>
 <Entity>
   <Property id="Name">Malachai's Simula</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Helmet</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Iron Mask</Property>
@@ -662,7 +332,7 @@
 </Entity>
 <Entity>
   <Property id="Name">Mindspiral</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Helmet</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Aventail Helmet</Property>
@@ -677,7 +347,7 @@
 </Entity>
 <Entity>
   <Property id="Name">The Peregrine</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Helmet</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Visored Sallet</Property>
@@ -692,7 +362,7 @@
 </Entity>
 <Entity>
   <Property id="Name">Rat's Nest</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Helmet</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Ursine Pelt</Property>
@@ -707,7 +377,7 @@
 </Entity>
 <Entity>
   <Property id="Name">Rime Gaze</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Helmet</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Mind Cage</Property>
@@ -722,7 +392,7 @@
 </Entity>
 <Entity>
   <Property id="Name">Scold's Bridle</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Helmet</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Mind Cage</Property>
@@ -737,7 +407,7 @@
 </Entity>
 <Entity>
   <Property id="Name">Skullhead</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Helmet</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Secutor Helm</Property>
@@ -752,7 +422,7 @@
 </Entity>
 <Entity>
   <Property id="Name">Starkonja's Head</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Helmet</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Silken Hood</Property>
@@ -767,7 +437,7 @@
 </Entity>
 <Entity>
   <Property id="Name">The Three Dragons</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Helmet</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Golden Mask</Property>
@@ -782,7 +452,7 @@
 </Entity>
 <Entity>
   <Property id="Name">Veil of the Night</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Helmet</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Great Helmet</Property>
@@ -797,7 +467,7 @@
 </Entity>
 <Entity>
   <Property id="Name">The Vertex</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Helmet</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Vaal Mask</Property>
@@ -812,7 +482,7 @@
 </Entity>
 <Entity>
   <Property id="Name">Ambu's Charge</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Body Armour</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Crusader Chainmail</Property>
@@ -827,7 +497,7 @@
 </Entity>
 <Entity>
   <Property id="Name">Ashrend</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Body Armour</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Buckskin Tunic</Property>
@@ -842,7 +512,7 @@
 </Entity>
 <Entity>
   <Property id="Name">Atziri's Splendour</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Body Armour</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Sacrificial Garb</Property>
@@ -857,7 +527,7 @@
 </Entity>
 <Entity>
   <Property id="Name">Belly of the Beast</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Body Armour</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Full Wyrmscale</Property>
@@ -872,7 +542,7 @@
 </Entity>
 <Entity>
   <Property id="Name">Bramblejack</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Body Armour</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Plate Vest</Property>
@@ -887,7 +557,7 @@
 </Entity>
 <Entity>
   <Property id="Name">Briskwrap</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Body Armour</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Strapped Leather</Property>
@@ -902,7 +572,7 @@
 </Entity>
 <Entity>
   <Property id="Name">Bronn's Lithe</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Body Armour</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Cutthroat's Garb</Property>
@@ -917,7 +587,7 @@
 </Entity>
 <Entity>
   <Property id="Name">Carcass Jack</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Body Armour</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Varnished Coat</Property>
@@ -932,7 +602,7 @@
 </Entity>
 <Entity>
   <Property id="Name">Cherrubim's Maleficence</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Body Armour</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Triumphant Lamellar</Property>
@@ -947,7 +617,7 @@
 </Entity>
 <Entity>
   <Property id="Name">Cloak of Flame</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Body Armour</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Scholar's Robe</Property>
@@ -962,7 +632,7 @@
 </Entity>
 <Entity>
   <Property id="Name">Cloak of Defiance</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Body Armour</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Lacquered Garb</Property>
@@ -977,7 +647,7 @@
 </Entity>
 <Entity>
   <Property id="Name">The Covenant</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Body Armour</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Spidersilk Robe</Property>
@@ -992,7 +662,7 @@
 </Entity>
 <Entity>
   <Property id="Name">Daresso's Defiance</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Body Armour</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Full Dragonscale</Property>
@@ -1007,7 +677,7 @@
 </Entity>
 <Entity>
   <Property id="Name">Death's Oath</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Body Armour</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Astral Plate</Property>
@@ -1022,7 +692,7 @@
 </Entity>
 <Entity>
   <Property id="Name">Foxshade</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Body Armour</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Wild Leather</Property>
@@ -1037,7 +707,7 @@
 </Entity>
 <Entity>
   <Property id="Name">Greed's Embrace</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Body Armour</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Golden Plate</Property>
@@ -1052,7 +722,7 @@
 </Entity>
 <Entity>
   <Property id="Name">Hyrri's Ire</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Body Armour</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Zodiac Leather</Property>
@@ -1067,7 +737,7 @@
 </Entity>
 <Entity>
   <Property id="Name">Icetomb</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Body Armour</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Latticed Ringmail</Property>
@@ -1082,7 +752,7 @@
 </Entity>
 <Entity>
   <Property id="Name">Incandescent Heart</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Body Armour</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Saintly Chainmail</Property>
@@ -1097,7 +767,7 @@
 </Entity>
 <Entity>
   <Property id="Name">Infernal Mantle</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Body Armour</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Occultist's Vestment</Property>
@@ -1112,7 +782,7 @@
 </Entity>
 <Entity>
   <Property id="Name">Kaom's Heart</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Body Armour</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Glorious Plate</Property>
@@ -1127,7 +797,7 @@
 </Entity>
 <Entity>
   <Property id="Name">Lightbane Raiment</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Body Armour</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Ornate Ringmail</Property>
@@ -1142,7 +812,7 @@
 </Entity>
 <Entity>
   <Property id="Name">Lightning Coil</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Body Armour</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Desert Brigandine</Property>
@@ -1157,7 +827,7 @@
 </Entity>
 <Entity>
   <Property id="Name">Queen of the Forest</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Body Armour</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Destiny Leather</Property>
@@ -1172,7 +842,7 @@
 </Entity>
 <Entity>
   <Property id="Name">The Rat Cage</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Body Armour</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Sharkskin Tunic</Property>
@@ -1187,7 +857,7 @@
 </Entity>
 <Entity>
   <Property id="Name">Shavronne's Wrappings</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Body Armour</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Occultist's Vestment</Property>
@@ -1202,7 +872,7 @@
 </Entity>
 <Entity>
   <Property id="Name">Solaris Lorica</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Body Armour</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Copper Plate</Property>
@@ -1217,7 +887,7 @@
 </Entity>
 <Entity>
   <Property id="Name">Soul Mantle</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Body Armour</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Spidersilk Robe</Property>
@@ -1232,7 +902,7 @@
 </Entity>
 <Entity>
   <Property id="Name">Tabula Rasa</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Body Armour</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Simple Robe</Property>
@@ -1247,7 +917,7 @@
 </Entity>
 <Entity>
   <Property id="Name">Thousand Ribbons</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Body Armour</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Simple Robe</Property>
@@ -1262,7 +932,7 @@
 </Entity>
 <Entity>
   <Property id="Name">Vis Mortis</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Body Armour</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Necromancer Silks</Property>
@@ -1277,7 +947,7 @@
 </Entity>
 <Entity>
   <Property id="Name">Voll's Protector</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Body Armour</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Holy Chainmail</Property>
@@ -1292,7 +962,7 @@
 </Entity>
 <Entity>
   <Property id="Name">Zahndethus' Cassock</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Body Armour</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Sage's Robe</Property>
@@ -1307,7 +977,7 @@
 </Entity>
 <Entity>
   <Property id="Name">Asenath's Gentle Touch</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Gloves</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Silk Gloves</Property>
@@ -1322,7 +992,7 @@
 </Entity>
 <Entity>
   <Property id="Name">Atziri's Acuity</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Gloves</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Vaal Gauntlets</Property>
@@ -1337,7 +1007,7 @@
 </Entity>
 <Entity>
   <Property id="Name">Aurseize</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Gloves</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Steelscale Gauntlets</Property>
@@ -1352,7 +1022,7 @@
 </Entity>
 <Entity>
   <Property id="Name">Demigod's Touch</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Gloves</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Golden Bracers</Property>
@@ -1367,7 +1037,7 @@
 </Entity>
 <Entity>
   <Property id="Name">Meginord's Vise</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Gloves</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Steel Gauntlets</Property>
@@ -1382,7 +1052,7 @@
 </Entity>
 <Entity>
   <Property id="Name">Doedre's Tenure</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Gloves</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Velvet Gloves</Property>
@@ -1397,7 +1067,7 @@
 </Entity>
 <Entity>
   <Property id="Name">Facebreaker</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Gloves</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Strapped Mitts</Property>
@@ -1412,7 +1082,7 @@
 </Entity>
 <Entity>
   <Property id="Name">Flesh and Spirit</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Gloves</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Ironscale Gauntlets</Property>
@@ -1427,7 +1097,7 @@
 </Entity>
 <Entity>
   <Property id="Name">Voidbringer</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Gloves</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Conjurer Gloves</Property>
@@ -1442,7 +1112,7 @@
 </Entity>
 <Entity>
   <Property id="Name">Hrimsorrow</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Gloves</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Goathide Gloves</Property>
@@ -1457,7 +1127,7 @@
 </Entity>
 <Entity>
   <Property id="Name">Lochtonial Caress</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Gloves</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Iron Gauntlets</Property>
@@ -1472,7 +1142,7 @@
 </Entity>
 <Entity>
   <Property id="Name">Maligaro's Virtuosity</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Gloves</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Deerskin Gloves</Property>
@@ -1487,7 +1157,7 @@
 </Entity>
 <Entity>
   <Property id="Name">Null and Void</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Gloves</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Legion Gloves</Property>
@@ -1502,7 +1172,7 @@
 </Entity>
 <Entity>
   <Property id="Name">Ondar's Clasp</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Gloves</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Wrapped Mitts</Property>
@@ -1517,7 +1187,7 @@
 </Entity>
 <Entity>
   <Property id="Name">Sadima's Touch</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Gloves</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Wool Gloves</Property>
@@ -1532,7 +1202,7 @@
 </Entity>
 <Entity>
   <Property id="Name">Shackles of the Wretched</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Gloves</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Chain Gloves</Property>
@@ -1547,7 +1217,7 @@
 </Entity>
 <Entity>
   <Property id="Name">Shadows and Dust</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Gloves</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Clasped Mitts</Property>
@@ -1562,7 +1232,7 @@
 </Entity>
 <Entity>
   <Property id="Name">Slitherpinch</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Gloves</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Bronzescale Gauntlets</Property>
@@ -1577,7 +1247,7 @@
 </Entity>
 <Entity>
   <Property id="Name">Snakebite</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Gloves</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Assassin's Mitts</Property>
@@ -1592,7 +1262,7 @@
 </Entity>
 <Entity>
   <Property id="Name">Thunderfist</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Gloves</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Murder Mitts</Property>
@@ -1607,7 +1277,7 @@
 </Entity>
 <Entity>
   <Property id="Name">Vaal Caress</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Gloves</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Bronzescale Gauntlets</Property>
@@ -1619,5 +1289,335 @@
   <Property id="ArmourValue">(95 to 103)</Property>
   <Property id="EvasionValue">(95 to 103)</Property>
   <Property id="EnergyShieldValue"></Property>
+</Entity>
+<Entity>
+  <Property id="Name">Alberon's Warpath</Property>
+  <Property id="Description"></Property>
+  <Property id="Type">Boots</Property>
+  <Property id="Rarity">Unique</Property>
+  <Property id="Base">Soldier Boots</Property>
+  <Property id="Level">49</Property>
+  <Property id="Strength">47</Property>
+  <Property id="Dexterity">0</Property>
+  <Property id="Intelligence">47</Property>
+  <Property id="Mods">Adds 1-80 Chaos Damage | +(180 to 220) to Armour | (9 to 12)% to Chaos Resistance | 20% increased Movement Speed | +2 to Maximum number of Skeletons | (15 to 18)% increased Strength</Property>
+  <Property id="ArmourValue">(257 to 297)</Property>
+  <Property id="EvasionValue"></Property>
+  <Property id="EnergyShieldValue">23</Property>
+</Entity>
+<Entity>
+  <Property id="Name">Atziri's Step</Property>
+  <Property id="Description"></Property>
+  <Property id="Type">Boots</Property>
+  <Property id="Rarity">Unique</Property>
+  <Property id="Base">Slink Boots</Property>
+  <Property id="Level">69</Property>
+  <Property id="Strength">0</Property>
+  <Property id="Dexterity">120</Property>
+  <Property id="Intelligence">0</Property>
+  <Property id="Mods">180% increased Evasion Rating |  +(55 to 75) to maximum Life | 30% increased Movement Speed | (14 to 16)% Chance to Dodge Spell Damage</Property>
+  <Property id="ArmourValue"></Property>
+  <Property id="EvasionValue">599</Property>
+  <Property id="EnergyShieldValue"></Property>
+</Entity>
+<Entity>
+  <Property id="Name">The Blood Dance</Property>
+  <Property id="Description"></Property>
+  <Property id="Type">Boots</Property>
+  <Property id="Rarity">Unique</Property>
+  <Property id="Base">Sharkskin Boots</Property>
+  <Property id="Level">44</Property>
+  <Property id="Strength">0</Property>
+  <Property id="Dexterity">79</Property>
+  <Property id="Intelligence">0</Property>
+  <Property id="Mods">+(30 to 40) to Dexterity | 20% increased Movement Speed | 2% increased Movement Speed per Frenzy Charge | 3% reduced Attack and Cast Speed per Frenzy Charge | 1.0% of Life Regenerated per Second per Frenzy Charge | (20 to 30)% Chance to gain a Frenzy Charge on Kill | Gore Footprints | 6% increased Damage against Enemies on Low Life per Frenzy Charge</Property>
+  <Property id="ArmourValue"></Property>
+  <Property id="EvasionValue">126</Property>
+  <Property id="EnergyShieldValue"></Property>
+</Entity>
+<Entity>
+  <Property id="Name">Bones of Ullr</Property>
+  <Property id="Description"></Property>
+  <Property id="Type">Boots</Property>
+  <Property id="Rarity">Unique</Property>
+  <Property id="Base">Silk Slippers</Property>
+  <Property id="Level">22</Property>
+  <Property id="Strength">0</Property>
+  <Property id="Dexterity">0</Property>
+  <Property id="Intelligence">42</Property>
+  <Property id="Mods">+20 to maximum Life | +20 to maximum Mana | (40 to 60)% increased Energy Shield | (5 to 15)% increased Movement Speed | +1 to Maximum number of Zombies | +1 to Maximum number of Spectres</Property>
+  <Property id="ArmourValue"></Property>
+  <Property id="EvasionValue"></Property>
+  <Property id="EnergyShieldValue">(28 to 32)</Property>
+</Entity>
+<Entity>
+  <Property id="Name">Darkray Vectors</Property>
+  <Property id="Description"></Property>
+  <Property id="Type">Boots</Property>
+  <Property id="Rarity">Unique</Property>
+  <Property id="Base">Dragonscale Boots</Property>
+  <Property id="Level">65</Property>
+  <Property id="Strength">62</Property>
+  <Property id="Dexterity">62</Property>
+  <Property id="Intelligence">0</Property>
+  <Property id="Mods">+(20 to 40)% to Lightning Resistance | 5% increased Movement Speed per Frenzy Charge | +1 maximum Frenzy Charge | 50% reduced Frenzy Charge Duration | 25% reduced Light Radius | 2% chance to Dodge Attacks per Frenzy Charge</Property>
+  <Property id="ArmourValue">105</Property>
+  <Property id="EvasionValue">105</Property>
+  <Property id="EnergyShieldValue"></Property>
+</Entity>
+<Entity>
+  <Property id="Name">Deerstalker</Property>
+  <Property id="Description"></Property>
+  <Property id="Type">Boots</Property>
+  <Property id="Rarity">Unique</Property>
+  <Property id="Base">Deerskin Boots</Property>
+  <Property id="Level">22</Property>
+  <Property id="Strength">0</Property>
+  <Property id="Dexterity">42</Property>
+  <Property id="Intelligence">0</Property>
+  <Property id="Mods">Gems in this item are Supported by level 11 Trap | (160 to 200)% increased Evasion Rating | +(35 to 45) to maximum Life | (14 to 18)% increased Trap Throwing Speed | 30% increased Movement Speed for 9 seconds on Throwing a Trap</Property>
+  <Property id="ArmourValue"></Property>
+  <Property id="EvasionValue">(166 to 192)</Property>
+  <Property id="EnergyShieldValue"></Property>
+</Entity>
+<Entity>
+  <Property id="Name">Demigod's Stride</Property>
+  <Property id="Description"></Property>
+  <Property id="Type">Boots</Property>
+  <Property id="Rarity">Unique</Property>
+  <Property id="Base">Golden Caligae</Property>
+  <Property id="Level">12</Property>
+  <Property id="Strength">0</Property>
+  <Property id="Dexterity">0</Property>
+  <Property id="Intelligence">0</Property>
+  <Property id="Mods">+(8 to 16)% to all Elemental Resistances | (20 to 30)% increased Rarity of Items found | +20% increased Movement Speed</Property>
+  <Property id="ArmourValue"></Property>
+  <Property id="EvasionValue"></Property>
+  <Property id="EnergyShieldValue"></Property>
+</Entity>
+<Entity>
+  <Property id="Name">Dusktoe</Property>
+  <Property id="Description"></Property>
+  <Property id="Type">Boots</Property>
+  <Property id="Rarity">Unique</Property>
+  <Property id="Base">Leatherscale Boots</Property>
+  <Property id="Level">6</Property>
+  <Property id="Strength">0</Property>
+  <Property id="Dexterity">0</Property>
+  <Property id="Intelligence">0</Property>
+  <Property id="Mods">(40 to 60)% increased Armour and Evasion | +(10 to 20) to maximum Life | +(10 to 20) to maximum Mana | 15% increased Movement Speed | 50% increased Block and Stun Recovery | 20% reduced Light Radius | Your Flasks grant +50% to Chaos Resistance during flask effect</Property>
+  <Property id="ArmourValue">(15 to 18)</Property>
+  <Property id="EvasionValue">(15 to 18)</Property>
+  <Property id="EnergyShieldValue"></Property>
+</Entity>
+<Entity>
+  <Property id="Name">Gang's Momentum</Property>
+  <Property id="Description"></Property>
+  <Property id="Type">Boots</Property>
+  <Property id="Rarity">Unique</Property>
+  <Property id="Base">Legion Boots</Property>
+  <Property id="Level">58</Property>
+  <Property id="Strength">54</Property>
+  <Property id="Dexterity">0</Property>
+  <Property id="Intelligence">54</Property>
+  <Property id="Mods">(160 to 180)% increased Armour and Energy Shield | +(50 to 60)% to Fire Resistance | 25% increased Movement Speed | (5 to 7)% chance to Ignite | 15% increased Damage Against Ignited enemies</Property>
+  <Property id="ArmourValue">(237 to 255)</Property>
+  <Property id="EvasionValue"></Property>
+  <Property id="EnergyShieldValue">(70 to 76)</Property>
+</Entity>
+<Entity>
+  <Property id="Name">Goldwyrm</Property>
+  <Property id="Description"></Property>
+  <Property id="Type">Boots</Property>
+  <Property id="Rarity">Unique</Property>
+  <Property id="Base">Nubuck Boots</Property>
+  <Property id="Level">34</Property>
+  <Property id="Strength">0</Property>
+  <Property id="Dexterity">62</Property>
+  <Property id="Intelligence">0</Property>
+  <Property id="Mods">60% increased Mana Regeneration Rate | (14 to 20)% increased Quantity of Items Found | +(40 to 50)% to Fire Resistance | 10% increased Movement Speed</Property>
+  <Property id="ArmourValue"></Property>
+  <Property id="EvasionValue">98</Property>
+  <Property id="EnergyShieldValue"></Property>
+</Entity>
+<Entity>
+  <Property id="Name">Kaom's Roots</Property>
+  <Property id="Description"></Property>
+  <Property id="Type">Boots</Property>
+  <Property id="Rarity">Unique</Property>
+  <Property id="Base">Titan Greaves</Property>
+  <Property id="Level">68</Property>
+  <Property id="Strength">120</Property>
+  <Property id="Dexterity">0</Property>
+  <Property id="Intelligence">0</Property>
+  <Property id="Mods">Has no Sockets | Cannot be Knocked Back | +(120 to 150) to Maximum Life | Unwavering Stance</Property>
+  <Property id="ArmourValue">210</Property>
+  <Property id="EvasionValue"></Property>
+  <Property id="EnergyShieldValue"></Property>
+</Entity>
+<Entity>
+  <Property id="Name">Lioneye's Paws</Property>
+  <Property id="Description"></Property>
+  <Property id="Type">Boots</Property>
+  <Property id="Rarity">Unique</Property>
+  <Property id="Base">Bronzescale Boots</Property>
+  <Property id="Level">30</Property>
+  <Property id="Strength">30</Property>
+  <Property id="Dexterity">30</Property>
+  <Property id="Intelligence">0</Property>
+  <Property id="Mods">+(40 to 60) to Strength | +(40 to 60) to Dexterity | Adds 12–24 Fire Damage | 20% Increased Movement Speed | 40% Reduced Movement Speed when on Low Life | 20% Increased Block and Stun Recovery | Cannot be stunned when on Low Life</Property>
+  <Property id="ArmourValue">48</Property>
+  <Property id="EvasionValue">48</Property>
+  <Property id="EnergyShieldValue"></Property>
+</Entity>
+<Entity>
+  <Property id="Name">Nomic's Storm</Property>
+  <Property id="Description"></Property>
+  <Property id="Type">Boots</Property>
+  <Property id="Rarity">Unique</Property>
+  <Property id="Base">Strapped Boots</Property>
+  <Property id="Level">16</Property>
+  <Property id="Strength">0</Property>
+  <Property id="Dexterity">18</Property>
+  <Property id="Intelligence">18</Property>
+  <Property id="Mods">+(20 to 30) to Dexterity | +(30 to 50) to Evasion Rating | +(15 to 30) to maximum Energy Shield | 20% increased Movement Speed | 20% to Cold Resistance | 30% increased Physical Damage taken | 20% increased Movement Speed when on Full Energy Shield</Property>
+  <Property id="ArmourValue"></Property>
+  <Property id="EvasionValue">(56 to 76)</Property>
+  <Property id="EnergyShieldValue">(23 to 38)</Property>
+</Entity>
+<Entity>
+  <Property id="Name">Ondar's Flight</Property>
+  <Property id="Description"></Property>
+  <Property id="Type">Boots</Property>
+  <Property id="Rarity">Unique</Property>
+  <Property id="Base">Goathide Boots</Property>
+  <Property id="Level">12</Property>
+  <Property id="Strength">0</Property>
+  <Property id="Dexterity">26</Property>
+  <Property id="Intelligence">0</Property>
+  <Property id="Mods">+15 to Dexterity | +15 to Intelligence | (100 to 150)% increased Evasion Rating | 30% increased Movement Speed when on Low Life | (5 to 10)% of Damage taken Gained as Mana when Hit</Property>
+  <Property id="ArmourValue"></Property>
+  <Property id="EvasionValue">(72 to 90)</Property>
+  <Property id="EnergyShieldValue"></Property>
+</Entity>
+<Entity>
+  <Property id="Name">Rainbowstride</Property>
+  <Property id="Description"></Property>
+  <Property id="Type">Boots</Property>
+  <Property id="Rarity">Unique</Property>
+  <Property id="Base">Conjurer Boots</Property>
+  <Property id="Level">53</Property>
+  <Property id="Strength">0</Property>
+  <Property id="Dexterity">0</Property>
+  <Property id="Intelligence">94</Property>
+  <Property id="Mods">(20 to 25)% of Block Chance applied to Spells | +(40 to 60) to maximum Mana | (140 to 180)% increased Energy Shield | +20% to all Elemental Resistances | 20% increased Movement Speed</Property>
+  <Property id="ArmourValue"></Property>
+  <Property id="EvasionValue"></Property>
+  <Property id="EnergyShieldValue">(106 to 123)</Property>
+</Entity>
+<Entity>
+  <Property id="Name">Shavronne's Pace</Property>
+  <Property id="Description"></Property>
+  <Property id="Type">Boots</Property>
+  <Property id="Rarity">Unique</Property>
+  <Property id="Base">Scholar Boots</Property>
+  <Property id="Level">32</Property>
+  <Property id="Strength">0</Property>
+  <Property id="Dexterity">0</Property>
+  <Property id="Intelligence">54</Property>
+  <Property id="Mods">+10 to Dexterity | +10 to Intelligence | (50 to 70)% increased Energy Shield | 35% increased Movement Speed when on Full Life | (10 to 15)% increased Block and Stun Recovery</Property>
+  <Property id="ArmourValue"></Property>
+  <Property id="EvasionValue"></Property>
+  <Property id="EnergyShieldValue">(42 to 48)</Property>
+</Entity>
+<Entity>
+  <Property id="Name">Sin Trek</Property>
+  <Property id="Description"></Property>
+  <Property id="Type">Boots</Property>
+  <Property id="Rarity">Unique</Property>
+  <Property id="Base">Stealth Boots</Property>
+  <Property id="Level">62</Property>
+  <Property id="Strength">0</Property>
+  <Property id="Dexterity">117</Property>
+  <Property id="Intelligence">0</Property>
+  <Property id="Mods">+(20 to 30) to Dexterity | +(20 to 30) to Intelligence | (80 to 100)% increased Evasion Rating | +(50 to 70) to maximum Energy Shield | 30% increased Movement Speed | Enemies Cannot Leech Life From You</Property>
+  <Property id="ArmourValue"></Property>
+  <Property id="EvasionValue">(343 to 382)</Property>
+  <Property id="EnergyShieldValue">(50 to 70)</Property>
+</Entity>
+<Entity>
+  <Property id="Name">Sundance</Property>
+  <Property id="Description"></Property>
+  <Property id="Type">Boots</Property>
+  <Property id="Rarity">Unique</Property>
+  <Property id="Base">Clasped Boots</Property>
+  <Property id="Level">27</Property>
+  <Property id="Strength">0</Property>
+  <Property id="Dexterity">27</Property>
+  <Property id="Intelligence">27</Property>
+  <Property id="Mods">10% increased Attack Speed | (80 to 120)% increased Evasion Rating | (20 to 30)% increased Rarity of Items found | +(30 to 40)% to Fire Resistance | 10% increased Movement Speed</Property>
+  <Property id="ArmourValue"></Property>
+  <Property id="EvasionValue">(77 to 95)</Property>
+  <Property id="EnergyShieldValue">13</Property>
+</Entity>
+<Entity>
+  <Property id="Name">Wake of Destruction</Property>
+  <Property id="Description"></Property>
+  <Property id="Type">Boots</Property>
+  <Property id="Rarity">Unique</Property>
+  <Property id="Base">Mesh Boots</Property>
+  <Property id="Level">28</Property>
+  <Property id="Strength">28</Property>
+  <Property id="Dexterity">0</Property>
+  <Property id="Intelligence">28</Property>
+  <Property id="Mods">Adds 1–120 Lightning Damage | +(10 to 20) Life gained on Kill | (20 to 60)% increased Armour and Energy Shield | 10% Chance to Cause Monsters to Flee</Property>
+  <Property id="ArmourValue">(54 to 72)</Property>
+  <Property id="EvasionValue"></Property>
+  <Property id="EnergyShieldValue">(16 to 21)</Property>
+</Entity>
+<Entity>
+  <Property id="Name">Wanderlust</Property>
+  <Property id="Description"></Property>
+  <Property id="Type">Boots</Property>
+  <Property id="Rarity">Unique</Property>
+  <Property id="Base">Wool Shoes</Property>
+  <Property id="Level">0</Property>
+  <Property id="Strength">0</Property>
+  <Property id="Dexterity">0</Property>
+  <Property id="Intelligence">0</Property>
+  <Property id="Mods">+5 to Dexterity | (20 to 40)% increased Mana Regeneration Rate | +(10 to 20) to maximum Energy Shield | 20% increased Movement Speed | Cannot be Frozen</Property>
+  <Property id="ArmourValue"></Property>
+  <Property id="EvasionValue"></Property>
+  <Property id="EnergyShieldValue">(14 to 24)</Property>
+</Entity>
+<Entity>
+  <Property id="Name">Windscream</Property>
+  <Property id="Description"></Property>
+  <Property id="Type">Boots</Property>
+  <Property id="Rarity">Unique</Property>
+  <Property id="Base">Reinforced Greaves</Property>
+  <Property id="Level">33</Property>
+  <Property id="Strength">60</Property>
+  <Property id="Dexterity">0</Property>
+  <Property id="Intelligence">0</Property>
+  <Property id="Mods">(50 to 80)% increased Armour | +(10 to 15)% to all Elemental Resistances | 10% increased Movement Speed | 10% increased Elemental Damage | Enemies can have 1 additional Curse</Property>
+  <Property id="ArmourValue">(143 to 171)</Property>
+  <Property id="EvasionValue"></Property>
+  <Property id="EnergyShieldValue"></Property>
+</Entity>
+<Entity>
+  <Property id="Name">Wondertrap</Property>
+  <Property id="Description"></Property>
+  <Property id="Type">Boots</Property>
+  <Property id="Rarity">Unique</Property>
+  <Property id="Base">Velvet Slippers</Property>
+  <Property id="Level">9</Property>
+  <Property id="Strength">0</Property>
+  <Property id="Dexterity">0</Property>
+  <Property id="Intelligence">21</Property>
+  <Property id="Mods">+(5 to 10) to Strength | +(5 to 10) to Dexterity | +(5 to 10) to Intelligence | +(10 to 16) to maximum Energy Shield | 100% Increased Rarity of Items Found when on Low Life | 10% Increased Movement Speed</Property>
+  <Property id="ArmourValue"></Property>
+  <Property id="EvasionValue"></Property>
+  <Property id="EnergyShieldValue">(19 to 25)</Property>
 </Entity>
 </Root>

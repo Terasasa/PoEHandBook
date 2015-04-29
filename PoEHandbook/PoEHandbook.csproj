@@ -88,6 +88,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\Currency.cs" />
     <Compile Include="Model\Equipment.cs" />
     <Compile Include="Model\Gem.cs" />
     <Compile Include="Model\Interfaces\DescriptionHandler.cs" />
@@ -141,7 +142,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Data\Aliases.xml">
+    <Resource Include="Data\aliases.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>

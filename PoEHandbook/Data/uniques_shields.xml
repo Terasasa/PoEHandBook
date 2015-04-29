@@ -2,7 +2,7 @@
 <Root>
 <Entity>
   <Property id="Name">Aegis Aurora</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Shield</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Champion Kite Shield</Property>
@@ -18,7 +18,7 @@
 </Entity>
 <Entity>
   <Property id="Name">Atziri's Mirror</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Shield</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Golden Buckler</Property>
@@ -34,7 +34,7 @@
 </Entity>
 <Entity>
   <Property id="Name">Chalice of Horrors</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Shield</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">War Buckler</Property>
@@ -50,7 +50,7 @@
 </Entity>
 <Entity>
   <Property id="Name">Chernobog's Pillar</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Shield</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Ebony Tower Shield</Property>
@@ -66,7 +66,7 @@
 </Entity>
 <Entity>
   <Property id="Name">Crest of Perandus</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Shield</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Pine Buckler</Property>
@@ -82,7 +82,7 @@
 </Entity>
 <Entity>
   <Property id="Name">Daresso's Courage</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Shield</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Baroque Round Shield</Property>
@@ -98,7 +98,7 @@
 </Entity>
 <Entity>
   <Property id="Name">Great Old One's Ward</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Shield</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Corrugated Buckler</Property>
@@ -114,7 +114,7 @@
 </Entity>
 <Entity>
   <Property id="Name">Jaws of Agony</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Shield</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Supreme Spiked Shield</Property>
@@ -130,7 +130,7 @@
 </Entity>
 <Entity>
   <Property id="Name">Kaltenhalt</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Shield</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Painted Buckler</Property>
@@ -146,7 +146,7 @@
 </Entity>
 <Entity>
   <Property id="Name">Lioneye's Remorse</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Shield</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Pinnacle Tower Shield</Property>
@@ -162,7 +162,7 @@
 </Entity>
 <Entity>
   <Property id="Name">Maligaro's Lens</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Shield</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Compound Spiked Shield</Property>
@@ -178,7 +178,7 @@
 </Entity>
 <Entity>
   <Property id="Name">Matua Tupuna</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Shield</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Tarnished Spirit Shield</Property>
@@ -194,7 +194,7 @@
 </Entity>
 <Entity>
   <Property id="Name">Prism Guardian</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Shield</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Archon Kite Shield</Property>
@@ -210,7 +210,7 @@
 </Entity>
 <Entity>
   <Property id="Name">Rathpith Globe</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Shield</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Titanium Spirit Shield</Property>
@@ -226,7 +226,7 @@
 </Entity>
 <Entity>
   <Property id="Name">Rise of the Phoenix</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Shield</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Mosaic Kite Shield</Property>
@@ -242,7 +242,7 @@
 </Entity>
 <Entity>
   <Property id="Name">Saffell's Frame</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Shield</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Branded Kite Shield</Property>
@@ -258,7 +258,7 @@
 </Entity>
 <Entity>
   <Property id="Name">Sentari's Answer</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Shield</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Brass Spirit Shield</Property>
@@ -274,7 +274,7 @@
 </Entity>
 <Entity>
   <Property id="Name">Springleaf</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Shield</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Plank Kite Shield</Property>
@@ -290,7 +290,7 @@
 </Entity>
 <Entity>
   <Property id="Name">Thousand Teeth Temu</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Shield</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Vaal Buckler</Property>
@@ -306,7 +306,7 @@
 </Entity>
 <Entity>
   <Property id="Name">Titucius' Span</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Shield</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Reinforced Tower Shield</Property>
@@ -322,7 +322,7 @@
 </Entity>
 <Entity>
   <Property id="Name">Wheel of the Stormsail</Property>
-  <Property id="Text"></Property>
+  <Property id="Description"></Property>
   <Property id="Type">Shield</Property>
   <Property id="Rarity">Unique</Property>
   <Property id="Base">Rotted Round Shield</Property>

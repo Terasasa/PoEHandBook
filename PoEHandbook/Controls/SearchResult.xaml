@@ -57,7 +57,7 @@
             <Grid x:Name="ImageGrid" Grid.Row="1">
                 <Image x:Name="ItemImage"
                        Margin="10"
-                       Stretch="None" />
+                       Stretch="Uniform" />
                 <Rectangle Height="2"
                            HorizontalAlignment="Stretch"
                            VerticalAlignment="Bottom"

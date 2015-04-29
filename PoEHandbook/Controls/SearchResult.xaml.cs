@@ -40,14 +40,8 @@ namespace PoEHandbook.Controls
             ItemSearchMatches.Text = string.Join(Environment.NewLine, _sr.Matches);
 
             // Figure out the colors
-            var rarity = RarityHandler.RarityTier.Normal;
-
-            var entWithRarity = _sr.Entity as IHasRarity;
-            if (entWithRarity != null) rarity = entWithRarity.RarityHandler.Rarity;
-
             Color fore, back;
-            rarity.GetRarityColor(out fore, out back);
-
+            _sr.Entity.GetEntityColor(out fore, out back);
             Resources["AccentColor"] = back;
             ItemName.Foreground = new SolidColorBrush(fore);
             InvalidateVisual();

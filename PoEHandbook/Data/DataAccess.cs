@@ -22,6 +22,7 @@ namespace PoEHandbook.Data
             Entities.Clear();
             var resources = new Dictionary<string, Type>
             {
+                {"currency.xml", typeof (Currency)},
                 {"uniques_armors.xml", typeof (Equipment)},
                 {"uniques_shields.xml", typeof (Equipment)},
                 {"misc.xml", typeof (Entity)}
@@ -51,7 +52,7 @@ namespace PoEHandbook.Data
 
         private static void LoadAliases()
         {
-            string path = Path.Combine(Environment.CurrentDirectory, "Data", "Aliases.xml");
+            string path = Path.Combine(Environment.CurrentDirectory, "Data", "aliases.xml");
 
             if (!File.Exists(path)) return;
 

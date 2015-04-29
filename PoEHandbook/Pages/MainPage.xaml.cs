@@ -49,17 +49,27 @@ namespace PoEHandbook.Pages
 
             TbStatus.Inlines.Clear();
 
+            int currencyCount = searchResults.Count(sr => sr.Entity is Currency);
             int equipCount = searchResults.Count(sr => sr.Entity is Equipment);
             int gemCount = searchResults.Count(sr => sr.Entity is Gem);
             int jewelCount = searchResults.Count(sr => sr.Entity is Jewel);
             int mapCount = searchResults.Count(sr => sr.Entity is Map);
             int passiveCount = searchResults.Count(sr => sr.Entity is Passive);
             int recipeCount = searchResults.Count(sr => sr.Entity is Recipe);
-            int miscCount = searchResults.Length - equipCount - gemCount - jewelCount - mapCount - passiveCount -
-                            recipeCount;
+            int miscCount = searchResults.Length - currencyCount - equipCount - gemCount - jewelCount - mapCount -
+                            passiveCount - recipeCount;
 
             TbStatus.Inlines.Add("Found ");
 
+            if (currencyCount > 0)
+            {
+                if (TbStatus.Inlines.Count > 1)
+                    TbStatus.Inlines.Add(", ");
+
+                var run = new Run("" + currencyCount) { FontWeight = FontWeights.Bold };
+                TbStatus.Inlines.Add(run);
+                TbStatus.Inlines.Add(" currency item(s)");
+            }
             if (equipCount > 0)
             {
                 if (TbStatus.Inlines.Count > 1)
@@ -141,7 +151,7 @@ namespace PoEHandbook.Pages
             if (entities == null) return;
 
             _lastResults = entities
-                .OrderBy(sr => sr.Entity.GetType())
+                .OrderBy(sr => sr.Entity.GetType().Name)
                 .ThenBy(sr => sr.Entity.Name);
             foreach (var sr in _lastResults)
             {

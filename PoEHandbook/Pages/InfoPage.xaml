@@ -40,6 +40,7 @@
                 FontSize="32"
                 Foreground="White" />
         <Border Grid.Column="1"
+                Margin="10"
                 Background="Black"
                 BorderBrush="{DynamicResource AccentBrush}"
                 BorderThickness="2">

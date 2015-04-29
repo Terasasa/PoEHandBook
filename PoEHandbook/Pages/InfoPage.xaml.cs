@@ -31,13 +31,8 @@ namespace PoEHandbook.Pages
             ImgItem.Source = new BitmapImage(ent.ImageUri);
 
             // Figure out the colors
-            var rarity = RarityHandler.RarityTier.Normal;
-
-            var entWithRarity = ent as IHasRarity;
-            if (entWithRarity != null) rarity = entWithRarity.RarityHandler.Rarity;
-
             Color fore, back;
-            rarity.GetRarityColor(out fore, out back);
+            ent.GetEntityColor(out fore, out back);
             Resources["AccentColor"] = back;
             TbName.Foreground = new SolidColorBrush(fore);
         }

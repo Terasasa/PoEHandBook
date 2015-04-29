@@ -61,10 +61,15 @@ namespace PoEHandbook.Model
                 return true;
             }
 
-            // Process name
+            // Process basic properties
             if (Name.ContainsInvariant(query))
             {
                 properties.Add("Name");
+                result = true;
+            }
+            if (GetType().Name.ContainsInvariant(query))
+            {
+                properties.Add("Entity Type");
                 result = true;
             }
 
