@@ -137,7 +137,9 @@ namespace PoEHandbook.Pages
             var queries = _lastQuery.Split(new[] {','}, StringSplitOptions.RemoveEmptyEntries);
             var entities = DataAccess.PerformSearchQuery(queries);
 
-            _lastResults = entities.OrderBy(sr => sr.Entity.Name);
+            _lastResults = entities
+                .OrderBy(sr => sr.Entity.GetType())
+                .ThenBy(sr => sr.Entity.Name);
             foreach (var sr in _lastResults)
             {
                 var result = new Controls.SearchResult(sr, NavigationService);
