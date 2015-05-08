@@ -145,7 +145,7 @@ namespace PoEHandbook.Pages
             PnlResults.Children.Clear();
             _lastResults = new SearchResult[] {};
 
-            var queries = _lastQuery.Split(new[] {','}, StringSplitOptions.RemoveEmptyEntries);
+            var queries = _lastQuery.Split(new[] {','}, StringSplitOptions.RemoveEmptyEntries).TrimElements().ToArray();
             var entities = DataAccess.PerformSearchQuery(queries);
 
             if (entities == null) return;
@@ -155,7 +155,7 @@ namespace PoEHandbook.Pages
                 .ThenBy(sr => sr.Entity.Name);
             foreach (var sr in _lastResults)
             {
-                var result = new Controls.SearchResult(sr, NavigationService);
+                var result = new Controls.SearchResult(sr, queries, NavigationService);
                 PnlResults.Children.Add(result);
             }
 

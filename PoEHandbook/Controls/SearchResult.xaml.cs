@@ -5,12 +5,14 @@
 //  ------------------------------------------------------------------ 
 
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Windows;
+using System.Windows.Documents;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using PoEHandbook.Model;
-using PoEHandbook.Model.Interfaces;
 using PoEHandbook.Pages;
 using PoEHandbook.Properties;
 
@@ -24,7 +26,45 @@ namespace PoEHandbook.Controls
         private readonly Data.SearchResult _sr;
         private readonly NavigationService _ns;
 
-        public SearchResult(Data.SearchResult sr, NavigationService ns = null)
+        private static void FormatSearchResultMatches(Data.SearchResult sr, IEnumerable<string> highlights,
+            InlineCollection ic)
+        {
+            ic.Clear();
+
+            var subStrings = highlights as string[] ?? highlights.ToArray();
+
+            // Loop through all highlights
+            foreach (string line in sr.Matches)
+            {
+                if (ic.Count > 0)
+                    ic.Add(Environment.NewLine);
+
+                // Loop to split matches and the rest of the string
+                int offset = 0;
+                int matchIndex;
+                do
+                {
+                    // Find the match
+                    string match;
+                    matchIndex = line.IndexOfAnyInvariant(offset, subStrings, out match);
+
+                    // If found - substring everything before
+                    // .. if not - substring the rest of the string
+                    string sub = matchIndex >= 0
+                        ? line.Substring(offset, matchIndex - offset)
+                        : line.Substring(offset);
+                    offset = matchIndex + match.Length;
+
+                    // Add substring
+                    ic.Add(sub);
+                    // Add match
+                    if (matchIndex >= 0)
+                        ic.Add(new Run(match) { TextDecorations = TextDecorations.Underline, FontWeight = FontWeights.Bold });
+                } while (matchIndex >= 0);
+            }
+        }
+
+        public SearchResult(Data.SearchResult sr, IEnumerable<string> highlights, NavigationService ns = null)
         {
             InitializeComponent();
 
@@ -37,7 +77,7 @@ namespace PoEHandbook.Controls
                 ItemImage.Source = new BitmapImage(_sr.Entity.ImageUri);
             else
                 MainGrid.RowDefinitions[1].Height = new GridLength(0);
-            ItemSearchMatches.Text = string.Join(Environment.NewLine, _sr.Matches);
+            FormatSearchResultMatches(_sr, highlights, ItemSearchMatches.Inlines);
 
             // Figure out the colors
             Color fore, back;

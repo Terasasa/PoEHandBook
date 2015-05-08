@@ -1,8 +1,8 @@
-﻿//  ------------------------------------------------------------------ 
-//  PoEHandbook
-//  InfoPage.xaml.cs by Tyrrrz
-//  26/04/2015
-//  ------------------------------------------------------------------ 
+﻿// //  ------------------------------------------------------------------ 
+// //  PoEHandbook
+// //  InfoPage.xaml.cs by 
+// //  06/05/2015
+// //  ------------------------------------------------------------------ 
 
 using System;
 using System.Windows;
@@ -37,13 +37,13 @@ namespace PoEHandbook.Pages
             TbName.Foreground = new SolidColorBrush(fore);
         }
 
-        private static void FormatEntityName(Entity ent, InlineCollection ic)
+        static private void FormatEntityName(Entity ent, InlineCollection ic)
         {
             ic.Clear();
 
             ic.Add(ent.Name);
 
-            var entWithRarity = ent as IHasRarity;
+            IHasRarity entWithRarity = ent as IHasRarity;
             if (entWithRarity != null)
             {
                 ic.Add(Environment.NewLine);
@@ -51,11 +51,11 @@ namespace PoEHandbook.Pages
             }
         }
 
-        private static void FormatEntityStats(Entity ent, InlineCollection ic)
+        static private void FormatEntityStats(Entity ent, InlineCollection ic)
         {
             ic.Clear();
 
-            var entWithStats = ent as IHasStats;
+            IHasStats entWithStats = ent as IHasStats;
 
             if (entWithStats == null || !entWithStats.StatsHandler.IsRelevant)
             {
@@ -65,13 +65,13 @@ namespace PoEHandbook.Pages
 
             bool first = true;
 
-            var statsHandler = entWithStats.StatsHandler;
+            StatsHandler statsHandler = entWithStats.StatsHandler;
             if (statsHandler.Block.Average > 0)
             {
                 first = false;
 
                 ic.Add("Chance to Block: ");
-                var run = new Run(statsHandler.Block + "%");
+                Run run = new Run(statsHandler.Block + "%");
                 if (statsHandler.BlockAffected)
                     run.Foreground = new SolidColorBrush((Color) ColorConverter.ConvertFromString("#6a88ef"));
                 ic.Add(run);
@@ -83,7 +83,7 @@ namespace PoEHandbook.Pages
                 first = false;
 
                 ic.Add("Armour: ");
-                var run = new Run(statsHandler.ArmourValue.ToString());
+                Run run = new Run(statsHandler.ArmourValue.ToString());
                 if (statsHandler.ArmourAffected)
                     run.Foreground = new SolidColorBrush((Color) ColorConverter.ConvertFromString("#6a88ef"));
                 ic.Add(run);
@@ -95,7 +95,7 @@ namespace PoEHandbook.Pages
                 first = false;
 
                 ic.Add("Evasion: ");
-                var run = new Run(statsHandler.EvasionValue.ToString());
+                Run run = new Run(statsHandler.EvasionValue.ToString());
                 if (statsHandler.EvasionAffected)
                     run.Foreground = new SolidColorBrush((Color) ColorConverter.ConvertFromString("#6a88ef"));
                 ic.Add(run);
@@ -106,18 +106,18 @@ namespace PoEHandbook.Pages
                     ic.Add(Environment.NewLine);
 
                 ic.Add("Energy Shield: ");
-                var run = new Run(statsHandler.EnergyShieldValue.ToString());
+                Run run = new Run(statsHandler.EnergyShieldValue.ToString());
                 if (statsHandler.EnergyShieldAffected)
                     run.Foreground = new SolidColorBrush((Color) ColorConverter.ConvertFromString("#6a88ef"));
                 ic.Add(run);
             }
         }
 
-        private static void FormatEntityRequirements(Entity ent, InlineCollection ic)
+        static private void FormatEntityRequirements(Entity ent, InlineCollection ic)
         {
             ic.Clear();
 
-            var entWithRequirements = ent as IHasRequirements;
+            IHasRequirements entWithRequirements = ent as IHasRequirements;
 
             if (entWithRequirements == null || !entWithRequirements.RequirementsHandler.IsRelevant)
             {
@@ -128,7 +128,7 @@ namespace PoEHandbook.Pages
             bool first = true;
             ic.Add("Requires ");
 
-            var reqHandler = entWithRequirements.RequirementsHandler;
+            RequirementsHandler reqHandler = entWithRequirements.RequirementsHandler;
             if (reqHandler.Level > 0)
             {
                 first = false;
@@ -164,12 +164,12 @@ namespace PoEHandbook.Pages
             }
         }
 
-        private static void FormatEntityMods(Entity ent, InlineCollection ic)
+        static private void FormatEntityMods(Entity ent, InlineCollection ic)
         {
             ic.Clear();
 
-            var entWithMods = ent as IHasMods;
-            var entWithDescription = ent as IHasDescription;
+            IHasMods entWithMods = ent as IHasMods;
+            IHasDescription entWithDescription = ent as IHasDescription;
 
             if ((entWithMods == null || !entWithMods.ModsHandler.IsRelevant) && entWithDescription == null)
             {

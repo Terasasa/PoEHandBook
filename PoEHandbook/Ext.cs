@@ -5,6 +5,8 @@
 //  ------------------------------------------------------------------ 
 
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Windows;
 
 namespace PoEHandbook
@@ -23,6 +25,33 @@ namespace PoEHandbook
         }
 
         /// <summary>
+        /// Returns the first occurence of any substrings in enumerable
+        /// </summary>
+        public static int IndexOfAnyInvariant(this string str, int offset, IEnumerable<string> subStrings, out string match)
+        {
+            int index = int.MaxValue;
+            match = "";
+
+            foreach (string sub in subStrings)
+            {
+                int curIndex = str.IndexOf(sub, offset, StringComparison.InvariantCultureIgnoreCase);
+                if (curIndex == 0)
+                {
+                    match = str.Substring(curIndex, sub.Length);
+                    return 0;
+                }
+                if (curIndex >= 0 && curIndex < index)
+                {
+                    match = str.Substring(curIndex, sub.Length);
+                    index = curIndex;
+                }
+            }
+
+            if (index == int.MaxValue) return -1;
+            return index;
+        }
+
+        /// <summary>
         /// Create entity from data, obtained by copying item stats in PoE client
         /// </summary>
         public static string QueryFromPoEClipboard()
@@ -36,6 +65,14 @@ namespace PoEHandbook
             string name = lines[1].Trim();
 
             return rarity + ", " + name;
+        }
+
+        /// <summary>
+        /// Returns the same enumerable, with all its elements trimmed
+        /// </summary>
+        public static IEnumerable<string> TrimElements(this IEnumerable<string> enumerable)
+        {
+            return enumerable.Select(str => str.Trim());
         }
     }
 }
