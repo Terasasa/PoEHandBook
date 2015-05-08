@@ -149,6 +149,12 @@
   <ItemGroup>
     <Resource Include="Data\cache\Beta Key.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Data\currency.xml" />
+    <Resource Include="Data\misc.xml" />
+    <Resource Include="Data\unique_armours.xml" />
+    <Resource Include="Data\unique_shields.xml" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>XCOPY "$(ProjectDir)Data" "$(TargetDir)Data" /s /i /y</PostBuildEvent>

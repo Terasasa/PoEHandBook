@@ -1,59 +1,81 @@
-__author__ = 'Tyrrrz'
-
+import os
 import codecs
 import urllib.request
 from bs4 import BeautifulSoup
 
-from objects.entity import Entity
-from objects.item import Item
-from objects.armor import Armor
-from objects.shield import Shield
 
-headers = {
-    "User-Agent": "Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.90 Safari/537.36",
-    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8"}
+def get_page(uri):
+    # PoE wiki forbids access if user agent does not belong to one of the popular browsers
+    # .. so we're Google Chrome now
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.90 Safari/537.36",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8"}
+    req = urllib.request.Request(uri, headers=headers)
+    return urllib.request.urlopen(req)
+
+
+def download_file(uri, directory, name):
+    if not os.path.exists(directory):
+        os.makedirs(directory)
+    urllib.request.urlretrieve(uri, os.path.join(directory, name))
+
+
+def create_xml_node(name, value, indentations=0):
+    name = str(name).strip()
+    value = str(value).strip().replace("N/A", "0")
+    return '  '*indentations + '<Property id="' + name + '">' + value + '</Property>\n'
+
+
+def create_xml_document(nodes, file_name):
+    file = codecs.open(file_name, 'w', encoding="utf-8")
+    file.write('<?xml version="1.0" encoding="utf-8" ?>\n<Root>\n')
+    file.writelines(nodes)
+    file.write("</Root>")
+    file.close()
+
+
+def format_item_mods(mods):
+    return mods.replace("N/A", "")\
+            .replace("<", "[")\
+            .replace(">", "]")\
+            .replace("  ", " | ")
 
 
 # region Parsers
-def parse_currency(cache_images=True):
+def parse_currency(download_images=True):
     uri = "http://pathofexile.gamepedia.com/Currency"
 
     result = []
 
-    req = urllib.request.Request(uri, headers=headers)
-    with urllib.request.urlopen(req) as response:
-        soup = BeautifulSoup(response.read())
+    soup = BeautifulSoup(get_page(uri).read())
 
     rows = soup.select("table.sortable tr")
-
     for row in rows:
         if len(row.select("th")) > 0:
             continue
 
         cols = row.select("td")
 
-        ent = Entity()
-        ent.name = cols[0].get_text().strip()
+        result.append("<Entity>\n")
+        name = cols[0].get_text().strip()
+        result.append(create_xml_node("Name", name, 1))
 
-        detaileduri = "http://pathofexile.gamepedia.com" + cols[0].select("a")[0].attrs["href"]
-        req = urllib.request.Request(detaileduri, headers=headers)
-        with urllib.request.urlopen(req) as response:
-            soup = BeautifulSoup(response.read())
-        ent.text = soup.select("span.itemboxstatsgroup")[1].get_text()
-        ent.imageUri = soup.select("div.itemboximage")[0].select("img")[0].attrs["src"]
+        uri_detailed = "http://pathofexile.gamepedia.com" + cols[0].select("a")[0].attrs["href"]
+        soup = BeautifulSoup(get_page(uri_detailed).read())
+        result.append(create_xml_node("Description", soup.select("span.itemboxstatsgroup")[1].get_text(), 1))
+        result.append("</Entity>\n")
 
-        if cache_images:
-            ent.cache_image()
+        if download_images:
+            imageUri = soup.select("div.itemboximage")[0].select("img")[0].attrs["src"]
+            download_file(imageUri, "cache", name + ".png")
 
-        result.append(ent)
-
-        print("- parsed currency called " + ent.name)
+        print("- parsed currency called " + name)
 
     return result
 
 
-def parse_armors(rarity, cache_images=True):
-    itemtypes = {
+def parse_armors(download_images=True):
+    item_types = {
         "Body Armour": "http://pathofexile.gamepedia.com/List_of_unique_body_armours",
         "Helmet": "http://pathofexile.gamepedia.com/List_of_unique_helmets",
         "Gloves": "http://pathofexile.gamepedia.com/List_of_unique_gloves",
@@ -62,126 +84,107 @@ def parse_armors(rarity, cache_images=True):
 
     result = []
 
-    for itemtype in itemtypes.keys():
-        req = urllib.request.Request(itemtypes[itemtype], headers=headers)
-        with urllib.request.urlopen(req) as response:
-            soup = BeautifulSoup(response.read())
+    for item_type in item_types.keys():
+        soup = BeautifulSoup(get_page(item_types[item_type]).read())
 
         rows = soup.select("table.sortable tr")
         for row in rows:
             if len(row.select("th")) > 0:
                 continue
+
             cols = row.select("td")
-            armor = Armor()
-            armor.name = cols[0].select("a")[0].get_text()
-            armor.type = itemtype
 
-            armor.rarity = rarity
-            armor.base = cols[1].select("a")[0].get_text()
-            armor.lvl = cols[2].get_text()
-            armor.str = cols[3].get_text()
-            armor.dex = cols[4].get_text()
-            armor.int = cols[5].get_text()
-            armor.armourValue = cols[6].get_text()
-            armor.evasionValue = cols[7].get_text()
-            armor.energyShieldValue = cols[8].get_text()
-            armor.mods = cols[9].get_text()
+            result.append("<Entity>\n")
+            name = cols[0].select("a")[0].get_text().strip()
+            result.append(create_xml_node("Name", name, 1))
+            result.append(create_xml_node("Type", item_type, 1))
+            result.append(create_xml_node("Rarity", "Unique", 1))
+            result.append(create_xml_node("Base", cols[1].select("a")[0].get_text(), 1))
+            result.append(create_xml_node("Level", cols[2].get_text(), 1))
+            result.append(create_xml_node("Strength", cols[3].get_text(), 1))
+            result.append(create_xml_node("Dexterity", cols[4].get_text(), 1))
+            result.append(create_xml_node("Intelligence", cols[5].get_text(), 1))
+            result.append(create_xml_node("ArmourValue", cols[6].get_text(), 1))
+            result.append(create_xml_node("EvasionValue", cols[7].get_text(), 1))
+            result.append(create_xml_node("EnergyShieldValue", cols[8].get_text(), 1))
+            result.append(create_xml_node("Mods", format_item_mods(cols[9].get_text()), 1))
+            result.append("</Entity>\n")
 
-            detaileduri = "http://pathofexile.gamepedia.com" + cols[0].select("a")[0].attrs["href"]
-            req = urllib.request.Request(detaileduri, headers=headers)
-            with urllib.request.urlopen(req) as response:
-                soup = BeautifulSoup(response.read())
+            uri_detailed = "http://pathofexile.gamepedia.com" + cols[0].select("a")[0].attrs["href"]
+            soup = BeautifulSoup(get_page(uri_detailed).read())
 
-            armor.imageUri = soup.select("div.itemboximage")[0].select("img")[0].attrs["src"]
+            if download_images:
+                imageUri = soup.select("div.itemboximage")[0].select("img")[0].attrs["src"]
+                download_file(imageUri, "cache", name + ".png")
 
-            if cache_images:
-                armor.cache_image()
-
-            result.append(armor)
-
-            print("- parsed armor called " + armor.name)
+            print("- parsed armor called " + name)
 
     return result
 
 
-def parse_shields(rarity, cache_images=True):
+def parse_shields(download_images=True):
     uri = "http://pathofexile.gamepedia.com/List_of_unique_shields"
 
     result = []
 
-    req = urllib.request.Request(uri, headers=headers)
-    with urllib.request.urlopen(req) as response:
-        soup = BeautifulSoup(response.read())
+    soup = BeautifulSoup(get_page(uri).read())
 
     rows = soup.select("table.sortable tr")
     for row in rows:
         if len(row.select("th")) > 0:
             continue
+
         cols = row.select("td")
-        shield = Shield()
-        shield.name = cols[0].select("a")[0].get_text()
-        shield.type = "Shield"
-        shield.rarity = rarity
-        shield.base = cols[1].select("a")[0].get_text()
-        shield.lvl = cols[2].get_text()
-        shield.str = cols[3].get_text()
-        shield.dex = cols[4].get_text()
-        shield.int = cols[5].get_text()
-        shield.block = cols[6].get_text()
-        shield.armourValue = cols[7].get_text()
-        shield.evasionValue = cols[8].get_text()
-        shield.energyShieldValue = cols[9].get_text()
-        shield.mods = cols[10].get_text()
 
-        detaileduri = "http://pathofexile.gamepedia.com" + cols[0].select("a")[0].attrs["href"]
-        req = urllib.request.Request(detaileduri, headers=headers)
-        with urllib.request.urlopen(req) as response:
-            soup = BeautifulSoup(response.read())
+        result.append("<Entity>\n")
+        name = cols[0].select("a")[0].get_text().strip()
+        result.append(create_xml_node("Name", name, 1))
+        result.append(create_xml_node("Type", "Shield", 1))
+        result.append(create_xml_node("Rarity", "Unique", 1))
+        result.append(create_xml_node("Base", cols[1].select("a")[0].get_text(), 1))
+        result.append(create_xml_node("Level", cols[2].get_text(), 1))
+        result.append(create_xml_node("Strength", cols[3].get_text(), 1))
+        result.append(create_xml_node("Dexterity", cols[4].get_text(), 1))
+        result.append(create_xml_node("Intelligence", cols[5].get_text(), 1))
+        result.append(create_xml_node("Block", cols[6].get_text(), 1))
+        result.append(create_xml_node("ArmourValue", cols[7].get_text(), 1))
+        result.append(create_xml_node("EvasionValue", cols[8].get_text(), 1))
+        result.append(create_xml_node("EnergyShieldValue", cols[9].get_text(), 1))
+        result.append(create_xml_node("Mods", format_item_mods(cols[10].get_text()), 1))
+        result.append("</Entity>\n")
 
-        shield.imageUri = soup.select("div.itemboximage")[0].select("img")[0].attrs["src"]
+        uri_detailed = "http://pathofexile.gamepedia.com" + cols[0].select("a")[0].attrs["href"]
+        soup = BeautifulSoup(get_page(uri_detailed).read())
 
-        if cache_images:
-            shield.cache_image()
+        if download_images:
+            imageUri = soup.select("div.itemboximage")[0].select("img")[0].attrs["src"]
+            download_file(imageUri, "cache", name + ".png")
 
-        result.append(shield)
-
-        print("- parsed shield called " + shield.name)
+        print("- parsed shield called " + name)
 
     return result
 
 # endregion
 
-inpt = input("Cache images? [Y/N]")
-isCache = inpt.upper() == "Y"
+
+# -=-=-=-=-=-=-=-=-=-=-=- ENTRY POINT -=-=-=-=-=-=-=-=-=-=-=- #
+inpt = input("Download images? [Y/N] ")
+need_download_images = inpt.upper() == "Y"
+print()
 
 print("Parsing currency items")
-file = codecs.open("currency.xml", 'w', encoding="utf-8")
-items = parse_currency(isCache)
-file.write('<?xml version="1.0" encoding="utf-8" ?>\n<Root>\n')
-for item in items:
-    file.write(item.serialize() + "\n")
-file.write("</Root>")
-file.close()
+nodes = parse_currency(need_download_images)
+create_xml_document(nodes, "currency.xml")
 print()
 
 print("Parsing unique items")
 
-print("- armors")
-file = codecs.open("uniques_armors.xml", 'w', encoding="utf-8")
-items = parse_armors("Unique", isCache)
-file.write('<?xml version="1.0" encoding="utf-8" ?>\n<Root>\n')
-for item in items:
-    file.write(item.serialize() + "\n")
-file.write("</Root>")
-file.close()
+print("- armours")
+nodes = parse_armors(need_download_images)
+create_xml_document(nodes, "unique_armours.xml")
 print()
 
 print("- shields")
-file = codecs.open("uniques_shields.xml", 'w', encoding="utf-8")
-items = parse_shields("Unique", isCache)
-file.write('<?xml version="1.0" encoding="utf-8" ?>\n<Root>\n')
-for item in items:
-    file.write(item.serialize() + "\n")
-file.write("</Root>")
-file.close()
+nodes = parse_shields(need_download_images)
+create_xml_document(nodes, "unique_shields.xml")
 print()

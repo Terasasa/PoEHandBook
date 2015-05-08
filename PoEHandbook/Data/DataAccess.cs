@@ -23,8 +23,8 @@ namespace PoEHandbook.Data
             var resources = new Dictionary<string, Type>
             {
                 {"currency.xml", typeof (Currency)},
-                {"uniques_armors.xml", typeof (Equipment)},
-                {"uniques_shields.xml", typeof (Equipment)},
+                {"unique_armours.xml", typeof (Equipment)},
+                {"unique_shields.xml", typeof (Equipment)},
                 {"misc.xml", typeof (Entity)}
             };
 
