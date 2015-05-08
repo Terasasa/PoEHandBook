@@ -60,9 +60,11 @@ namespace PoEHandbook
         public static string QueryFromPoEClipboard()
         {
             string data = Clipboard.GetText();
-            string[] lines = data.Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
+            if (string.IsNullOrEmpty(data)) return null;
 
+            string[] lines = data.Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
             if (lines.Length < 2) return null;
+            if (!lines[0].StartsWith("Rarity", StringComparison.InvariantCultureIgnoreCase)) return null;
 
             string rarity = lines[0].Substring(lines[0].IndexOf(':') + 1).Trim();
             string name = lines[1].Trim();
