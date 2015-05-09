@@ -152,8 +152,14 @@
   <ItemGroup>
     <Resource Include="Data\currency.xml" />
     <Resource Include="Data\misc.xml" />
-    <Resource Include="Data\unique_armours.xml" />
     <Resource Include="Data\unique_shields.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Data\maps.xml" />
+    <Resource Include="Data\unique_body_armours.xml" />
+    <Resource Include="Data\unique_boots.xml" />
+    <Resource Include="Data\unique_gloves.xml" />
+    <Resource Include="Data\unique_helmets.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

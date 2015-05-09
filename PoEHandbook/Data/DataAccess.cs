@@ -22,10 +22,18 @@ namespace PoEHandbook.Data
             Entities.Clear();
             var resources = new Dictionary<string, Type>
             {
+                {"misc.xml", typeof (Entity)},
+
                 {"currency.xml", typeof (Currency)},
-                {"unique_armours.xml", typeof (Equipment)},
-                {"unique_shields.xml", typeof (Equipment)},
-                {"misc.xml", typeof (Entity)}
+
+                {"maps.xml", typeof (Map)},
+
+                {"unique_body_armours.xml", typeof (Equipment)},
+                {"unique_helmets.xml", typeof (Equipment)},
+                {"unique_gloves.xml", typeof (Equipment)},
+                {"unique_boots.xml", typeof (Equipment)},
+
+                {"unique_shields.xml", typeof (Equipment)}
             };
 
             foreach (var resource in resources)
