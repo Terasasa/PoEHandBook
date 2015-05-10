@@ -13,6 +13,9 @@ namespace PoEHandbook
 {
     public static class Ext
     {
+        /// <summary>
+        /// Replaces common unicode letters with similar looking ASCII counterparts
+        /// </summary>
         public static string ReplaceUnicodeCharacters(this string str)
         {
             return str

@@ -6,6 +6,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Windows;
 using System.Windows.Documents;
@@ -73,7 +74,7 @@ namespace PoEHandbook.Controls
 
             // Fill the data
             ItemName.Text = _sr.Entity.Name;
-            if (Settings.Default.ShowImages)
+            if (Settings.Default.ShowImages && File.Exists(_sr.Entity.ImageUri.LocalPath))
                 ItemImage.Source = new BitmapImage(_sr.Entity.ImageUri);
             else
                 MainGrid.RowDefinitions[1].Height = new GridLength(0);

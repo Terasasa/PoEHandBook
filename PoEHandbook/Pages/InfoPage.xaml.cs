@@ -5,6 +5,7 @@
 // //  ------------------------------------------------------------------ 
 
 using System;
+using System.IO;
 using System.Windows;
 using System.Windows.Documents;
 using System.Windows.Media;
@@ -185,7 +186,8 @@ namespace PoEHandbook.Pages
             FormatEntityStats(ent, TbStats.Inlines);
             FormatEntityRequirements(ent, TbRequiremenets.Inlines);
             FormatEntityMods(ent, TbMods.Inlines);
-            ImgItem.Source = new BitmapImage(ent.ImageUri);
+            if (File.Exists(ent.ImageUri.LocalPath))
+                ImgItem.Source = new BitmapImage(ent.ImageUri);
 
             // Figure out the colors
             Color fore, back;
