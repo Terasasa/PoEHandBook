@@ -19,6 +19,7 @@ namespace PoEHandbook.Model.Interfaces
         }
 
         public string[] Mods { get; private set; }
+        public bool HasImplicitMod { get; private set; }
 
         public bool IsRelevant
         {
@@ -32,6 +33,9 @@ namespace PoEHandbook.Model.Interfaces
             temp = node.SelectSingleNode(@"Property[@id='Mods']");
             if (temp != null)
                 Mods = temp.InnerText.Split(new[] { " | " }, StringSplitOptions.RemoveEmptyEntries);
+
+            temp = node.SelectSingleNode(@"HasImplicitMod");
+            HasImplicitMod = temp != null;
         }
 
         public override bool ContainsInProperties(string query, out List<string> properties)

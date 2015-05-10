@@ -194,7 +194,8 @@
   <Property id="ArmourValue">(1420 to 1622)</Property>
   <Property id="EvasionValue">0</Property>
   <Property id="EnergyShieldValue">0</Property>
-  <Property id="Mods">+(8 to 12)% to all Elemental Resistances+(40 to 50) to all Attributes | (10 to 15)% increased Attack Speed | (180 to 220)% increased Armour | 5% of Physical Attack Damage Leeched as Life | Deals 450.0 Chaos Damage per second to nearby enemies | You take 450 Chaos Damage per second for 10 seconds on Kill | Gore Footprints</Property>
+  <Property id="Mods">+(8 to 12)% to all Elemental Resistances | +(40 to 50) to all Attributes | (10 to 15)% increased Attack Speed | (180 to 220)% increased Armour | 5% of Physical Attack Damage Leeched as Life | Deals 450.0 Chaos Damage per second to nearby enemies | You take 450 Chaos Damage per second for 10 seconds on Kill | Gore Footprints</Property>
+  <HasImplicitMod />
 </Entity>
 <Entity>
   <Property id="Name">Foxshade</Property>
@@ -264,7 +265,7 @@
   <Property id="ArmourValue">(761 to 878)</Property>
   <Property id="EvasionValue">0</Property>
   <Property id="EnergyShieldValue">(216 to 235)</Property>
-  <Property id="Mods">+(60 to 80) to Armour(120 to 140)% increased Armour and Energy Shield+(80 to 90) to maximum Life(4 to 5)% of Physical Attack Damage Leeched as Life25% of Elemental Damage taken as Chaos Damage(20 to 30)% increased Light RadiusLight Radius is based on Energy Shield instead of Life</Property>
+  <Property id="Mods">+(60 to 80) to Armour | (120 to 140)% increased Armour and Energy Shield | +(80 to 90) to maximum Life | (4 to 5)% of Physical Attack Damage Leeched as Life | 25% of Elemental Damage taken as Chaos Damage | (20 to 30)% increased Light Radius | Light Radius is based on Energy Shield instead of Life</Property>
 </Entity>
 <Entity>
   <Property id="Name">Infernal Mantle</Property>
@@ -278,7 +279,8 @@
   <Property id="ArmourValue">0</Property>
   <Property id="EvasionValue">0</Property>
   <Property id="EnergyShieldValue">(406 to 462)</Property>
-  <Property id="Mods">(3 to 10)% increased Spell Damage+1 to Level of Fire Gems in this item | (25 to 35)% increased Fire Damage | 100% increased Global Critical Strike Chance | (190 to 230)% increased Energy Shield | 25% of Fire Damage Converted to Chaos Damage | 100% increased Spell Damage taken when on Low Mana</Property>
+  <Property id="Mods">(3 to 10)% increased Spell Damage | +1 to Level of Fire Gems in this item | (25 to 35)% increased Fire Damage | 100% increased Global Critical Strike Chance | (190 to 230)% increased Energy Shield | 25% of Fire Damage Converted to Chaos Damage | 100% increased Spell Damage taken when on Low Mana</Property>
+  <HasImplicitMod />
 </Entity>
 <Entity>
   <Property id="Name">Kaom's Heart</Property>
@@ -362,7 +364,8 @@
   <Property id="ArmourValue">0</Property>
   <Property id="EvasionValue">0</Property>
   <Property id="EnergyShieldValue">(336 to 420)</Property>
-  <Property id="Mods">(3 to 10)% increased Spell Damage(140 to 200)% increased Energy Shield | 10% faster start of Energy Shield Recharge | +(30 to 40)% to Lightning Resistance | Reflects 1–250 Lightning Damage to Melee Attackers | Chaos Damage does not bypass Energy Shield</Property>
+  <Property id="Mods">(3 to 10)% increased Spell Damage | (140 to 200)% increased Energy Shield | 10% faster start of Energy Shield Recharge | +(30 to 40)% to Lightning Resistance | Reflects 1–250 Lightning Damage to Melee Attackers | Chaos Damage does not bypass Energy Shield</Property>
+  <HasImplicitMod />
 </Entity>
 <Entity>
   <Property id="Name">Solaris Lorica</Property>

@@ -82,7 +82,8 @@
   <Property id="ArmourValue">(212 to 233)</Property>
   <Property id="EvasionValue">(212 to 233)</Property>
   <Property id="EnergyShieldValue">0</Property>
-  <Property id="Mods">120% increased Block Recovery20% increased Physical Damage | (100 to 120)% increased Armour and Evasion | +(10 to 20)% to Fire Resistance | +(10 to 20)% to Cold Resistance | +(10 to 20)% to Lightning Resistance | 120% of Block Chance applied to Spells when on Low Life | (3 to 6)% additional Block Chance</Property>
+  <Property id="Mods">120% increased Block Recovery | 20% increased Physical Damage | (100 to 120)% increased Armour and Evasion | +(10 to 20)% to Fire Resistance | +(10 to 20)% to Cold Resistance | +(10 to 20)% to Lightning Resistance | 120% of Block Chance applied to Spells when on Low Life | (3 to 6)% additional Block Chance</Property>
+  <HasImplicitMod />
 </Entity>
 <Entity>
   <Property id="Name">Great Old One's Ward</Property>
@@ -110,7 +111,8 @@
   <Property id="ArmourValue">0</Property>
   <Property id="EvasionValue">210</Property>
   <Property id="EnergyShieldValue">62</Property>
-  <Property id="Mods">Reflects (221 to 260) Physical Damage to Melee Attackers(18 to 28)% increased Trap Damage | (15 to 25)% increased Physical Damage | +(60 to 80) to maximum Life | −(14 to 18) Physical Damage taken from Attacks | 15% chance to gain a Power Charge on Throwing a Trap | Grants level 20 Bear Trap Skill</Property>
+  <Property id="Mods">Reflects (221 to 260) Physical Damage to Melee Attackers | (18 to 28)% increased Trap Damage | (15 to 25)% increased Physical Damage | +(60 to 80) to maximum Life | −(14 to 18) Physical Damage taken from Attacks | 15% chance to gain a Power Charge on Throwing a Trap | Grants level 20 Bear Trap Skill</Property>
+  <HasImplicitMod />
 </Entity>
 <Entity>
   <Property id="Name">Kaltenhalt</Property>
@@ -152,7 +154,8 @@
   <Property id="ArmourValue">0</Property>
   <Property id="EvasionValue">106</Property>
   <Property id="EnergyShieldValue">31</Property>
-  <Property id="Mods">Reflects (51 to 70) Physical Damage to Melee Attackers(10 to 15)% increased Attack Speed | (10 to 20)% increased maximum Life | −50% to all Elemental Resistances | 10% increased Radius of Area Skills | Nearby allies Recover 2% of your maximum Life when you Die</Property>
+  <Property id="Mods">Reflects (51 to 70) Physical Damage to Melee Attackers | (10 to 15)% increased Attack Speed | (10 to 20)% increased maximum Life | −50% to all Elemental Resistances | 10% increased Radius of Area Skills | Nearby allies Recover 2% of your maximum Life when you Die</Property>
+  <HasImplicitMod />
 </Entity>
 <Entity>
   <Property id="Name">Matua Tupuna</Property>
@@ -166,7 +169,8 @@
   <Property id="ArmourValue">0</Property>
   <Property id="EvasionValue">0</Property>
   <Property id="EnergyShieldValue">(35 to 45)</Property>
-  <Property id="Mods">5% increased Spell Damage+2 to Level of Minion Gems in this item | +(15 to 25) to maximum Mana | (40 to 80)% increased Energy Shield | 10% increased Effect of Auras on You | 10% increased Effect of Auras on your Minions | Spreads Tar when you take a Critical Strike</Property>
+  <Property id="Mods">5% increased Spell Damage | +2 to Level of Minion Gems in this item | +(15 to 25) to maximum Mana | (40 to 80)% increased Energy Shield | 10% increased Effect of Auras on You | 10% increased Effect of Auras on your Minions | Spreads Tar when you take a Critical Strike</Property>
+  <HasImplicitMod />
 </Entity>
 <Entity>
   <Property id="Name">Prism Guardian</Property>
@@ -180,7 +184,8 @@
   <Property id="ArmourValue">162</Property>
   <Property id="EvasionValue">0</Property>
   <Property id="EnergyShieldValue">48</Property>
-  <Property id="Mods">+12% to all Elemental Resistances+1 to Level of Aura Gems in this item | Gems in this item have Blood Magic | Gems in this item have 25% reduced Mana Reservation | +(20 to 30) to Dexterity | +25% to all Elemental Resistances</Property>
+  <Property id="Mods">+12% to all Elemental Resistances | +1 to Level of Aura Gems in this item | Gems in this item have Blood Magic | Gems in this item have 25% reduced Mana Reservation | +(20 to 30) to Dexterity | +25% to all Elemental Resistances</Property>
+  <HasImplicitMod />
 </Entity>
 <Entity>
   <Property id="Name">Rathpith Globe</Property>
@@ -208,7 +213,8 @@
   <Property id="ArmourValue">(229 to 254)</Property>
   <Property id="EvasionValue">0</Property>
   <Property id="EnergyShieldValue">(67 to 74)</Property>
-  <Property id="Mods">+8% to all Elemental Resistances(80 to 100)% increased Armour and Energy Shield | 6.0 Life Regenerated per second | +8% to maximum Fire Resistance | +(20 to 25)% to Fire Resistance | 25% increased Fire Resistance while on Low Life | 10% increased Movement Speed when on Low Life | Cannot be Ignited while on Low Life</Property>
+  <Property id="Mods">+8% to all Elemental Resistances | (80 to 100)% increased Armour and Energy Shield | 6.0 Life Regenerated per second | +8% to maximum Fire Resistance | +(20 to 25)% to Fire Resistance | 25% increased Fire Resistance while on Low Life | 10% increased Movement Speed when on Low Life | Cannot be Ignited while on Low Life</Property>
+  <HasImplicitMod />
 </Entity>
 <Entity>
   <Property id="Name">Saffell's Frame</Property>
@@ -222,7 +228,8 @@
   <Property id="ArmourValue">194</Property>
   <Property id="EvasionValue">0</Property>
   <Property id="EnergyShieldValue">57</Property>
-  <Property id="Mods">+4% to all Elemental Resistances(70 to 80)% of Block Chance applied to Spells | (20 to 30)% increased Spell Damage | +10% to all Elemental Resistances | +4% to all maximum Resistances | Cannot Block Attacks</Property>
+  <Property id="Mods">+4% to all Elemental Resistances | (70 to 80)% of Block Chance applied to Spells | (20 to 30)% increased Spell Damage | +10% to all Elemental Resistances | +4% to all maximum Resistances | Cannot Block Attacks</Property>
+  <HasImplicitMod />
 </Entity>
 <Entity>
   <Property id="Name">Sentari's Answer</Property>
@@ -250,7 +257,8 @@
   <Property id="ArmourValue">(27 to 33)</Property>
   <Property id="EvasionValue">0</Property>
   <Property id="EnergyShieldValue">(9 to 11)</Property>
-  <Property id="Mods">+4% to all Elemental Resistances(80 to 120)% increased Armour and Energy Shield | 50% reduced Freeze Duration on You | 6.0% of Life Regenerated per Second while on Low Life</Property>
+  <Property id="Mods">+4% to all Elemental Resistances | (80 to 120)% increased Armour and Energy Shield | 50% reduced Freeze Duration on You | 6.0% of Life Regenerated per Second while on Low Life</Property>
+  <HasImplicitMod />
 </Entity>
 <Entity>
   <Property id="Name">Thousand Teeth Temu</Property>
@@ -292,6 +300,7 @@
   <Property id="ArmourValue">(16 to 21)</Property>
   <Property id="EvasionValue">11</Property>
   <Property id="EnergyShieldValue">0</Property>
-  <Property id="Mods">60% increased Block Recovery+(5 to 10) to Armour | (30 to 40)% increased Rarity of Items found | 25% increased Curse Duration | 100% increased Duration of Curses on you | 5% additional Block Chance</Property>
+  <Property id="Mods">60% increased Block Recovery | +(5 to 10) to Armour | (30 to 40)% increased Rarity of Items found | 25% increased Curse Duration | 100% increased Duration of Curses on you | 5% additional Block Chance</Property>
+  <HasImplicitMod />
 </Entity>
 </Root>

@@ -152,7 +152,8 @@
   <Property id="ArmourValue">0</Property>
   <Property id="EvasionValue">0</Property>
   <Property id="EnergyShieldValue">0</Property>
-  <Property id="Mods">+(16 to 24) to all Attributes2.0 Life Regenerated per second | +(20 to 30)% increased Rarity of Items found</Property>
+  <Property id="Mods">+(16 to 24) to all Attributes | 2.0 Life Regenerated per second | +(20 to 30)% increased Rarity of Items found</Property>
+  <HasImplicitMod />
 </Entity>
 <Entity>
   <Property id="Name">Devoto's Devotion</Property>
@@ -418,7 +419,7 @@
   <Property id="ArmourValue">0</Property>
   <Property id="EvasionValue">83</Property>
   <Property id="EnergyShieldValue">25</Property>
-  <Property id="Mods">+(26 to 30)% to all Elemental ResistancesYour Fire Damage can Shock but not IgniteYour Cold Damage can Ignite but not Freeze or ChillYour Lightning Damage can Freeze but not Shock</Property>
+  <Property id="Mods">+(26 to 30)% to all Elemental Resistances | Your Fire Damage can Shock but not Ignite | Your Cold Damage can Ignite but not Freeze or Chill | Your Lightning Damage can Freeze but not Shock</Property>
 </Entity>
 <Entity>
   <Property id="Name">Veil of the Night</Property>

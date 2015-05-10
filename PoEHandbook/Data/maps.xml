@@ -46,7 +46,7 @@
   <Property id="Base">Reef Map</Property>
   <Property id="Level">68</Property>
   <Property id="Quantity">0</Property>
-  <Property id="Mods">Monsters deal (175 to 190)% extra Damage as LightningMonsters gain 3 Endurance Charges every 20 secondsMonsters gain 3 Power Charges every 20 seconds</Property>
+  <Property id="Mods">Monsters deal (175 to 190)% extra Damage as Lightning | Monsters gain 3 Endurance Charges every 20 seconds | Monsters gain 3 Power Charges every 20 seconds</Property>
 </Entity>
 <Entity>
   <Property id="Name">Oba's Cursed Trove</Property>

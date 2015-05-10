@@ -96,7 +96,8 @@
   <Property id="ArmourValue">0</Property>
   <Property id="EvasionValue">0</Property>
   <Property id="EnergyShieldValue">0</Property>
-  <Property id="Mods">+(8 to 16)% to all Elemental Resistances(20 to 30)% increased Rarity of Items found | +20% increased Movement Speed</Property>
+  <Property id="Mods">+(8 to 16)% to all Elemental Resistances | (20 to 30)% increased Rarity of Items found | +20% increased Movement Speed</Property>
+  <HasImplicitMod />
 </Entity>
 <Entity>
   <Property id="Name">Dusktoe</Property>

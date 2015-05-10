@@ -194,9 +194,29 @@ namespace PoEHandbook.Pages
                 return;
             }
 
-            ic.Add(entWithMods != null
-                ? string.Join(Environment.NewLine, entWithMods.ModsHandler.Mods)
-                : entWithDescription.DescriptionHandler.Description);
+            if (entWithMods != null)
+            {
+                for (int i = 0; i < entWithMods.ModsHandler.Mods.Length; i++)
+                {
+                    string mod = entWithMods.ModsHandler.Mods[i];
+
+                    bool isImplicit = i == 0 && entWithMods.ModsHandler.HasImplicitMod;
+                    bool isCorruptedMod = mod.Equals("Corrupted", StringComparison.InvariantCultureIgnoreCase);
+
+                    var run = new Run(mod);
+                    if (isImplicit)
+                    {
+                        run.FontWeight = FontWeights.SemiBold;
+                        run.Text += Environment.NewLine;
+                    }
+                    if (isCorruptedMod)
+                        run.Foreground = new SolidColorBrush(Colors.Red);
+
+                    ic.Add(run);
+                    ic.Add(Environment.NewLine);
+                }
+            }
+            else ic.Add(entWithDescription.DescriptionHandler.Description);
         }
 
         public InfoPage(Entity ent)

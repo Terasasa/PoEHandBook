@@ -54,7 +54,8 @@
   <Property id="ArmourValue">0</Property>
   <Property id="EvasionValue">0</Property>
   <Property id="EnergyShieldValue">0</Property>
-  <Property id="Mods">+(20 to 30) to maximum Life(10 to 16)% increased Attack Speed | (6 to 10)% increased Cast Speed</Property>
+  <Property id="Mods">+(20 to 30) to maximum Life | (10 to 16)% increased Attack Speed | (6 to 10)% increased Cast Speed</Property>
+  <HasImplicitMod />
 </Entity>
 <Entity>
   <Property id="Name">Meginord's Vise</Property>

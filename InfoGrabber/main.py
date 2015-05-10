@@ -1,6 +1,7 @@
 ﻿import sys
 import os
 import codecs
+import re
 import urllib.request
 from bs4 import BeautifulSoup
 
@@ -31,13 +32,18 @@ def download_file(uri, directory, name):
     urllib.request.urlretrieve(uri, os.path.join(directory, name))
 
 
-def create_xml_node(name, value, indentations=0):
+def create_property_xml(name, value, indent=0):
     name = str(name).strip()
     value = str(value).strip().replace("N/A", "0")
-    return '  '*indentations + '<Property id="' + name + '">' + value + '</Property>\n'
+    return '  '*indent + '<Property id="' + name + '">' + value + '</Property>\n'
 
 
-def create_xml_document(nodes, file_name):
+def create_delim_xml(name, indent=0):
+    name = str(name).strip()
+    return '  '*indent + '<' + name + ' />\n'
+
+
+def dump_xml(nodes, file_name):
     file = codecs.open(file_name, 'w', encoding="utf-8")
     file.write('<?xml version="1.0" encoding="utf-8" ?>\n<Root>\n')
     file.writelines(nodes)
@@ -46,6 +52,7 @@ def create_xml_document(nodes, file_name):
 
 
 def format_item_mods(mods):
+    mods = re.sub(r"([a-z])([\+\-\(\dA-Z])", r"\1 | \2", mods)
     return mods.replace("N/A", "")\
             .replace("<", "[")\
             .replace(">", "]")\
@@ -68,11 +75,11 @@ def parse_currency(uris, download_images=True):
 
             result.append("<Entity>\n")
             name = cols[0].get_text().strip()
-            result.append(create_xml_node("Name", name, 1))
+            result.append(create_property_xml("Name", name, 1))
 
             uri_detailed = "http://pathofexile.gamepedia.com" + cols[0].select("a")[0].attrs["href"]
             soup = BeautifulSoup(get_page(uri_detailed).read())
-            result.append(create_xml_node("Description", soup.select("span.itemboxstatsgroup")[1].get_text(), 1))
+            result.append(create_property_xml("Description", soup.select("span.itemboxstatsgroup")[1].get_text(), 1))
             result.append("</Entity>\n")
 
             if download_images:
@@ -102,12 +109,14 @@ def parse_maps(uris, rarity, download_images=True):
 
             result.append("<Entity>\n")
             name = cols[0].select("a")[0].get_text().strip()
-            result.append(create_xml_node("Name", name, 1))
-            result.append(create_xml_node("Rarity", rarity, 1))
-            result.append(create_xml_node("Base", cols[1].select("a")[0].get_text(), 1))
-            result.append(create_xml_node("Level", cols[2].get_text(), 1))
-            result.append(create_xml_node("Quantity", cols[3].get_text(), 1))
-            result.append(create_xml_node("Mods", format_item_mods(cols[4].get_text()), 1))
+            result.append(create_property_xml("Name", name, 1))
+            result.append(create_property_xml("Rarity", rarity, 1))
+            result.append(create_property_xml("Base", cols[1].select("a")[0].get_text(), 1))
+            result.append(create_property_xml("Level", cols[2].get_text(), 1))
+            result.append(create_property_xml("Quantity", cols[3].get_text(), 1))
+            result.append(create_property_xml("Mods", format_item_mods(cols[4].get_text()), 1))
+            if len(cols[4].select("span.itemboxstatsgroup")) > 1:
+                result.append(create_delim_xml("HasImplicitMod", 1))
             result.append("</Entity>\n")
 
             uri_detailed = "http://pathofexile.gamepedia.com" + cols[0].select("a")[0].attrs["href"]
@@ -140,12 +149,14 @@ def parse_jewels(uris, rarity, download_images=True):
 
             result.append("<Entity>\n")
             name = cols[0].select("a")[0].get_text().strip()
-            result.append(create_xml_node("Name", name, 1))
-            result.append(create_xml_node("Rarity", rarity, 1))
-            result.append(create_xml_node("Base", cols[1].select("a")[0].get_text(), 1))
-            result.append(create_xml_node("Limit", cols[2].get_text(), 1))
-            result.append(create_xml_node("Radius", cols[3].get_text(), 1))
-            result.append(create_xml_node("Mods", format_item_mods(cols[4].get_text()), 1))
+            result.append(create_property_xml("Name", name, 1))
+            result.append(create_property_xml("Rarity", rarity, 1))
+            result.append(create_property_xml("Base", cols[1].select("a")[0].get_text(), 1))
+            result.append(create_property_xml("Limit", cols[2].get_text(), 1))
+            result.append(create_property_xml("Radius", cols[3].get_text(), 1))
+            result.append(create_property_xml("Mods", format_item_mods(cols[4].get_text()), 1))
+            if len(cols[4].select("span.itemboxstatsgroup")) > 1:
+                result.append(create_delim_xml("HasImplicitMod", 1))
             result.append("</Entity>\n")
 
             uri_detailed = "http://pathofexile.gamepedia.com" + cols[0].select("a")[0].attrs["href"]
@@ -178,18 +189,20 @@ def parse_armors(uris, type, rarity, download_images=True):
 
             result.append("<Entity>\n")
             name = cols[0].select("a")[0].get_text().strip()
-            result.append(create_xml_node("Name", name, 1))
-            result.append(create_xml_node("Type", type, 1))
-            result.append(create_xml_node("Rarity", rarity, 1))
-            result.append(create_xml_node("Base", cols[1].select("a")[0].get_text(), 1))
-            result.append(create_xml_node("Level", cols[2].get_text(), 1))
-            result.append(create_xml_node("Strength", cols[3].get_text(), 1))
-            result.append(create_xml_node("Dexterity", cols[4].get_text(), 1))
-            result.append(create_xml_node("Intelligence", cols[5].get_text(), 1))
-            result.append(create_xml_node("ArmourValue", cols[6].get_text(), 1))
-            result.append(create_xml_node("EvasionValue", cols[7].get_text(), 1))
-            result.append(create_xml_node("EnergyShieldValue", cols[8].get_text(), 1))
-            result.append(create_xml_node("Mods", format_item_mods(cols[9].get_text()), 1))
+            result.append(create_property_xml("Name", name, 1))
+            result.append(create_property_xml("Type", type, 1))
+            result.append(create_property_xml("Rarity", rarity, 1))
+            result.append(create_property_xml("Base", cols[1].select("a")[0].get_text(), 1))
+            result.append(create_property_xml("Level", cols[2].get_text(), 1))
+            result.append(create_property_xml("Strength", cols[3].get_text(), 1))
+            result.append(create_property_xml("Dexterity", cols[4].get_text(), 1))
+            result.append(create_property_xml("Intelligence", cols[5].get_text(), 1))
+            result.append(create_property_xml("ArmourValue", cols[6].get_text(), 1))
+            result.append(create_property_xml("EvasionValue", cols[7].get_text(), 1))
+            result.append(create_property_xml("EnergyShieldValue", cols[8].get_text(), 1))
+            result.append(create_property_xml("Mods", format_item_mods(cols[9].get_text()), 1))
+            if len(cols[9].select("span.itemboxstatsgroup")) > 1:
+                result.append(create_delim_xml("HasImplicitMod", 1))
             result.append("</Entity>\n")
 
             uri_detailed = "http://pathofexile.gamepedia.com" + cols[0].select("a")[0].attrs["href"]
@@ -222,12 +235,14 @@ def parse_trinkets(uris, type, rarity, download_images=True):
 
             result.append("<Entity>\n")
             name = cols[0].select("a")[0].get_text().strip()
-            result.append(create_xml_node("Name", name, 1))
-            result.append(create_xml_node("Type", type, 1))
-            result.append(create_xml_node("Rarity", rarity, 1))
-            result.append(create_xml_node("Base", cols[1].select("a")[0].get_text(), 1))
-            result.append(create_xml_node("Level", cols[2].get_text(), 1))
-            result.append(create_xml_node("Mods", format_item_mods(cols[3].get_text()), 1))
+            result.append(create_property_xml("Name", name, 1))
+            result.append(create_property_xml("Type", type, 1))
+            result.append(create_property_xml("Rarity", rarity, 1))
+            result.append(create_property_xml("Base", cols[1].select("a")[0].get_text(), 1))
+            result.append(create_property_xml("Level", cols[2].get_text(), 1))
+            result.append(create_property_xml("Mods", format_item_mods(cols[3].get_text()), 1))
+            if len(cols[3].select("span.itemboxstatsgroup")) > 1:
+                result.append(create_delim_xml("HasImplicitMod", 1))
             result.append("</Entity>\n")
 
             uri_detailed = "http://pathofexile.gamepedia.com" + cols[0].select("a")[0].attrs["href"]
@@ -260,18 +275,20 @@ def parse_shields(uris, rarity, download_images=True):
 
             result.append("<Entity>\n")
             name = cols[0].select("a")[0].get_text().strip()
-            result.append(create_xml_node("Name", name, 1))
-            result.append(create_xml_node("Rarity", rarity, 1))
-            result.append(create_xml_node("Base", cols[1].select("a")[0].get_text(), 1))
-            result.append(create_xml_node("Level", cols[2].get_text(), 1))
-            result.append(create_xml_node("Strength", cols[3].get_text(), 1))
-            result.append(create_xml_node("Dexterity", cols[4].get_text(), 1))
-            result.append(create_xml_node("Intelligence", cols[5].get_text(), 1))
-            result.append(create_xml_node("Block", cols[6].get_text(), 1))
-            result.append(create_xml_node("ArmourValue", cols[7].get_text(), 1))
-            result.append(create_xml_node("EvasionValue", cols[8].get_text(), 1))
-            result.append(create_xml_node("EnergyShieldValue", cols[9].get_text(), 1))
-            result.append(create_xml_node("Mods", format_item_mods(cols[10].get_text()), 1))
+            result.append(create_property_xml("Name", name, 1))
+            result.append(create_property_xml("Rarity", rarity, 1))
+            result.append(create_property_xml("Base", cols[1].select("a")[0].get_text(), 1))
+            result.append(create_property_xml("Level", cols[2].get_text(), 1))
+            result.append(create_property_xml("Strength", cols[3].get_text(), 1))
+            result.append(create_property_xml("Dexterity", cols[4].get_text(), 1))
+            result.append(create_property_xml("Intelligence", cols[5].get_text(), 1))
+            result.append(create_property_xml("Block", cols[6].get_text(), 1))
+            result.append(create_property_xml("ArmourValue", cols[7].get_text(), 1))
+            result.append(create_property_xml("EvasionValue", cols[8].get_text(), 1))
+            result.append(create_property_xml("EnergyShieldValue", cols[9].get_text(), 1))
+            result.append(create_property_xml("Mods", format_item_mods(cols[10].get_text()), 1))
+            if len(cols[10].select("span.itemboxstatsgroup")) > 1:
+                result.append(create_delim_xml("HasImplicitMod", 1))
             result.append("</Entity>\n")
 
             uri_detailed = "http://pathofexile.gamepedia.com" + cols[0].select("a")[0].attrs["href"]
@@ -318,63 +335,63 @@ print()
 if not os.path.exists("currency.xml"):
     print("#Currency")
     nodes = parse_currency(uris_currency, need_download_images)
-    create_xml_document(nodes, "currency.xml")
+    dump_xml(nodes, "currency.xml")
     print()
 if not os.path.exists("maps.xml"):
     print("#Unique maps")
     nodes = parse_maps(uris_unique_maps, "Unique", need_download_images)
-    create_xml_document(nodes, "maps.xml")
+    dump_xml(nodes, "maps.xml")
     print()
 if not os.path.exists("jewels.xml"):
     print("#Unique jewels")
     nodes = parse_jewels(uris_unique_jewels, "Unique", need_download_images)
-    create_xml_document(nodes, "jewels.xml")
+    dump_xml(nodes, "jewels.xml")
     print()
 
 if not os.path.exists("unique_body_armours.xml"):
     print("#Unique Body Armours")
     nodes = parse_armors(uris_unique_bodyarmour, "Body Armour", "Unique", need_download_images)
-    create_xml_document(nodes, "unique_body_armours.xml")
+    dump_xml(nodes, "unique_body_armours.xml")
     print()
 if not os.path.exists("unique_helmets.xml"):
     print("#Unique Helmets")
     nodes = parse_armors(uris_unique_helmet, "Helmet", "Unique", need_download_images)
-    create_xml_document(nodes, "unique_helmets.xml")
+    dump_xml(nodes, "unique_helmets.xml")
     print()
 if not os.path.exists("unique_gloves.xml"):
     print("#Unique Gloves")
     nodes = parse_armors(uris_unique_gloves, "Gloves", "Unique", need_download_images)
-    create_xml_document(nodes, "unique_gloves.xml")
+    dump_xml(nodes, "unique_gloves.xml")
     print()
 if not os.path.exists("unique_boots.xml"):
     print("#Unique Boots")
     nodes = parse_armors(uris_unique_boots, "Boots", "Unique", need_download_images)
-    create_xml_document(nodes, "unique_boots.xml")
+    dump_xml(nodes, "unique_boots.xml")
     print()
 
 if not os.path.exists("unique_amulets.xml"):
     print("#Unique Amulets")
     nodes = parse_trinkets(uris_unique_amulets, "Amulet", "Unique", need_download_images)
-    create_xml_document(nodes, "unique_amulets.xml")
+    dump_xml(nodes, "unique_amulets.xml")
     print()
 if not os.path.exists("unique_belts.xml"):
     print("#Unique Belts")
     nodes = parse_trinkets(uris_unique_belts, "Belt", "Unique", need_download_images)
-    create_xml_document(nodes, "unique_belts.xml")
+    dump_xml(nodes, "unique_belts.xml")
     print()
 if not os.path.exists("unique_rings.xml"):
     print("#Unique Rings")
     nodes = parse_trinkets(uris_unique_rings, "Ring", "Unique", need_download_images)
-    create_xml_document(nodes, "unique_rings.xml")
+    dump_xml(nodes, "unique_rings.xml")
     print()
 if not os.path.exists("unique_quivers.xml"):
     print("#Unique Quivers")
     nodes = parse_trinkets(uris_unique_quivers, "Quiver", "Unique", need_download_images)
-    create_xml_document(nodes, "unique_quivers.xml")
+    dump_xml(nodes, "unique_quivers.xml")
     print()
 
 if not os.path.exists("unique_shields.xml"):
     print("#Unique Shields")
     nodes = parse_shields(uris_unique_shields, "Unique", need_download_images)
-    create_xml_document(nodes, "unique_shields.xml")
+    dump_xml(nodes, "unique_shields.xml")
     print()
