@@ -35,6 +35,11 @@ namespace PoEHandbook.Data
                 {"unique_gloves.xml", typeof (Equipment)},
                 {"unique_boots.xml", typeof (Equipment)},
 
+                {"unique_amulets.xml", typeof (Equipment)},
+                {"unique_belts.xml", typeof (Equipment)},
+                {"unique_rings.xml", typeof (Equipment)},
+                {"unique_quivers.xml", typeof (Equipment)},
+
                 {"unique_shields.xml", typeof (Equipment)}
             };
 

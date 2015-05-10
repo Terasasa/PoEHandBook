@@ -207,6 +207,44 @@ def parse_armors(uris, type, rarity, download_images=True):
     return result
 
 
+def parse_trinkets(uris, type, rarity, download_images=True):
+    result = []
+
+    for uri in uris:
+        soup = BeautifulSoup(get_page(uri).read())
+
+        rows = soup.select("table.sortable tr")
+        for row in rows:
+            if len(row.select("th")) > 0:
+                continue
+
+            cols = row.select("td")
+
+            result.append("<Entity>\n")
+            name = cols[0].select("a")[0].get_text().strip()
+            result.append(create_xml_node("Name", name, 1))
+            result.append(create_xml_node("Type", type, 1))
+            result.append(create_xml_node("Rarity", rarity, 1))
+            result.append(create_xml_node("Base", cols[1].select("a")[0].get_text(), 1))
+            result.append(create_xml_node("Level", cols[2].get_text(), 1))
+            result.append(create_xml_node("Mods", format_item_mods(cols[3].get_text()), 1))
+            result.append("</Entity>\n")
+
+            uri_detailed = "http://pathofexile.gamepedia.com" + cols[0].select("a")[0].attrs["href"]
+            soup = BeautifulSoup(get_page(uri_detailed).read())
+
+            if download_images:
+                try:
+                    imageUri = soup.select("div.itemboximage")[0].select("img")[0].attrs["src"]
+                    download_file(imageUri, "cache", name + ".png")
+                except:
+                    print("Could not download image")
+
+            print("- parsed " + type + " called " + clean_off_unicode(name))
+
+    return result
+
+
 def parse_shields(uris, rarity, download_images=True):
     result = []
 
@@ -263,7 +301,13 @@ uris_unique_bodyarmour = ["http://pathofexile.gamepedia.com/List_of_unique_body_
 uris_unique_helmet = ["http://pathofexile.gamepedia.com/List_of_unique_helmets"]
 uris_unique_gloves = ["http://pathofexile.gamepedia.com/List_of_unique_gloves"]
 uris_unique_boots = ["http://pathofexile.gamepedia.com/List_of_unique_boots"]
+
 uris_unique_shields = ["http://pathofexile.gamepedia.com/List_of_unique_shields"]
+
+uris_unique_amulets = ["http://pathofexile.gamepedia.com/List_of_unique_amulets"]
+uris_unique_belts = ["http://pathofexile.gamepedia.com/List_of_unique_belts"]
+uris_unique_rings = ["http://pathofexile.gamepedia.com/List_of_unique_rings"]
+uris_unique_quivers = ["http://pathofexile.gamepedia.com/List_of_unique_quivers"]
 
 # -- Get settings
 inpt = input("Download images? [Y/N] ")
@@ -271,24 +315,22 @@ need_download_images = inpt.upper() == "Y"
 print()
 
 # -- Start parsing
-print("Parsing misc items")
 if not os.path.exists("currency.xml"):
-    print("Parsing currency items")
+    print("#Currency")
     nodes = parse_currency(uris_currency, need_download_images)
     create_xml_document(nodes, "currency.xml")
     print()
 if not os.path.exists("maps.xml"):
-    print("Parsing maps")
+    print("#Unique maps")
     nodes = parse_maps(uris_unique_maps, "Unique", need_download_images)
     create_xml_document(nodes, "maps.xml")
     print()
 if not os.path.exists("jewels.xml"):
-    print("Parsing jewels")
+    print("#Unique jewels")
     nodes = parse_jewels(uris_unique_jewels, "Unique", need_download_images)
     create_xml_document(nodes, "jewels.xml")
     print()
 
-print("Parsing unique items")
 if not os.path.exists("unique_body_armours.xml"):
     print("#Unique Body Armours")
     nodes = parse_armors(uris_unique_bodyarmour, "Body Armour", "Unique", need_download_images)
@@ -308,6 +350,27 @@ if not os.path.exists("unique_boots.xml"):
     print("#Unique Boots")
     nodes = parse_armors(uris_unique_boots, "Boots", "Unique", need_download_images)
     create_xml_document(nodes, "unique_boots.xml")
+    print()
+
+if not os.path.exists("unique_amulets.xml"):
+    print("#Unique Amulets")
+    nodes = parse_trinkets(uris_unique_amulets, "Amulet", "Unique", need_download_images)
+    create_xml_document(nodes, "unique_amulets.xml")
+    print()
+if not os.path.exists("unique_belts.xml"):
+    print("#Unique Belts")
+    nodes = parse_trinkets(uris_unique_belts, "Belt", "Unique", need_download_images)
+    create_xml_document(nodes, "unique_belts.xml")
+    print()
+if not os.path.exists("unique_rings.xml"):
+    print("#Unique Rings")
+    nodes = parse_trinkets(uris_unique_rings, "Ring", "Unique", need_download_images)
+    create_xml_document(nodes, "unique_rings.xml")
+    print()
+if not os.path.exists("unique_quivers.xml"):
+    print("#Unique Quivers")
+    nodes = parse_trinkets(uris_unique_quivers, "Quiver", "Unique", need_download_images)
+    create_xml_document(nodes, "unique_quivers.xml")
     print()
 
 if not os.path.exists("unique_shields.xml"):
