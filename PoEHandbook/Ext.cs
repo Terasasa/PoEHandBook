@@ -13,14 +13,27 @@ namespace PoEHandbook
 {
     public static class Ext
     {
+        public static string ReplaceUnicodeCharacters(this string str)
+        {
+            return str
+                .Replace('ä', 'a')
+                .Replace('ö', 'o')
+                .Replace('ü', 'u')
+                .Replace('ß', 'b')
+                .Replace('Ä', 'A')
+                .Replace('Ö', 'O')
+                .Replace('Ü', 'U')
+                .Replace('ẞ', 'B');
+        }
+
         /// <summary>
         /// Determines whether first string contains second
-        /// Casing and culture are ignored
+        /// Casing and culture are ignored, unicode chars are replaced with ASCII if possible
         /// </summary>
         public static bool ContainsInvariant(this string str, string sub)
         {
-            str = str.ToUpperInvariant().Trim();
-            sub = sub.ToUpperInvariant().Trim();
+            str = str.ReplaceUnicodeCharacters().ToUpperInvariant().Trim();
+            sub = sub.ReplaceUnicodeCharacters().ToUpperInvariant().Trim();
             return str.Contains(sub);
         }
 
