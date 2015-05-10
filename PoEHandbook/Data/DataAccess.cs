@@ -28,6 +28,8 @@ namespace PoEHandbook.Data
 
                 {"maps.xml", typeof (Map)},
 
+                {"jewels.xml", typeof (Jewel)},
+
                 {"unique_body_armours.xml", typeof (Equipment)},
                 {"unique_helmets.xml", typeof (Equipment)},
                 {"unique_gloves.xml", typeof (Equipment)},

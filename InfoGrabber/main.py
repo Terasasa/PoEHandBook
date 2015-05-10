@@ -24,6 +24,8 @@ def get_page(uri):
 
 
 def download_file(uri, directory, name):
+    if os.path.exists(os.path.join(directory, name)):
+        return
     if not os.path.exists(directory):
         os.makedirs(directory)
     urllib.request.urlretrieve(uri, os.path.join(directory, name))
@@ -74,8 +76,11 @@ def parse_currency(uris, download_images=True):
             result.append("</Entity>\n")
 
             if download_images:
-                imageUri = soup.select("div.itemboximage")[0].select("img")[0].attrs["src"]
-                download_file(imageUri, "cache", name + ".png")
+                try:
+                    imageUri = soup.select("div.itemboximage")[0].select("img")[0].attrs["src"]
+                    download_file(imageUri, "cache", name + ".png")
+                except:
+                    print("Could not download image")
 
             print("- parsed currency called " + clean_off_unicode(name))
 
@@ -100,8 +105,8 @@ def parse_maps(uris, rarity, download_images=True):
             result.append(create_xml_node("Name", name, 1))
             result.append(create_xml_node("Rarity", rarity, 1))
             result.append(create_xml_node("Base", cols[1].select("a")[0].get_text(), 1))
-            result.append(create_xml_node("MapLevel", cols[2].get_text(), 1))
-            result.append(create_xml_node("MapQuantity", cols[3].get_text(), 1))
+            result.append(create_xml_node("Level", cols[2].get_text(), 1))
+            result.append(create_xml_node("Quantity", cols[3].get_text(), 1))
             result.append(create_xml_node("Mods", format_item_mods(cols[4].get_text()), 1))
             result.append("</Entity>\n")
 
@@ -109,10 +114,51 @@ def parse_maps(uris, rarity, download_images=True):
             soup = BeautifulSoup(get_page(uri_detailed).read())
 
             if download_images:
-                imageUri = soup.select("div.itemboximage")[0].select("img")[0].attrs["src"]
-                download_file(imageUri, "cache", name + ".png")
+                try:
+                    imageUri = soup.select("div.itemboximage")[0].select("img")[0].attrs["src"]
+                    download_file(imageUri, "cache", name + ".png")
+                except:
+                    print("Could not download image")
 
             print("- parsed map called " + clean_off_unicode(name))
+
+    return result
+
+
+def parse_jewels(uris, rarity, download_images=True):
+    result = []
+
+    for uri in uris:
+        soup = BeautifulSoup(get_page(uri).read())
+
+        rows = soup.select("table.sortable tr")
+        for row in rows:
+            if len(row.select("th")) > 0:
+                continue
+
+            cols = row.select("td")
+
+            result.append("<Entity>\n")
+            name = cols[0].select("a")[0].get_text().strip()
+            result.append(create_xml_node("Name", name, 1))
+            result.append(create_xml_node("Rarity", rarity, 1))
+            result.append(create_xml_node("Base", cols[1].select("a")[0].get_text(), 1))
+            result.append(create_xml_node("Limit", cols[2].get_text(), 1))
+            result.append(create_xml_node("Radius", cols[3].get_text(), 1))
+            result.append(create_xml_node("Mods", format_item_mods(cols[4].get_text()), 1))
+            result.append("</Entity>\n")
+
+            uri_detailed = "http://pathofexile.gamepedia.com" + cols[0].select("a")[0].attrs["href"]
+            soup = BeautifulSoup(get_page(uri_detailed).read())
+
+            if download_images:
+                try:
+                    imageUri = soup.select("div.itemboximage")[0].select("img")[0].attrs["src"]
+                    download_file(imageUri, "cache", name + ".png")
+                except:
+                    print("Could not download image")
+
+            print("- parsed jewel called " + clean_off_unicode(name))
 
     return result
 
@@ -150,8 +196,11 @@ def parse_armors(uris, type, rarity, download_images=True):
             soup = BeautifulSoup(get_page(uri_detailed).read())
 
             if download_images:
-                imageUri = soup.select("div.itemboximage")[0].select("img")[0].attrs["src"]
-                download_file(imageUri, "cache", name + ".png")
+                try:
+                    imageUri = soup.select("div.itemboximage")[0].select("img")[0].attrs["src"]
+                    download_file(imageUri, "cache", name + ".png")
+                except:
+                    print("Could not download image")
 
             print("- parsed " + type + " called " + clean_off_unicode(name))
 
@@ -191,8 +240,11 @@ def parse_shields(uris, rarity, download_images=True):
             soup = BeautifulSoup(get_page(uri_detailed).read())
 
             if download_images:
-                imageUri = soup.select("div.itemboximage")[0].select("img")[0].attrs["src"]
-                download_file(imageUri, "cache", name + ".png")
+                try:
+                    imageUri = soup.select("div.itemboximage")[0].select("img")[0].attrs["src"]
+                    download_file(imageUri, "cache", name + ".png")
+                except:
+                    print("Could not download image")
 
             print("- parsed shield called " + clean_off_unicode(name))
 
@@ -204,7 +256,8 @@ def parse_shields(uris, rarity, download_images=True):
 
 # -- All URIs
 uris_currency = ["http://pathofexile.gamepedia.com/Currency"]
-uris_maps = ["http://pathofexile.gamepedia.com/List_of_unique_maps"]
+uris_unique_maps = ["http://pathofexile.gamepedia.com/List_of_unique_maps"]
+uris_unique_jewels = ["http://pathofexile.gamepedia.com/List_of_unique_jewels"]
 
 uris_unique_bodyarmour = ["http://pathofexile.gamepedia.com/List_of_unique_body_armours"]
 uris_unique_helmet = ["http://pathofexile.gamepedia.com/List_of_unique_helmets"]
@@ -226,8 +279,13 @@ if not os.path.exists("currency.xml"):
     print()
 if not os.path.exists("maps.xml"):
     print("Parsing maps")
-    nodes = parse_maps(uris_maps, "Unique", need_download_images)
+    nodes = parse_maps(uris_unique_maps, "Unique", need_download_images)
     create_xml_document(nodes, "maps.xml")
+    print()
+if not os.path.exists("jewels.xml"):
+    print("Parsing jewels")
+    nodes = parse_jewels(uris_unique_jewels, "Unique", need_download_images)
+    create_xml_document(nodes, "jewels.xml")
     print()
 
 print("Parsing unique items")

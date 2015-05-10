@@ -95,10 +95,10 @@ namespace PoEHandbook.Pages
             }
 
             var entAsMap = ent as Map;
-            if (entAsMap != null && entAsMap.MapQuantity > 0)
+            if (entAsMap != null && entAsMap.Quantity > 0)
             {
                 ic.Add("Map Quantity: ");
-                ic.Add(new Run { Text = "" + entAsMap.MapQuantity, FontWeight = FontWeights.Bold });
+                ic.Add(new Run { Text = "" + entAsMap.Quantity, FontWeight = FontWeights.Bold });
             }
         }
 
@@ -155,7 +155,29 @@ namespace PoEHandbook.Pages
             if (entAsMap != null)
             {
                 ic.Add("Map Level: ");
-                ic.Add(new Run {Text = "" + entAsMap.MapLevel, FontWeight = FontWeights.Bold});
+                ic.Add(new Run {Text = "" + entAsMap.Level, FontWeight = FontWeights.Bold});
+            }
+
+            var entAsJewel = ent as Jewel;
+            if (entAsJewel != null)
+            {
+                bool first = true;
+
+                if (entAsJewel.Limit > 0)
+                {
+                    first = false;
+
+                    ic.Add("Limit: ");
+                    ic.Add(new Run { Text = "" + entAsJewel.Limit, FontWeight = FontWeights.Bold });
+                }
+                if (!string.IsNullOrEmpty(entAsJewel.Radius))
+                {
+                    if (!first)
+                        ic.Add(", ");
+
+                    ic.Add("Radius: ");
+                    ic.Add(new Run { Text = "" + entAsJewel.Radius, FontWeight = FontWeights.Bold });
+                }
             }
         }
 

@@ -161,6 +161,9 @@
     <Resource Include="Data\unique_gloves.xml" />
     <Resource Include="Data\unique_helmets.xml" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Data\jewels.xml" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>XCOPY "$(ProjectDir)Data" "$(TargetDir)Data" /s /i /y</PostBuildEvent>

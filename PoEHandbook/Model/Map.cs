@@ -21,8 +21,8 @@ namespace PoEHandbook.Model
         public ModsHandler ModsHandler { get; private set; }
         public RarityHandler RarityHandler { get; private set; }
 
-        public int MapLevel { get; private set; }
-        public int MapQuantity { get; private set; }
+        public int Level { get; private set; }
+        public int Quantity { get; private set; }
 
         public override void Deserialize(XmlNode node)
         {
@@ -33,11 +33,11 @@ namespace PoEHandbook.Model
 
             XmlNode temp;
 
-            temp = node.SelectSingleNode(@"Property[@id='MapLevel']");
-            if (temp != null) MapLevel = int.Parse(temp.InnerText);
+            temp = node.SelectSingleNode(@"Property[@id='Level']");
+            if (temp != null) Level = int.Parse(temp.InnerText);
 
-            temp = node.SelectSingleNode(@"Property[@id='MapQuantity']");
-            if (temp != null) MapQuantity = int.Parse(temp.InnerText);
+            temp = node.SelectSingleNode(@"Property[@id='Quantity']");
+            if (temp != null) Quantity = int.Parse(temp.InnerText);
         }
 
         public override bool ContainsInProperties(string query, out List<string> properties)
