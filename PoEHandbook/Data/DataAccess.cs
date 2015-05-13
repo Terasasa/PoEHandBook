@@ -26,9 +26,9 @@ namespace PoEHandbook.Data
 
                 {"currency.xml", typeof (Currency)},
 
-                {"maps.xml", typeof (Map)},
+                {"unique_maps.xml", typeof (Map)},
 
-                {"jewels.xml", typeof (Jewel)},
+                {"unique_jewels.xml", typeof (Jewel)},
 
                 {"unique_body_armours.xml", typeof (Equipment)},
                 {"unique_helmets.xml", typeof (Equipment)},

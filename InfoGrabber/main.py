@@ -337,15 +337,15 @@ if not os.path.exists("currency.xml"):
     nodes = parse_currency(uris_currency, need_download_images)
     dump_xml(nodes, "currency.xml")
     print()
-if not os.path.exists("maps.xml"):
+if not os.path.exists("unique_maps.xml"):
     print("#Unique maps")
     nodes = parse_maps(uris_unique_maps, "Unique", need_download_images)
-    dump_xml(nodes, "maps.xml")
+    dump_xml(nodes, "unique_maps.xml")
     print()
-if not os.path.exists("jewels.xml"):
+if not os.path.exists("unique_jewels.xml"):
     print("#Unique jewels")
     nodes = parse_jewels(uris_unique_jewels, "Unique", need_download_images)
-    dump_xml(nodes, "jewels.xml")
+    dump_xml(nodes, "unique_jewels.xml")
     print()
 
 if not os.path.exists("unique_body_armours.xml"):

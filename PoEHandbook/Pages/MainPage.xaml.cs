@@ -11,6 +11,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
+using System.Windows.Media.Animation;
 using System.Windows.Threading;
 using PoEHandbook.Data;
 using PoEHandbook.Model;
@@ -142,29 +143,38 @@ namespace PoEHandbook.Pages
         /// </summary>
         private void GetSearchResults()
         {
+            // Clear previous results
             PnlResults.Children.Clear();
             _lastResults = new SearchResult[] {};
 
+            // Format query
             var queries = _lastQuery.Split(new[] {','}, StringSplitOptions.RemoveEmptyEntries).TrimElements().ToArray();
-            var entities = DataAccess.PerformSearchQuery(queries);
 
+            // Get results
+            var entities = DataAccess.PerformSearchQuery(queries);
             if (entities == null) return;
 
+            // Order results and save them
             _lastResults = entities
                 .OrderBy(sr => sr.Entity.GetType().Name)
                 .ThenBy(sr => sr.Entity.Name);
+
+            // Create controls for results and popualte the panel
             foreach (var sr in _lastResults)
             {
                 var result = new Controls.SearchResult(sr, queries, NavigationService);
                 PnlResults.Children.Add(result);
             }
 
+            // Update the text and stop the timer
             UpdateStatusText();
             _queryTimer.Stop();
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
+            GrdMain.BeginAnimation(OpacityProperty, new DoubleAnimation(0, 1, TimeSpan.FromSeconds(0.5)));
+
             // Focus the query text box
             TbQuery.Focus();
 

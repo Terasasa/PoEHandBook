@@ -5,14 +5,16 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:properties="clr-namespace:PoEHandbook.Properties"
+      Background="#FF0E0E0E"
       KeepAlive="True"
       Loaded="Page_Loaded"
+      SnapsToDevicePixels="True"
       Unloaded="Page_Unloaded"
       d:DesignHeight="300"
       d:DesignWidth="300"
       mc:Ignorable="d">
 
-    <Grid Background="#FF0E0E0E" SnapsToDevicePixels="True">
+    <Grid x:Name="GrdMain">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
@@ -33,7 +35,9 @@
                                               Path=ShowImages}" />
             </MenuItem>
             <MenuItem Header="Actions">
-                <MenuItem x:Name="BtnIdentifyItem" Header="Identify Item" Click="BtnIdentifyItem_OnClick"/>
+                <MenuItem x:Name="BtnIdentifyItem"
+                          Click="BtnIdentifyItem_OnClick"
+                          Header="Identify Item" />
             </MenuItem>
         </Menu>
         <TextBox x:Name="TbQuery"

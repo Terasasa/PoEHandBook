@@ -9,6 +9,7 @@ using System.IO;
 using System.Windows;
 using System.Windows.Documents;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using PoEHandbook.Model;
 using PoEHandbook.Model.Interfaces;
@@ -188,22 +189,18 @@ namespace PoEHandbook.Pages
             var entWithMods = ent as IHasMods;
             var entWithDescription = ent as IHasDescription;
 
-            if ((entWithMods == null || !entWithMods.ModsHandler.IsRelevant) && entWithDescription == null)
-            {
-                ic.Add("No mods or description");
-                return;
-            }
+            if ((entWithMods == null || !entWithMods.ModsHandler.IsRelevant) && entWithDescription == null) return;
 
             if (entWithMods != null)
             {
                 for (int i = 0; i < entWithMods.ModsHandler.Mods.Length; i++)
                 {
                     string mod = entWithMods.ModsHandler.Mods[i];
+                    var run = new Run(mod);
 
                     bool isImplicit = i == 0 && entWithMods.ModsHandler.HasImplicitMod;
                     bool isCorruptedMod = mod.Equals("Corrupted", StringComparison.InvariantCultureIgnoreCase);
 
-                    var run = new Run(mod);
                     if (isImplicit)
                     {
                         run.FontWeight = FontWeights.SemiBold;
@@ -236,6 +233,11 @@ namespace PoEHandbook.Pages
             ent.GetEntityColor(out fore, out back);
             Resources["AccentColor"] = back;
             TbName.Foreground = new SolidColorBrush(fore);
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            GrdMain.BeginAnimation(OpacityProperty, new DoubleAnimation(0, 1, TimeSpan.FromSeconds(0.5)));
         }
 
         private void BtnBack_Click(object sender, RoutedEventArgs e)

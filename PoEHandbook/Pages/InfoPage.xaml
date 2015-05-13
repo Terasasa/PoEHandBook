@@ -3,6 +3,8 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      Background="#FF0E0E0E"
+      Loaded="Page_Loaded"
       SnapsToDevicePixels="True"
       d:DesignHeight="600"
       d:DesignWidth="600"
@@ -23,7 +25,7 @@
         </LinearGradientBrush>
     </Page.Resources>
 
-    <Grid Background="#FF0E0E0E">
+    <Grid x:Name="GrdMain">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*" />
             <ColumnDefinition Width="13*" />
@@ -38,9 +40,11 @@
                 Click="BtnBack_Click"
                 Content="«"
                 FontSize="32"
-                Foreground="White" />
+                Foreground="White"
+                IsCancel="True" />
         <Border Grid.Column="1"
-                Margin="10"
+                MaxWidth="500"
+                MaxHeight="700"
                 Background="Black"
                 BorderBrush="{DynamicResource AccentBrush}"
                 BorderThickness="2">
