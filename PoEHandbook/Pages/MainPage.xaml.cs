@@ -5,7 +5,6 @@
 //  ------------------------------------------------------------------ 
 
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Windows;
@@ -26,7 +25,7 @@ namespace PoEHandbook.Pages
         private readonly DispatcherTimer _queryTimer;
 
         private string _lastQuery = "";
-        private IEnumerable<SearchResult> _lastResults;
+        private SearchResult[] _lastResults;
 
         public MainPage()
         {
@@ -46,18 +45,16 @@ namespace PoEHandbook.Pages
         /// </summary>
         private void UpdateStatusText()
         {
-            var searchResults = _lastResults as SearchResult[] ?? _lastResults.ToArray();
-
             TbStatus.Inlines.Clear();
 
-            int currencyCount = searchResults.Count(sr => sr.Entity is Currency);
-            int equipCount = searchResults.Count(sr => sr.Entity is Equipment);
-            int gemCount = searchResults.Count(sr => sr.Entity is Gem);
-            int jewelCount = searchResults.Count(sr => sr.Entity is Jewel);
-            int mapCount = searchResults.Count(sr => sr.Entity is Map);
-            int passiveCount = searchResults.Count(sr => sr.Entity is Passive);
-            int recipeCount = searchResults.Count(sr => sr.Entity is Recipe);
-            int miscCount = searchResults.Length - currencyCount - equipCount - gemCount - jewelCount - mapCount -
+            int currencyCount = _lastResults.Count(sr => sr.Entity is Currency);
+            int equipCount = _lastResults.Count(sr => sr.Entity is Equipment);
+            int gemCount = _lastResults.Count(sr => sr.Entity is Gem);
+            int jewelCount = _lastResults.Count(sr => sr.Entity is Jewel);
+            int mapCount = _lastResults.Count(sr => sr.Entity is Map);
+            int passiveCount = _lastResults.Count(sr => sr.Entity is Passive);
+            int recipeCount = _lastResults.Count(sr => sr.Entity is Recipe);
+            int miscCount = _lastResults.Length - currencyCount - equipCount - gemCount - jewelCount - mapCount -
                             passiveCount - recipeCount;
 
             TbStatus.Inlines.Add("Found ");
@@ -67,7 +64,7 @@ namespace PoEHandbook.Pages
                 if (TbStatus.Inlines.Count > 1)
                     TbStatus.Inlines.Add(", ");
 
-                var run = new Run("" + currencyCount) { FontWeight = FontWeights.Bold };
+                var run = new Run { Text = "" + currencyCount, FontWeight = FontWeights.Bold };
                 TbStatus.Inlines.Add(run);
                 TbStatus.Inlines.Add(" currency item(s)");
             }
@@ -76,7 +73,7 @@ namespace PoEHandbook.Pages
                 if (TbStatus.Inlines.Count > 1)
                     TbStatus.Inlines.Add(", ");
 
-                var run = new Run("" + equipCount) {FontWeight = FontWeights.Bold};
+                var run = new Run { Text = "" + equipCount, FontWeight = FontWeights.Bold };
                 TbStatus.Inlines.Add(run);
                 TbStatus.Inlines.Add(" equipment item(s)");
             }
@@ -85,7 +82,7 @@ namespace PoEHandbook.Pages
                 if (TbStatus.Inlines.Count > 1)
                     TbStatus.Inlines.Add(", ");
 
-                var run = new Run("" + gemCount) { FontWeight = FontWeights.Bold };
+                var run = new Run { Text = "" + gemCount, FontWeight = FontWeights.Bold };
                 TbStatus.Inlines.Add(run);
                 TbStatus.Inlines.Add(" gem(s)");
             }
@@ -94,7 +91,7 @@ namespace PoEHandbook.Pages
                 if (TbStatus.Inlines.Count > 1)
                     TbStatus.Inlines.Add(", ");
 
-                var run = new Run("" + jewelCount) { FontWeight = FontWeights.Bold };
+                var run = new Run { Text = "" + jewelCount, FontWeight = FontWeights.Bold };
                 TbStatus.Inlines.Add(run);
                 TbStatus.Inlines.Add(" jewel(s)");
             }
@@ -103,7 +100,7 @@ namespace PoEHandbook.Pages
                 if (TbStatus.Inlines.Count > 1)
                     TbStatus.Inlines.Add(", ");
 
-                var run = new Run("" + mapCount) { FontWeight = FontWeights.Bold };
+                var run = new Run { Text = "" + mapCount, FontWeight = FontWeights.Bold };
                 TbStatus.Inlines.Add(run);
                 TbStatus.Inlines.Add(" map(s)");
             }
@@ -112,7 +109,7 @@ namespace PoEHandbook.Pages
                 if (TbStatus.Inlines.Count > 1)
                     TbStatus.Inlines.Add(", ");
 
-                var run = new Run("" + passiveCount) { FontWeight = FontWeights.Bold };
+                var run = new Run { Text = "" + passiveCount, FontWeight = FontWeights.Bold };
                 TbStatus.Inlines.Add(run);
                 TbStatus.Inlines.Add(" passive(s)");
             }
@@ -121,7 +118,7 @@ namespace PoEHandbook.Pages
                 if (TbStatus.Inlines.Count > 1)
                     TbStatus.Inlines.Add(", ");
 
-                var run = new Run("" + recipeCount) { FontWeight = FontWeights.Bold };
+                var run = new Run { Text = "" + recipeCount, FontWeight = FontWeights.Bold };
                 TbStatus.Inlines.Add(run);
                 TbStatus.Inlines.Add(" recipe(s)");
             }
@@ -130,7 +127,7 @@ namespace PoEHandbook.Pages
                 if (TbStatus.Inlines.Count > 1)
                     TbStatus.Inlines.Add(", ");
 
-                var run = new Run("" + miscCount) { FontWeight = FontWeights.Bold };
+                var run = new Run { Text = "" + miscCount, FontWeight = FontWeights.Bold };
                 TbStatus.Inlines.Add(run);
                 TbStatus.Inlines.Add(" misc item(s)");
             }
@@ -157,7 +154,8 @@ namespace PoEHandbook.Pages
             // Order results and save them
             _lastResults = entities
                 .OrderBy(sr => sr.Entity.GetType().Name)
-                .ThenBy(sr => sr.Entity.Name);
+                .ThenBy(sr => sr.Entity.Name)
+                .ToArray();
 
             // Create controls for results and popualte the panel
             foreach (var sr in _lastResults)
@@ -173,7 +171,8 @@ namespace PoEHandbook.Pages
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            GrdMain.BeginAnimation(OpacityProperty, new DoubleAnimation(0, 1, TimeSpan.FromSeconds(0.5)));
+            // Fade in
+            GrdMain.BeginAnimation(OpacityProperty, new DoubleAnimation(0, 1, TimeSpan.FromSeconds(0.25)));
 
             // Focus the query text box
             TbQuery.Focus();

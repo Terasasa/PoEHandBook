@@ -150,25 +150,49 @@
     <Resource Include="Data\cache\Beta Key.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Data\currency.xml" />
-    <Resource Include="Data\misc.xml" />
+    <Resource Include="Data\currency.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Data\misc.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Data\unique_shields.xml" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Data\unique_body_armours.xml" />
-    <Resource Include="Data\unique_boots.xml" />
-    <Resource Include="Data\unique_gloves.xml" />
-    <Resource Include="Data\unique_helmets.xml" />
+    <Resource Include="Data\unique_body_armours.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Data\unique_boots.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Data\unique_gloves.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Data\unique_helmets.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Data\unique_amulets.xml" />
-    <Resource Include="Data\unique_belts.xml" />
-    <Resource Include="Data\unique_quivers.xml" />
-    <Resource Include="Data\unique_rings.xml" />
+    <Resource Include="Data\unique_amulets.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Data\unique_belts.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Data\unique_quivers.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Data\unique_rings.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Data\unique_jewels.xml" />
-    <Resource Include="Data\unique_maps.xml" />
+    <Resource Include="Data\unique_jewels.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Data\unique_maps.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

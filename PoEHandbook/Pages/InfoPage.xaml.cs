@@ -43,12 +43,11 @@ namespace PoEHandbook.Pages
 
             if (entWithStats != null && entWithStats.StatsHandler.IsRelevant)
             {
-                bool first = true;
-
                 var statsHandler = entWithStats.StatsHandler;
                 if (statsHandler.Block.Average > 0)
                 {
-                    first = false;
+                    if (ic.Count > 1)
+                        ic.Add(Environment.NewLine);
 
                     ic.Add("Chance to Block: ");
                     var run = new Run(statsHandler.Block + "%");
@@ -58,9 +57,8 @@ namespace PoEHandbook.Pages
                 }
                 if (statsHandler.ArmourValue.Average > 0)
                 {
-                    if (!first)
+                    if (ic.Count > 1)
                         ic.Add(Environment.NewLine);
-                    first = false;
 
                     ic.Add("Armour: ");
                     var run = new Run(statsHandler.ArmourValue.ToString());
@@ -70,9 +68,8 @@ namespace PoEHandbook.Pages
                 }
                 if (statsHandler.EvasionValue.Average > 0)
                 {
-                    if (!first)
+                    if (ic.Count > 1)
                         ic.Add(Environment.NewLine);
-                    first = false;
 
                     ic.Add("Evasion: ");
                     var run = new Run(statsHandler.EvasionValue.ToString());
@@ -82,7 +79,7 @@ namespace PoEHandbook.Pages
                 }
                 if (statsHandler.EnergyShieldValue.Average > 0)
                 {
-                    if (!first)
+                    if (ic.Count > 1)
                         ic.Add(Environment.NewLine);
 
                     ic.Add("Energy Shield: ");
@@ -99,7 +96,7 @@ namespace PoEHandbook.Pages
             if (entAsMap != null && entAsMap.Quantity > 0)
             {
                 ic.Add("Map Quantity: ");
-                ic.Add(new Run { Text = "" + entAsMap.Quantity, FontWeight = FontWeights.Bold });
+                ic.Add(new Run {Text = "" + entAsMap.Quantity, FontWeight = FontWeights.Bold});
             }
         }
 
@@ -111,38 +108,36 @@ namespace PoEHandbook.Pages
             if (entWithRequirements != null && entWithRequirements.RequirementsHandler.IsRelevant)
             {
 
-                bool first = true;
                 ic.Add("Requires ");
 
                 var reqHandler = entWithRequirements.RequirementsHandler;
                 if (reqHandler.Level > 0)
                 {
-                    first = false;
+                    if (ic.Count > 1)
+                        ic.Add(", ");
 
                     ic.Add("Level ");
                     ic.Add(new Run {Text = "" + reqHandler.Level, FontWeight = FontWeights.Bold});
                 }
                 if (reqHandler.Strength > 0)
                 {
-                    if (!first)
+                    if (ic.Count > 1)
                         ic.Add(", ");
-                    first = false;
 
                     ic.Add(new Run {Text = "" + reqHandler.Strength, FontWeight = FontWeights.Bold});
                     ic.Add(" Str");
                 }
                 if (reqHandler.Dexterity > 0)
                 {
-                    if (!first)
+                    if (ic.Count > 1)
                         ic.Add(", ");
-                    first = false;
 
                     ic.Add(new Run {Text = "" + reqHandler.Dexterity, FontWeight = FontWeights.Bold});
                     ic.Add(" Dex");
                 }
                 if (reqHandler.Intelligence > 0)
                 {
-                    if (!first)
+                    if (ic.Count > 1)
                         ic.Add(", ");
 
                     ic.Add(new Run {Text = "" + reqHandler.Intelligence, FontWeight = FontWeights.Bold});
@@ -157,23 +152,24 @@ namespace PoEHandbook.Pages
             {
                 ic.Add("Map Level: ");
                 ic.Add(new Run {Text = "" + entAsMap.Level, FontWeight = FontWeights.Bold});
+
+                return;
             }
 
             var entAsJewel = ent as Jewel;
             if (entAsJewel != null)
             {
-                bool first = true;
-
                 if (entAsJewel.Limit > 0)
                 {
-                    first = false;
+                    if (ic.Count > 1)
+                        ic.Add(", ");
 
                     ic.Add("Limit: ");
                     ic.Add(new Run { Text = "" + entAsJewel.Limit, FontWeight = FontWeights.Bold });
                 }
                 if (!string.IsNullOrEmpty(entAsJewel.Radius))
                 {
-                    if (!first)
+                    if (ic.Count > 1)
                         ic.Add(", ");
 
                     ic.Add("Radius: ");
@@ -237,14 +233,18 @@ namespace PoEHandbook.Pages
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            GrdMain.BeginAnimation(OpacityProperty, new DoubleAnimation(0, 1, TimeSpan.FromSeconds(0.5)));
+            // Fade in
+            GrdMain.BeginAnimation(OpacityProperty, new DoubleAnimation(0, 1, TimeSpan.FromSeconds(0.25)));
         }
 
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
             if (NavigationService == null || !NavigationService.CanGoBack) return;
 
-            NavigationService.GoBack();
+            // Fade out and go back
+            var anim = new DoubleAnimation(1, 0, TimeSpan.FromSeconds(0.25));
+            anim.Completed += (o, args) => NavigationService.GoBack();
+            GrdMain.BeginAnimation(OpacityProperty, anim);
         }
     }
 }
