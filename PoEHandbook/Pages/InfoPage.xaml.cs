@@ -278,7 +278,8 @@ namespace PoEHandbook.Pages
                         run.Foreground = new SolidColorBrush(Colors.Red);
 
                     ic.Add(run);
-                    ic.Add(Environment.NewLine);
+                    if (i < entWithMods.ModsHandler.Mods.Length - 1)
+                        ic.Add(Environment.NewLine);
                 }
                 return true;
             }
@@ -339,7 +340,7 @@ namespace PoEHandbook.Pages
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             // Fade in
-            GrdMain.BeginAnimation(OpacityProperty, new DoubleAnimation(0, 1, TimeSpan.FromSeconds(0.25)));
+            GrdMain.BeginAnimation(OpacityProperty, new DoubleAnimation(0, 1, TimeSpan.FromSeconds(0.5)));
         }
 
         private void BtnBack_Click(object sender, RoutedEventArgs e)

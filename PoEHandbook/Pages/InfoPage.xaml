@@ -5,7 +5,6 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       Background="#FF0E0E0E"
       Loaded="Page_Loaded"
-      SnapsToDevicePixels="True"
       d:DesignHeight="600"
       d:DesignWidth="600"
       mc:Ignorable="d">
@@ -25,7 +24,7 @@
         </LinearGradientBrush>
     </Page.Resources>
 
-    <Grid x:Name="GrdMain">
+    <Grid x:Name="GrdMain" SnapsToDevicePixels="True">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*" />
             <ColumnDefinition Width="13*" />
@@ -44,7 +43,6 @@
                 IsCancel="True" />
         <Border Grid.Column="1"
                 MaxWidth="500"
-                MaxHeight="700"
                 VerticalAlignment="Center"
                 Background="Black"
                 BorderBrush="{DynamicResource AccentBrush}"
@@ -77,7 +75,6 @@
                            HorizontalAlignment="Stretch"
                            Fill="{DynamicResource SeparatorGradient}" />
                 <TextBlock x:Name="TbRequiremenets"
-                           Margin="5"
                            FontSize="16"
                            Foreground="#FFB9B9B9"
                            Text="Requirements"

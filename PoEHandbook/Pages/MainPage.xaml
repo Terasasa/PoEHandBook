@@ -8,13 +8,12 @@
       Background="#FF0E0E0E"
       KeepAlive="True"
       Loaded="Page_Loaded"
-      SnapsToDevicePixels="True"
       Unloaded="Page_Unloaded"
       d:DesignHeight="300"
       d:DesignWidth="300"
       mc:Ignorable="d">
 
-    <Grid x:Name="GrdMain">
+    <Grid x:Name="GrdMain" SnapsToDevicePixels="True">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
