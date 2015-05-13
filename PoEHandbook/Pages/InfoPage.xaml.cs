@@ -54,6 +54,7 @@ namespace PoEHandbook.Pages
                     ic.Add("Chance to Block: ");
                     var run = new Run(statsHandler.Block + "%")
                     {
+                        FontWeight = FontWeights.SemiBold,
                         Foreground = statsHandler.BlockAffected
                             ? new SolidColorBrush((Color) ColorConverter.ConvertFromString("#6a88ef"))
                             : new SolidColorBrush(Colors.White)
@@ -68,6 +69,7 @@ namespace PoEHandbook.Pages
                     ic.Add("Armour: ");
                     var run = new Run(statsHandler.ArmourValue.ToString())
                     {
+                        FontWeight = FontWeights.SemiBold,
                         Foreground = statsHandler.ArmourAffected
                             ? new SolidColorBrush((Color) ColorConverter.ConvertFromString("#6a88ef"))
                             : new SolidColorBrush(Colors.White)
@@ -82,6 +84,7 @@ namespace PoEHandbook.Pages
                     ic.Add("Evasion: ");
                     var run = new Run(statsHandler.EvasionValue.ToString())
                     {
+                        FontWeight = FontWeights.SemiBold,
                         Foreground = statsHandler.EvasionAffected
                             ? new SolidColorBrush((Color) ColorConverter.ConvertFromString("#6a88ef"))
                             : new SolidColorBrush(Colors.White)
@@ -96,6 +99,7 @@ namespace PoEHandbook.Pages
                     ic.Add("Energy Shield: ");
                     var run = new Run(statsHandler.EnergyShieldValue.ToString())
                     {
+                        FontWeight = FontWeights.SemiBold,
                         Foreground = statsHandler.EnergyShieldAffected
                             ? new SolidColorBrush((Color) ColorConverter.ConvertFromString("#6a88ef"))
                             : new SolidColorBrush(Colors.White)
@@ -113,7 +117,7 @@ namespace PoEHandbook.Pages
                 ic.Add(new Run
                 {
                     Text = "" + entAsMap.Quantity,
-                    FontWeight = FontWeights.Bold,
+                    FontWeight = FontWeights.SemiBold,
                     Foreground = new SolidColorBrush(Colors.White)
                 });
 
@@ -143,7 +147,7 @@ namespace PoEHandbook.Pages
                     ic.Add(new Run
                     {
                         Text = "" + reqHandler.Level,
-                        FontWeight = FontWeights.Bold,
+                        FontWeight = FontWeights.SemiBold,
                         Foreground = new SolidColorBrush(Colors.White)
                     });
                 }
@@ -155,7 +159,7 @@ namespace PoEHandbook.Pages
                     ic.Add(new Run
                     {
                         Text = "" + reqHandler.Strength,
-                        FontWeight = FontWeights.Bold,
+                        FontWeight = FontWeights.SemiBold,
                         Foreground = new SolidColorBrush(Colors.White)
                     });
                     ic.Add(" Str");
@@ -168,7 +172,7 @@ namespace PoEHandbook.Pages
                     ic.Add(new Run
                     {
                         Text = "" + reqHandler.Dexterity,
-                        FontWeight = FontWeights.Bold,
+                        FontWeight = FontWeights.SemiBold,
                         Foreground = new SolidColorBrush(Colors.White)
                     });
                     ic.Add(" Dex");
@@ -181,7 +185,7 @@ namespace PoEHandbook.Pages
                     ic.Add(new Run
                     {
                         Text = "" + reqHandler.Intelligence,
-                        FontWeight = FontWeights.Bold,
+                        FontWeight = FontWeights.SemiBold,
                         Foreground = new SolidColorBrush(Colors.White)
                     });
                     ic.Add(" Int");
@@ -197,7 +201,7 @@ namespace PoEHandbook.Pages
                 ic.Add(new Run
                 {
                     Text = "" + entAsMap.Level,
-                    FontWeight = FontWeights.Bold,
+                    FontWeight = FontWeights.SemiBold,
                     Foreground = new SolidColorBrush(Colors.White)
                 });
 
@@ -229,7 +233,7 @@ namespace PoEHandbook.Pages
                     ic.Add(new Run
                     {
                         Text = "" + entAsJewel.Radius,
-                        FontWeight = FontWeights.Bold,
+                        FontWeight = FontWeights.SemiBold,
                         Foreground = new SolidColorBrush(Colors.White)
                     });
                 }
