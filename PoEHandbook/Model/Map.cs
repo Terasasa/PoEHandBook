@@ -24,6 +24,8 @@ namespace PoEHandbook.Model
         public int Level { get; private set; }
         public int Quantity { get; private set; }
 
+        public bool StatsRelevant { get { return Level > 0 || Quantity > 0; } }
+
         public override void Deserialize(XmlNode node)
         {
             base.Deserialize(node);

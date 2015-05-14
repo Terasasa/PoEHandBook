@@ -106,6 +106,66 @@ namespace PoEHandbook.Pages
                     };
                     ic.Add(run);
                 }
+                if (statsHandler.Damage.Average > 0)
+                {
+                    if (ic.Count > 1)
+                        ic.Add(Environment.NewLine);
+
+                    ic.Add("Damage: ");
+                    var run = new Run(statsHandler.Damage.ToString())
+                    {
+                        FontWeight = FontWeights.SemiBold,
+                        Foreground = statsHandler.DamageAffected
+                            ? new SolidColorBrush((Color)ColorConverter.ConvertFromString("#6a88ef"))
+                            : new SolidColorBrush(Colors.White)
+                    };
+                    ic.Add(run);
+                }
+                if (statsHandler.CriticalStrikeChance.Average > 0)
+                {
+                    if (ic.Count > 1)
+                        ic.Add(Environment.NewLine);
+
+                    ic.Add("Critical Strike Chance: ");
+                    var run = new Run(statsHandler.CriticalStrikeChance + "%")
+                    {
+                        FontWeight = FontWeights.SemiBold,
+                        Foreground = statsHandler.CriticalStrikeChanceAffected
+                            ? new SolidColorBrush((Color)ColorConverter.ConvertFromString("#6a88ef"))
+                            : new SolidColorBrush(Colors.White)
+                    };
+                    ic.Add(run);
+                }
+                if (statsHandler.AttacksPerSecond.Average > 0)
+                {
+                    if (ic.Count > 1)
+                        ic.Add(Environment.NewLine);
+
+                    ic.Add("Attacks Per Second: ");
+                    var run = new Run(statsHandler.AttacksPerSecond.ToString())
+                    {
+                        FontWeight = FontWeights.SemiBold,
+                        Foreground = statsHandler.AttacksPerSecondAffected
+                            ? new SolidColorBrush((Color)ColorConverter.ConvertFromString("#6a88ef"))
+                            : new SolidColorBrush(Colors.White)
+                    };
+                    ic.Add(run);
+                }
+                if (statsHandler.DamagePerSecond.Average > 0)
+                {
+                    if (ic.Count > 1)
+                        ic.Add(Environment.NewLine);
+
+                    ic.Add("Damage Per Second: ");
+                    var run = new Run(statsHandler.DamagePerSecond.ToString())
+                    {
+                        FontWeight = FontWeights.SemiBold,
+                        Foreground = statsHandler.DamagePerSecondAffected
+                            ? new SolidColorBrush((Color)ColorConverter.ConvertFromString("#6a88ef"))
+                            : new SolidColorBrush(Colors.White)
+                    };
+                    ic.Add(run);
+                }
 
                 return true;
             }
@@ -148,7 +208,9 @@ namespace PoEHandbook.Pages
                     {
                         Text = "" + reqHandler.Level,
                         FontWeight = FontWeights.SemiBold,
-                        Foreground = new SolidColorBrush(Colors.White)
+                        Foreground = reqHandler.LevelAffected
+                            ? new SolidColorBrush((Color)ColorConverter.ConvertFromString("#6a88ef"))
+                            : new SolidColorBrush(Colors.White)
                     });
                 }
                 if (reqHandler.Strength > 0)
@@ -160,7 +222,9 @@ namespace PoEHandbook.Pages
                     {
                         Text = "" + reqHandler.Strength,
                         FontWeight = FontWeights.SemiBold,
-                        Foreground = new SolidColorBrush(Colors.White)
+                        Foreground = reqHandler.StrengthAffected
+                            ? new SolidColorBrush((Color)ColorConverter.ConvertFromString("#6a88ef"))
+                            : new SolidColorBrush(Colors.White)
                     });
                     ic.Add(" Str");
                 }
@@ -173,7 +237,9 @@ namespace PoEHandbook.Pages
                     {
                         Text = "" + reqHandler.Dexterity,
                         FontWeight = FontWeights.SemiBold,
-                        Foreground = new SolidColorBrush(Colors.White)
+                        Foreground = reqHandler.DexterityAffected
+                            ? new SolidColorBrush((Color)ColorConverter.ConvertFromString("#6a88ef"))
+                            : new SolidColorBrush(Colors.White)
                     });
                     ic.Add(" Dex");
                 }
@@ -186,7 +252,9 @@ namespace PoEHandbook.Pages
                     {
                         Text = "" + reqHandler.Intelligence,
                         FontWeight = FontWeights.SemiBold,
-                        Foreground = new SolidColorBrush(Colors.White)
+                        Foreground = reqHandler.IntelligenceAffected
+                            ? new SolidColorBrush((Color)ColorConverter.ConvertFromString("#6a88ef"))
+                            : new SolidColorBrush(Colors.White)
                     });
                     ic.Add(" Int");
                 }
@@ -195,7 +263,7 @@ namespace PoEHandbook.Pages
             }
 
             var entAsMap = ent as Map;
-            if (entAsMap != null)
+            if (entAsMap != null && entAsMap.Level > 0)
             {
                 ic.Add("Map Level: ");
                 ic.Add(new Run
@@ -209,7 +277,7 @@ namespace PoEHandbook.Pages
             }
 
             var entAsJewel = ent as Jewel;
-            if (entAsJewel != null)
+            if (entAsJewel != null && entAsJewel.StatsRelevant)
             {
                 if (entAsJewel.Limit > 0)
                 {
@@ -238,7 +306,7 @@ namespace PoEHandbook.Pages
                     });
                 }
 
-                return entAsJewel.Limit > 0 && !string.IsNullOrEmpty(entAsJewel.Radius);
+                return true;
             }
 
             return false;

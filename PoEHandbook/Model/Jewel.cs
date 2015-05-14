@@ -24,6 +24,8 @@ namespace PoEHandbook.Model
         public int Limit { get; private set; }
         public string Radius { get; private set; }
 
+        public bool StatsRelevant { get { return Limit > 0 || !string.IsNullOrEmpty(Radius); } }
+
         public override void Deserialize(XmlNode node)
         {
             base.Deserialize(node);

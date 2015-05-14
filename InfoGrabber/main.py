@@ -304,6 +304,70 @@ def parse_shields(uris, rarity, download_images=True):
             print("- parsed shield called " + clean_off_unicode(name))
 
     return result
+
+
+def parse_weapons(uris, type, rarity, download_images=True):
+    result = []
+
+    for uri in uris:
+        soup = BeautifulSoup(get_page(uri).read())
+
+        stats_requirements = []
+
+        rows = soup.select("table.sortable tr")
+        for row in rows:
+            # Figure out what stat requirements this table has
+            if len(row.select("th")) > 0:
+                stats_requirements.clear()
+                for header in row.select("th"):
+                    if len(header.select("img")) > 0:
+                        stat_type = header.select("img")[0].attrs["alt"]
+                        if stat_type == "Str.":
+                            stats_requirements.append("Strength")
+                        if stat_type == "Dex.":
+                            stats_requirements.append("Dexterity")
+                        if stat_type == "Int.":
+                            stats_requirements.append("Intelligence")
+                continue
+
+            cols = row.select("td")
+
+            result.append("<Entity>\n")
+            name = cols[0].select("a")[0].get_text().strip()
+            result.append(create_property_xml("Name", name, 1))
+            result.append(create_property_xml("Type", type, 1))
+            result.append(create_property_xml("Rarity", rarity, 1))
+            result.append(create_property_xml("Base", cols[1].select("a")[0].get_text(), 1))
+            result.append(create_property_xml("Level", cols[2].get_text(), 1))
+
+            # Get stat requirements
+            i = 3
+            for stat_req in stats_requirements:
+                result.append(create_property_xml(stat_req, cols[i].get_text(), 1))
+                i = i + 1
+
+            result.append(create_property_xml("Damage", cols[i].get_text(), 1))
+            result.append(create_property_xml("CriticalStrikeChance", cols[i+1].get_text(), 1))
+            result.append(create_property_xml("AttacksPerSecond", cols[i+2].get_text(), 1))
+            result.append(create_property_xml("DamagePerSecond", cols[i+3].get_text(), 1))
+            result.append(create_property_xml("Mods", format_item_mods(cols[i+4].get_text()), 1))
+            if len(cols[i+4].select("span.itemboxstatsgroup")) > 1:
+                result.append(create_delim_xml("HasImplicitMod", 1))
+            result.append("</Entity>\n")
+
+            uri_detailed = "http://pathofexile.gamepedia.com" + cols[0].select("a")[0].attrs["href"]
+            soup = BeautifulSoup(get_page(uri_detailed).read())
+
+            if download_images:
+                try:
+                    imageUri = soup.select("div.itemboximage")[0].select("img")[0].attrs["src"]
+                    download_file(imageUri, "cache", name + ".png")
+                except:
+                    print("Could not download image")
+
+            print("- parsed " + type + " called " + clean_off_unicode(name))
+
+    return result
 # endregion
 
 
@@ -325,6 +389,16 @@ uris_unique_amulets = ["http://pathofexile.gamepedia.com/List_of_unique_amulets"
 uris_unique_belts = ["http://pathofexile.gamepedia.com/List_of_unique_belts"]
 uris_unique_rings = ["http://pathofexile.gamepedia.com/List_of_unique_rings"]
 uris_unique_quivers = ["http://pathofexile.gamepedia.com/List_of_unique_quivers"]
+
+uris_unique_axes = ["http://pathofexile.gamepedia.com/List_of_unique_axes"]
+uris_unique_bows = ["http://pathofexile.gamepedia.com/List_of_unique_bows"]
+uris_unique_claws = ["http://pathofexile.gamepedia.com/List_of_unique_claws"]
+uris_unique_daggers = ["http://pathofexile.gamepedia.com/List_of_unique_daggers"]
+uris_unique_rods = ["http://pathofexile.gamepedia.com/List_of_unique_fishing_rods"]
+uris_unique_maces = ["http://pathofexile.gamepedia.com/List_of_unique_maces"]
+uris_unique_swords = ["http://pathofexile.gamepedia.com/List_of_unique_swords"]
+uris_unique_staves = ["http://pathofexile.gamepedia.com/List_of_unique_staves"]
+uris_unique_wands = ["http://pathofexile.gamepedia.com/List_of_unique_wands"]
 
 # -- Get settings
 inpt = input("Download images? [Y/N] ")
@@ -394,4 +468,50 @@ if not os.path.exists("unique_shields.xml"):
     print("#Unique Shields")
     nodes = parse_shields(uris_unique_shields, "Unique", need_download_images)
     dump_xml(nodes, "unique_shields.xml")
+    print()
+
+if not os.path.exists("unique_axes.xml"):
+    print("#Unique Axes")
+    nodes = parse_weapons(uris_unique_axes, "Axe", "Unique", need_download_images)
+    dump_xml(nodes, "unique_axes.xml")
+    print()
+if not os.path.exists("unique_bows.xml"):
+    print("#Unique Bows")
+    nodes = parse_weapons(uris_unique_bows, "Bow", "Unique", need_download_images)
+    dump_xml(nodes, "unique_bows.xml")
+    print()
+if not os.path.exists("unique_claws.xml"):
+    print("#Unique Claws")
+    nodes = parse_weapons(uris_unique_claws, "Claw", "Unique", need_download_images)
+    dump_xml(nodes, "unique_claws.xml")
+    print()
+if not os.path.exists("unique_daggers.xml"):
+    print("#Unique Daggers")
+    nodes = parse_weapons(uris_unique_daggers, "Dagger", "Unique", need_download_images)
+    dump_xml(nodes, "unique_daggers.xml")
+    print()
+if not os.path.exists("unique_rods.xml"):
+    print("#Unique Rods")
+    nodes = parse_weapons(uris_unique_rods, "Rod", "Unique", need_download_images)
+    dump_xml(nodes, "unique_rods.xml")
+    print()
+if not os.path.exists("unique_maces.xml"):
+    print("#Unique Maces")
+    nodes = parse_weapons(uris_unique_maces, "Mace", "Unique", need_download_images)
+    dump_xml(nodes, "unique_maces.xml")
+    print()
+if not os.path.exists("unique_swords.xml"):
+    print("#Unique Swords")
+    nodes = parse_weapons(uris_unique_swords, "Sword", "Unique", need_download_images)
+    dump_xml(nodes, "unique_swords.xml")
+    print()
+if not os.path.exists("unique_staves.xml"):
+    print("#Unique Staves")
+    nodes = parse_weapons(uris_unique_staves, "Staff", "Unique", need_download_images)
+    dump_xml(nodes, "unique_staves.xml")
+    print()
+if not os.path.exists("unique_wands.xml"):
+    print("#Unique Wands")
+    nodes = parse_weapons(uris_unique_wands, "Wand", "Unique", need_download_images)
+    dump_xml(nodes, "unique_wands.xml")
     print()

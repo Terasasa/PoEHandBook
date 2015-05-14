@@ -5,6 +5,7 @@
 //  ------------------------------------------------------------------ 
 
 using System;
+using System.Globalization;
 using System.Text.RegularExpressions;
 
 namespace PoEHandbook.Model
@@ -14,36 +15,45 @@ namespace PoEHandbook.Model
     /// </summary>
     public struct Range
     {
-        public readonly int Min;
-        public readonly int Max;
+        public readonly bool SingleValue;
+        public readonly double Min;
+        public readonly double Max;
 
-        public Range(int min, int max)
+        public Range(double value)
         {
+            SingleValue = true;
+            Min = Max = value;
+        }
+
+        public Range(double min, double max)
+        {
+            SingleValue = false;
             Min = min;
             Max = max;
         }
 
         public double Average { get { return 0.5*(Min + Max); } }
-        public bool SingleValue { get { return Min == Max; } }
 
         public Range(string str)
         {
             // Single int value
-            int value;
-            if (int.TryParse(str, out value))
+            double value;
+            if (double.TryParse(str, NumberStyles.Any, CultureInfo.InvariantCulture, out value))
             {
                 Min = Max = value;
+                SingleValue = true;
                 return;
             }
 
             // Range value
-            var regex = new Regex(@"(?<min>\d+)\s*((to)|\-)\s*(?<max>\d+)", RegexOptions.IgnoreCase);
+            var regex = new Regex(@"(?<min>[\d\.\,]+)\s*((to)|\-|\–)\s*(?<max>[\d\.\,]+)", RegexOptions.IgnoreCase);
             var match = regex.Match(str);
 
             if (!match.Success) throw new FormatException("Input string does not contain proper data.");
 
-            Min = int.Parse(match.Groups["min"].Value);
-            Max = int.Parse(match.Groups["max"].Value);
+            SingleValue = false;
+            Min = double.Parse(match.Groups["min"].Value, NumberStyles.Any, CultureInfo.InvariantCulture);
+            Max = double.Parse(match.Groups["max"].Value, NumberStyles.Any, CultureInfo.InvariantCulture);
         }
 
         public override string ToString()

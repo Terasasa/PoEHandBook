@@ -194,6 +194,17 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Data\unique_axes.xml" />
+    <Resource Include="Data\unique_bows.xml" />
+    <Resource Include="Data\unique_claws.xml" />
+    <Resource Include="Data\unique_daggers.xml" />
+    <Resource Include="Data\unique_maces.xml" />
+    <Resource Include="Data\unique_rods.xml" />
+    <Resource Include="Data\unique_staves.xml" />
+    <Resource Include="Data\unique_swords.xml" />
+    <Resource Include="Data\unique_wands.xml" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>XCOPY "$(ProjectDir)Data\cache" "$(TargetDir)Data\cache" /s /i /y

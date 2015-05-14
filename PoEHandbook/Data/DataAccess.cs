@@ -40,7 +40,17 @@ namespace PoEHandbook.Data
                 {"unique_rings.xml", typeof (Equipment)},
                 {"unique_quivers.xml", typeof (Equipment)},
 
-                {"unique_shields.xml", typeof (Equipment)}
+                {"unique_shields.xml", typeof (Equipment)},
+
+                {"unique_axes.xml", typeof (Equipment)},
+                {"unique_bows.xml", typeof (Equipment)},
+                {"unique_claws.xml", typeof (Equipment)},
+                {"unique_daggers.xml", typeof (Equipment)},
+                {"unique_rods.xml", typeof (Equipment)},
+                {"unique_maces.xml", typeof (Equipment)},
+                {"unique_swords.xml", typeof (Equipment)},
+                {"unique_staves.xml", typeof (Equipment)},
+                {"unique_wands.xml", typeof (Equipment)}
             };
 
             foreach (var resource in resources)

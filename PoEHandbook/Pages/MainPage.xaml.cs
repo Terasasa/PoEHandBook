@@ -13,7 +13,6 @@ using System.Windows.Documents;
 using System.Windows.Media.Animation;
 using System.Windows.Threading;
 using PoEHandbook.Data;
-using PoEHandbook.Model;
 
 namespace PoEHandbook.Pages
 {
@@ -47,92 +46,27 @@ namespace PoEHandbook.Pages
         {
             TbStatus.Inlines.Clear();
 
-            int currencyCount = _lastResults.Count(sr => sr.Entity is Currency);
-            int equipCount = _lastResults.Count(sr => sr.Entity is Equipment);
-            int gemCount = _lastResults.Count(sr => sr.Entity is Gem);
-            int jewelCount = _lastResults.Count(sr => sr.Entity is Jewel);
-            int mapCount = _lastResults.Count(sr => sr.Entity is Map);
-            int passiveCount = _lastResults.Count(sr => sr.Entity is Passive);
-            int recipeCount = _lastResults.Count(sr => sr.Entity is Recipe);
-            int miscCount = _lastResults.Length - currencyCount - equipCount - gemCount - jewelCount - mapCount -
-                            passiveCount - recipeCount;
-
-            TbStatus.Inlines.Add("Found ");
-
-            if (currencyCount > 0)
+            // No results - no worries
+            if (!_lastResults.Any())
             {
-                if (TbStatus.Inlines.Count > 1)
+                TbStatus.Inlines.Add("Nothing found");
+                return;
+            }
+
+            // Get all the entity types
+            var entityTypes = _lastResults.Select(sr => sr.Entity.GetType()).Distinct();
+
+            // Output
+            foreach (var entityType in entityTypes)
+            {
+                if (TbStatus.Inlines.Count > 0)
                     TbStatus.Inlines.Add(", ");
 
-                var run = new Run { Text = "" + currencyCount, FontWeight = FontWeights.Bold };
-                TbStatus.Inlines.Add(run);
-                TbStatus.Inlines.Add(" currency item(s)");
-            }
-            if (equipCount > 0)
-            {
-                if (TbStatus.Inlines.Count > 1)
-                    TbStatus.Inlines.Add(", ");
+                int typeCount = _lastResults.Count(sr => sr.Entity.GetType() == entityType);
 
-                var run = new Run { Text = "" + equipCount, FontWeight = FontWeights.Bold };
-                TbStatus.Inlines.Add(run);
-                TbStatus.Inlines.Add(" equipment item(s)");
+                TbStatus.Inlines.Add(entityType.Name + "(s): ");
+                TbStatus.Inlines.Add(new Run {Text = "" + typeCount, FontWeight = FontWeights.SemiBold});
             }
-            if (gemCount > 0)
-            {
-                if (TbStatus.Inlines.Count > 1)
-                    TbStatus.Inlines.Add(", ");
-
-                var run = new Run { Text = "" + gemCount, FontWeight = FontWeights.Bold };
-                TbStatus.Inlines.Add(run);
-                TbStatus.Inlines.Add(" gem(s)");
-            }
-            if (jewelCount > 0)
-            {
-                if (TbStatus.Inlines.Count > 1)
-                    TbStatus.Inlines.Add(", ");
-
-                var run = new Run { Text = "" + jewelCount, FontWeight = FontWeights.Bold };
-                TbStatus.Inlines.Add(run);
-                TbStatus.Inlines.Add(" jewel(s)");
-            }
-            if (mapCount > 0)
-            {
-                if (TbStatus.Inlines.Count > 1)
-                    TbStatus.Inlines.Add(", ");
-
-                var run = new Run { Text = "" + mapCount, FontWeight = FontWeights.Bold };
-                TbStatus.Inlines.Add(run);
-                TbStatus.Inlines.Add(" map(s)");
-            }
-            if (passiveCount > 0)
-            {
-                if (TbStatus.Inlines.Count > 1)
-                    TbStatus.Inlines.Add(", ");
-
-                var run = new Run { Text = "" + passiveCount, FontWeight = FontWeights.Bold };
-                TbStatus.Inlines.Add(run);
-                TbStatus.Inlines.Add(" passive(s)");
-            }
-            if (recipeCount > 0)
-            {
-                if (TbStatus.Inlines.Count > 1)
-                    TbStatus.Inlines.Add(", ");
-
-                var run = new Run { Text = "" + recipeCount, FontWeight = FontWeights.Bold };
-                TbStatus.Inlines.Add(run);
-                TbStatus.Inlines.Add(" recipe(s)");
-            }
-            if (miscCount > 0)
-            {
-                if (TbStatus.Inlines.Count > 1)
-                    TbStatus.Inlines.Add(", ");
-
-                var run = new Run { Text = "" + miscCount, FontWeight = FontWeights.Bold };
-                TbStatus.Inlines.Add(run);
-                TbStatus.Inlines.Add(" misc item(s)");
-            }
-            if (TbStatus.Inlines.Count == 1)
-                TbStatus.Inlines.Add("nothing");
         }
 
         /// <summary>
