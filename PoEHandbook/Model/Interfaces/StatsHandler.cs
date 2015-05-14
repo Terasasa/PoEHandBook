@@ -60,7 +60,8 @@ namespace PoEHandbook.Model.Interfaces
                 return parentWithMods.ModsHandler.Mods.Any(mod => (
                     mod.ContainsInvariant("INCREASED") ||
                     mod.ContainsInvariant("REDUCED")) &&
-                    mod.ContainsInvariant("ARMOUR"));
+                    mod.ContainsInvariant("ARMOUR") &&
+                    !mod.ContainsInvariant("GLOBAL"));
             }
         }
 
@@ -76,7 +77,8 @@ namespace PoEHandbook.Model.Interfaces
                 return parentWithMods.ModsHandler.Mods.Any(mod => (
                     mod.ContainsInvariant("INCREASED") ||
                     mod.ContainsInvariant("REDUCED")) &&
-                    mod.ContainsInvariant("EVASION"));
+                    mod.ContainsInvariant("EVASION") &&
+                    !mod.ContainsInvariant("GLOBAL"));
             }
         }
 
@@ -92,7 +94,8 @@ namespace PoEHandbook.Model.Interfaces
                 return parentWithMods.ModsHandler.Mods.Any(mod => (
                     mod.ContainsInvariant("INCREASED") ||
                     mod.ContainsInvariant("REDUCED")) &&
-                    mod.ContainsInvariant("ENERGY SHIELD"));
+                    mod.ContainsInvariant("ENERGY SHIELD") &&
+                    !mod.ContainsInvariant("GLOBAL"));
             }
         }
 
@@ -109,7 +112,8 @@ namespace PoEHandbook.Model.Interfaces
                     mod.ContainsInvariant("ADDITIONAL") ||
                     mod.ContainsInvariant("REDUCED")) &&
                     mod.ContainsInvariant("BLOCK") &&
-                    mod.ContainsInvariant("CHANCE"));
+                    mod.ContainsInvariant("CHANCE") &&
+                    !mod.ContainsInvariant("GLOBAL"));
             }
         }
 
@@ -125,7 +129,8 @@ namespace PoEHandbook.Model.Interfaces
                 return parentWithMods.ModsHandler.Mods.Any(mod => (
                     mod.ContainsInvariant("INCREASED") ||
                     mod.ContainsInvariant("REDUCED")) &&
-                    mod.ContainsInvariant("DAMAGE"));
+                    mod.ContainsInvariant("DAMAGE") &&
+                    !mod.ContainsInvariant("GLOBAL"));
             }
         }
 
@@ -141,7 +146,8 @@ namespace PoEHandbook.Model.Interfaces
                 return parentWithMods.ModsHandler.Mods.Any(mod => (
                     mod.ContainsInvariant("INCREASED") ||
                     mod.ContainsInvariant("REDUCED")) &&
-                    mod.ContainsInvariant("CRITICAL STRIKE CHANCE"));
+                    mod.ContainsInvariant("CRITICAL STRIKE CHANCE") &&
+                    !mod.ContainsInvariant("GLOBAL"));
             }
         }
 
@@ -157,7 +163,8 @@ namespace PoEHandbook.Model.Interfaces
                 return parentWithMods.ModsHandler.Mods.Any(mod => (
                     mod.ContainsInvariant("INCREASED") ||
                     mod.ContainsInvariant("REDUCED")) &&
-                    mod.ContainsInvariant("ATTACK SPEED"));
+                    mod.ContainsInvariant("ATTACK SPEED") &&
+                    !mod.ContainsInvariant("GLOBAL"));
             }
         }
 
