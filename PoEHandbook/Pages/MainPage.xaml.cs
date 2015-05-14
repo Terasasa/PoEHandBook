@@ -57,10 +57,12 @@ namespace PoEHandbook.Pages
             var entityTypes = _lastResults.Select(sr => sr.Entity.GetType()).Distinct();
 
             // Output
+            TbStatus.Inlines.Add("Total: ");
+            TbStatus.Inlines.Add(new Run { Text = "" + _lastResults.Length, FontWeight = FontWeights.SemiBold });
+
             foreach (var entityType in entityTypes)
             {
-                if (TbStatus.Inlines.Count > 0)
-                    TbStatus.Inlines.Add(", ");
+                TbStatus.Inlines.Add(", ");
 
                 int typeCount = _lastResults.Count(sr => sr.Entity.GetType() == entityType);
 
