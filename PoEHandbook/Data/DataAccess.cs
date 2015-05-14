@@ -30,27 +30,27 @@ namespace PoEHandbook.Data
 
                 {"unique_jewels.xml", typeof (Jewel)},
 
-                {"unique_body_armours.xml", typeof (Equipment)},
-                {"unique_helmets.xml", typeof (Equipment)},
-                {"unique_gloves.xml", typeof (Equipment)},
-                {"unique_boots.xml", typeof (Equipment)},
+                {"unique_body_armours.xml", typeof (Armour)},
+                {"unique_helmets.xml", typeof (Armour)},
+                {"unique_gloves.xml", typeof (Armour)},
+                {"unique_boots.xml", typeof (Armour)},
 
-                {"unique_amulets.xml", typeof (Equipment)},
-                {"unique_belts.xml", typeof (Equipment)},
-                {"unique_rings.xml", typeof (Equipment)},
-                {"unique_quivers.xml", typeof (Equipment)},
+                {"unique_amulets.xml", typeof (Trinket)},
+                {"unique_belts.xml", typeof (Trinket)},
+                {"unique_rings.xml", typeof (Trinket)},
+                {"unique_quivers.xml", typeof (Trinket)},
 
-                {"unique_shields.xml", typeof (Equipment)},
+                {"unique_shields.xml", typeof (Shield)},
 
-                {"unique_axes.xml", typeof (Equipment)},
-                {"unique_bows.xml", typeof (Equipment)},
-                {"unique_claws.xml", typeof (Equipment)},
-                {"unique_daggers.xml", typeof (Equipment)},
-                {"unique_rods.xml", typeof (Equipment)},
-                {"unique_maces.xml", typeof (Equipment)},
-                {"unique_swords.xml", typeof (Equipment)},
-                {"unique_staves.xml", typeof (Equipment)},
-                {"unique_wands.xml", typeof (Equipment)}
+                {"unique_axes.xml", typeof (Weapon)},
+                {"unique_bows.xml", typeof (Weapon)},
+                {"unique_claws.xml", typeof (Weapon)},
+                {"unique_daggers.xml", typeof (Weapon)},
+                {"unique_rods.xml", typeof (Weapon)},
+                {"unique_maces.xml", typeof (Weapon)},
+                {"unique_swords.xml", typeof (Weapon)},
+                {"unique_staves.xml", typeof (Weapon)},
+                {"unique_wands.xml", typeof (Weapon)}
             };
 
             foreach (var resource in resources)

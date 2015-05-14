@@ -88,6 +88,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\Armour.cs" />
     <Compile Include="Model\Currency.cs" />
     <Compile Include="Model\Equipment.cs" />
     <Compile Include="Model\Gem.cs" />
@@ -109,6 +110,9 @@
     <Compile Include="Model\Passive.cs" />
     <Compile Include="Model\Range.cs" />
     <Compile Include="Model\Recipe.cs" />
+    <Compile Include="Model\Shield.cs" />
+    <Compile Include="Model\Trinket.cs" />
+    <Compile Include="Model\Weapon.cs" />
     <Compile Include="Pages\InfoPage.xaml.cs">
       <DependentUpon>InfoPage.xaml</DependentUpon>
     </Compile>

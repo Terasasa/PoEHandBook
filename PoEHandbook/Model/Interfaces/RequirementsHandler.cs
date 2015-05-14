@@ -17,14 +17,18 @@ namespace PoEHandbook.Model.Interfaces
         {
         }
 
+        // General
         public int Level { get; private set; }
         public int Strength { get; private set; }
         public int Dexterity { get; private set; }
         public int Intelligence { get; private set; }
 
+        // Jewels
+        public int Limit { get; private set; }
+
         public bool IsRelevant
         {
-            get { return Level > 0 || Strength > 0 || Dexterity > 0 || Intelligence > 0; }
+            get { return Level > 0 || Strength > 0 || Dexterity > 0 || Intelligence > 0 || Limit > 0; }
         }
 
         /// <summary>
@@ -38,6 +42,7 @@ namespace PoEHandbook.Model.Interfaces
                 return false;
             }
         }
+
         /// <summary>
         /// Determines whether the item's mods affect Strength value
         /// </summary>
@@ -51,6 +56,7 @@ namespace PoEHandbook.Model.Interfaces
                     (mod.ContainsInvariant("STRENGTH") || mod.ContainsInvariant("ATTRIBUTE")));
             }
         }
+
         /// <summary>
         /// Determines whether the item's mods affect Dexterity value
         /// </summary>
@@ -64,6 +70,7 @@ namespace PoEHandbook.Model.Interfaces
                     (mod.ContainsInvariant("DEXTERITY") || mod.ContainsInvariant("ATTRIBUTE")));
             }
         }
+
         /// <summary>
         /// Determines whether the item's mods affect Intelligence value
         /// </summary>
@@ -75,6 +82,18 @@ namespace PoEHandbook.Model.Interfaces
                 if (parentWithMods == null) return false;
                 return parentWithMods.ModsHandler.Mods.Any(mod =>
                     (mod.ContainsInvariant("INTELLIGENCE") || mod.ContainsInvariant("ATTRIBUTE")));
+            }
+        }
+
+        /// <summary>
+        /// Determines whether the item's mods affect Limit value
+        /// </summary>
+        public bool LimitAffected
+        {
+            get
+            {
+                // No mods that affect limit exist
+                return false;
             }
         }
 
@@ -93,6 +112,9 @@ namespace PoEHandbook.Model.Interfaces
 
             temp = node.SelectSingleNode(@"Property[@id='Intelligence']");
             if (temp != null) Intelligence = int.Parse(temp.InnerText);
+
+            temp = node.SelectSingleNode(@"Property[@id='Limit']");
+            if (temp != null) Limit = int.Parse(temp.InnerText);
         }
 
         public override bool ContainsInProperties(string query, out List<string> properties)

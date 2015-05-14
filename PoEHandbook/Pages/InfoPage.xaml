@@ -46,7 +46,8 @@
                 VerticalAlignment="Center"
                 Background="Black"
                 BorderBrush="{DynamicResource AccentBrush}"
-                BorderThickness="2">
+                BorderThickness="2"
+                Padding="0, 0, 0, 5">
             <StackPanel>
                 <Border Height="80"
                         Margin="1, 1, 1, 5"

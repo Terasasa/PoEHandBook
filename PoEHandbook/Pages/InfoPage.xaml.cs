@@ -1,8 +1,8 @@
-﻿// //  ------------------------------------------------------------------ 
-// //  PoEHandbook
-// //  InfoPage.xaml.cs by 
-// //  06/05/2015
-// //  ------------------------------------------------------------------ 
+﻿// ------------------------------------------------------------------ 
+// PoEHandbook
+// InfoPage.xaml.cs by 
+// 06/05/2015
+// ------------------------------------------------------------------ 
 
 using System;
 using System.IO;
@@ -116,7 +116,7 @@ namespace PoEHandbook.Pages
                     {
                         FontWeight = FontWeights.SemiBold,
                         Foreground = statsHandler.DamageAffected
-                            ? new SolidColorBrush((Color)ColorConverter.ConvertFromString("#6a88ef"))
+                            ? new SolidColorBrush((Color) ColorConverter.ConvertFromString("#6a88ef"))
                             : new SolidColorBrush(Colors.White)
                     };
                     ic.Add(run);
@@ -131,7 +131,7 @@ namespace PoEHandbook.Pages
                     {
                         FontWeight = FontWeights.SemiBold,
                         Foreground = statsHandler.CriticalStrikeChanceAffected
-                            ? new SolidColorBrush((Color)ColorConverter.ConvertFromString("#6a88ef"))
+                            ? new SolidColorBrush((Color) ColorConverter.ConvertFromString("#6a88ef"))
                             : new SolidColorBrush(Colors.White)
                     };
                     ic.Add(run);
@@ -146,7 +146,7 @@ namespace PoEHandbook.Pages
                     {
                         FontWeight = FontWeights.SemiBold,
                         Foreground = statsHandler.AttacksPerSecondAffected
-                            ? new SolidColorBrush((Color)ColorConverter.ConvertFromString("#6a88ef"))
+                            ? new SolidColorBrush((Color) ColorConverter.ConvertFromString("#6a88ef"))
                             : new SolidColorBrush(Colors.White)
                     };
                     ic.Add(run);
@@ -161,25 +161,41 @@ namespace PoEHandbook.Pages
                     {
                         FontWeight = FontWeights.SemiBold,
                         Foreground = statsHandler.DamagePerSecondAffected
-                            ? new SolidColorBrush((Color)ColorConverter.ConvertFromString("#6a88ef"))
+                            ? new SolidColorBrush((Color) ColorConverter.ConvertFromString("#6a88ef"))
                             : new SolidColorBrush(Colors.White)
                     };
                     ic.Add(run);
                 }
-
-                return true;
-            }
-
-            var entAsMap = ent as Map;
-            if (entAsMap != null && entAsMap.Quantity > 0)
-            {
-                ic.Add("Map Quantity: ");
-                ic.Add(new Run
+                if (statsHandler.Quantity > 0)
                 {
-                    Text = "" + entAsMap.Quantity,
-                    FontWeight = FontWeights.SemiBold,
-                    Foreground = new SolidColorBrush(Colors.White)
-                });
+                    if (ic.Count > 1)
+                        ic.Add(Environment.NewLine);
+
+                    ic.Add("Quantity: ");
+                    var run = new Run(statsHandler.Quantity.ToString())
+                    {
+                        FontWeight = FontWeights.SemiBold,
+                        Foreground = statsHandler.QuantityAffected
+                            ? new SolidColorBrush((Color) ColorConverter.ConvertFromString("#6a88ef"))
+                            : new SolidColorBrush(Colors.White)
+                    };
+                    ic.Add(run);
+                }
+                if (!string.IsNullOrEmpty(statsHandler.Radius))
+                {
+                    if (ic.Count > 1)
+                        ic.Add(Environment.NewLine);
+
+                    ic.Add("Radius: ");
+                    var run = new Run(statsHandler.Radius)
+                    {
+                        FontWeight = FontWeights.SemiBold,
+                        Foreground = statsHandler.RadiusAffected
+                            ? new SolidColorBrush((Color) ColorConverter.ConvertFromString("#6a88ef"))
+                            : new SolidColorBrush(Colors.White)
+                    };
+                    ic.Add(run);
+                }
 
                 return true;
             }
@@ -194,10 +210,8 @@ namespace PoEHandbook.Pages
             var entWithRequirements = ent as IHasRequirements;
             if (entWithRequirements != null && entWithRequirements.RequirementsHandler.IsRelevant)
             {
-
-                ic.Add("Requires ");
-
                 var reqHandler = entWithRequirements.RequirementsHandler;
+
                 if (reqHandler.Level > 0)
                 {
                     if (ic.Count > 1)
@@ -209,7 +223,7 @@ namespace PoEHandbook.Pages
                         Text = "" + reqHandler.Level,
                         FontWeight = FontWeights.SemiBold,
                         Foreground = reqHandler.LevelAffected
-                            ? new SolidColorBrush((Color)ColorConverter.ConvertFromString("#6a88ef"))
+                            ? new SolidColorBrush((Color) ColorConverter.ConvertFromString("#6a88ef"))
                             : new SolidColorBrush(Colors.White)
                     });
                 }
@@ -223,7 +237,7 @@ namespace PoEHandbook.Pages
                         Text = "" + reqHandler.Strength,
                         FontWeight = FontWeights.SemiBold,
                         Foreground = reqHandler.StrengthAffected
-                            ? new SolidColorBrush((Color)ColorConverter.ConvertFromString("#6a88ef"))
+                            ? new SolidColorBrush((Color) ColorConverter.ConvertFromString("#6a88ef"))
                             : new SolidColorBrush(Colors.White)
                     });
                     ic.Add(" Str");
@@ -238,7 +252,7 @@ namespace PoEHandbook.Pages
                         Text = "" + reqHandler.Dexterity,
                         FontWeight = FontWeights.SemiBold,
                         Foreground = reqHandler.DexterityAffected
-                            ? new SolidColorBrush((Color)ColorConverter.ConvertFromString("#6a88ef"))
+                            ? new SolidColorBrush((Color) ColorConverter.ConvertFromString("#6a88ef"))
                             : new SolidColorBrush(Colors.White)
                     });
                     ic.Add(" Dex");
@@ -253,59 +267,26 @@ namespace PoEHandbook.Pages
                         Text = "" + reqHandler.Intelligence,
                         FontWeight = FontWeights.SemiBold,
                         Foreground = reqHandler.IntelligenceAffected
-                            ? new SolidColorBrush((Color)ColorConverter.ConvertFromString("#6a88ef"))
+                            ? new SolidColorBrush((Color) ColorConverter.ConvertFromString("#6a88ef"))
                             : new SolidColorBrush(Colors.White)
                     });
                     ic.Add(" Int");
                 }
-
-                return true;
-            }
-
-            var entAsMap = ent as Map;
-            if (entAsMap != null && entAsMap.Level > 0)
-            {
-                ic.Add("Map Level: ");
-                ic.Add(new Run
-                {
-                    Text = "" + entAsMap.Level,
-                    FontWeight = FontWeights.SemiBold,
-                    Foreground = new SolidColorBrush(Colors.White)
-                });
-
-                return true;
-            }
-
-            var entAsJewel = ent as Jewel;
-            if (entAsJewel != null && entAsJewel.StatsRelevant)
-            {
-                if (entAsJewel.Limit > 0)
+                if (reqHandler.Limit > 0)
                 {
                     if (ic.Count > 1)
                         ic.Add(", ");
 
-                    ic.Add("Limit: ");
+                    ic.Add("Limit of ");
                     ic.Add(new Run
                     {
-                        Text = "" + entAsJewel.Limit,
-                        FontWeight = FontWeights.Bold,
-                        Foreground = new SolidColorBrush(Colors.White)
-                    });
-                }
-                if (!string.IsNullOrEmpty(entAsJewel.Radius))
-                {
-                    if (ic.Count > 1)
-                        ic.Add(", ");
-
-                    ic.Add("Radius: ");
-                    ic.Add(new Run
-                    {
-                        Text = "" + entAsJewel.Radius,
+                        Text = "" + reqHandler.Limit,
                         FontWeight = FontWeights.SemiBold,
-                        Foreground = new SolidColorBrush(Colors.White)
+                        Foreground = reqHandler.LimitAffected
+                            ? new SolidColorBrush((Color)ColorConverter.ConvertFromString("#6a88ef"))
+                            : new SolidColorBrush(Colors.White)
                     });
                 }
-
                 return true;
             }
 
@@ -336,6 +317,7 @@ namespace PoEHandbook.Pages
             if ((entWithMods == null || !entWithMods.ModsHandler.IsRelevant) && entWithDescription == null)
                 return false;
 
+            // Mods
             if (entWithMods != null)
             {
                 int start = entWithMods.ModsHandler.HasImplicitMod ? 1 : 0;
@@ -356,7 +338,9 @@ namespace PoEHandbook.Pages
                 return true;
             }
 
+            // Description
             ic.Add(entWithDescription.DescriptionHandler.Description);
+
             return true;
         }
 
@@ -372,7 +356,7 @@ namespace PoEHandbook.Pages
             bool hasExplicitMods = FormatEntityExplicitMods(ent, TbMods.Inlines);
 
             // Hide unused stuff
-            if (!hasName) ((dynamic)TbName).Parent.Visibility = Visibility.Collapsed;
+            if (!hasName) ((dynamic) TbName).Parent.Visibility = Visibility.Collapsed;
             if (!hasStats)
             {
                 TbStats.Visibility = Visibility.Collapsed;

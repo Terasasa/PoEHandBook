@@ -31,13 +31,20 @@ namespace PoEHandbook.Model.Interfaces
         public Range AttacksPerSecond { get; private set; }
         public Range DamagePerSecond { get; private set; }
 
+        // Maps
+        public int Quantity { get; private set; }
+
+        // Jewels
+        public string Radius { get; private set; }
+
         public bool IsRelevant
         {
             get
             {
                 return ArmourValue.Average > 0 || EvasionValue.Average > 0 || EnergyShieldValue.Average > 0 ||
                        Block.Average > 0 || Damage.Average > 0 || CriticalStrikeChance.Average > 0 ||
-                       AttacksPerSecond.Average > 0 || DamagePerSecond.Average > 0;
+                       AttacksPerSecond.Average > 0 || DamagePerSecond.Average > 0 || Quantity > 0 ||
+                       !string.IsNullOrEmpty(Radius);
             }
         }
 
@@ -162,6 +169,30 @@ namespace PoEHandbook.Model.Interfaces
             get { return DamageAffected || AttacksPerSecondAffected; }
         }
 
+        /// <summary>
+        /// Determines whether the item's mods affect Quantity value
+        /// </summary>
+        public bool QuantityAffected
+        {
+            get
+            {
+                // No item mods that affect quantity exist
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Determines whether the item's mods affect Radius value
+        /// </summary>
+        public bool RadiusAffected
+        {
+            get
+            {
+                // No item mods that affect radius exist
+                return false;
+            }
+        }
+
         public override void Deserialize(XmlNode node)
         {
             XmlNode temp;
@@ -191,6 +222,12 @@ namespace PoEHandbook.Model.Interfaces
 
             temp = node.SelectSingleNode(@"Property[@id='DamagePerSecond']");
             if (temp != null && !string.IsNullOrEmpty(temp.InnerText)) DamagePerSecond = new Range(temp.InnerText);
+
+            temp = node.SelectSingleNode(@"Property[@id='Quantity']");
+            if (temp != null) Quantity = int.Parse(temp.InnerText);
+
+            temp = node.SelectSingleNode(@"Property[@id='Radius']");
+            if (temp != null && temp.InnerText != "0") Radius = temp.InnerText;
         }
 
         public override bool ContainsInProperties(string query, out List<string> properties)
