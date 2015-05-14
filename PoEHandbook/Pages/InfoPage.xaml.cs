@@ -277,7 +277,7 @@ namespace PoEHandbook.Pages
                     if (ic.Count > 1)
                         ic.Add(", ");
 
-                    ic.Add("Limit of ");
+                    ic.Add("Limit: ");
                     ic.Add(new Run
                     {
                         Text = "" + reqHandler.Limit,
