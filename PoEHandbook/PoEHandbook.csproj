@@ -91,6 +91,7 @@
     <Compile Include="Model\Armour.cs" />
     <Compile Include="Model\Currency.cs" />
     <Compile Include="Model\Equipment.cs" />
+    <Compile Include="Model\Flask.cs" />
     <Compile Include="Model\Gem.cs" />
     <Compile Include="Model\Interfaces\DescriptionHandler.cs" />
     <Compile Include="Model\Interfaces\Handler.cs" />
@@ -111,7 +112,7 @@
     <Compile Include="Model\Range.cs" />
     <Compile Include="Model\Recipe.cs" />
     <Compile Include="Model\Shield.cs" />
-    <Compile Include="Model\Trinket.cs" />
+    <Compile Include="Model\Accessory.cs" />
     <Compile Include="Model\Weapon.cs" />
     <Compile Include="Pages\InfoPage.xaml.cs">
       <DependentUpon>InfoPage.xaml</DependentUpon>
@@ -163,40 +164,20 @@
     <Resource Include="Data\unique_shields.xml" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Data\unique_body_armours.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Data\unique_boots.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Data\unique_gloves.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Data\unique_helmets.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
+    <Resource Include="Data\unique_body_armours.xml" />
+    <Resource Include="Data\unique_boots.xml" />
+    <Resource Include="Data\unique_gloves.xml" />
+    <Resource Include="Data\unique_helmets.xml" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Data\unique_amulets.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Data\unique_belts.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Data\unique_quivers.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Data\unique_rings.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
+    <Resource Include="Data\unique_amulets.xml" />
+    <Resource Include="Data\unique_belts.xml" />
+    <Resource Include="Data\unique_quivers.xml" />
+    <Resource Include="Data\unique_rings.xml" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Data\unique_jewels.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Data\unique_maps.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
+    <Resource Include="Data\unique_jewels.xml" />
+    <Resource Include="Data\unique_maps.xml" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Data\unique_axes.xml" />
@@ -208,6 +189,9 @@
     <Resource Include="Data\unique_staves.xml" />
     <Resource Include="Data\unique_swords.xml" />
     <Resource Include="Data\unique_wands.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Data\unique_flasks.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

@@ -73,7 +73,7 @@ def parse_currency(uris, download_images=True):
 
             cols = row.select("td")
 
-            result.append("<Entity>\n")
+            result.append('<Entity Type="Currency">\n')
             name = cols[0].get_text().strip()
             result.append(create_property_xml("Name", name, 1))
 
@@ -107,7 +107,7 @@ def parse_maps(uris, rarity, download_images=True):
 
             cols = row.select("td")
 
-            result.append("<Entity>\n")
+            result.append('<Entity Type="Map">\n')
             name = cols[0].select("a")[0].get_text().strip()
             result.append(create_property_xml("Name", name, 1))
             result.append(create_property_xml("Rarity", rarity, 1))
@@ -147,7 +147,7 @@ def parse_jewels(uris, rarity, download_images=True):
 
             cols = row.select("td")
 
-            result.append("<Entity>\n")
+            result.append('<Entity Type="Jewel">\n')
             name = cols[0].select("a")[0].get_text().strip()
             result.append(create_property_xml("Name", name, 1))
             result.append(create_property_xml("Rarity", rarity, 1))
@@ -174,7 +174,64 @@ def parse_jewels(uris, rarity, download_images=True):
     return result
 
 
-def parse_armors(uris, type, rarity, download_images=True):
+def parse_flasks(uris, rarity, download_images=True):
+    result = []
+
+    for uri in uris:
+        soup = BeautifulSoup(get_page(uri).read())
+
+        recovery_types = []
+
+        rows = soup.select("table.sortable tr")
+        for row in rows:
+            if len(row.select("th")) > 0:
+                recovery_types.clear()
+                for header in row.select("th"):
+                    if header.get_text() == "Life":
+                        recovery_types.append("LifeRecovery")
+                    if header.get_text() == "Mana":
+                        recovery_types.append("ManaRecovery")
+                continue
+
+            cols = row.select("td")
+
+            result.append('<Entity Type="Flask">\n')
+            name = cols[0].select("a")[0].get_text().strip()
+            result.append(create_property_xml("Name", name, 1))
+            result.append(create_property_xml("Rarity", rarity, 1))
+            result.append(create_property_xml("Base", cols[1].select("a")[0].get_text(), 1))
+            result.append(create_property_xml("Level", cols[2].get_text(), 1))
+
+            i = 3
+            for recovery_type in recovery_types:
+                result.append(create_property_xml(recovery_type, cols[i].get_text(), 1))
+                i = i + 1
+
+            result.append(create_property_xml("Duration", cols[i].get_text(), 1))
+            result.append(create_property_xml("Capacity", cols[i+1].get_text(), 1))
+            result.append(create_property_xml("ChargesUsed", cols[i+2].get_text(), 1))
+            result.append(create_property_xml("Mods", format_item_mods(cols[i+3].get_text()), 1))
+            # all utility flasks have implicits but wiki stores it in very inconvinient format
+            # .. so for now the implicits are not parsed
+            #result.append(create_delim_xml("HasImplicitMod", 1))
+            result.append("</Entity>\n")
+
+            uri_detailed = "http://pathofexile.gamepedia.com" + cols[0].select("a")[0].attrs["href"]
+            soup = BeautifulSoup(get_page(uri_detailed).read())
+
+            if download_images:
+                try:
+                    imageUri = soup.select("div.itemboximage")[0].select("img")[0].attrs["src"]
+                    download_file(imageUri, "cache", name + ".png")
+                except:
+                    print("Could not download image")
+
+            print("- parsed flask called " + clean_off_unicode(name))
+
+    return result
+
+
+def parse_armours(uris, type, rarity, download_images=True):
     result = []
 
     for uri in uris:
@@ -187,7 +244,7 @@ def parse_armors(uris, type, rarity, download_images=True):
 
             cols = row.select("td")
 
-            result.append("<Entity>\n")
+            result.append('<Entity Type="Armour">\n')
             name = cols[0].select("a")[0].get_text().strip()
             result.append(create_property_xml("Name", name, 1))
             result.append(create_property_xml("Type", type, 1))
@@ -220,7 +277,7 @@ def parse_armors(uris, type, rarity, download_images=True):
     return result
 
 
-def parse_trinkets(uris, type, rarity, download_images=True):
+def parse_accessories(uris, type, rarity, download_images=True):
     result = []
 
     for uri in uris:
@@ -233,7 +290,7 @@ def parse_trinkets(uris, type, rarity, download_images=True):
 
             cols = row.select("td")
 
-            result.append("<Entity>\n")
+            result.append('<Entity Type="Accessory">\n')
             name = cols[0].select("a")[0].get_text().strip()
             result.append(create_property_xml("Name", name, 1))
             result.append(create_property_xml("Type", type, 1))
@@ -273,7 +330,7 @@ def parse_shields(uris, rarity, download_images=True):
 
             cols = row.select("td")
 
-            result.append("<Entity>\n")
+            result.append('<Entity Type="Shield">\n')
             name = cols[0].select("a")[0].get_text().strip()
             result.append(create_property_xml("Name", name, 1))
             result.append(create_property_xml("Rarity", rarity, 1))
@@ -332,7 +389,7 @@ def parse_weapons(uris, type, rarity, download_images=True):
 
             cols = row.select("td")
 
-            result.append("<Entity>\n")
+            result.append('<Entity Type="Weapon">\n')
             name = cols[0].select("a")[0].get_text().strip()
             result.append(create_property_xml("Name", name, 1))
             result.append(create_property_xml("Type", type, 1))
@@ -377,6 +434,7 @@ def parse_weapons(uris, type, rarity, download_images=True):
 uris_currency = ["http://pathofexile.gamepedia.com/Currency"]
 uris_unique_maps = ["http://pathofexile.gamepedia.com/List_of_unique_maps"]
 uris_unique_jewels = ["http://pathofexile.gamepedia.com/List_of_unique_jewels"]
+uris_unique_flasks = ["http://pathofexile.gamepedia.com/List_of_unique_flasks"]
 
 uris_unique_bodyarmour = ["http://pathofexile.gamepedia.com/List_of_unique_body_armours"]
 uris_unique_helmet = ["http://pathofexile.gamepedia.com/List_of_unique_helmets"]
@@ -421,46 +479,51 @@ if not os.path.exists("unique_jewels.xml"):
     nodes = parse_jewels(uris_unique_jewels, "Unique", need_download_images)
     dump_xml(nodes, "unique_jewels.xml")
     print()
+if not os.path.exists("unique_flasks.xml"):
+    print("#Unique flasks")
+    nodes = parse_flasks(uris_unique_flasks, "Unique", need_download_images)
+    dump_xml(nodes, "unique_flasks.xml")
+    print()
 
 if not os.path.exists("unique_body_armours.xml"):
     print("#Unique Body Armours")
-    nodes = parse_armors(uris_unique_bodyarmour, "Body Armour", "Unique", need_download_images)
+    nodes = parse_armours(uris_unique_bodyarmour, "Body Armour", "Unique", need_download_images)
     dump_xml(nodes, "unique_body_armours.xml")
     print()
 if not os.path.exists("unique_helmets.xml"):
     print("#Unique Helmets")
-    nodes = parse_armors(uris_unique_helmet, "Helmet", "Unique", need_download_images)
+    nodes = parse_armours(uris_unique_helmet, "Helmet", "Unique", need_download_images)
     dump_xml(nodes, "unique_helmets.xml")
     print()
 if not os.path.exists("unique_gloves.xml"):
     print("#Unique Gloves")
-    nodes = parse_armors(uris_unique_gloves, "Gloves", "Unique", need_download_images)
+    nodes = parse_armours(uris_unique_gloves, "Gloves", "Unique", need_download_images)
     dump_xml(nodes, "unique_gloves.xml")
     print()
 if not os.path.exists("unique_boots.xml"):
     print("#Unique Boots")
-    nodes = parse_armors(uris_unique_boots, "Boots", "Unique", need_download_images)
+    nodes = parse_armours(uris_unique_boots, "Boots", "Unique", need_download_images)
     dump_xml(nodes, "unique_boots.xml")
     print()
 
 if not os.path.exists("unique_amulets.xml"):
     print("#Unique Amulets")
-    nodes = parse_trinkets(uris_unique_amulets, "Amulet", "Unique", need_download_images)
+    nodes = parse_accessories(uris_unique_amulets, "Amulet", "Unique", need_download_images)
     dump_xml(nodes, "unique_amulets.xml")
     print()
 if not os.path.exists("unique_belts.xml"):
     print("#Unique Belts")
-    nodes = parse_trinkets(uris_unique_belts, "Belt", "Unique", need_download_images)
+    nodes = parse_accessories(uris_unique_belts, "Belt", "Unique", need_download_images)
     dump_xml(nodes, "unique_belts.xml")
     print()
 if not os.path.exists("unique_rings.xml"):
     print("#Unique Rings")
-    nodes = parse_trinkets(uris_unique_rings, "Ring", "Unique", need_download_images)
+    nodes = parse_accessories(uris_unique_rings, "Ring", "Unique", need_download_images)
     dump_xml(nodes, "unique_rings.xml")
     print()
 if not os.path.exists("unique_quivers.xml"):
     print("#Unique Quivers")
-    nodes = parse_trinkets(uris_unique_quivers, "Quiver", "Unique", need_download_images)
+    nodes = parse_accessories(uris_unique_quivers, "Quiver", "Unique", need_download_images)
     dump_xml(nodes, "unique_quivers.xml")
     print()
 

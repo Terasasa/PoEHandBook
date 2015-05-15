@@ -32,7 +32,11 @@ namespace PoEHandbook.Pages
 
             // Timer, which will serve as a delay before search initiation
             _queryTimer = new DispatcherTimer {Interval = TimeSpan.FromSeconds(0.5)};
-            _queryTimer.Tick += (sender, args) => GetSearchResults();
+            _queryTimer.Tick += (sender, args) =>
+            {
+                GetSearchResults();
+                _queryTimer.Stop();
+            };
             _queryTimer.IsEnabled = false;
 
             // Make an empty placeholder
@@ -102,7 +106,6 @@ namespace PoEHandbook.Pages
 
             // Update the text and stop the timer
             UpdateStatusText();
-            _queryTimer.Stop();
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)

@@ -30,15 +30,17 @@ namespace PoEHandbook.Data
 
                 {"unique_jewels.xml", typeof (Jewel)},
 
+                {"unique_flasks.xml", typeof (Flask)},
+
                 {"unique_body_armours.xml", typeof (Armour)},
                 {"unique_helmets.xml", typeof (Armour)},
                 {"unique_gloves.xml", typeof (Armour)},
                 {"unique_boots.xml", typeof (Armour)},
 
-                {"unique_amulets.xml", typeof (Trinket)},
-                {"unique_belts.xml", typeof (Trinket)},
-                {"unique_rings.xml", typeof (Trinket)},
-                {"unique_quivers.xml", typeof (Trinket)},
+                {"unique_amulets.xml", typeof (Accessory)},
+                {"unique_belts.xml", typeof (Accessory)},
+                {"unique_rings.xml", typeof (Accessory)},
+                {"unique_quivers.xml", typeof (Accessory)},
 
                 {"unique_shields.xml", typeof (Shield)},
 

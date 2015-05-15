@@ -37,14 +37,23 @@ namespace PoEHandbook.Model.Interfaces
         // Jewels
         public string Radius { get; private set; }
 
+        // Flasks
+        public Range LifeRecovery { get; private set; }
+        public Range ManaRecovery { get; private set; }
+        public Range Duration { get; private set; }
+        public Range Capacity { get; private set; }
+        public Range ChargesUsed { get; private set; }
+
         public bool IsRelevant
         {
             get
             {
                 return ArmourValue.Average > 0 || EvasionValue.Average > 0 || EnergyShieldValue.Average > 0 ||
-                       Block.Average > 0 || PhysicalDamage.Average > 0 || CriticalStrikeChance.Average > 0 ||
-                       AttacksPerSecond.Average > 0 || DamagePerSecond.Average > 0 || Quantity > 0 ||
-                       !string.IsNullOrEmpty(Radius);
+                       Block.Average > 0 ||
+                       PhysicalDamage.Average > 0 || CriticalStrikeChance.Average > 0 || AttacksPerSecond.Average > 0 ||
+                       DamagePerSecond.Average > 0 ||
+                       Quantity > 0 || !string.IsNullOrEmpty(Radius) ||
+                       LifeRecovery.Average > 0 || ManaRecovery.Average > 0 || Duration.Average > 0 || Capacity.Average > 0 || ChargesUsed.Average > 0;
             }
         }
 
@@ -58,10 +67,8 @@ namespace PoEHandbook.Model.Interfaces
                 var parentWithMods = Parent as IHasMods;
                 if (parentWithMods == null) return false;
                 return parentWithMods.ModsHandler.Mods.Any(mod => (
-                    mod.ContainsInvariant("INCREASED") ||
-                    mod.ContainsInvariant("REDUCED")) &&
-                    mod.ContainsInvariant("ARMOUR") &&
-                    !mod.ContainsInvariant("GLOBAL"));
+                    mod.ContainsInvariant("INCREASED") || mod.ContainsInvariant("REDUCED")) &&
+                    mod.ContainsInvariant("ARMOUR") && !mod.ContainsInvariant("GLOBAL"));
             }
         }
 
@@ -75,10 +82,8 @@ namespace PoEHandbook.Model.Interfaces
                 var parentWithMods = Parent as IHasMods;
                 if (parentWithMods == null) return false;
                 return parentWithMods.ModsHandler.Mods.Any(mod => (
-                    mod.ContainsInvariant("INCREASED") ||
-                    mod.ContainsInvariant("REDUCED")) &&
-                    mod.ContainsInvariant("EVASION") &&
-                    !mod.ContainsInvariant("GLOBAL"));
+                    mod.ContainsInvariant("INCREASED") || mod.ContainsInvariant("REDUCED")) &&
+                    mod.ContainsInvariant("EVASION") && !mod.ContainsInvariant("GLOBAL"));
             }
         }
 
@@ -92,10 +97,8 @@ namespace PoEHandbook.Model.Interfaces
                 var parentWithMods = Parent as IHasMods;
                 if (parentWithMods == null) return false;
                 return parentWithMods.ModsHandler.Mods.Any(mod => (
-                    mod.ContainsInvariant("INCREASED") ||
-                    mod.ContainsInvariant("REDUCED")) &&
-                    mod.ContainsInvariant("ENERGY SHIELD") &&
-                    !mod.ContainsInvariant("GLOBAL"));
+                    mod.ContainsInvariant("INCREASED") || mod.ContainsInvariant("REDUCED")) &&
+                    mod.ContainsInvariant("ENERGY SHIELD") && !mod.ContainsInvariant("GLOBAL"));
             }
         }
 
@@ -109,11 +112,8 @@ namespace PoEHandbook.Model.Interfaces
                 var parentWithMods = Parent as IHasMods;
                 if (parentWithMods == null) return false;
                 return parentWithMods.ModsHandler.Mods.Any(mod => (
-                    mod.ContainsInvariant("ADDITIONAL") ||
-                    mod.ContainsInvariant("REDUCED")) &&
-                    mod.ContainsInvariant("BLOCK") &&
-                    mod.ContainsInvariant("CHANCE") &&
-                    !mod.ContainsInvariant("GLOBAL"));
+                    mod.ContainsInvariant("ADDITIONAL") || mod.ContainsInvariant("REDUCED")) &&
+                    mod.ContainsInvariant("BLOCK") && mod.ContainsInvariant("CHANCE") && !mod.ContainsInvariant("GLOBAL"));
             }
         }
 
@@ -127,11 +127,8 @@ namespace PoEHandbook.Model.Interfaces
                 var parentWithMods = Parent as IHasMods;
                 if (parentWithMods == null) return false;
                 return parentWithMods.ModsHandler.Mods.Any(mod => (
-                    mod.ContainsInvariant("INCREASED") ||
-                    mod.ContainsInvariant("REDUCED") ||
-                    mod.ContainsInvariant("ADDS")) &&
-                    mod.ContainsInvariant("PHYSICAL DAMAGE") &&
-                    !mod.ContainsInvariant("GLOBAL"));
+                    mod.ContainsInvariant("INCREASED") || mod.ContainsInvariant("REDUCED") ||
+                    mod.ContainsInvariant("ADDS")) && mod.ContainsInvariant("PHYSICAL DAMAGE") && !mod.ContainsInvariant("GLOBAL"));
             }
         }
 
@@ -145,10 +142,8 @@ namespace PoEHandbook.Model.Interfaces
                 var parentWithMods = Parent as IHasMods;
                 if (parentWithMods == null) return false;
                 return parentWithMods.ModsHandler.Mods.Any(mod => (
-                    mod.ContainsInvariant("INCREASED") ||
-                    mod.ContainsInvariant("REDUCED")) &&
-                    mod.ContainsInvariant("CRITICAL STRIKE CHANCE") &&
-                    !mod.ContainsInvariant("GLOBAL"));
+                    mod.ContainsInvariant("INCREASED") || mod.ContainsInvariant("REDUCED")) &&
+                    mod.ContainsInvariant("CRITICAL STRIKE CHANCE") && !mod.ContainsInvariant("GLOBAL"));
             }
         }
 
@@ -162,10 +157,8 @@ namespace PoEHandbook.Model.Interfaces
                 var parentWithMods = Parent as IHasMods;
                 if (parentWithMods == null) return false;
                 return parentWithMods.ModsHandler.Mods.Any(mod => (
-                    mod.ContainsInvariant("INCREASED") ||
-                    mod.ContainsInvariant("REDUCED")) &&
-                    mod.ContainsInvariant("ATTACK SPEED") &&
-                    !mod.ContainsInvariant("GLOBAL"));
+                    mod.ContainsInvariant("INCREASED") || mod.ContainsInvariant("REDUCED")) &&
+                    mod.ContainsInvariant("ATTACK SPEED") && !mod.ContainsInvariant("GLOBAL"));
             }
         }
 
@@ -198,6 +191,75 @@ namespace PoEHandbook.Model.Interfaces
             {
                 // No item mods that affect radius exist
                 return false;
+            }
+        }
+
+        /// <summary>
+        /// Determines whether the item's mods affect Life Recovery value
+        /// </summary>
+        public bool LifeRecoveryAffected
+        {
+            get
+            {
+                var parentWithMods = Parent as IHasMods;
+                if (parentWithMods == null) return false;
+                return parentWithMods.ModsHandler.Mods.Any(mod =>
+                    (mod.ContainsInvariant("INCREASED") || mod.ContainsInvariant("REDUCED")) &&
+                    (mod.ContainsInvariant("AMOUNT")) && (mod.ContainsInvariant("RECOVERED")));
+            }
+        }
+
+        /// <summary>
+        /// Determines whether the item's mods affect Mana Recovery value
+        /// </summary>
+        public bool ManaRecoveryAffected
+        {
+            get
+            {
+                // Flasks only have mods which boost both recoveries at same time
+                return LifeRecoveryAffected;
+            }
+        }
+
+        /// <summary>
+        /// Determines whether the item's mods affect Duration value
+        /// </summary>
+        public bool DurationAffected
+        {
+            get
+            {
+                var parentWithMods = Parent as IHasMods;
+                if (parentWithMods == null) return false;
+                return parentWithMods.ModsHandler.Mods.Any(mod =>
+                    (mod.ContainsInvariant("INCREASED") || mod.ContainsInvariant("REDUCED")) &&
+                    (mod.ContainsInvariant("SPEED")));
+            }
+        }
+
+        /// <summary>
+        /// Determines whether the item's mods affect Capacity value
+        /// </summary>
+        public bool CapacityAffected
+        {
+            get
+            {
+                // Such mods dont exist
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Determines whether the item's mods affect Charges Used value
+        /// </summary>
+        public bool ChargesUsedAffected
+        {
+            get
+            {
+                var parentWithMods = Parent as IHasMods;
+                if (parentWithMods == null) return false;
+                return parentWithMods.ModsHandler.Mods.Any(mod =>
+                    (mod.ContainsInvariant("INCREASED") || mod.ContainsInvariant("REDUCED")) &&
+                    (mod.ContainsInvariant("CHARGES")));
             }
         }
 
@@ -236,6 +298,21 @@ namespace PoEHandbook.Model.Interfaces
 
             temp = node.SelectSingleNode(@"Property[@id='Radius']");
             if (temp != null && temp.InnerText != "0") Radius = temp.InnerText;
+
+            temp = node.SelectSingleNode(@"Property[@id='LifeRecovery']");
+            if (temp != null && !string.IsNullOrEmpty(temp.InnerText)) LifeRecovery = new Range(temp.InnerText);
+
+            temp = node.SelectSingleNode(@"Property[@id='ManaRecovery']");
+            if (temp != null && !string.IsNullOrEmpty(temp.InnerText)) ManaRecovery = new Range(temp.InnerText);
+
+            temp = node.SelectSingleNode(@"Property[@id='Duration']");
+            if (temp != null && !string.IsNullOrEmpty(temp.InnerText)) Duration = new Range(temp.InnerText);
+
+            temp = node.SelectSingleNode(@"Property[@id='Capacity']");
+            if (temp != null && !string.IsNullOrEmpty(temp.InnerText)) Capacity = new Range(temp.InnerText);
+
+            temp = node.SelectSingleNode(@"Property[@id='ChargesUsed']");
+            if (temp != null && !string.IsNullOrEmpty(temp.InnerText)) ChargesUsed = new Range(temp.InnerText);
         }
 
         public override bool ContainsInProperties(string query, out List<string> properties)

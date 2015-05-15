@@ -46,6 +46,8 @@ namespace PoEHandbook.Pages
             if (entWithStats != null && entWithStats.StatsHandler.IsRelevant)
             {
                 var statsHandler = entWithStats.StatsHandler;
+
+                // Shields
                 if (statsHandler.Block.Average > 0)
                 {
                     if (ic.Count > 1)
@@ -61,6 +63,8 @@ namespace PoEHandbook.Pages
                     };
                     ic.Add(run);
                 }
+
+                // Armour
                 if (statsHandler.ArmourValue.Average > 0)
                 {
                     if (ic.Count > 1)
@@ -106,6 +110,8 @@ namespace PoEHandbook.Pages
                     };
                     ic.Add(run);
                 }
+
+                // Weapons
                 if (statsHandler.PhysicalDamage.Average > 0)
                 {
                     if (ic.Count > 1)
@@ -166,6 +172,8 @@ namespace PoEHandbook.Pages
                     };
                     ic.Add(run);
                 }
+
+                // Maps
                 if (statsHandler.Quantity > 0)
                 {
                     if (ic.Count > 1)
@@ -181,6 +189,8 @@ namespace PoEHandbook.Pages
                     };
                     ic.Add(run);
                 }
+
+                // Jewels
                 if (!string.IsNullOrEmpty(statsHandler.Radius))
                 {
                     if (ic.Count > 1)
@@ -192,6 +202,84 @@ namespace PoEHandbook.Pages
                         FontWeight = FontWeights.SemiBold,
                         Foreground = statsHandler.RadiusAffected
                             ? new SolidColorBrush((Color) ColorConverter.ConvertFromString("#6a88ef"))
+                            : new SolidColorBrush(Colors.White)
+                    };
+                    ic.Add(run);
+                }
+
+                // Flasks
+                if (statsHandler.LifeRecovery.Average > 0)
+                {
+                    if (ic.Count > 1)
+                        ic.Add(Environment.NewLine);
+
+                    ic.Add("Life Recovered: ");
+                    var run = new Run(statsHandler.LifeRecovery.ToString())
+                    {
+                        FontWeight = FontWeights.SemiBold,
+                        Foreground = statsHandler.LifeRecoveryAffected
+                            ? new SolidColorBrush((Color)ColorConverter.ConvertFromString("#6a88ef"))
+                            : new SolidColorBrush(Colors.White)
+                    };
+                    ic.Add(run);
+                }
+                if (statsHandler.ManaRecovery.Average > 0)
+                {
+                    if (ic.Count > 1)
+                        ic.Add(Environment.NewLine);
+
+                    ic.Add("Mana Recovered: ");
+                    var run = new Run(statsHandler.ManaRecovery.ToString())
+                    {
+                        FontWeight = FontWeights.SemiBold,
+                        Foreground = statsHandler.ManaRecoveryAffected
+                            ? new SolidColorBrush((Color)ColorConverter.ConvertFromString("#6a88ef"))
+                            : new SolidColorBrush(Colors.White)
+                    };
+                    ic.Add(run);
+                }
+                if (statsHandler.Duration.Average > 0)
+                {
+                    if (ic.Count > 1)
+                        ic.Add(Environment.NewLine);
+
+                    ic.Add("Duration: ");
+                    var run = new Run(statsHandler.Duration.ToString())
+                    {
+                        FontWeight = FontWeights.SemiBold,
+                        Foreground = statsHandler.DurationAffected
+                            ? new SolidColorBrush((Color)ColorConverter.ConvertFromString("#6a88ef"))
+                            : new SolidColorBrush(Colors.White)
+                    };
+                    ic.Add(run);
+                    ic.Add(" seconds");
+                }
+                if (statsHandler.Capacity.Average > 0)
+                {
+                    if (ic.Count > 1)
+                        ic.Add(Environment.NewLine);
+
+                    ic.Add("Capacity: ");
+                    var run = new Run(statsHandler.Capacity.ToString())
+                    {
+                        FontWeight = FontWeights.SemiBold,
+                        Foreground = statsHandler.CapacityAffected
+                            ? new SolidColorBrush((Color)ColorConverter.ConvertFromString("#6a88ef"))
+                            : new SolidColorBrush(Colors.White)
+                    };
+                    ic.Add(run);
+                }
+                if (statsHandler.ChargesUsed.Average > 0)
+                {
+                    if (ic.Count > 1)
+                        ic.Add(Environment.NewLine);
+
+                    ic.Add("Charges Used: ");
+                    var run = new Run(statsHandler.ChargesUsed.ToString())
+                    {
+                        FontWeight = FontWeights.SemiBold,
+                        Foreground = statsHandler.ChargesUsedAffected
+                            ? new SolidColorBrush((Color)ColorConverter.ConvertFromString("#6a88ef"))
                             : new SolidColorBrush(Colors.White)
                     };
                     ic.Add(run);
