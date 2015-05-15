@@ -53,7 +53,7 @@ namespace PoEHandbook.Model.Interfaces
                 var parentWithMods = Parent as IHasMods;
                 if (parentWithMods == null) return false;
                 return parentWithMods.ModsHandler.Mods.Any(mod =>
-                    (mod.ContainsInvariant("STRENGTH") || mod.ContainsInvariant("ATTRIBUTE")));
+                    (mod.ContainsInvariant("STRENGTH") || mod.ContainsInvariant("ATTRIBUTE")) && (mod.ContainsInvariant("REQUIRE")));
             }
         }
 
@@ -67,7 +67,7 @@ namespace PoEHandbook.Model.Interfaces
                 var parentWithMods = Parent as IHasMods;
                 if (parentWithMods == null) return false;
                 return parentWithMods.ModsHandler.Mods.Any(mod =>
-                    (mod.ContainsInvariant("DEXTERITY") || mod.ContainsInvariant("ATTRIBUTE")));
+                    (mod.ContainsInvariant("DEXTERITY") || mod.ContainsInvariant("ATTRIBUTE")) && (mod.ContainsInvariant("REQUIRE")));
             }
         }
 
@@ -81,7 +81,7 @@ namespace PoEHandbook.Model.Interfaces
                 var parentWithMods = Parent as IHasMods;
                 if (parentWithMods == null) return false;
                 return parentWithMods.ModsHandler.Mods.Any(mod =>
-                    (mod.ContainsInvariant("INTELLIGENCE") || mod.ContainsInvariant("ATTRIBUTE")));
+                    (mod.ContainsInvariant("INTELLIGENCE") || mod.ContainsInvariant("ATTRIBUTE")) && (mod.ContainsInvariant("REQUIRE")));
             }
         }
 
