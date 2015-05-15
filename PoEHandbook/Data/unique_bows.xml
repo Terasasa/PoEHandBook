@@ -7,7 +7,7 @@
   <Property id="Base">Maraketh Bow</Property>
   <Property id="Level">62</Property>
   <Property id="Dexterity">212</Property>
-  <Property id="Damage">(73–218 to 81–244)25–50</Property>
+  <Property id="PhysicalDamage">(73–218 to 81–244)25–50</Property>
   <Property id="CriticalStrikeChance">5%</Property>
   <Property id="AttacksPerSecond">(1.38 to 1.43)</Property>
   <Property id="DamagePerSecond">275.78</Property>
@@ -21,7 +21,7 @@
   <Property id="Base">Maraketh Bow</Property>
   <Property id="Level">62</Property>
   <Property id="Dexterity">212</Property>
-  <Property id="Damage">(50–152 to 57–171)</Property>
+  <Property id="PhysicalDamage">(50–152 to 57–171)</Property>
   <Property id="CriticalStrikeChance">5%</Property>
   <Property id="AttacksPerSecond">1.38</Property>
   <Property id="DamagePerSecond">152.06</Property>
@@ -35,7 +35,7 @@
   <Property id="Base">Death Bow</Property>
   <Property id="Level">32</Property>
   <Property id="Dexterity">107</Property>
-  <Property id="Damage">(44–50 to 116–131)</Property>
+  <Property id="PhysicalDamage">(44–50 to 116–131)</Property>
   <Property id="CriticalStrikeChance">(5 to 7.5)%</Property>
   <Property id="AttacksPerSecond">1.21</Property>
   <Property id="DamagePerSecond">106.38</Property>
@@ -49,7 +49,7 @@
   <Property id="Base">Royal Bow</Property>
   <Property id="Level">28</Property>
   <Property id="Dexterity">95</Property>
-  <Property id="Damage">11–42</Property>
+  <Property id="PhysicalDamage">11–42</Property>
   <Property id="CriticalStrikeChance">(6.5 to 7)%</Property>
   <Property id="AttacksPerSecond">(1.54 to 1.60)</Property>
   <Property id="DamagePerSecond">43.01</Property>
@@ -62,7 +62,7 @@
   <Property id="Base">Decimation Bow</Property>
   <Property id="Level">53</Property>
   <Property id="Dexterity">170</Property>
-  <Property id="Damage">(112–235 to 133–254)</Property>
+  <Property id="PhysicalDamage">(112–235 to 133–254)</Property>
   <Property id="CriticalStrikeChance">(6.5 to 7.5)</Property>
   <Property id="AttacksPerSecond">1.10</Property>
   <Property id="DamagePerSecond">208.91</Property>
@@ -76,7 +76,7 @@
   <Property id="Base">Imperial Bow</Property>
   <Property id="Level">66</Property>
   <Property id="Dexterity">212</Property>
-  <Property id="Damage">(55–77 to 215–270)</Property>
+  <Property id="PhysicalDamage">(55–77 to 215–270)</Property>
   <Property id="CriticalStrikeChance">5%</Property>
   <Property id="AttacksPerSecond">(1.65 to 1.80)</Property>
   <Property id="DamagePerSecond">272.73</Property>
@@ -89,7 +89,7 @@
   <Property id="Base">Short Bow</Property>
   <Property id="Level">5</Property>
   <Property id="Dexterity">26</Property>
-  <Property id="Damage">4–11</Property>
+  <Property id="PhysicalDamage">4–11</Property>
   <Property id="CriticalStrikeChance">5%</Property>
   <Property id="AttacksPerSecond">3.00</Property>
   <Property id="DamagePerSecond">23.06</Property>
@@ -102,7 +102,7 @@
   <Property id="Base">Crude Bow</Property>
   <Property id="Level">0</Property>
   <Property id="Dexterity">0</Property>
-  <Property id="Damage">(5–13 to 5–18)</Property>
+  <Property id="PhysicalDamage">(5–13 to 5–18)</Property>
   <Property id="CriticalStrikeChance">5%</Property>
   <Property id="AttacksPerSecond">1.32</Property>
   <Property id="DamagePerSecond">13.87</Property>
@@ -115,7 +115,7 @@
   <Property id="Base">Long Bow</Property>
   <Property id="Level">10</Property>
   <Property id="Dexterity">41</Property>
-  <Property id="Damage">1–75</Property>
+  <Property id="PhysicalDamage">1–75</Property>
   <Property id="CriticalStrikeChance">5%</Property>
   <Property id="AttacksPerSecond">(1.77 to 1.95)</Property>
   <Property id="DamagePerSecond">72.45</Property>
@@ -128,7 +128,7 @@
   <Property id="Base">Spine Bow</Property>
   <Property id="Level">64</Property>
   <Property id="Dexterity">212</Property>
-  <Property id="Damage">24–71(1–275 to 1–325)</Property>
+  <Property id="PhysicalDamage">24–71(1–275 to 1–325)</Property>
   <Property id="CriticalStrikeChance">5%</Property>
   <Property id="AttacksPerSecond">(1.49 to 1.55)</Property>
   <Property id="DamagePerSecond">308.48</Property>
@@ -141,7 +141,7 @@
   <Property id="Base">Imperial Bow</Property>
   <Property id="Level">66</Property>
   <Property id="Dexterity">212</Property>
-  <Property id="Damage">17–68(32–48 to 40–60)(1–80 to 1–100)</Property>
+  <Property id="PhysicalDamage">17–68(32–48 to 40–60)(1–80 to 1–100)</Property>
   <Property id="CriticalStrikeChance">(9 to 10)%</Property>
   <Property id="AttacksPerSecond">(1.65 to 1.72)</Property>
   <Property id="DamagePerSecond">234.75</Property>

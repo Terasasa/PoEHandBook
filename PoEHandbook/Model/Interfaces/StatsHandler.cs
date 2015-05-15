@@ -26,7 +26,7 @@ namespace PoEHandbook.Model.Interfaces
         public Range Block { get; private set; }
 
         // Weapons
-        public Range Damage { get; private set; }
+        public Range PhysicalDamage { get; private set; }
         public Range CriticalStrikeChance { get; private set; }
         public Range AttacksPerSecond { get; private set; }
         public Range DamagePerSecond { get; private set; }
@@ -42,7 +42,7 @@ namespace PoEHandbook.Model.Interfaces
             get
             {
                 return ArmourValue.Average > 0 || EvasionValue.Average > 0 || EnergyShieldValue.Average > 0 ||
-                       Block.Average > 0 || Damage.Average > 0 || CriticalStrikeChance.Average > 0 ||
+                       Block.Average > 0 || PhysicalDamage.Average > 0 || CriticalStrikeChance.Average > 0 ||
                        AttacksPerSecond.Average > 0 || DamagePerSecond.Average > 0 || Quantity > 0 ||
                        !string.IsNullOrEmpty(Radius);
             }
@@ -118,9 +118,9 @@ namespace PoEHandbook.Model.Interfaces
         }
 
         /// <summary>
-        /// Determines whether the item's mods affect Damage value
+        /// Determines whether the item's mods affect Physical Damage value
         /// </summary>
-        public bool DamageAffected
+        public bool PhysicalDamageAffected
         {
             get
             {
@@ -128,8 +128,9 @@ namespace PoEHandbook.Model.Interfaces
                 if (parentWithMods == null) return false;
                 return parentWithMods.ModsHandler.Mods.Any(mod => (
                     mod.ContainsInvariant("INCREASED") ||
-                    mod.ContainsInvariant("REDUCED")) &&
-                    mod.ContainsInvariant("DAMAGE") &&
+                    mod.ContainsInvariant("REDUCED") ||
+                    mod.ContainsInvariant("ADDS")) &&
+                    mod.ContainsInvariant("PHYSICAL DAMAGE") &&
                     !mod.ContainsInvariant("GLOBAL"));
             }
         }
@@ -173,7 +174,7 @@ namespace PoEHandbook.Model.Interfaces
         /// </summary>
         public bool DamagePerSecondAffected
         {
-            get { return DamageAffected || AttacksPerSecondAffected; }
+            get { return PhysicalDamageAffected || AttacksPerSecondAffected; }
         }
 
         /// <summary>
@@ -217,8 +218,8 @@ namespace PoEHandbook.Model.Interfaces
             if (temp != null && !string.IsNullOrEmpty(temp.InnerText))
                 Block = new Range(temp.InnerText.TrimEnd('%'));
 
-            temp = node.SelectSingleNode(@"Property[@id='Damage']");
-            if (temp != null && !string.IsNullOrEmpty(temp.InnerText)) Damage = new Range(temp.InnerText);
+            temp = node.SelectSingleNode(@"Property[@id='PhysicalDamage']");
+            if (temp != null && !string.IsNullOrEmpty(temp.InnerText)) PhysicalDamage = new Range(temp.InnerText);
 
             temp = node.SelectSingleNode(@"Property[@id='CriticalStrikeChance']");
             if (temp != null && !string.IsNullOrEmpty(temp.InnerText))

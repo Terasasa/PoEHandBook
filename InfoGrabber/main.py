@@ -346,7 +346,7 @@ def parse_weapons(uris, type, rarity, download_images=True):
                 result.append(create_property_xml(stat_req, cols[i].get_text(), 1))
                 i = i + 1
 
-            result.append(create_property_xml("Damage", cols[i].get_text(), 1))
+            result.append(create_property_xml("PhysicalDamage", cols[i].get_text(), 1))
             result.append(create_property_xml("CriticalStrikeChance", cols[i+1].get_text(), 1))
             result.append(create_property_xml("AttacksPerSecond", cols[i+2].get_text(), 1))
             result.append(create_property_xml("DamagePerSecond", cols[i+3].get_text(), 1))

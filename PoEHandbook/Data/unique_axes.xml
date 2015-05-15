@@ -8,7 +8,7 @@
   <Property id="Level">6</Property>
   <Property id="Strength">21</Property>
   <Property id="Dexterity">0</Property>
-  <Property id="Damage">(15–32 to 21–36)</Property>
+  <Property id="PhysicalDamage">(15–32 to 21–36)</Property>
   <Property id="CriticalStrikeChance">5%</Property>
   <Property id="AttacksPerSecond">1.25</Property>
   <Property id="DamagePerSecond">33.31</Property>
@@ -22,7 +22,7 @@
   <Property id="Level">59</Property>
   <Property id="Strength">119</Property>
   <Property id="Dexterity">82</Property>
-  <Property id="Damage">(84–158 to 101–190)</Property>
+  <Property id="PhysicalDamage">(84–158 to 101–190)</Property>
   <Property id="CriticalStrikeChance">5%</Property>
   <Property id="AttacksPerSecond">(1.80 to 1.88)</Property>
   <Property id="DamagePerSecond">251.31</Property>
@@ -36,7 +36,7 @@
   <Property id="Level">69</Property>
   <Property id="Strength">158</Property>
   <Property id="Dexterity">76</Property>
-  <Property id="Damage">45–75(170–200 to 190–220)(170–200 to 190–220)</Property>
+  <Property id="PhysicalDamage">45–75(170–200 to 190–220)(170–200 to 190–220)</Property>
   <Property id="CriticalStrikeChance">5%</Property>
   <Property id="AttacksPerSecond">(1.38 to 1.44)</Property>
   <Property id="DamagePerSecond">368.54</Property>
@@ -50,7 +50,7 @@
   <Property id="Level">75</Property>
   <Property id="Strength">158</Property>
   <Property id="Dexterity">76</Property>
-  <Property id="Damage">(305–411 to 320–431)</Property>
+  <Property id="PhysicalDamage">(305–411 to 320–431)</Property>
   <Property id="CriticalStrikeChance">5%</Property>
   <Property id="AttacksPerSecond">(1.28 to 1.33)</Property>
   <Property id="DamagePerSecond">490.57</Property>
@@ -64,7 +64,7 @@
   <Property id="Level">45</Property>
   <Property id="Strength">99</Property>
   <Property id="Dexterity">57</Property>
-  <Property id="Damage">(120–182 to 132–200)</Property>
+  <Property id="PhysicalDamage">(120–182 to 132–200)</Property>
   <Property id="CriticalStrikeChance">5%</Property>
   <Property id="AttacksPerSecond">1.25</Property>
   <Property id="DamagePerSecond">203.08</Property>
@@ -78,7 +78,7 @@
   <Property id="Level">37</Property>
   <Property id="Strength">100</Property>
   <Property id="Dexterity">29</Property>
-  <Property id="Damage">(145–227 to 158–247)</Property>
+  <Property id="PhysicalDamage">(145–227 to 158–247)</Property>
   <Property id="CriticalStrikeChance">5%</Property>
   <Property id="AttacksPerSecond">1.00</Property>
   <Property id="DamagePerSecond">199.11</Property>
@@ -92,7 +92,7 @@
   <Property id="Level">58</Property>
   <Property id="Strength">151</Property>
   <Property id="Dexterity">43</Property>
-  <Property id="Damage">(252–395 to 310–486)(16–32 to 21–38)</Property>
+  <Property id="PhysicalDamage">(252–395 to 310–486)(16–32 to 21–38)</Property>
   <Property id="CriticalStrikeChance">5%</Property>
   <Property id="AttacksPerSecond">1.00</Property>
   <Property id="DamagePerSecond">397.19</Property>
@@ -106,7 +106,7 @@
   <Property id="Level">13</Property>
   <Property id="Strength">36</Property>
   <Property id="Dexterity">17</Property>
-  <Property id="Damage">(43–90 to 48–100)</Property>
+  <Property id="PhysicalDamage">(43–90 to 48–100)</Property>
   <Property id="CriticalStrikeChance">5%</Property>
   <Property id="AttacksPerSecond">1.20</Property>
   <Property id="DamagePerSecond">86.41</Property>
@@ -120,7 +120,7 @@
   <Property id="Level">33</Property>
   <Property id="Strength">80</Property>
   <Property id="Dexterity">37</Property>
-  <Property id="Damage">(94–142 to 106–160)</Property>
+  <Property id="PhysicalDamage">(94–142 to 106–160)</Property>
   <Property id="CriticalStrikeChance">5%</Property>
   <Property id="AttacksPerSecond">1.20</Property>
   <Property id="DamagePerSecond">154.36</Property>
@@ -134,7 +134,7 @@
   <Property id="Level">18</Property>
   <Property id="Strength">44</Property>
   <Property id="Dexterity">25</Property>
-  <Property id="Damage">(62–92 to 73–111)</Property>
+  <Property id="PhysicalDamage">(62–92 to 73–111)</Property>
   <Property id="CriticalStrikeChance">5%</Property>
   <Property id="AttacksPerSecond">1.25</Property>
   <Property id="DamagePerSecond">108.27</Property>
@@ -148,7 +148,7 @@
   <Property id="Level">60</Property>
   <Property id="Strength">149</Property>
   <Property id="Dexterity">76</Property>
-  <Property id="Damage">(121–248 to 147–304)(55–100 to 65–120)(55–100 to 65–120)</Property>
+  <Property id="PhysicalDamage">(121–248 to 147–304)(55–100 to 65–120)(55–100 to 65–120)</Property>
   <Property id="CriticalStrikeChance">5%</Property>
   <Property id="AttacksPerSecond">1.20</Property>
   <Property id="DamagePerSecond">356.70</Property>

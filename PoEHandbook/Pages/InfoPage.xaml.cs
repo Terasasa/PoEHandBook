@@ -106,16 +106,16 @@ namespace PoEHandbook.Pages
                     };
                     ic.Add(run);
                 }
-                if (statsHandler.Damage.Average > 0)
+                if (statsHandler.PhysicalDamage.Average > 0)
                 {
                     if (ic.Count > 1)
                         ic.Add(Environment.NewLine);
 
-                    ic.Add("Damage: ");
-                    var run = new Run(statsHandler.Damage.ToString())
+                    ic.Add("Physical Damage: ");
+                    var run = new Run(statsHandler.PhysicalDamage.ToString())
                     {
                         FontWeight = FontWeights.SemiBold,
-                        Foreground = statsHandler.DamageAffected
+                        Foreground = statsHandler.PhysicalDamageAffected
                             ? new SolidColorBrush((Color) ColorConverter.ConvertFromString("#6a88ef"))
                             : new SolidColorBrush(Colors.White)
                     };

@@ -7,7 +7,7 @@
   <Property id="Base">Opal Wand</Property>
   <Property id="Level">62</Property>
   <Property id="Intelligence">212</Property>
-  <Property id="Damage">23–42</Property>
+  <Property id="PhysicalDamage">23–42</Property>
   <Property id="CriticalStrikeChance">8.36%</Property>
   <Property id="AttacksPerSecond">1.30</Property>
   <Property id="DamagePerSecond">44.02</Property>
@@ -21,7 +21,7 @@
   <Property id="Base">Driftwood Wand</Property>
   <Property id="Level">0</Property>
   <Property id="Intelligence">0</Property>
-  <Property id="Damage">4–7</Property>
+  <Property id="PhysicalDamage">4–7</Property>
   <Property id="CriticalStrikeChance">8%</Property>
   <Property id="AttacksPerSecond">1.30</Property>
   <Property id="DamagePerSecond">7.44</Property>
@@ -35,7 +35,7 @@
   <Property id="Base">Engraved Wand</Property>
   <Property id="Level">40</Property>
   <Property id="Intelligence">131</Property>
-  <Property id="Damage">14–25</Property>
+  <Property id="PhysicalDamage">14–25</Property>
   <Property id="CriticalStrikeChance">8%</Property>
   <Property id="AttacksPerSecond">1.50</Property>
   <Property id="DamagePerSecond">30.42</Property>
@@ -49,7 +49,7 @@
   <Property id="Base">Imbued Wand</Property>
   <Property id="Level">59</Property>
   <Property id="Intelligence">188</Property>
-  <Property id="Damage">43–79</Property>
+  <Property id="PhysicalDamage">43–79</Property>
   <Property id="CriticalStrikeChance">8%</Property>
   <Property id="AttacksPerSecond">1.50</Property>
   <Property id="DamagePerSecond">95.16</Property>
@@ -63,7 +63,7 @@
   <Property id="Base">Tornado Wand</Property>
   <Property id="Level">65</Property>
   <Property id="Intelligence">212</Property>
-  <Property id="Damage">0</Property>
+  <Property id="PhysicalDamage">0</Property>
   <Property id="CriticalStrikeChance">(10.03 to 10.86)%</Property>
   <Property id="AttacksPerSecond">(1.43 to 1.54)</Property>
   <Property id="DamagePerSecond">0.00</Property>
@@ -77,7 +77,7 @@
   <Property id="Base">Spiraled Wand</Property>
   <Property id="Level">24</Property>
   <Property id="Intelligence">83</Property>
-  <Property id="Damage">8–23</Property>
+  <Property id="PhysicalDamage">8–23</Property>
   <Property id="CriticalStrikeChance">8.00%</Property>
   <Property id="AttacksPerSecond">1.30</Property>
   <Property id="DamagePerSecond">20.96</Property>
@@ -91,7 +91,7 @@
   <Property id="Base">Prophecy Wand</Property>
   <Property id="Level">68</Property>
   <Property id="Intelligence">245</Property>
-  <Property id="Damage">28–52</Property>
+  <Property id="PhysicalDamage">28–52</Property>
   <Property id="CriticalStrikeChance">8.96%</Property>
   <Property id="AttacksPerSecond">1.10</Property>
   <Property id="DamagePerSecond">45.97</Property>
