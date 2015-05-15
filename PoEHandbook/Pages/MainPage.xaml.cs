@@ -70,7 +70,7 @@ namespace PoEHandbook.Pages
 
                 int typeCount = _lastResults.Count(sr => sr.Entity.GetType() == entityType);
 
-                TbStatus.Inlines.Add(entityType.Name + "(s): ");
+                TbStatus.Inlines.Add(entityType.Name + ": ");
                 TbStatus.Inlines.Add(new Run {Text = "" + typeCount, FontWeight = FontWeights.SemiBold});
             }
         }
