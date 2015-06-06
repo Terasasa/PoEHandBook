@@ -1,22 +1,29 @@
-﻿//  ------------------------------------------------------------------ 
-//  PoEHandbook
-//  DescriptionHandler.cs by Tyrrrz
-//  29/04/2015
-//  ------------------------------------------------------------------ 
+﻿// ------------------------------------------------------------------ 
+// PoEHandbook
+// DescriptionHandler.cs by Tyrrrz
+// 06/05/2015
+// ------------------------------------------------------------------ 
 
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Xml;
 
 namespace PoEHandbook.Model.Interfaces
 {
     public class DescriptionHandler : Handler<IHasDescription>
     {
-        public DescriptionHandler(Entity parent) 
+        public string Description { get; private set; }
+
+        public string[] DescriptionLines
+        {
+            get { return Description.Split(new[] {"\n"}, StringSplitOptions.RemoveEmptyEntries); }
+        }
+
+        public DescriptionHandler(Entity parent)
             : base(parent)
         {
         }
-
-        public string Description { get; private set; }
 
         public override void Deserialize(XmlNode node)
         {
@@ -33,7 +40,7 @@ namespace PoEHandbook.Model.Interfaces
 
             if (Description.ContainsInvariant(query))
             {
-                properties.Add("Description");
+                properties.Add(DescriptionLines.FirstOrDefault(line => line.ContainsInvariant(query)));
                 result = true;
             }
 

@@ -12,17 +12,16 @@ namespace PoEHandbook.Model
 {
     public class Map : Entity, IHasMods, IHasRarity
     {
+        public ModsHandler ModsHandler { get; private set; }
+        public RarityHandler RarityHandler { get; private set; }
+        public int Level { get; private set; }
+        public int Quantity { get; private set; }
+
         public Map()
         {
             ModsHandler = new ModsHandler(this);
             RarityHandler = new RarityHandler(this);
         }
-
-        public ModsHandler ModsHandler { get; private set; }
-        public RarityHandler RarityHandler { get; private set; }
-
-        public int Level { get; private set; }
-        public int Quantity { get; private set; }
 
         public override void Deserialize(XmlNode node)
         {

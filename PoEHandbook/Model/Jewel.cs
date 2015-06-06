@@ -12,17 +12,16 @@ namespace PoEHandbook.Model
 {
     public class Jewel : Entity, IHasMods, IHasRarity
     {
+        public ModsHandler ModsHandler { get; private set; }
+        public RarityHandler RarityHandler { get; private set; }
+        public int Limit { get; private set; }
+        public string Radius { get; private set; }
+
         public Jewel()
         {
             ModsHandler = new ModsHandler(this);
             RarityHandler = new RarityHandler(this);
         }
-
-        public ModsHandler ModsHandler { get; private set; }
-        public RarityHandler RarityHandler { get; private set; }
-
-        public int Limit { get; private set; }
-        public string Radius { get; private set; }
 
         public override void Deserialize(XmlNode node)
         {

@@ -1,0 +1,168 @@
+﻿<Root>
+  <Entity>
+    <Property id="Name">Orb of Scouring</Property>
+    <Property id="PlayerOffer">Any rare item with 2 affixes</Property>
+    <Property id="NPCOffer">1x Orb of Scouring</Property>
+    <Property id="Description">An item with 2 affixes is only possible to obtain by using Regal Orb on a magic item with a single affix</Property>
+  </Entity>
+  
+  <Entity>
+    <Property id="Name">Armourer's Scrap</Property>
+    <Property id="PlayerOffer">20% quality armour piece -OR- set of armour pieces with 40% quality total</Property>
+    <Property id="NPCOffer">1x Armourer's Scrap</Property>
+  </Entity>
+  <Entity>
+    <Property id="Name">Blacksmith's Whetstone</Property>
+    <Property id="PlayerOffer">20% quality weapon -OR- set of weapons with 40% quality total</Property>
+    <Property id="NPCOffer">1x Blacksmith's Whetstone</Property>
+  </Entity>
+  <Entity>
+    <Property id="Name">Glassblower's Bauble</Property>
+    <Property id="PlayerOffer">20% quality flask -OR- set of flasks with 40% quality total</Property>
+    <Property id="NPCOffer">1x Glassblower's Bauble</Property>
+  </Entity>
+  <Entity>
+    <Property id="Name">Cartographer's Chisel</Property>
+    <Property id="PlayerOffer">20% quality map -OR- set of maps with 40% quality total</Property>
+    <Property id="NPCOffer">1x Cartographer's Chisel</Property>
+  </Entity>
+  <Entity>
+    <Property id="Name">Gemcutter's Prism</Property>
+    <Property id="PlayerOffer">20% quality gem -OR- set of gems with 40% quality total</Property>
+    <Property id="NPCOffer">1x Gemcutter's Prism</Property>
+  </Entity>
+  
+  <Entity>
+    <Property id="Name">Chromatic Orb</Property>
+    <Property id="PlayerOffer">Item with at least 3 linked sockets, each of different colour</Property>
+    <Property id="NPCOffer">1x Chromatic Orb</Property>
+  </Entity>
+  <Entity>
+    <Property id="Name">Jeweller's Orb</Property>
+    <Property id="PlayerOffer">Item with 6 sockets</Property>
+    <Property id="NPCOffer">7x Jeweller's Orb</Property>
+    <Property id="Description">Sockets don't have to be linked</Property>
+  </Entity>
+  <Entity>
+    <Property id="Name">Divine Orb</Property>
+    <Property id="PlayerOffer">Item with 6 linked sockets</Property>
+    <Property id="NPCOffer">1x Divine Orb</Property>
+  </Entity>
+  
+  <Entity>
+    <Property id="Name">Orb of Chance (2 of a kind)</Property>
+    <Property id="ImageName">Orb of Chance.png</Property>
+    <Property id="PlayerOffer">2x Identified rare items with same name</Property>
+    <Property id="NPCOffer">1x Orb of Chance</Property>
+  </Entity>
+  <Entity>
+    <Property id="Name">Orb of Alchemy (3 of a kind)</Property>
+    <Property id="ImageName">Orb of Alchemy.png</Property>
+    <Property id="PlayerOffer">3x Identified rare items with same name</Property>
+    <Property id="NPCOffer">1x Orb of Alchemy</Property>
+  </Entity>
+  <Entity>
+    <Property id="Name">Orb of Alchemy (2 of a kind/20%)</Property>
+    <Property id="ImageName">Orb of Alchemy.png</Property>
+    <Property id="PlayerOffer">2x Identified rare items with same name and both 20% quality</Property>
+    <Property id="NPCOffer">1x Orb of Alchemy</Property>
+  </Entity>
+  <Entity>
+    <Property id="Name">Orb of Augmentation (Straight Flush)</Property>
+    <Property id="ImageName">Orb of Augmentation.png</Property>
+    <Property id="PlayerOffer">Normal + magic + rare item of the same base</Property>
+    <Property id="NPCOffer">1x Orb of Augmentation</Property>
+  </Entity>
+  <Entity>
+    <Property id="Name">Orb of Augmentation (Straight Flush/unid)</Property>
+    <Property id="ImageName">Orb of Augmentation.png</Property>
+    <Property id="PlayerOffer">Normal + magic + rare item of the same base (each unidentified)</Property>
+    <Property id="NPCOffer">2x Orb of Augmentation</Property>
+  </Entity>
+  <Entity>
+    <Property id="Name">Orb of Alchemy (Straight Flush/20%)</Property>
+    <Property id="ImageName">Orb of Alchemy.png</Property>
+    <Property id="PlayerOffer">Normal + magic + rare item of the same base (each 20% quality)</Property>
+    <Property id="NPCOffer">1x Orb of Alchemy</Property>
+  </Entity>
+  <Entity>
+    <Property id="Name">Orb of Alchemy (Straight Flush/20%/unid)</Property>
+    <Property id="ImageName">Orb of Alchemy.png</Property>
+    <Property id="PlayerOffer">Normal + magic + rare item of the same base (each 20% quality and unidentified)</Property>
+    <Property id="NPCOffer">2x Orb of Alchemy</Property>
+  </Entity>
+  <Entity>
+    <Property id="Name">Orb of Chance (Straight Flush/Unique)</Property>
+    <Property id="ImageName">Orb of Chance.png</Property>
+    <Property id="PlayerOffer">Normal + magic + rare + unique item of the same base</Property>
+    <Property id="NPCOffer">5x Orb of Chance</Property>
+  </Entity>
+  
+  <Entity>
+    <Property id="Name">Orb of Chance (Full Rare Set)</Property>
+    <Property id="ImageName">Orb of Chance.png</Property>
+    <Property id="PlayerOffer">Full rare set of equipment with item level below 60</Property>
+    <Property id="NPCOffer">1x Orb of Chance</Property>
+    <Property id="Description">Item level used for this recipe is the one of the item with the lowest item level
+      Having all items at 20% quality yields an extra orb.
+      Having all items unidentified yields an extra orb.
+    </Property>
+  </Entity>
+  <Entity>
+    <Property id="Name">Chaos Orb (Full Rare Set)</Property>
+    <Property id="ImageName">Chaos Orb.png</Property>
+    <Property id="PlayerOffer">Full rare set of equipment with item level below 75</Property>
+    <Property id="NPCOffer">1x Chaos Orb</Property>
+    <Property id="Description">
+      This recipe is also known as "Chaos Recipe".
+      Item level used for this recipe is the one of the item with the lowest item level
+      Having all items at 20% quality yields an extra orb.
+      Having all items unidentified yields an extra orb.
+    </Property>
+  </Entity>
+  <Entity>
+    <Property id="Name">Regal Orb (Full Rare Set)</Property>
+    <Property id="ImageName">Regal Orb.png</Property>
+    <Property id="PlayerOffer">Full rare set of equipment with item level 75 or above</Property>
+    <Property id="NPCOffer">1x Regal Orb</Property>
+    <Property id="Description">
+      This recipe is also known as "Regal Recipe" or "Improved Chaos Recipe".
+      Item level used for this recipe is the one of the item with the lowest item level
+      Having all items at 20% quality yields an extra orb.
+      Having all items unidentified yields an extra orb.
+    </Property>
+  </Entity>
+
+  <Entity>
+    <Property id="Name">Cartographer's Chisel</Property>
+    <Property id="PlayerOffer">1x Stone Hammer/Rock Breaker/Gavel with 20% quality + 1x Map</Property>
+    <Property id="NPCOffer">1x Cartographer's Chisel</Property>
+    <Property id="Description">Rarity of neither items matter</Property>
+  </Entity>
+  <Entity>
+    <Property id="Name">Vaal Orb</Property>
+    <Property id="PlayerOffer">7x Vaal Skill Gems + 1x Sacrifice Vaal Fragment</Property>
+    <Property id="NPCOffer">1x Vaal Chisel</Property>
+  </Entity>
+
+  <Entity>
+    <Property id="Name">Ruby Ring</Property>
+    <Property id="PlayerOffer">1x Iron Ring + 1x any red Skill Gem</Property>
+    <Property id="NPCOffer">1x Ruby Ring</Property>
+  </Entity>
+  <Entity>
+    <Property id="Name">Topaz Ring</Property>
+    <Property id="PlayerOffer">1x Iron Ring + 1x any green Skill Gem</Property>
+    <Property id="NPCOffer">1x Topaz Ring</Property>
+  </Entity>
+  <Entity>
+    <Property id="Name">Sapphire Ring</Property>
+    <Property id="PlayerOffer">1x Iron Ring + 1x any blue Skill Gem</Property>
+    <Property id="NPCOffer">1x Sapphire Ring</Property>
+  </Entity>
+  <Entity>
+    <Property id="Name">Prismatic Ring</Property>
+    <Property id="PlayerOffer">1x Ruby Ring + 1x Topaz Ring + 1x Sapphire Ring</Property>
+    <Property id="NPCOffer">1x Prismatic Ring</Property>
+  </Entity>
+</Root>

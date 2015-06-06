@@ -1,6 +1,6 @@
 ﻿// ------------------------------------------------------------------ 
 // PoEHandbook
-// InfoPage.xaml.cs by 
+// InfoPage.xaml.cs by Tyrrrz
 // 06/05/2015
 // ------------------------------------------------------------------ 
 
@@ -24,6 +24,7 @@ namespace PoEHandbook.Pages
         /// <summary>
         /// Formats an InlineCollection with name of an entity.
         /// If entity has a base, appens that on a new line.
+        /// If entity is a recipe, says so on a new line.
         /// </summary>
         /// <returns>False if no information was found</returns>
         private static bool FormatEntityName(Entity ent, InlineCollection ic)
@@ -39,6 +40,12 @@ namespace PoEHandbook.Pages
                 ic.Add(entWithRarity.RarityHandler.Base);
             }
 
+            if (ent is Recipe)
+            {
+                ic.Add(Environment.NewLine);
+                ic.Add("(Recipe)");
+            }
+
             return ic.Count > 0;
         }
 
@@ -51,6 +58,7 @@ namespace PoEHandbook.Pages
             ic.Clear();
 
             #region Shield
+
             if (ent is Shield)
             {
                 var shield = (Shield) ent;
@@ -64,14 +72,16 @@ namespace PoEHandbook.Pages
                     var run = new Run(shield.Block + "%")
                     {
                         FontWeight = FontWeights.SemiBold,
-                        Foreground = new SolidColorBrush((Color) ColorConverter.ConvertFromString("#6a88ef"))
+                        Foreground = new SolidColorBrush(Colors.White)
                     };
                     ic.Add(run);
                 }
             }
+
             #endregion
 
             #region Armour
+
             if (ent is Armour)
             {
                 var armour = (Armour) ent;
@@ -85,7 +95,7 @@ namespace PoEHandbook.Pages
                     var run = new Run(armour.ArmourValue.ToString())
                     {
                         FontWeight = FontWeights.SemiBold,
-                        Foreground = new SolidColorBrush((Color) ColorConverter.ConvertFromString("#6a88ef"))
+                        Foreground = new SolidColorBrush(Colors.White)
                     };
                     ic.Add(run);
                 }
@@ -99,7 +109,7 @@ namespace PoEHandbook.Pages
                     var run = new Run(armour.EvasionValue.ToString())
                     {
                         FontWeight = FontWeights.SemiBold,
-                        Foreground = new SolidColorBrush((Color) ColorConverter.ConvertFromString("#6a88ef"))
+                        Foreground = new SolidColorBrush(Colors.White)
                     };
                     ic.Add(run);
                 }
@@ -113,14 +123,16 @@ namespace PoEHandbook.Pages
                     var run = new Run(armour.EnergyShieldValue.ToString())
                     {
                         FontWeight = FontWeights.SemiBold,
-                        Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#6a88ef"))
+                        Foreground = new SolidColorBrush(Colors.White)
                     };
                     ic.Add(run);
                 }
             }
+
             #endregion
 
             #region Flask
+
             if (ent is Flask)
             {
                 var flask = (Flask) ent;
@@ -134,7 +146,7 @@ namespace PoEHandbook.Pages
                     var run = new Run(flask.LifeRecovery.ToString())
                     {
                         FontWeight = FontWeights.SemiBold,
-                        Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#6a88ef"))
+                        Foreground = new SolidColorBrush(Colors.White)
                     };
                     ic.Add(run);
                 }
@@ -148,7 +160,7 @@ namespace PoEHandbook.Pages
                     var run = new Run(flask.ManaRecovery.ToString())
                     {
                         FontWeight = FontWeights.SemiBold,
-                        Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#6a88ef"))
+                        Foreground = new SolidColorBrush(Colors.White)
                     };
                     ic.Add(run);
                 }
@@ -162,7 +174,7 @@ namespace PoEHandbook.Pages
                     var run = new Run(flask.Duration.ToString())
                     {
                         FontWeight = FontWeights.SemiBold,
-                        Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#6a88ef"))
+                        Foreground = new SolidColorBrush(Colors.White)
                     };
                     ic.Add(run);
                 }
@@ -176,14 +188,16 @@ namespace PoEHandbook.Pages
                     var run = new Run(flask.ChargesUsed.ToString())
                     {
                         FontWeight = FontWeights.SemiBold,
-                        Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#6a88ef"))
+                        Foreground = new SolidColorBrush(Colors.White)
                     };
                     ic.Add(run);
                 }
             }
+
             #endregion
 
             #region Jewel
+
             if (ent is Jewel)
             {
                 var jewel = (Jewel) ent;
@@ -197,7 +211,7 @@ namespace PoEHandbook.Pages
                     var run = new Run(jewel.Limit.ToString())
                     {
                         FontWeight = FontWeights.SemiBold,
-                        Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#6a88ef"))
+                        Foreground = new SolidColorBrush(Colors.White)
                     };
                     ic.Add(run);
                 }
@@ -211,14 +225,16 @@ namespace PoEHandbook.Pages
                     var run = new Run(jewel.Radius)
                     {
                         FontWeight = FontWeights.SemiBold,
-                        Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#6a88ef"))
+                        Foreground = new SolidColorBrush(Colors.White)
                     };
                     ic.Add(run);
                 }
             }
+
             #endregion
 
             #region Map
+
             if (ent is Map)
             {
                 var map = (Map) ent;
@@ -232,7 +248,7 @@ namespace PoEHandbook.Pages
                     var run = new Run(map.Level.ToString())
                     {
                         FontWeight = FontWeights.SemiBold,
-                        Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#6a88ef"))
+                        Foreground = new SolidColorBrush(Colors.White)
                     };
                     ic.Add(run);
                 }
@@ -246,14 +262,16 @@ namespace PoEHandbook.Pages
                     var run = new Run(map.Quantity.ToString())
                     {
                         FontWeight = FontWeights.SemiBold,
-                        Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#6a88ef"))
+                        Foreground = new SolidColorBrush(Colors.White)
                     };
                     ic.Add(run);
                 }
             }
+
             #endregion
 
             #region Weapon
+
             if (ent is Weapon)
             {
                 var weapon = (Weapon) ent;
@@ -267,7 +285,7 @@ namespace PoEHandbook.Pages
                     var run = new Run(weapon.PhysicalDamage.ToString())
                     {
                         FontWeight = FontWeights.SemiBold,
-                        Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#6a88ef"))
+                        Foreground = new SolidColorBrush(Colors.White)
                     };
                     ic.Add(run);
                 }
@@ -281,7 +299,7 @@ namespace PoEHandbook.Pages
                     var run = new Run(weapon.FireDamage.ToString())
                     {
                         FontWeight = FontWeights.SemiBold,
-                        Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#96000e"))
+                        Foreground = new SolidColorBrush((Color) ColorConverter.ConvertFromString("#96000e"))
                     };
                     ic.Add(run);
                 }
@@ -295,7 +313,7 @@ namespace PoEHandbook.Pages
                     var run = new Run(weapon.ColdDamage.ToString())
                     {
                         FontWeight = FontWeights.SemiBold,
-                        Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#30648a"))
+                        Foreground = new SolidColorBrush((Color) ColorConverter.ConvertFromString("#30648a"))
                     };
                     ic.Add(run);
                 }
@@ -309,7 +327,7 @@ namespace PoEHandbook.Pages
                     var run = new Run(weapon.LightningDamage.ToString())
                     {
                         FontWeight = FontWeights.SemiBold,
-                        Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#dcd700"))
+                        Foreground = new SolidColorBrush((Color) ColorConverter.ConvertFromString("#dcd700"))
                     };
                     ic.Add(run);
                 }
@@ -323,7 +341,7 @@ namespace PoEHandbook.Pages
                     var run = new Run(weapon.ChaosDamage.ToString())
                     {
                         FontWeight = FontWeights.SemiBold,
-                        Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#d02072"))
+                        Foreground = new SolidColorBrush((Color) ColorConverter.ConvertFromString("#d02072"))
                     };
                     ic.Add(run);
                 }
@@ -337,7 +355,7 @@ namespace PoEHandbook.Pages
                     var run = new Run(weapon.CriticalStrikeChance + "%")
                     {
                         FontWeight = FontWeights.SemiBold,
-                        Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#6a88ef"))
+                        Foreground = new SolidColorBrush(Colors.White)
                     };
                     ic.Add(run);
                 }
@@ -351,7 +369,44 @@ namespace PoEHandbook.Pages
                     var run = new Run(weapon.AttacksPerSecond.ToString())
                     {
                         FontWeight = FontWeights.SemiBold,
-                        Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#6a88ef"))
+                        Foreground = new SolidColorBrush(Colors.White)
+                    };
+                    ic.Add(run);
+                }
+            }
+
+            #endregion
+
+            #region Recipe
+
+            if (ent is Recipe)
+            {
+                var recipe = (Recipe) ent;
+
+                // Player Offer
+                if (!string.IsNullOrEmpty(recipe.PlayerOffer))
+                {
+                    if (ic.Count > 1)
+                        ic.Add(Environment.NewLine);
+                    ic.Add("Player Offer: ");
+                    var run = new Run(recipe.PlayerOffer)
+                    {
+                        FontWeight = FontWeights.SemiBold,
+                        Foreground = new SolidColorBrush(Colors.White)
+                    };
+                    ic.Add(run);
+                }
+
+                // NPC Offer
+                if (!string.IsNullOrEmpty(recipe.NPCOffer))
+                {
+                    if (ic.Count > 1)
+                        ic.Add(Environment.NewLine);
+                    ic.Add("NPC Offer: ");
+                    var run = new Run(recipe.NPCOffer)
+                    {
+                        FontWeight = FontWeights.SemiBold,
+                        Foreground = new SolidColorBrush(Colors.White)
                     };
                     ic.Add(run);
                 }
@@ -386,7 +441,7 @@ namespace PoEHandbook.Pages
                     {
                         Text = "" + reqHandler.Level,
                         FontWeight = FontWeights.SemiBold,
-                        Foreground = new SolidColorBrush((Color) ColorConverter.ConvertFromString("#6a88ef"))
+                        Foreground = new SolidColorBrush(Colors.White)
                     });
                 }
                 if (reqHandler.Strength > 0)
@@ -398,7 +453,7 @@ namespace PoEHandbook.Pages
                     {
                         Text = "" + reqHandler.Strength,
                         FontWeight = FontWeights.SemiBold,
-                        Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#6a88ef"))
+                        Foreground = new SolidColorBrush(Colors.White)
                     });
                     ic.Add(" Str");
                 }
@@ -411,7 +466,7 @@ namespace PoEHandbook.Pages
                     {
                         Text = "" + reqHandler.Dexterity,
                         FontWeight = FontWeights.SemiBold,
-                        Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#6a88ef"))
+                        Foreground = new SolidColorBrush(Colors.White)
                     });
                     ic.Add(" Dex");
                 }
@@ -424,7 +479,7 @@ namespace PoEHandbook.Pages
                     {
                         Text = "" + reqHandler.Intelligence,
                         FontWeight = FontWeights.SemiBold,
-                        Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#6a88ef"))
+                        Foreground = new SolidColorBrush(Colors.White)
                     });
                     ic.Add(" Int");
                 }
@@ -462,11 +517,8 @@ namespace PoEHandbook.Pages
             var entWithMods = ent as IHasMods;
             var entWithDescription = ent as IHasDescription;
 
-            if ((entWithMods == null || !entWithMods.ModsHandler.IsRelevant) && entWithDescription == null)
-                return false;
-
             // Mods
-            if (entWithMods != null)
+            if (entWithMods != null && entWithMods.ModsHandler.IsRelevant)
             {
                 int start = entWithMods.ModsHandler.HasImplicitMod ? 1 : 0;
 
@@ -488,7 +540,7 @@ namespace PoEHandbook.Pages
             }
 
             // Description
-            if (entWithDescription != null)
+            if (entWithDescription != null && !string.IsNullOrEmpty(entWithDescription.DescriptionHandler.Description))
                 ic.Add(entWithDescription.DescriptionHandler.Description);
 
             return ic.Count > 0;

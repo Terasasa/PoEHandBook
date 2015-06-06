@@ -24,6 +24,14 @@ namespace PoEHandbook.Model
                 return;
             }
 
+            // Recipe
+            if (entity is Recipe)
+            {
+                fore = Color.FromRgb(200, 200, 200);
+                back = Color.FromRgb(35, 55, 125);
+                return;
+            }
+
             // Misc items
             var entityWithRarity = entity as IHasRarity;
             if (entityWithRarity == null)

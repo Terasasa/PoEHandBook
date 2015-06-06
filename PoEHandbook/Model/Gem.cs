@@ -1,8 +1,8 @@
-﻿//  ------------------------------------------------------------------ 
-//  PoEHandbook
-//  Gem.cs by Tyrrrz
-//  29/04/2015
-//  ------------------------------------------------------------------ 
+﻿// ------------------------------------------------------------------ 
+// PoEHandbook
+// Gem.cs by Tyrrrz
+// 06/05/2015
+// ------------------------------------------------------------------ 
 
 using System.Collections.Generic;
 using System.Xml;
@@ -12,12 +12,12 @@ namespace PoEHandbook.Model
 {
     public class Gem : Entity, IHasDescription
     {
+        public DescriptionHandler DescriptionHandler { get; private set; }
+
         public Gem()
         {
             DescriptionHandler = new DescriptionHandler(this);
         }
-
-        public DescriptionHandler DescriptionHandler { get; private set; }
 
         public override void Deserialize(XmlNode node)
         {

@@ -1,8 +1,8 @@
-﻿//  ------------------------------------------------------------------ 
-//  PoEHandbook
-//  Equipment.cs by Tyrrrz
-//  29/04/2015
-//  ------------------------------------------------------------------ 
+﻿// ------------------------------------------------------------------ 
+// PoEHandbook
+// Equipment.cs by Tyrrrz
+// 06/05/2015
+// ------------------------------------------------------------------ 
 
 using System.Collections.Generic;
 using System.Xml;
@@ -12,16 +12,16 @@ namespace PoEHandbook.Model
 {
     public class Equipment : Entity, IHasRequirements, IHasMods, IHasRarity
     {
+        public RequirementsHandler RequirementsHandler { get; private set; }
+        public ModsHandler ModsHandler { get; private set; }
+        public RarityHandler RarityHandler { get; private set; }
+
         public Equipment()
         {
             RequirementsHandler = new RequirementsHandler(this);
             ModsHandler = new ModsHandler(this);
             RarityHandler = new RarityHandler(this);
         }
-
-        public RequirementsHandler RequirementsHandler { get; private set; }
-        public ModsHandler ModsHandler { get; private set; }
-        public RarityHandler RarityHandler { get; private set; }
 
         public override void Deserialize(XmlNode node)
         {

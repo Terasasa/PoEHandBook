@@ -3,6 +3,5 @@
   <Property id="Name">Beta Key</Property>
   <!--Alternative accounts will not be eligible for beta key draw-->
   <Property id="BannedKeywords">Beta Key</Property>
-  <Property id="Text"></Property>
 </Entity>
 </Root>

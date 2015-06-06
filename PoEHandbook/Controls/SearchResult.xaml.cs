@@ -72,12 +72,18 @@ namespace PoEHandbook.Controls
             _sr = sr;
             _ns = ns;
 
-            // Fill the data
+            // Name
             ItemName.Text = _sr.Entity.Name;
+            if (sr.Entity is Recipe)
+                ItemName.Text += " (Recipe)";
+
+            // Image
             if (Settings.Default.ShowImages && File.Exists(_sr.Entity.ImageUri.LocalPath))
                 ItemImage.Source = new BitmapImage(_sr.Entity.ImageUri);
             else
                 MainGrid.RowDefinitions[1].Height = new GridLength(0);
+
+            // Search Matches
             FormatSearchResultMatches(_sr, highlights, ItemSearchMatches.Inlines);
 
             // Figure out the colors

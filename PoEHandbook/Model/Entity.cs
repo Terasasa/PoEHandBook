@@ -1,8 +1,8 @@
-﻿//  ------------------------------------------------------------------ 
-//  PoEHandbook
-//  Entity.cs by Tyrrrz
-//  26/04/2015
-//  ------------------------------------------------------------------ 
+﻿// ------------------------------------------------------------------ 
+// PoEHandbook
+// Entity.cs by Tyrrrz
+// 06/05/2015
+// ------------------------------------------------------------------ 
 
 using System;
 using System.Collections.Generic;
@@ -19,10 +19,12 @@ namespace PoEHandbook.Model
     {
         public string Name { get; private set; }
         public string ImageName { get; private set; }
+
         public Uri ImageUri
         {
             get { return new Uri(Path.Combine(Environment.CurrentDirectory, "Data", "Cache", ImageName)); }
         }
+
         public string[] Aliases { get; set; }
         public string[] BannedKeywords { get; set; }
 
@@ -38,7 +40,7 @@ namespace PoEHandbook.Model
 
             temp = node.SelectSingleNode(@"Property[@id='Aliases']");
             if (temp != null)
-                Aliases = temp.InnerText.Split(new[] { " | " }, StringSplitOptions.RemoveEmptyEntries);
+                Aliases = temp.InnerText.Split(new[] {" | "}, StringSplitOptions.RemoveEmptyEntries);
 
             temp = node.SelectSingleNode(@"Property[@id='BannedKeywords']");
             if (temp != null)
@@ -55,7 +57,8 @@ namespace PoEHandbook.Model
                 return false;
 
             // Alias
-            if (Aliases != null && Aliases.Any(alias => alias.Equals(query, StringComparison.InvariantCultureIgnoreCase)))
+            if (Aliases != null &&
+                Aliases.Any(alias => alias.Equals(query, StringComparison.InvariantCultureIgnoreCase)))
             {
                 properties.Add("Alias");
                 return true;

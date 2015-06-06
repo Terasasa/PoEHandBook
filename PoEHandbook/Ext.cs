@@ -35,6 +35,8 @@ namespace PoEHandbook
         /// </summary>
         public static bool ContainsInvariant(this string str, string sub)
         {
+            if (string.IsNullOrEmpty(str) || string.IsNullOrEmpty(sub)) return false;
+
             str = str.ReplaceUnicodeCharacters().ToUpperInvariant().Trim();
             sub = sub.ReplaceUnicodeCharacters().ToUpperInvariant().Trim();
             return str.Contains(sub);

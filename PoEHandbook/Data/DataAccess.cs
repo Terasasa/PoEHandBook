@@ -24,6 +24,10 @@ namespace PoEHandbook.Data
             {
                 {"misc.xml", typeof (Entity)},
 
+                {"recipes.xml", typeof (Recipe)},
+
+                {"passives.xml", typeof (Passive)},
+
                 {"currency.xml", typeof (Currency)},
 
                 {"unique_maps.xml", typeof (Map)},

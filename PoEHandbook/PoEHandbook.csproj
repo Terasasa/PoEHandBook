@@ -192,6 +192,12 @@
   <ItemGroup>
     <Resource Include="Data\unique_flasks.xml" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Data\recipes.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Data\passives.xml" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>XCOPY "$(ProjectDir)Data\cache" "$(TargetDir)Data\cache" /s /i /y
