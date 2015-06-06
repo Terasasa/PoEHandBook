@@ -21,6 +21,11 @@ namespace PoEHandbook.Pages
     /// </summary>
     public partial class InfoPage
     {
+        /// <summary>
+        /// Formats an InlineCollection with name of an entity.
+        /// If entity has a base, appens that on a new line.
+        /// </summary>
+        /// <returns>False if no information was found</returns>
         private static bool FormatEntityName(Entity ent, InlineCollection ic)
         {
             ic.Clear();
@@ -34,263 +39,332 @@ namespace PoEHandbook.Pages
                 ic.Add(entWithRarity.RarityHandler.Base);
             }
 
-            return true;
+            return ic.Count > 0;
         }
 
+        /// <summary>
+        /// Formats an InlineCollection with stats of an entity
+        /// </summary>
+        /// <returns>False if no information was found</returns>
         private static bool FormatEntityStats(Entity ent, InlineCollection ic)
         {
             ic.Clear();
 
-            var entWithStats = ent as IHasStats;
-
-            if (entWithStats != null && entWithStats.StatsHandler.IsRelevant)
+            #region Shield
+            if (ent is Shield)
             {
-                var statsHandler = entWithStats.StatsHandler;
+                var shield = (Shield) ent;
 
-                // Shields
-                if (statsHandler.Block.Average > 0)
+                // Block
+                if (shield.Block.Average > 0)
                 {
                     if (ic.Count > 1)
                         ic.Add(Environment.NewLine);
-
                     ic.Add("Chance to Block: ");
-                    var run = new Run(statsHandler.Block + "%")
+                    var run = new Run(shield.Block + "%")
                     {
                         FontWeight = FontWeights.SemiBold,
-                        Foreground = statsHandler.BlockAffected
-                            ? new SolidColorBrush((Color) ColorConverter.ConvertFromString("#6a88ef"))
-                            : new SolidColorBrush(Colors.White)
+                        Foreground = new SolidColorBrush((Color) ColorConverter.ConvertFromString("#6a88ef"))
                     };
                     ic.Add(run);
                 }
-
-                // Armour
-                if (statsHandler.ArmourValue.Average > 0)
-                {
-                    if (ic.Count > 1)
-                        ic.Add(Environment.NewLine);
-
-                    ic.Add("Armour: ");
-                    var run = new Run(statsHandler.ArmourValue.ToString())
-                    {
-                        FontWeight = FontWeights.SemiBold,
-                        Foreground = statsHandler.ArmourAffected
-                            ? new SolidColorBrush((Color) ColorConverter.ConvertFromString("#6a88ef"))
-                            : new SolidColorBrush(Colors.White)
-                    };
-                    ic.Add(run);
-                }
-                if (statsHandler.EvasionValue.Average > 0)
-                {
-                    if (ic.Count > 1)
-                        ic.Add(Environment.NewLine);
-
-                    ic.Add("Evasion: ");
-                    var run = new Run(statsHandler.EvasionValue.ToString())
-                    {
-                        FontWeight = FontWeights.SemiBold,
-                        Foreground = statsHandler.EvasionAffected
-                            ? new SolidColorBrush((Color) ColorConverter.ConvertFromString("#6a88ef"))
-                            : new SolidColorBrush(Colors.White)
-                    };
-                    ic.Add(run);
-                }
-                if (statsHandler.EnergyShieldValue.Average > 0)
-                {
-                    if (ic.Count > 1)
-                        ic.Add(Environment.NewLine);
-
-                    ic.Add("Energy Shield: ");
-                    var run = new Run(statsHandler.EnergyShieldValue.ToString())
-                    {
-                        FontWeight = FontWeights.SemiBold,
-                        Foreground = statsHandler.EnergyShieldAffected
-                            ? new SolidColorBrush((Color) ColorConverter.ConvertFromString("#6a88ef"))
-                            : new SolidColorBrush(Colors.White)
-                    };
-                    ic.Add(run);
-                }
-
-                // Weapons
-                if (statsHandler.PhysicalDamage.Average > 0)
-                {
-                    if (ic.Count > 1)
-                        ic.Add(Environment.NewLine);
-
-                    ic.Add("Physical Damage: ");
-                    var run = new Run(statsHandler.PhysicalDamage.ToString())
-                    {
-                        FontWeight = FontWeights.SemiBold,
-                        Foreground = statsHandler.PhysicalDamageAffected
-                            ? new SolidColorBrush((Color) ColorConverter.ConvertFromString("#6a88ef"))
-                            : new SolidColorBrush(Colors.White)
-                    };
-                    ic.Add(run);
-                }
-                if (statsHandler.CriticalStrikeChance.Average > 0)
-                {
-                    if (ic.Count > 1)
-                        ic.Add(Environment.NewLine);
-
-                    ic.Add("Critical Strike Chance: ");
-                    var run = new Run(statsHandler.CriticalStrikeChance + "%")
-                    {
-                        FontWeight = FontWeights.SemiBold,
-                        Foreground = statsHandler.CriticalStrikeChanceAffected
-                            ? new SolidColorBrush((Color) ColorConverter.ConvertFromString("#6a88ef"))
-                            : new SolidColorBrush(Colors.White)
-                    };
-                    ic.Add(run);
-                }
-                if (statsHandler.AttacksPerSecond.Average > 0)
-                {
-                    if (ic.Count > 1)
-                        ic.Add(Environment.NewLine);
-
-                    ic.Add("Attacks Per Second: ");
-                    var run = new Run(statsHandler.AttacksPerSecond.ToString())
-                    {
-                        FontWeight = FontWeights.SemiBold,
-                        Foreground = statsHandler.AttacksPerSecondAffected
-                            ? new SolidColorBrush((Color) ColorConverter.ConvertFromString("#6a88ef"))
-                            : new SolidColorBrush(Colors.White)
-                    };
-                    ic.Add(run);
-                }
-                if (statsHandler.DamagePerSecond.Average > 0)
-                {
-                    if (ic.Count > 1)
-                        ic.Add(Environment.NewLine);
-
-                    ic.Add("Damage Per Second: ");
-                    var run = new Run(statsHandler.DamagePerSecond.ToString())
-                    {
-                        FontWeight = FontWeights.SemiBold,
-                        Foreground = statsHandler.DamagePerSecondAffected
-                            ? new SolidColorBrush((Color) ColorConverter.ConvertFromString("#6a88ef"))
-                            : new SolidColorBrush(Colors.White)
-                    };
-                    ic.Add(run);
-                }
-
-                // Maps
-                if (statsHandler.Quantity > 0)
-                {
-                    if (ic.Count > 1)
-                        ic.Add(Environment.NewLine);
-
-                    ic.Add("Quantity: ");
-                    var run = new Run(statsHandler.Quantity.ToString())
-                    {
-                        FontWeight = FontWeights.SemiBold,
-                        Foreground = statsHandler.QuantityAffected
-                            ? new SolidColorBrush((Color) ColorConverter.ConvertFromString("#6a88ef"))
-                            : new SolidColorBrush(Colors.White)
-                    };
-                    ic.Add(run);
-                }
-
-                // Jewels
-                if (!string.IsNullOrEmpty(statsHandler.Radius))
-                {
-                    if (ic.Count > 1)
-                        ic.Add(Environment.NewLine);
-
-                    ic.Add("Radius: ");
-                    var run = new Run(statsHandler.Radius)
-                    {
-                        FontWeight = FontWeights.SemiBold,
-                        Foreground = statsHandler.RadiusAffected
-                            ? new SolidColorBrush((Color) ColorConverter.ConvertFromString("#6a88ef"))
-                            : new SolidColorBrush(Colors.White)
-                    };
-                    ic.Add(run);
-                }
-
-                // Flasks
-                if (statsHandler.LifeRecovery.Average > 0)
-                {
-                    if (ic.Count > 1)
-                        ic.Add(Environment.NewLine);
-
-                    ic.Add("Life Recovered: ");
-                    var run = new Run(statsHandler.LifeRecovery.ToString())
-                    {
-                        FontWeight = FontWeights.SemiBold,
-                        Foreground = statsHandler.LifeRecoveryAffected
-                            ? new SolidColorBrush((Color)ColorConverter.ConvertFromString("#6a88ef"))
-                            : new SolidColorBrush(Colors.White)
-                    };
-                    ic.Add(run);
-                }
-                if (statsHandler.ManaRecovery.Average > 0)
-                {
-                    if (ic.Count > 1)
-                        ic.Add(Environment.NewLine);
-
-                    ic.Add("Mana Recovered: ");
-                    var run = new Run(statsHandler.ManaRecovery.ToString())
-                    {
-                        FontWeight = FontWeights.SemiBold,
-                        Foreground = statsHandler.ManaRecoveryAffected
-                            ? new SolidColorBrush((Color)ColorConverter.ConvertFromString("#6a88ef"))
-                            : new SolidColorBrush(Colors.White)
-                    };
-                    ic.Add(run);
-                }
-                if (statsHandler.Duration.Average > 0)
-                {
-                    if (ic.Count > 1)
-                        ic.Add(Environment.NewLine);
-
-                    ic.Add("Duration: ");
-                    var run = new Run(statsHandler.Duration.ToString())
-                    {
-                        FontWeight = FontWeights.SemiBold,
-                        Foreground = statsHandler.DurationAffected
-                            ? new SolidColorBrush((Color)ColorConverter.ConvertFromString("#6a88ef"))
-                            : new SolidColorBrush(Colors.White)
-                    };
-                    ic.Add(run);
-                    ic.Add(" seconds");
-                }
-                if (statsHandler.Capacity.Average > 0)
-                {
-                    if (ic.Count > 1)
-                        ic.Add(Environment.NewLine);
-
-                    ic.Add("Capacity: ");
-                    var run = new Run(statsHandler.Capacity.ToString())
-                    {
-                        FontWeight = FontWeights.SemiBold,
-                        Foreground = statsHandler.CapacityAffected
-                            ? new SolidColorBrush((Color)ColorConverter.ConvertFromString("#6a88ef"))
-                            : new SolidColorBrush(Colors.White)
-                    };
-                    ic.Add(run);
-                }
-                if (statsHandler.ChargesUsed.Average > 0)
-                {
-                    if (ic.Count > 1)
-                        ic.Add(Environment.NewLine);
-
-                    ic.Add("Charges Used: ");
-                    var run = new Run(statsHandler.ChargesUsed.ToString())
-                    {
-                        FontWeight = FontWeights.SemiBold,
-                        Foreground = statsHandler.ChargesUsedAffected
-                            ? new SolidColorBrush((Color)ColorConverter.ConvertFromString("#6a88ef"))
-                            : new SolidColorBrush(Colors.White)
-                    };
-                    ic.Add(run);
-                }
-
-                return true;
             }
+            #endregion
 
-            return false;
+            #region Armour
+            if (ent is Armour)
+            {
+                var armour = (Armour) ent;
+
+                // Armour Value
+                if (armour.ArmourValue.Average > 0)
+                {
+                    if (ic.Count > 1)
+                        ic.Add(Environment.NewLine);
+                    ic.Add("Armour: ");
+                    var run = new Run(armour.ArmourValue.ToString())
+                    {
+                        FontWeight = FontWeights.SemiBold,
+                        Foreground = new SolidColorBrush((Color) ColorConverter.ConvertFromString("#6a88ef"))
+                    };
+                    ic.Add(run);
+                }
+
+                // Evasion Value
+                if (armour.EvasionValue.Average > 0)
+                {
+                    if (ic.Count > 1)
+                        ic.Add(Environment.NewLine);
+                    ic.Add("Evasion: ");
+                    var run = new Run(armour.EvasionValue.ToString())
+                    {
+                        FontWeight = FontWeights.SemiBold,
+                        Foreground = new SolidColorBrush((Color) ColorConverter.ConvertFromString("#6a88ef"))
+                    };
+                    ic.Add(run);
+                }
+
+                // Energy Shield Value
+                if (armour.EnergyShieldValue.Average > 0)
+                {
+                    if (ic.Count > 1)
+                        ic.Add(Environment.NewLine);
+                    ic.Add("Energy Shield: ");
+                    var run = new Run(armour.EnergyShieldValue.ToString())
+                    {
+                        FontWeight = FontWeights.SemiBold,
+                        Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#6a88ef"))
+                    };
+                    ic.Add(run);
+                }
+            }
+            #endregion
+
+            #region Flask
+            if (ent is Flask)
+            {
+                var flask = (Flask) ent;
+
+                // Life Recovery
+                if (flask.LifeRecovery.Average > 0)
+                {
+                    if (ic.Count > 1)
+                        ic.Add(Environment.NewLine);
+                    ic.Add("Life Recovered: ");
+                    var run = new Run(flask.LifeRecovery.ToString())
+                    {
+                        FontWeight = FontWeights.SemiBold,
+                        Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#6a88ef"))
+                    };
+                    ic.Add(run);
+                }
+
+                // Mana Recovery
+                if (flask.ManaRecovery.Average > 0)
+                {
+                    if (ic.Count > 1)
+                        ic.Add(Environment.NewLine);
+                    ic.Add("Mana Recovered: ");
+                    var run = new Run(flask.ManaRecovery.ToString())
+                    {
+                        FontWeight = FontWeights.SemiBold,
+                        Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#6a88ef"))
+                    };
+                    ic.Add(run);
+                }
+
+                // Duration
+                if (flask.Duration.Average > 0)
+                {
+                    if (ic.Count > 1)
+                        ic.Add(Environment.NewLine);
+                    ic.Add("Duration: ");
+                    var run = new Run(flask.Duration.ToString())
+                    {
+                        FontWeight = FontWeights.SemiBold,
+                        Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#6a88ef"))
+                    };
+                    ic.Add(run);
+                }
+
+                // Charges Used
+                if (flask.ChargesUsed.Average > 0)
+                {
+                    if (ic.Count > 1)
+                        ic.Add(Environment.NewLine);
+                    ic.Add("Charges Used: ");
+                    var run = new Run(flask.ChargesUsed.ToString())
+                    {
+                        FontWeight = FontWeights.SemiBold,
+                        Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#6a88ef"))
+                    };
+                    ic.Add(run);
+                }
+            }
+            #endregion
+
+            #region Jewel
+            if (ent is Jewel)
+            {
+                var jewel = (Jewel) ent;
+
+                // Limit
+                if (jewel.Limit > 0)
+                {
+                    if (ic.Count > 1)
+                        ic.Add(Environment.NewLine);
+                    ic.Add("Limited to ");
+                    var run = new Run(jewel.Limit.ToString())
+                    {
+                        FontWeight = FontWeights.SemiBold,
+                        Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#6a88ef"))
+                    };
+                    ic.Add(run);
+                }
+
+                // Radius
+                if (!string.IsNullOrEmpty(jewel.Radius))
+                {
+                    if (ic.Count > 1)
+                        ic.Add(Environment.NewLine);
+                    ic.Add("Radius: ");
+                    var run = new Run(jewel.Radius)
+                    {
+                        FontWeight = FontWeights.SemiBold,
+                        Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#6a88ef"))
+                    };
+                    ic.Add(run);
+                }
+            }
+            #endregion
+
+            #region Map
+            if (ent is Map)
+            {
+                var map = (Map) ent;
+
+                // Level
+                if (map.Level > 0)
+                {
+                    if (ic.Count > 1)
+                        ic.Add(Environment.NewLine);
+                    ic.Add("Map Level: ");
+                    var run = new Run(map.Level.ToString())
+                    {
+                        FontWeight = FontWeights.SemiBold,
+                        Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#6a88ef"))
+                    };
+                    ic.Add(run);
+                }
+
+                // Quantity
+                if (map.Quantity > 0)
+                {
+                    if (ic.Count > 1)
+                        ic.Add(Environment.NewLine);
+                    ic.Add("Item Quantity: ");
+                    var run = new Run(map.Quantity.ToString())
+                    {
+                        FontWeight = FontWeights.SemiBold,
+                        Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#6a88ef"))
+                    };
+                    ic.Add(run);
+                }
+            }
+            #endregion
+
+            #region Weapon
+            if (ent is Weapon)
+            {
+                var weapon = (Weapon) ent;
+
+                // Physical Damage
+                if (weapon.PhysicalDamage.Average > 0)
+                {
+                    if (ic.Count > 1)
+                        ic.Add(Environment.NewLine);
+                    ic.Add("Physical Damage: ");
+                    var run = new Run(weapon.PhysicalDamage.ToString())
+                    {
+                        FontWeight = FontWeights.SemiBold,
+                        Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#6a88ef"))
+                    };
+                    ic.Add(run);
+                }
+
+                // Fire Damage
+                if (weapon.FireDamage.Average > 0)
+                {
+                    if (ic.Count > 1)
+                        ic.Add(Environment.NewLine);
+                    ic.Add("Fire Damage: ");
+                    var run = new Run(weapon.FireDamage.ToString())
+                    {
+                        FontWeight = FontWeights.SemiBold,
+                        Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#96000e"))
+                    };
+                    ic.Add(run);
+                }
+
+                // Cold Damage
+                if (weapon.ColdDamage.Average > 0)
+                {
+                    if (ic.Count > 1)
+                        ic.Add(Environment.NewLine);
+                    ic.Add("Cold Damage: ");
+                    var run = new Run(weapon.ColdDamage.ToString())
+                    {
+                        FontWeight = FontWeights.SemiBold,
+                        Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#30648a"))
+                    };
+                    ic.Add(run);
+                }
+
+                // Lightning Damage
+                if (weapon.LightningDamage.Average > 0)
+                {
+                    if (ic.Count > 1)
+                        ic.Add(Environment.NewLine);
+                    ic.Add("Lightning Damage: ");
+                    var run = new Run(weapon.LightningDamage.ToString())
+                    {
+                        FontWeight = FontWeights.SemiBold,
+                        Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#dcd700"))
+                    };
+                    ic.Add(run);
+                }
+
+                // Chaos Damage
+                if (weapon.ChaosDamage.Average > 0)
+                {
+                    if (ic.Count > 1)
+                        ic.Add(Environment.NewLine);
+                    ic.Add("Chaos Damage: ");
+                    var run = new Run(weapon.ChaosDamage.ToString())
+                    {
+                        FontWeight = FontWeights.SemiBold,
+                        Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#d02072"))
+                    };
+                    ic.Add(run);
+                }
+
+                // Critical Chance
+                if (weapon.CriticalStrikeChance.Average > 0)
+                {
+                    if (ic.Count > 1)
+                        ic.Add(Environment.NewLine);
+                    ic.Add("Critical Strike Chance: ");
+                    var run = new Run(weapon.CriticalStrikeChance + "%")
+                    {
+                        FontWeight = FontWeights.SemiBold,
+                        Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#6a88ef"))
+                    };
+                    ic.Add(run);
+                }
+
+                // Attacks Per Second
+                if (weapon.AttacksPerSecond.Average > 0)
+                {
+                    if (ic.Count > 1)
+                        ic.Add(Environment.NewLine);
+                    ic.Add("Attacks Per Second: ");
+                    var run = new Run(weapon.AttacksPerSecond.ToString())
+                    {
+                        FontWeight = FontWeights.SemiBold,
+                        Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#6a88ef"))
+                    };
+                    ic.Add(run);
+                }
+            }
+            #endregion
+
+            return ic.Count > 0;
         }
 
+        /// <summary>
+        /// Formats an InlineCollection with requirements of an entity
+        /// </summary>
+        /// <returns>False if no information was found</returns>
         private static bool FormatEntityRequirements(Entity ent, InlineCollection ic)
         {
             ic.Clear();
@@ -299,6 +373,8 @@ namespace PoEHandbook.Pages
             if (entWithRequirements != null && entWithRequirements.RequirementsHandler.IsRelevant)
             {
                 var reqHandler = entWithRequirements.RequirementsHandler;
+
+                ic.Add("Requires ");
 
                 if (reqHandler.Level > 0)
                 {
@@ -310,9 +386,7 @@ namespace PoEHandbook.Pages
                     {
                         Text = "" + reqHandler.Level,
                         FontWeight = FontWeights.SemiBold,
-                        Foreground = reqHandler.LevelAffected
-                            ? new SolidColorBrush((Color) ColorConverter.ConvertFromString("#6a88ef"))
-                            : new SolidColorBrush(Colors.White)
+                        Foreground = new SolidColorBrush((Color) ColorConverter.ConvertFromString("#6a88ef"))
                     });
                 }
                 if (reqHandler.Strength > 0)
@@ -324,9 +398,7 @@ namespace PoEHandbook.Pages
                     {
                         Text = "" + reqHandler.Strength,
                         FontWeight = FontWeights.SemiBold,
-                        Foreground = reqHandler.StrengthAffected
-                            ? new SolidColorBrush((Color) ColorConverter.ConvertFromString("#6a88ef"))
-                            : new SolidColorBrush(Colors.White)
+                        Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#6a88ef"))
                     });
                     ic.Add(" Str");
                 }
@@ -339,9 +411,7 @@ namespace PoEHandbook.Pages
                     {
                         Text = "" + reqHandler.Dexterity,
                         FontWeight = FontWeights.SemiBold,
-                        Foreground = reqHandler.DexterityAffected
-                            ? new SolidColorBrush((Color) ColorConverter.ConvertFromString("#6a88ef"))
-                            : new SolidColorBrush(Colors.White)
+                        Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#6a88ef"))
                     });
                     ic.Add(" Dex");
                 }
@@ -354,33 +424,19 @@ namespace PoEHandbook.Pages
                     {
                         Text = "" + reqHandler.Intelligence,
                         FontWeight = FontWeights.SemiBold,
-                        Foreground = reqHandler.IntelligenceAffected
-                            ? new SolidColorBrush((Color) ColorConverter.ConvertFromString("#6a88ef"))
-                            : new SolidColorBrush(Colors.White)
+                        Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#6a88ef"))
                     });
                     ic.Add(" Int");
                 }
-                if (reqHandler.Limit > 0)
-                {
-                    if (ic.Count > 1)
-                        ic.Add(", ");
-
-                    ic.Add("Limit: ");
-                    ic.Add(new Run
-                    {
-                        Text = "" + reqHandler.Limit,
-                        FontWeight = FontWeights.SemiBold,
-                        Foreground = reqHandler.LimitAffected
-                            ? new SolidColorBrush((Color)ColorConverter.ConvertFromString("#6a88ef"))
-                            : new SolidColorBrush(Colors.White)
-                    });
-                }
-                return true;
             }
 
-            return false;
+            return ic.Count > 0;
         }
 
+        /// <summary>
+        /// Formats an InlineCollection with implicit mod of an entity
+        /// </summary>
+        /// <returns>False if no information was found</returns>
         private static bool FormatEntityImplicitMod(Entity ent, InlineCollection ic)
         {
             ic.Clear();
@@ -389,12 +445,16 @@ namespace PoEHandbook.Pages
             if (entWithMods != null && entWithMods.ModsHandler.HasImplicitMod)
             {
                 ic.Add(entWithMods.ModsHandler.Mods[0]);
-                return true;
             }
 
-            return false;
+            return ic.Count > 0;
         }
 
+        /// <summary>
+        /// Formats an InlineCollection with explicit mods of an entity.
+        /// If no mods are present, item's description is used instead.
+        /// </summary>
+        /// <returns>False if no information was found</returns>
         private static bool FormatEntityExplicitMods(Entity ent, InlineCollection ic)
         {
             ic.Clear();
@@ -415,21 +475,23 @@ namespace PoEHandbook.Pages
                     string mod = entWithMods.ModsHandler.Mods[i];
                     var run = new Run(mod);
 
+                    // Corrupted mod should be red
                     bool isCorruptedMod = mod.Trim().Equals("Corrupted", StringComparison.InvariantCultureIgnoreCase);
                     if (isCorruptedMod)
                         run.Foreground = new SolidColorBrush(Colors.Red);
 
+                    // New line if not the last mod
                     ic.Add(run);
                     if (i < entWithMods.ModsHandler.Mods.Length - 1)
                         ic.Add(Environment.NewLine);
                 }
-                return true;
             }
 
             // Description
-            ic.Add(entWithDescription.DescriptionHandler.Description);
+            if (entWithDescription != null)
+                ic.Add(entWithDescription.DescriptionHandler.Description);
 
-            return true;
+            return ic.Count > 0;
         }
 
         public InfoPage(Entity ent)

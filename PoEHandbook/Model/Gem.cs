@@ -10,22 +10,19 @@ using PoEHandbook.Model.Interfaces;
 
 namespace PoEHandbook.Model
 {
-    public class Gem : Entity, IHasStats, IHasDescription
+    public class Gem : Entity, IHasDescription
     {
         public Gem()
         {
-            StatsHandler = new StatsHandler(this);
             DescriptionHandler = new DescriptionHandler(this);
         }
 
-        public StatsHandler StatsHandler { get; private set; }
         public DescriptionHandler DescriptionHandler { get; private set; }
 
         public override void Deserialize(XmlNode node)
         {
             base.Deserialize(node);
 
-            StatsHandler.Deserialize(node);
             DescriptionHandler.Deserialize(node);
         }
 
@@ -34,11 +31,6 @@ namespace PoEHandbook.Model
             bool result = base.ContainsInProperties(query, out properties);
 
             List<string> temp;
-            if (StatsHandler.ContainsInProperties(query, out temp))
-            {
-                properties.AddRange(temp);
-                result = true;
-            }
             if (DescriptionHandler.ContainsInProperties(query, out temp))
             {
                 properties.AddRange(temp);

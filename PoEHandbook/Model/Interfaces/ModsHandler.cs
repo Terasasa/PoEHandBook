@@ -26,6 +26,16 @@ namespace PoEHandbook.Model.Interfaces
             get { return Mods != null && Mods.Any(); }
         }
 
+        public string ImplicitMod
+        {
+            get
+            {
+                if (HasImplicitMod)
+                    return Mods[0];
+                return null;
+            }
+        }
+
         public override void Deserialize(XmlNode node)
         {
             XmlNode temp;

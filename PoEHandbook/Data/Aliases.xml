@@ -7,6 +7,7 @@
 <Alias Entity="Shavronne's Wrappings" Query="Shavs"/>
 <Alias Entity="Shavronne's Wrappings" Query="Low Life"/>
 <Alias Entity="Cloak of Defiance" Query="CoD"/>
+<Alias Entity="Cloak of Defiance" Query="MoM"/>
   
 <!-- GEMS -->
 <Alias Entity="Lesser Multiple Projectiles" Query="LMP"/>

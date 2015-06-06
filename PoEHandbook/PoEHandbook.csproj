@@ -99,20 +99,19 @@
     <Compile Include="Model\Interfaces\IHasMods.cs" />
     <Compile Include="Model\Interfaces\IHasRarity.cs" />
     <Compile Include="Model\Interfaces\IHasRequirements.cs" />
-    <Compile Include="Model\Interfaces\IHasStats.cs" />
     <Compile Include="Model\Interfaces\ModsHandler.cs" />
     <Compile Include="Model\Interfaces\RarityHandler.cs" />
     <Compile Include="Model\Interfaces\RequirementsHandler.cs" />
-    <Compile Include="Model\Interfaces\StatsHandler.cs" />
     <Compile Include="Model\Entity.cs" />
     <Compile Include="Model\Ext.cs" />
     <Compile Include="Model\Jewel.cs" />
     <Compile Include="Model\Map.cs" />
     <Compile Include="Model\Passive.cs" />
-    <Compile Include="Model\Range.cs" />
     <Compile Include="Model\Recipe.cs" />
     <Compile Include="Model\Shield.cs" />
     <Compile Include="Model\Accessory.cs" />
+    <Compile Include="Model\Types\RangeDouble.cs" />
+    <Compile Include="Model\Types\RangeRange.cs" />
     <Compile Include="Model\Weapon.cs" />
     <Compile Include="Pages\InfoPage.xaml.cs">
       <DependentUpon>InfoPage.xaml</DependentUpon>

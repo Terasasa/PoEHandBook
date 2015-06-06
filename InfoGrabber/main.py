@@ -52,6 +52,7 @@ def dump_xml(nodes, file_name):
 
 
 def format_item_mods(mods):
+    mods = str(mods)
     mods = re.sub(r"([a-z])([\+\-\(\dA-Z])", r"\1 | \2", mods)
     return mods.replace("N/A", "")\
             .replace("<", "[")\
@@ -403,10 +404,21 @@ def parse_weapons(uris, type, rarity, download_images=True):
                 result.append(create_property_xml(stat_req, cols[i].get_text(), 1))
                 i = i + 1
 
-            result.append(create_property_xml("PhysicalDamage", cols[i].get_text(), 1))
+            # Get damage
+            phys_damage = cols[i].select("span.text-physical")[0].get_text() if len(cols[i].select("span.text-physical")) > 0 else 0
+            fire_damage = cols[i].select("span.text-fire")[0].get_text() if len(cols[i].select("span.text-fire")) > 0 else 0
+            cold_damage = cols[i].select("span.text-cold")[0].get_text() if len(cols[i].select("span.text-cold")) > 0 else 0
+            lightning_damage = cols[i].select("span.text-lightning")[0].get_text() if len(cols[i].select("span.text-lightning")) > 0 else 0
+            chaos_damage = cols[i].select("span.text-chaos")[0].get_text() if len(cols[i].select("span.text-chaos")) > 0 else 0
+
+            result.append(create_property_xml("PhysicalDamage", phys_damage, 1))
+            result.append(create_property_xml("FireDamage", fire_damage, 1))
+            result.append(create_property_xml("ColdDamage", cold_damage, 1))
+            result.append(create_property_xml("LightningDamage", lightning_damage, 1))
+            result.append(create_property_xml("ChaosDamage", chaos_damage, 1))
+
             result.append(create_property_xml("CriticalStrikeChance", cols[i+1].get_text(), 1))
             result.append(create_property_xml("AttacksPerSecond", cols[i+2].get_text(), 1))
-            result.append(create_property_xml("DamagePerSecond", cols[i+3].get_text(), 1))
             result.append(create_property_xml("Mods", format_item_mods(cols[i+4].get_text()), 1))
             if len(cols[i+4].select("span.itemboxstatsgroup")) > 1:
                 result.append(create_delim_xml("HasImplicitMod", 1))

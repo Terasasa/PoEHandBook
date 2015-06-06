@@ -10,17 +10,15 @@ using PoEHandbook.Model.Interfaces;
 
 namespace PoEHandbook.Model
 {
-    public class Equipment : Entity, IHasStats, IHasRequirements, IHasMods, IHasRarity
+    public class Equipment : Entity, IHasRequirements, IHasMods, IHasRarity
     {
         public Equipment()
         {
-            StatsHandler = new StatsHandler(this);
             RequirementsHandler = new RequirementsHandler(this);
             ModsHandler = new ModsHandler(this);
             RarityHandler = new RarityHandler(this);
         }
 
-        public StatsHandler StatsHandler { get; private set; }
         public RequirementsHandler RequirementsHandler { get; private set; }
         public ModsHandler ModsHandler { get; private set; }
         public RarityHandler RarityHandler { get; private set; }
@@ -29,7 +27,6 @@ namespace PoEHandbook.Model
         {
             base.Deserialize(node);
 
-            StatsHandler.Deserialize(node);
             RequirementsHandler.Deserialize(node);
             ModsHandler.Deserialize(node);
             RarityHandler.Deserialize(node);
@@ -40,11 +37,6 @@ namespace PoEHandbook.Model
             bool result = base.ContainsInProperties(query, out properties);
 
             List<string> temp;
-            if (StatsHandler.ContainsInProperties(query, out temp))
-            {
-                properties.AddRange(temp);
-                result = true;
-            }
             if (RequirementsHandler.ContainsInProperties(query, out temp))
             {
                 properties.AddRange(temp);
