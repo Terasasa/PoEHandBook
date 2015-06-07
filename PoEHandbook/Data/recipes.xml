@@ -1,168 +1,345 @@
 ﻿<Root>
-  <Entity>
-    <Property id="Name">Orb of Scouring</Property>
-    <Property id="PlayerOffer">Any rare item with 2 affixes</Property>
-    <Property id="NPCOffer">1x Orb of Scouring</Property>
-    <Property id="Description">An item with 2 affixes is only possible to obtain by using Regal Orb on a magic item with a single affix</Property>
-  </Entity>
+<Entity>
+  <Property id="Name">Orb of Scouring</Property>
+  <Property id="PlayerOffer">Any rare item with 2 affixes</Property>
+  <Property id="NPCOffer">1x Orb of Scouring</Property>
+  <Property id="Description">An item with 2 affixes is only possible to obtain by using Regal Orb on a magic item with a single affix</Property>
+</Entity>
   
-  <Entity>
-    <Property id="Name">Armourer's Scrap</Property>
-    <Property id="PlayerOffer">20% quality armour piece -OR- set of armour pieces with 40% quality total</Property>
-    <Property id="NPCOffer">1x Armourer's Scrap</Property>
-  </Entity>
-  <Entity>
-    <Property id="Name">Blacksmith's Whetstone</Property>
-    <Property id="PlayerOffer">20% quality weapon -OR- set of weapons with 40% quality total</Property>
-    <Property id="NPCOffer">1x Blacksmith's Whetstone</Property>
-  </Entity>
-  <Entity>
-    <Property id="Name">Glassblower's Bauble</Property>
-    <Property id="PlayerOffer">20% quality flask -OR- set of flasks with 40% quality total</Property>
-    <Property id="NPCOffer">1x Glassblower's Bauble</Property>
-  </Entity>
-  <Entity>
-    <Property id="Name">Cartographer's Chisel</Property>
-    <Property id="PlayerOffer">20% quality map -OR- set of maps with 40% quality total</Property>
-    <Property id="NPCOffer">1x Cartographer's Chisel</Property>
-  </Entity>
-  <Entity>
-    <Property id="Name">Gemcutter's Prism</Property>
-    <Property id="PlayerOffer">20% quality gem -OR- set of gems with 40% quality total</Property>
-    <Property id="NPCOffer">1x Gemcutter's Prism</Property>
-  </Entity>
+<Entity>
+  <Property id="Name">Armourer's Scrap</Property>
+  <Property id="PlayerOffer">20% quality armour piece -OR- set of armour pieces with 40% quality total</Property>
+  <Property id="NPCOffer">1x Armourer's Scrap</Property>
+</Entity>
+<Entity>
+  <Property id="Name">Blacksmith's Whetstone</Property>
+  <Property id="PlayerOffer">20% quality weapon -OR- set of weapons with 40% quality total</Property>
+  <Property id="NPCOffer">1x Blacksmith's Whetstone</Property>
+</Entity>
+<Entity>
+  <Property id="Name">Glassblower's Bauble</Property>
+  <Property id="PlayerOffer">20% quality flask -OR- set of flasks with 40% quality total</Property>
+  <Property id="NPCOffer">1x Glassblower's Bauble</Property>
+</Entity>
+<Entity>
+  <Property id="Name">Cartographer's Chisel</Property>
+  <Property id="PlayerOffer">20% quality map -OR- set of maps with 40% quality total</Property>
+  <Property id="NPCOffer">1x Cartographer's Chisel</Property>
+</Entity>
+<Entity>
+  <Property id="Name">Gemcutter's Prism</Property>
+  <Property id="PlayerOffer">20% quality gem -OR- set of gems with 40% quality total</Property>
+  <Property id="NPCOffer">1x Gemcutter's Prism</Property>
+</Entity>
   
-  <Entity>
-    <Property id="Name">Chromatic Orb</Property>
-    <Property id="PlayerOffer">Item with at least 3 linked sockets, each of different colour</Property>
-    <Property id="NPCOffer">1x Chromatic Orb</Property>
-  </Entity>
-  <Entity>
-    <Property id="Name">Jeweller's Orb</Property>
-    <Property id="PlayerOffer">Item with 6 sockets</Property>
-    <Property id="NPCOffer">7x Jeweller's Orb</Property>
-    <Property id="Description">Sockets don't have to be linked</Property>
-  </Entity>
-  <Entity>
-    <Property id="Name">Divine Orb</Property>
-    <Property id="PlayerOffer">Item with 6 linked sockets</Property>
-    <Property id="NPCOffer">1x Divine Orb</Property>
-  </Entity>
+<Entity>
+  <Property id="Name">Chromatic Orb</Property>
+  <Property id="PlayerOffer">Item with at least 3 linked sockets, each of different colour</Property>
+  <Property id="NPCOffer">1x Chromatic Orb</Property>
+</Entity>
+<Entity>
+  <Property id="Name">Jeweller's Orb</Property>
+  <Property id="PlayerOffer">Item with 6 sockets</Property>
+  <Property id="NPCOffer">7x Jeweller's Orb</Property>
+  <Property id="Description">Sockets don't have to be linked</Property>
+</Entity>
+<Entity>
+  <Property id="Name">Divine Orb</Property>
+  <Property id="PlayerOffer">Item with 6 linked sockets</Property>
+  <Property id="NPCOffer">1x Divine Orb</Property>
+</Entity>
   
-  <Entity>
-    <Property id="Name">Orb of Chance (2 of a kind)</Property>
-    <Property id="ImageName">Orb of Chance.png</Property>
-    <Property id="PlayerOffer">2x Identified rare items with same name</Property>
-    <Property id="NPCOffer">1x Orb of Chance</Property>
-  </Entity>
-  <Entity>
-    <Property id="Name">Orb of Alchemy (3 of a kind)</Property>
-    <Property id="ImageName">Orb of Alchemy.png</Property>
-    <Property id="PlayerOffer">3x Identified rare items with same name</Property>
-    <Property id="NPCOffer">1x Orb of Alchemy</Property>
-  </Entity>
-  <Entity>
-    <Property id="Name">Orb of Alchemy (2 of a kind/20%)</Property>
-    <Property id="ImageName">Orb of Alchemy.png</Property>
-    <Property id="PlayerOffer">2x Identified rare items with same name and both 20% quality</Property>
-    <Property id="NPCOffer">1x Orb of Alchemy</Property>
-  </Entity>
-  <Entity>
-    <Property id="Name">Orb of Augmentation (Straight Flush)</Property>
-    <Property id="ImageName">Orb of Augmentation.png</Property>
-    <Property id="PlayerOffer">Normal + magic + rare item of the same base</Property>
-    <Property id="NPCOffer">1x Orb of Augmentation</Property>
-  </Entity>
-  <Entity>
-    <Property id="Name">Orb of Augmentation (Straight Flush/unid)</Property>
-    <Property id="ImageName">Orb of Augmentation.png</Property>
-    <Property id="PlayerOffer">Normal + magic + rare item of the same base (each unidentified)</Property>
-    <Property id="NPCOffer">2x Orb of Augmentation</Property>
-  </Entity>
-  <Entity>
-    <Property id="Name">Orb of Alchemy (Straight Flush/20%)</Property>
-    <Property id="ImageName">Orb of Alchemy.png</Property>
-    <Property id="PlayerOffer">Normal + magic + rare item of the same base (each 20% quality)</Property>
-    <Property id="NPCOffer">1x Orb of Alchemy</Property>
-  </Entity>
-  <Entity>
-    <Property id="Name">Orb of Alchemy (Straight Flush/20%/unid)</Property>
-    <Property id="ImageName">Orb of Alchemy.png</Property>
-    <Property id="PlayerOffer">Normal + magic + rare item of the same base (each 20% quality and unidentified)</Property>
-    <Property id="NPCOffer">2x Orb of Alchemy</Property>
-  </Entity>
-  <Entity>
-    <Property id="Name">Orb of Chance (Straight Flush/Unique)</Property>
-    <Property id="ImageName">Orb of Chance.png</Property>
-    <Property id="PlayerOffer">Normal + magic + rare + unique item of the same base</Property>
-    <Property id="NPCOffer">5x Orb of Chance</Property>
-  </Entity>
+<Entity>
+  <Property id="Name">Orb of Chance (2 of a kind)</Property>
+  <Property id="ImageName">Orb of Chance.png</Property>
+  <Property id="PlayerOffer">2x Identified rare items with same name</Property>
+  <Property id="NPCOffer">1x Orb of Chance</Property>
+</Entity>
+<Entity>
+  <Property id="Name">Orb of Alchemy (3 of a kind)</Property>
+  <Property id="ImageName">Orb of Alchemy.png</Property>
+  <Property id="PlayerOffer">3x Identified rare items with same name</Property>
+  <Property id="NPCOffer">1x Orb of Alchemy</Property>
+</Entity>
+<Entity>
+  <Property id="Name">Orb of Alchemy (2 of a kind/20%)</Property>
+  <Property id="ImageName">Orb of Alchemy.png</Property>
+  <Property id="PlayerOffer">2x Identified rare items with same name and both 20% quality</Property>
+  <Property id="NPCOffer">1x Orb of Alchemy</Property>
+</Entity>
+<Entity>
+  <Property id="Name">Orb of Augmentation (Straight Flush)</Property>
+  <Property id="ImageName">Orb of Augmentation.png</Property>
+  <Property id="PlayerOffer">Normal + magic + rare item of the same base</Property>
+  <Property id="NPCOffer">1x Orb of Augmentation</Property>
+<Property id="Description">Having all items unidentified yields an extra orb</Property>
+</Entity>
+<Entity>
+  <Property id="Name">Orb of Alchemy (Straight Flush/20%)</Property>
+  <Property id="ImageName">Orb of Alchemy.png</Property>
+  <Property id="PlayerOffer">Normal + magic + rare item of the same base (each 20% quality)</Property>
+  <Property id="NPCOffer">1x Orb of Alchemy</Property>
+  <Property id="Description">Having all items unidentified yields an extra orb</Property>
+</Entity>
+<Entity>
+  <Property id="Name">Orb of Chance (Straight Flush/Unique)</Property>
+  <Property id="ImageName">Orb of Chance.png</Property>
+  <Property id="PlayerOffer">Normal + magic + rare + unique item of the same base</Property>
+  <Property id="NPCOffer">5x Orb of Chance</Property>
+</Entity>
   
-  <Entity>
-    <Property id="Name">Orb of Chance (Full Rare Set)</Property>
-    <Property id="ImageName">Orb of Chance.png</Property>
-    <Property id="PlayerOffer">Full rare set of equipment with item level below 60</Property>
-    <Property id="NPCOffer">1x Orb of Chance</Property>
-    <Property id="Description">Item level used for this recipe is the one of the item with the lowest item level
-      Having all items at 20% quality yields an extra orb.
-      Having all items unidentified yields an extra orb.
-    </Property>
-  </Entity>
-  <Entity>
-    <Property id="Name">Chaos Orb (Full Rare Set)</Property>
-    <Property id="ImageName">Chaos Orb.png</Property>
-    <Property id="PlayerOffer">Full rare set of equipment with item level below 75</Property>
-    <Property id="NPCOffer">1x Chaos Orb</Property>
-    <Property id="Description">
-      This recipe is also known as "Chaos Recipe".
-      Item level used for this recipe is the one of the item with the lowest item level
-      Having all items at 20% quality yields an extra orb.
-      Having all items unidentified yields an extra orb.
-    </Property>
-  </Entity>
-  <Entity>
-    <Property id="Name">Regal Orb (Full Rare Set)</Property>
-    <Property id="ImageName">Regal Orb.png</Property>
-    <Property id="PlayerOffer">Full rare set of equipment with item level 75 or above</Property>
-    <Property id="NPCOffer">1x Regal Orb</Property>
-    <Property id="Description">
-      This recipe is also known as "Regal Recipe" or "Improved Chaos Recipe".
-      Item level used for this recipe is the one of the item with the lowest item level
-      Having all items at 20% quality yields an extra orb.
-      Having all items unidentified yields an extra orb.
-    </Property>
-  </Entity>
+<Entity>
+  <Property id="Name">Orb of Chance (Full Rare Set)</Property>
+  <Property id="ImageName">Orb of Chance.png</Property>
+  <Property id="PlayerOffer">Full rare set of equipment with item level below 60</Property>
+  <Property id="NPCOffer">1x Orb of Chance</Property>
+  <Property id="Description">Item level used for this recipe is the one of the item with the lowest item level
+Having all items at 20% quality yields an extra orb.
+Having all items unidentified yields an extra orb.</Property>
+</Entity>
+<Entity>
+  <Property id="Name">Chaos Orb (Full Rare Set)</Property>
+  <Property id="ImageName">Chaos Orb.png</Property>
+  <Property id="PlayerOffer">Full rare set of equipment with item level below 75</Property>
+  <Property id="NPCOffer">1x Chaos Orb</Property>
+  <Property id="Description">This recipe is also known as "Chaos Recipe"
+Item level used for this recipe is the one of the item with the lowest item level
+Having all items at 20% quality yields an extra orb
+Having all items unidentified yields an extra orb</Property>
+</Entity>
+<Entity>
+  <Property id="Name">Regal Orb (Full Rare Set)</Property>
+  <Property id="ImageName">Regal Orb.png</Property>
+  <Property id="PlayerOffer">Full rare set of equipment with item level 75 or above</Property>
+  <Property id="NPCOffer">1x Regal Orb</Property>
+  <Property id="Description">This recipe is also known as "Regal Recipe" or "Improved Chaos Recipe"
+Item level used for this recipe is the one of the item with the lowest item level
+Having all items at 20% quality yields an extra orb
+Having all items unidentified yields an extra orb</Property>
+</Entity>
 
-  <Entity>
-    <Property id="Name">Cartographer's Chisel</Property>
-    <Property id="PlayerOffer">1x Stone Hammer/Rock Breaker/Gavel with 20% quality + 1x Map</Property>
-    <Property id="NPCOffer">1x Cartographer's Chisel</Property>
-    <Property id="Description">Rarity of neither items matter</Property>
-  </Entity>
-  <Entity>
-    <Property id="Name">Vaal Orb</Property>
-    <Property id="PlayerOffer">7x Vaal Skill Gems + 1x Sacrifice Vaal Fragment</Property>
-    <Property id="NPCOffer">1x Vaal Chisel</Property>
-  </Entity>
+<Entity>
+  <Property id="Name">Cartographer's Chisel</Property>
+  <Property id="PlayerOffer">1x Stone Hammer/Rock Breaker/Gavel with 20% quality + 1x Map</Property>
+  <Property id="NPCOffer">1x Cartographer's Chisel</Property>
+  <Property id="Description">Rarity of neither items matter</Property>
+</Entity>
+<Entity>
+  <Property id="Name">Vaal Orb</Property>
+  <Property id="PlayerOffer">7x Vaal Skill Gems + 1x Sacrifice Vaal Fragment</Property>
+  <Property id="NPCOffer">1x Vaal Chisel</Property>
+</Entity>
 
+<Entity>
+  <Property id="Name">Ruby Ring</Property>
+  <Property id="PlayerOffer">1x Iron Ring + 1x any red Skill Gem</Property>
+  <Property id="NPCOffer">1x Ruby Ring</Property>
+</Entity>
+<Entity>
+  <Property id="Name">Topaz Ring</Property>
+  <Property id="PlayerOffer">1x Iron Ring + 1x any green Skill Gem</Property>
+  <Property id="NPCOffer">1x Topaz Ring</Property>
+</Entity>
+<Entity>
+  <Property id="Name">Sapphire Ring</Property>
+  <Property id="PlayerOffer">1x Iron Ring + 1x any blue Skill Gem</Property>
+  <Property id="NPCOffer">1x Sapphire Ring</Property>
+</Entity>
+<Entity>
+  <Property id="Name">Prismatic Ring</Property>
+  <Property id="PlayerOffer">1x Ruby Ring + 1x Topaz Ring + 1x Sapphire Ring</Property>
+  <Property id="NPCOffer">1x Prismatic Ring</Property>
+</Entity>
+<Entity>
+  <Property id="Name">Coral Amulet</Property>
+  <Property id="PlayerOffer">7x Iron Ring + 1x Coral Ring (rare)</Property>
+  <Property id="NPCOffer">1x Coral Amulet (rare)</Property>
+  <Property id="Description">The itemlevel of iron rings doesn't matter</Property>
+</Entity>
+<Entity>
+  <Property id="Name">Paua Amulet</Property>
+  <Property id="PlayerOffer">7x Iron Ring + 1x Paua Ring (rare)</Property>
+  <Property id="NPCOffer">1x Paua Amulet (rare)</Property>
+  <Property id="Description">The itemlevel of iron rings doesn't matter</Property>
+</Entity>
+<Entity>
+  <Property id="Name">Onyx Amulet</Property>
+  <Property id="PlayerOffer">1x amulet + 1x red skill gem + 1x green skill gem + 1x blue skill gem</Property>
+  <Property id="NPCOffer">1x Onyx Amulet (normal)</Property>
+</Entity>
+<Entity>
+  <Property id="Name">Agate Amulet</Property>
+  <Property id="PlayerOffer">1x Amber Amulet + 1x Lapis Amulet + 1x Orb of Transmutation</Property>
+  <Property id="NPCOffer">1x Agate Amulet</Property>
+</Entity>
+<Entity>
+  <Property id="Name">Turquoise Amulet</Property>
+  <Property id="PlayerOffer">1x Jade Amulet + 1x Lapis Amulet + 1x Orb of Transmutation</Property>
+  <Property id="NPCOffer">1x Turquoise Amulet</Property>
+</Entity>
+<Entity>
+  <Property id="Name">Citrine Amulet</Property>
+  <Property id="PlayerOffer">1x Jade Amulet + 1x Amber Amulet + 1x Orb of Transmutation</Property>
+  <Property id="NPCOffer">1x Citrine Amulet</Property>
+</Entity>
+  
+<Entity>
+  <Property id="Name">Reverse Identify</Property>
+  <Property id="PlayerOffer">5x identified items of the same base type and rarity</Property>
+  <Property id="NPCOffer">1x unidentified item of the same base type and rarity</Property>
+  <Property id="Description">Works for magic and rare items</Property>
+</Entity>
+
+<Entity>
+  <Property id="Name">Hybrid Flask</Property>
+  <Property id="PlayerOffer">1x Orb of Fusing + 1x Life Flask + 1x Mana Flask</Property>
+  <Property id="NPCOffer">1x Hybrid Flask</Property>
+</Entity>
   <Entity>
-    <Property id="Name">Ruby Ring</Property>
-    <Property id="PlayerOffer">1x Iron Ring + 1x any red Skill Gem</Property>
-    <Property id="NPCOffer">1x Ruby Ring</Property>
-  </Entity>
-  <Entity>
-    <Property id="Name">Topaz Ring</Property>
-    <Property id="PlayerOffer">1x Iron Ring + 1x any green Skill Gem</Property>
-    <Property id="NPCOffer">1x Topaz Ring</Property>
-  </Entity>
-  <Entity>
-    <Property id="Name">Sapphire Ring</Property>
-    <Property id="PlayerOffer">1x Iron Ring + 1x any blue Skill Gem</Property>
-    <Property id="NPCOffer">1x Sapphire Ring</Property>
-  </Entity>
-  <Entity>
-    <Property id="Name">Prismatic Ring</Property>
-    <Property id="PlayerOffer">1x Ruby Ring + 1x Topaz Ring + 1x Sapphire Ring</Property>
-    <Property id="NPCOffer">1x Prismatic Ring</Property>
-  </Entity>
+  <Property id="Name">Hybrid Flask (upgrade)</Property>
+  <Property id="PlayerOffer">3x Hybrid Flask of same level</Property>
+  <Property id="NPCOffer">1x Hybrid Flask of the next level</Property>
+</Entity>
+<Entity>
+  <Property id="Name">Life Flask (upgrade)</Property>
+  <Property id="PlayerOffer">3x Life Flask of same level</Property>
+  <Property id="NPCOffer">1x Life Flask of the next level</Property>
+</Entity>
+<Entity>
+  <Property id="Name">Mana Flask (upgrade)</Property>
+  <Property id="PlayerOffer">3x Mana Flask of same level</Property>
+  <Property id="NPCOffer">1x Mana Flask of the next level</Property>
+</Entity>
+<Entity>
+  <Property id="Name">Jade Flask</Property>
+  <Property id="PlayerOffer">1x Ruby Flask of Reflexes + 1x Sapphire Flask of Reflexes + 1x Topaz Flask of Reflexes</Property>
+  <Property id="NPCOffer">1x Jade Flask</Property>
+</Entity>
+<Entity>
+  <Property id="Name">Granite Flask</Property>
+  <Property id="PlayerOffer">1x Ruby Flask of Iron Skin + 1x Sapphire Flask of Iron Skin + 1x Topaz Flask of Iron Skin</Property>
+  <Property id="NPCOffer">1x Granite Flask</Property>
+</Entity>
+
+<Entity>
+  <Property id="Name">Movement Speed Boots</Property>
+  <Property id="PlayerOffer">1x White Boots + 1x Quicksilver Flask + 1x Orb of Augmentation</Property>
+  <Property id="NPCOffer">1x magic boots with +10% increased movement speed mod</Property>
+</Entity> 
+<Entity>
+  <Property id="Name">Movement Speed Boots (upgrade)</Property>
+  <Property id="PlayerOffer">1x Magic Boots (with X% increased Movement Speed) + 1x Quicksilver Flask + 1x Orb of Augmentation</Property>
+  <Property id="NPCOffer">1x magic boots with (X+5)% increased movement speed mod</Property>
+</Entity>
+<Entity>
+  <Property id="Name">Weapon with X added damage</Property>
+  <Property id="PlayerOffer">1x Weapon + 1x Orb of Augmentation + 1x Utility Flask (read description)</Property>
+  <Property id="NPCOffer">1x Weapon with x added damage</Property>
+  <Property id="Description">Granite Flask -> Physical Damage, Ruby Flask -> Fire Damage, Sapphire Flask -> Cold Damage, Topaz Flask -> Lightning Damage
+Can be used on the same item multiple times</Property>
+</Entity>
+<Entity>
+  <Property id="Name">Ring or Amulet (+x% Chaos Resistance)</Property>
+  <Property id="PlayerOffer">1x Ring or Amulet + 1x Orb of Augmentation + 1x Amethyst Flask</Property>
+  <Property id="NPCOffer">1x Ring or Amulet (+x% Chaos Resistance)</Property>
+</Entity>
+<Entity>
+  <Property id="Name">Weapon (+1 level of X Gems)</Property>
+  <Property id="PlayerOffer">1x Sceptre/Wand + 1x Specific Ring (read description) + 1x Orb of Alteration</Property>
+  <Property id="NPCOffer">1x Sceptre/Wand with +1 to level of X Gems in this item</Property>
+  <Property id="Description">Ruby Ring -> Fire Gems, Topaz Ring -> Lightning Gems, Sapphire Ring -> Cold Gems</Property>
+</Entity>
+<Entity>
+  <Property id="Name">Weapon (X% increased Physical Damage)</Property>
+  <Property id="PlayerOffer">1x Weapon + 1x Rustic Sash + 1x Blacksmith's Whetstone</Property>
+  <Property id="NPCOffer">1x Weapon (X% increased Physical Damage)</Property>
+  <Property id="Description">Rarity and itemlevel of belt determines the roll
+Possible values go from 20% to 89%</Property>
+</Entity>
+<Entity>
+  <Property id="Name">Weapon (X% increased Spell Damage)</Property>
+  <Property id="PlayerOffer">1x Dagger/Sceptre/Staff/Wand + 1x Chain Sash + 1x Blacksmith's Whetstone</Property>
+  <Property id="NPCOffer">1x Weapon (X% increased Spell Damage)</Property>
+  <Property id="Description">Rarity and itemlevel of belt determines the roll
+Possible values go from 10% to 39%</Property>
+</Entity>
+<Entity>
+  <Property id="Name">Helmet (+1 to Minion Gems)</Property>
+  <Property id="PlayerOffer">1x magic Helmet + 1x Orb of Alteration + 1x Flask of Animation</Property>
+  <Property id="NPCOffer">1x Helmet with +1 to Level of Minion Gems in this item</Property>
+  <Property id="Description">Only works with magic helmets</Property>
+</Entity>
+    
+<Entity>
+  <Property id="Name">The Goddess Scorned</Property>
+  <Property id="PlayerOffer">1x The Goddess Bound (20% quality) + 1x Elegant Sword (20% quality) + 1x Chance to Ignite gem (at least 1% quality) + 1x Orb of Fusing</Property>
+  <Property id="NPCOffer">1x The Goddess Scorned</Property>
+</Entity>
+<Entity>
+  <Property id="Name">The Taming</Property>
+  <Property id="PlayerOffer">1x Berek's Respite + 1x Berek's Pass + 1x Berek's Grip</Property>
+  <Property id="NPCOffer">1x The Taming</Property>
+</Entity>
+<Entity>
+  <Property id="Name">Hyrri's Bite</Property>
+  <Property id="PlayerOffer">1x white Sharktooth Arrow Quiver + 1x rare Onyx Amulet + 1x Rain of Arrows gem (at least 1% quality) + 1x Orb of Chance</Property>
+  <Property id="NPCOffer">1x Hyrri's Bite</Property>
+</Entity>
+
+<Entity>
+  <Property id="Name">Skill Gem (level drop)</Property>
+  <Property id="PlayerOffer">1x Skill gem + 1x Orb of Scouring</Property>
+  <Property id="NPCOffer">1x Skill Gem, one level lower</Property>
+</Entity>
+<Entity>
+  <Property id="Name">Skill Gem (level reset)</Property>
+  <Property id="PlayerOffer">1x Lvl20 Skill gem + 1x Gemcutter's Prism</Property>
+  <Property id="NPCOffer">1x Lvl1 Skill gem (20% quality)</Property>
+</Entity>
+<Entity>
+  <Property id="Name">Block Chance Reduction</Property>
+  <Property id="PlayerOffer">1x any dexterity shield (20% quality) + 1x Puncture</Property>
+  <Property id="NPCOffer">1x Block Chance Reduction skill gem</Property>
+</Entity>
+<Entity>
+  <Property id="Name">Mirror Arrow (swap)</Property>
+  <Property id="PlayerOffer">1x Blink Arrow + 1x Orb of Alteration</Property>
+  <Property id="NPCOffer">1x Mirror Arrow Skill gem</Property>
+</Entity>
+<Entity>
+  <Property id="Name">Blink Arrow (swap)</Property>
+  <Property id="PlayerOffer">1x Mirror Arrow + 1x Orb of Alteration</Property>
+  <Property id="NPCOffer">1x Blink Arrow Skill gem</Property>
+</Entity>
+    
+<Entity>
+  <Property id="Name">Map (upgrade)</Property>
+  <Property id="PlayerOffer">3x maps of the same base type</Property>
+  <Property id="NPCOffer">1x Map, 1 level higher</Property>
+</Entity>
+
+<Entity>
+  <Property id="Name">Book of Reform (Oak)</Property>
+  <Property id="PlayerOffer">20x Orb of Regret + 1x Amber Amulet</Property>
+  <Property id="NPCOffer">1x Book of Reform (Oak)</Property>
+  <Property id="Description">This item let's you respec bandit quest rewards</Property>
+</Entity>
+<Entity>
+  <Property id="Name">Book of Reform (Kraityn)</Property>
+  <Property id="PlayerOffer">20x Orb of Regret + 1x Jade Amulet</Property>
+  <Property id="NPCOffer">1x Book of Reform (Kraityn)</Property>
+  <Property id="Description">This item let's you respec bandit quest rewards</Property>
+</Entity>
+<Entity>
+  <Property id="Name">Book of Reform (Alira)</Property>
+  <Property id="PlayerOffer">20x Orb of Regret + 1x Lapis Amulet</Property>
+  <Property id="NPCOffer">1x Book of Reform (Alira)</Property>
+  <Property id="Description">This item let's you respec bandit quest rewards</Property>
+</Entity>
+<Entity>
+  <Property id="Name">Book of Reform (Eramir)</Property>
+  <Property id="PlayerOffer">20x Orb of Regret + 1x Onyx Amulet</Property>
+  <Property id="NPCOffer">1x Book of Reform (Eramir)</Property>
+  <Property id="Description">This item let's you respec bandit quest rewards</Property>
+</Entity>
 </Root>
