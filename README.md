@@ -1,7 +1,8 @@
 # PoEHandBook
 Ultimate Path of Exile knowledge base in one small window
 
-If you're here to just download the software - follow this [link](https://github.com/Tyrrrz/PoEHandBook/releases).
+If you're here to just download the software - follow this [link](https://github.com/Tyrrrz/PoEHandBook/releases)
+To run this software you will need [.NET Framework 4.5](https://www.microsoft.com/en-US/Download/details.aspx?id=30653)
 
 # Features
 - Search by item's name, type, mods or description
