@@ -95,6 +95,47 @@ def parse_currency(uris, download_images=True):
     return result
 
 
+def parse_gems(uris, download_images=True):
+    result = []
+
+    for uri in uris:
+        soup = BeautifulSoup(get_page(uri).read())
+
+        tables = soup.select("table")
+
+        rows_vaal_gems = tables[2].select("tr") + tables[3].select("tr") + tables[4].select("tr")
+        rows_normal_gems = tables[6].select("tr") + tables[7].select("tr") + tables[8].select("tr")
+        rows_all_gems = rows_vaal_gems + rows_normal_gems
+
+        for row in rows_all_gems:
+            if len(row.select("th")) > 0:
+                continue
+
+            cols = row.select("td")
+
+            result.append('<Entity Type="Gem">\n')
+            name = cols[0].get_text().strip()
+            result.append(create_property_xml("Name", name, 1))
+
+            uri_detailed = "http://pathofexile.gamepedia.com" + cols[0].select("a")[0].attrs["href"]
+            soup = BeautifulSoup(get_page(uri_detailed).read())
+
+            info_box = soup.select("table.GemInfoboxContainer")[0]
+
+            result.append("</Entity>\n")
+
+            if download_images:
+                try:
+                    imageUri = info_box.select("img")[0].attrs["src"]
+                    download_file(imageUri, "cache", name + ".png")
+                except:
+                    print("Could not download image")
+
+            print("- parsed currency called " + clean_off_unicode(name))
+
+    return result
+
+
 def parse_maps(uris, rarity, download_images=True):
     result = []
 

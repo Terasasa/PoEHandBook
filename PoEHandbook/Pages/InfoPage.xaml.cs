@@ -5,9 +5,11 @@
 // ------------------------------------------------------------------ 
 
 using System;
+using System.Diagnostics;
 using System.IO;
 using System.Windows;
 using System.Windows.Documents;
+using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
@@ -411,6 +413,7 @@ namespace PoEHandbook.Pages
                     ic.Add(run);
                 }
             }
+
             #endregion
 
             return ic.Count > 0;
@@ -546,16 +549,20 @@ namespace PoEHandbook.Pages
             return ic.Count > 0;
         }
 
+        private readonly Entity _ent;
+
         public InfoPage(Entity ent)
         {
+            _ent = ent;
+
             InitializeComponent();
 
             // Get data
-            bool hasName = FormatEntityName(ent, TbName.Inlines);
-            bool hasStats = FormatEntityStats(ent, TbStats.Inlines);
-            bool hasRequirements = FormatEntityRequirements(ent, TbRequiremenets.Inlines);
-            bool hasImplicitMod = FormatEntityImplicitMod(ent, TbImplicitMod.Inlines);
-            bool hasExplicitMods = FormatEntityExplicitMods(ent, TbMods.Inlines);
+            bool hasName = FormatEntityName(_ent, TbName.Inlines);
+            bool hasStats = FormatEntityStats(_ent, TbStats.Inlines);
+            bool hasRequirements = FormatEntityRequirements(_ent, TbRequiremenets.Inlines);
+            bool hasImplicitMod = FormatEntityImplicitMod(_ent, TbImplicitMod.Inlines);
+            bool hasExplicitMods = FormatEntityExplicitMods(_ent, TbMods.Inlines);
 
             // Hide unused stuff
             if (!hasName) ((dynamic) TbName).Parent.Visibility = Visibility.Collapsed;
@@ -580,8 +587,8 @@ namespace PoEHandbook.Pages
                 RectSeparator4.Visibility = Visibility.Collapsed;
             }
 
-            if (File.Exists(ent.ImageUri.LocalPath))
-                ImgItem.Source = new BitmapImage(ent.ImageUri);
+            if (File.Exists(_ent.ImageUri.LocalPath))
+                ImgItem.Source = new BitmapImage(_ent.ImageUri);
             else
             {
                 ImgItem.Visibility = Visibility.Collapsed;
@@ -590,7 +597,7 @@ namespace PoEHandbook.Pages
 
             // Figure out the colors
             Color fore, back;
-            ent.GetEntityColor(out fore, out back);
+            _ent.GetEntityColor(out fore, out back);
             Resources["AccentColor"] = back;
             TbName.Foreground = new SolidColorBrush(fore);
         }
@@ -609,6 +616,12 @@ namespace PoEHandbook.Pages
             var anim = new DoubleAnimation(1, 0, TimeSpan.FromSeconds(0.25));
             anim.Completed += (o, args) => NavigationService.GoBack();
             GrdMain.BeginAnimation(OpacityProperty, anim);
+        }
+
+        private void TbName_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (_ent is Recipe) return;
+            Process.Start("http://pathofexile.gamepedia.com/" + _ent.Name);
         }
     }
 }

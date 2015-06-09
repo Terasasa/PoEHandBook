@@ -56,8 +56,10 @@
                         BorderThickness="2">
                     <TextBlock x:Name="TbName"
                                VerticalAlignment="Center"
+                               Cursor="Hand"
                                FontSize="24"
                                Foreground="Black"
+                               MouseLeftButtonDown="TbName_MouseLeftButtonDown"
                                Text="ItemName"
                                TextAlignment="Center"
                                TextTrimming="CharacterEllipsis" />
